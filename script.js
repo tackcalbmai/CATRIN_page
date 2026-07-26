@@ -1,12 +1,567 @@
-const translations={
-lv:{navExperience:"Pielaikošana",navAbout:"Par mums",navVisit:"Kontakti",book:"Pieteikties",heroEyebrow:"Kāzu salons · Jelgava",heroTitle:"Kleita, kurā<br><em>jūties kā tu.</em>",heroText:"Nevis vienkārši skaista. Īstā — tavai figūrai, raksturam un dienai, ko atcerēsies vienmēr.",bookFitting:"Pieteikt pielaikošanu",seeMood:"Ieskaties noskaņā",years:"gadi, palīdzot līgavām<br>atrast savu kleitu",personal:"PERSONISKI · MIERĪGI · SKAISTI · ",statement:"Tava kleita nav jāmeklē bezgalīgi.<br><em>Tā ir jāatpazīst.</em>",statementText:"Mēs nesteidzinām un neuzspiežam. Uzklausām, piemeklējam un palīdzam ieraudzīt sevi tieši tādu, kādu vēlies būt savā kāzu dienā.",notCatalog:"Ne katalogs. Sajūta.",looksTitle:"No tīras elegances līdz romantiskām mežģīnēm.",looksText:"Dažādi silueti, faktūras un noskaņas — lai tu neiekļautos kleitā, bet kleita piestāvētu tev.",fittingEyebrow:"Tava pielaikošana",fittingTitle:"Laiks, kas pieder tikai tev.",step1Title:"Piesakies",step1Text:"Uzraksti vai piezvani — vienosimies par ērtu laiku.",step2Title:"Pastāsti",step2Text:"Iepazīsim tavas vēlmes, kāzu noskaņu un to, kas tev patīk.",step3Title:"Pielaiko",step3Text:"Mierīgi izmēģini dažādus siluetus un sajūti atšķirību.",step4Title:"Atrodi savu",step4Text:"To mirkli nevar sajaukt ne ar ko. Mēs būsim līdzās.",aboutEyebrow:"CATRIN pieeja",aboutTitle:"Skaistums sākas ar pārliecību.",aboutText:"Mēs ticam personiskai attieksmei, godīgam padomam un izvēlei bez spiediena. CATRIN ir vieta, kur drīksti būt prasīga, šaubīties, salīdzināt un beidzot pateikt: «Jā, šī ir mana.»",value1:"Individuāla uzmanība",value2:"Demokrātiskas cenas",value3:"Starptautiska piegāde",ctaEyebrow:"Sper pirmo soli",ctaTitle:"Varbūt tava kleita<br>jau gaida tevi.",writeWhatsapp:"Rakstīt WhatsApp",visitEyebrow:"Atrodi mūs Jelgavā",visitTitle:"Gaidīsim ciemos.",address:"Adrese",route:"Atvērt maršrutu ↗",hours:"Darba laiks",weekdays:"Pirmdiena–piektdiena",saturday:"Sestdiena",sunday:"Svētdiena — slēgts",contact:"Saziņa",privacy:"Privātuma politika",privacyText:"<p>Šī vietne neizmanto reklāmas sīkdatnes un neveic automatizētu profilēšanu. Sazinoties ar SIA “CATRIN” pa tālruni, e-pastu, WhatsApp vai Instagram, jūsu sniegtie dati tiek izmantoti tikai saziņai un pakalpojuma nodrošināšanai.</p><p>Datu pārzinis: SIA “CATRIN”, reģ. Nr. 43603051076, juridiskā adrese Sudrabu Edžus iela 1–19, Jelgava, LV-3001. Jautājumiem: catrin@catrin.lv.</p>"},
-ru:{navExperience:"Примерка",navAbout:"О нас",navVisit:"Контакты",book:"Записаться",heroEyebrow:"Свадебный салон · Елгава",heroTitle:"Платье, в котором<br><em>ты — это ты.</em>",heroText:"Не просто красивое. Твоё — для твоей фигуры, характера и дня, который останется с тобой навсегда.",bookFitting:"Записаться на примерку",seeMood:"Почувствовать атмосферу",years:"лет помогаем невестам<br>найти своё платье",personal:"ЛИЧНО · СПОКОЙНО · КРАСИВО · ",statement:"Твоё платье не нужно искать бесконечно.<br><em>Его нужно узнать.</em>",statementText:"Мы не торопим и не навязываем. Слушаем, подбираем и помогаем увидеть себя именно такой, какой ты хочешь быть в день свадьбы.",notCatalog:"Не каталог. Ощущение.",looksTitle:"От чистой элегантности до романтичного кружева.",looksText:"Разные силуэты, фактуры и настроения — не ты должна подойти платью, а платье тебе.",fittingEyebrow:"Твоя примерка",fittingTitle:"Время, которое принадлежит только тебе.",step1Title:"Запишись",step1Text:"Напиши или позвони — согласуем удобное время.",step2Title:"Расскажи",step2Text:"Узнаем твои пожелания, настроение свадьбы и то, что нравится именно тебе.",step3Title:"Примерь",step3Text:"Спокойно попробуй разные силуэты и почувствуй разницу.",step4Title:"Найди своё",step4Text:"Этот момент ни с чем не спутать. Мы будем рядом.",aboutEyebrow:"Подход CATRIN",aboutTitle:"Красота начинается с уверенности.",aboutText:"Мы за личное отношение, честный совет и выбор без давления. CATRIN — место, где можно быть требовательной, сомневаться, сравнивать и наконец сказать: «Да, это моё.»",value1:"Индивидуальное внимание",value2:"Демократичные цены",value3:"Международная доставка",ctaEyebrow:"Сделай первый шаг",ctaTitle:"Возможно, твоё платье<br>уже ждёт тебя.",writeWhatsapp:"Написать в WhatsApp",visitEyebrow:"Найди нас в Елгаве",visitTitle:"Будем ждать.",address:"Адрес",route:"Построить маршрут ↗",hours:"Время работы",weekdays:"Понедельник–пятница",saturday:"Суббота",sunday:"Воскресенье — закрыто",contact:"Связаться",privacy:"Политика конфиденциальности",privacyText:"<p>Сайт не использует рекламные cookies и автоматическое профилирование. Данные, которые вы сообщаете SIA “CATRIN” по телефону, email, WhatsApp или Instagram, используются только для связи и оказания услуги.</p><p>Оператор данных: SIA “CATRIN”, рег. № 43603051076, юридический адрес Sudrabu Edžus iela 1–19, Jelgava, LV-3001. Вопросы: catrin@catrin.lv.</p>"},
-en:{navExperience:"Fitting",navAbout:"About",navVisit:"Visit",book:"Book now",heroEyebrow:"Bridal salon · Jelgava",heroTitle:"A dress that<br><em>feels like you.</em>",heroText:"Not simply beautiful. The right one — for your figure, your character and the day you will remember forever.",bookFitting:"Book a fitting",seeMood:"Discover the mood",years:"years helping brides<br>find their dress",personal:"PERSONAL · CALM · BEAUTIFUL · ",statement:"Your dress should not take forever to find.<br><em>You should recognise it.</em>",statementText:"We never rush or pressure you. We listen, curate and help you see yourself exactly as you want to be on your wedding day.",notCatalog:"Not a catalogue. A feeling.",looksTitle:"From pure elegance to romantic lace.",looksText:"Different silhouettes, textures and moods — you should not fit the dress; the dress should fit you.",fittingEyebrow:"Your fitting",fittingTitle:"Time that belongs only to you.",step1Title:"Book",step1Text:"Message or call us and we will choose a convenient time.",step2Title:"Tell us",step2Text:"We get to know your vision, wedding mood and personal taste.",step3Title:"Try on",step3Text:"Explore different silhouettes at your own pace and feel the difference.",step4Title:"Find the one",step4Text:"You cannot mistake that moment. We will be right there.",aboutEyebrow:"The CATRIN approach",aboutTitle:"Beauty begins with confidence.",aboutText:"We believe in personal attention, honest advice and choosing without pressure. CATRIN is a place where you can be selective, doubt, compare and finally say: “Yes, this is mine.”",value1:"Personal attention",value2:"Accessible prices",value3:"International delivery",ctaEyebrow:"Take the first step",ctaTitle:"Your dress may<br>already be waiting.",writeWhatsapp:"Message on WhatsApp",visitEyebrow:"Find us in Jelgava",visitTitle:"Come and see us.",address:"Address",route:"Get directions ↗",hours:"Opening hours",weekdays:"Monday–Friday",saturday:"Saturday",sunday:"Sunday — closed",contact:"Contact",privacy:"Privacy policy",privacyText:"<p>This website does not use advertising cookies or automated profiling. Information you provide to SIA “CATRIN” by phone, email, WhatsApp or Instagram is used only to communicate with you and provide the requested service.</p><p>Data controller: SIA “CATRIN”, registration No. 43603051076, legal address Sudrabu Edžus iela 1–19, Jelgava, LV-3001. Questions: catrin@catrin.lv.</p>"}
+const PHONE = "37127164000";
+
+const translations = {
+  lv: {
+    metaTitle: "CATRIN — Kāzu kleitas un pielaikošana Jelgavā",
+    metaDescription: "Kāzu salons CATRIN Jelgavā kopš 2011. gada. Kāzu kleitas, aksesuāri un personiska pielaikošana Krišjāņa Barona ielā 40. Piesakies WhatsApp.",
+    ogTitle: "CATRIN — Kāzu salons Jelgavā",
+    ogDescription: "Kāzu kleitas, aksesuāri un personiska pielaikošana. Atrodi savu kleitu bez steigas un spiediena.",
+    skip: "Pāriet uz saturu",
+    utilityLocation: "Kāzu salons Jelgavā · Krišjāņa Barona iela 40",
+    utilityHours: "P.–Pk. 13:00–18:00 · S. 12:00–17:00",
+    homeAria: "CATRIN sākums",
+    navAria: "Galvenā navigācija",
+    languageAria: "Valoda",
+    benefitsAria: "CATRIN priekšrocības",
+    quickActionsAria: "Ātrās darbības",
+    whatsappAria: "Rakstīt CATRIN WhatsApp",
+    callAria: "Piezvanīt CATRIN",
+    closeAria: "Aizvērt",
+    navSalon: "Salons",
+    navDresses: "Kleitas",
+    navFitting: "Pielaikošana",
+    navContacts: "Kontakti",
+    book: "Pieteikties",
+    menu: "Izvēlne",
+    heroEyebrow: "Kāzu salons Jelgavā · Kopš 2011",
+    heroTitle: "Kleita, kurā<br><em>atpazīsti sevi.</em>",
+    heroLead: "Kāzu kleitas un aksesuāri, personiska piemeklēšana un godīgs padoms — mierīgi, bez steigas un bez spiediena.",
+    bookFitting: "Pieteikt pielaikošanu",
+    call: "Piezvanīt",
+    factSince: "Kopš 2011",
+    factSinceText: "pieredze Jelgavā",
+    factPersonal: "Personiski",
+    factPersonalText: "laiks un uzmanība tev",
+    factPrices: "Pieejami",
+    factPricesText: "demokrātiski piedāvājumi",
+    heroImageAlt: "Eleganta kāzu kleita no CATRIN piedāvājuma",
+    detailImageAlt: "CATRIN kāzu kleitas detaļas",
+    centralEntrance: "Centrālā ieeja · 1. stāvs",
+    introKicker: "Par CATRIN",
+    introTitle: "Vieta, kur nav jāizliekas,<br><em>ka jau zini, ko meklē.</em>",
+    introText: "Pielaikošanā var mainīt domas, salīdzināt siluetus un uzdot jebkuru jautājumu. Mēs palīdzam atrast kleitu, kas strādā tavai figūrai, kāzu noskaņai un budžetam — nevis vienkārši labi izskatās uz pakaramā.",
+    howFittingWorks: "Kā notiek pielaikošana",
+    moodKicker: "Kleitu noskaņas",
+    moodTitle: "Ne katalogs.<br><em>Trīs virzieni, no kuriem sākt.</em>",
+    moodText: "Kolekcija mainās. Aktuālo modeļu pieejamību un izmērus visātrāk noskaidrosi, uzrakstot mums vai apskatot jaunākos darbus Instagram.",
+    classicAlt: "Klasiska kāzu kleita ar izteiktu siluetu",
+    classicTitle: "Klasiska elegance",
+    classicText: "Tīras līnijas, izteikts viduklis, paliekošs tēls.",
+    romanticAlt: "Kāzu kleita ar greznu muguras daļu",
+    romanticTitle: "Romantiskas detaļas",
+    romanticText: "Mežģīnes, faktūras un detaļas, ko gribas aplūkot tuvāk.",
+    softAlt: "Maigi rozā kāzu kleita",
+    softTitle: "Maigs akcents",
+    softText: "Gaisīgi apjomi un tonis līgavai, kura negrib būt paredzama.",
+    instagramText: "Jaunākās kleitas, detaļas un idejas — mūsu Instagram.",
+    openInstagram: "Atvērt Instagram",
+    includedKicker: "Vairāk nekā kleita",
+    includedTitle: "Mazāk rūpju<br><em>pirms kāzām.</em>",
+    includedText: "Izvēloties kāzu kleitu CATRIN, svarīgas praktiskās lietas jau ir padomātas.",
+    storageTitle: "Kleitas glabāšana",
+    storageText: "Kleitu varam uzglabāt līdz tavai kāzu dienai.",
+    ironingTitle: "Pirmskāzu gludināšana",
+    ironingText: "Pirms svētkiem kleitu sagatavojam bez papildu maksas.",
+    bagTitle: "Kleitas maiss",
+    bagText: "Drošai un ērtai kleitas paņemšanai tas ir iekļauts.",
+    fittingKicker: "Pielaikošana",
+    fittingTitle: "No pirmās ziņas<br><em>līdz īstajai kleitai.</em>",
+    fittingLead: "Piesakies iepriekš, lai varam rezervēt laiku tieši tev un sagatavoties sarunai par tavām vēlmēm.",
+    step1Title: "Uzraksti",
+    step1Text: "Norādi vēlamo dienu, aptuveno izmēru un, ja vēlies, pievieno iedvesmas foto.",
+    step2Title: "Pielaiko",
+    step2Text: "Salīdzinām siluetus un detaļas, nesteidzinot tevi pieņemt lēmumu.",
+    step3Title: "Izvēlies",
+    step3Text: "Kad kleita ir atrasta, izrunājam nākamos soļus un praktiskās detaļas.",
+    step4Title: "Saņem gatavu",
+    step4Text: "Uzglabājam, izgludinām un sagatavojam kleitu tavai kāzu dienai.",
+    bookingPanelEyebrow: "Ērtākais sākums",
+    bookingPanelTitle: "Aizpildi trīs laukus — gatavu ziņu nosūtīsim uz WhatsApp.",
+    chooseTime: "Izvēlēties laiku",
+    socialAlt: "CATRIN līgavas tēls",
+    socialKicker: "Dzīvais CATRIN",
+    socialTitle: "Modeļi mainās.<br><em>Pieeja paliek personiska.</em>",
+    socialText: "Mūsu sociālajos tīklos redzēsi aktuālākus tēlus, kleitu detaļas un idejas. Ja kaut kas iepatīkas, atsūti ekrānuzņēmumu — pārbaudīsim pieejamību.",
+    visitKicker: "Kontakti",
+    visitTitle: "Atrodi mūs<br><em>Jelgavas centrā.</em>",
+    visitText: "Ieeja no ēkas centrālās ieejas, salons atrodas 1. stāvā. Pirms brauciena iesakām pieteikt pielaikošanas laiku.",
+    actualAddress: "Salona adrese",
+    entranceHint: "Centrālā ieeja · 1. stāvs",
+    route: "Izveidot maršrutu",
+    hours: "Darba laiks",
+    weekdays: "Pirmdiena–piektdiena",
+    saturday: "Sestdiena",
+    sunday: "Svētdiena",
+    closed: "Slēgts",
+    phone: "Tālrunis",
+    writeMessage: "Uzrakstīt ziņu ↗",
+    showMap: "Parādīt karti",
+    mapNotice: "Karte tiks ielādēta no Google Maps pēc tava klikšķa.",
+    legalAddress: "Juridiskā adrese",
+    closingEyebrow: "Tava pielaikošana",
+    closingTitle: "Sāksim nevis ar kleitu.<br><em>Sāksim ar tevi.</em>",
+    privacy: "Privātuma politika",
+    dialogEyebrow: "Pieteikums WhatsApp",
+    dialogTitle: "Kad vēlies pielaikot?",
+    dialogText: "Mēs neko nesaglabājam vietnē. Pēc pogas nospiešanas atvērsies WhatsApp ar sagatavotu ziņu.",
+    nameLabel: "Tavs vārds",
+    namePlaceholder: "Piemēram, Anna",
+    dateLabel: "Vēlamā diena",
+    sizeLabel: "Aptuvenais kleitas izmērs",
+    sizeUnknown: "Vēl nezinu",
+    noteLabel: "Piezīme ",
+    optional: "(nav obligāti)",
+    notePlaceholder: "Kāzu datums, vēlamais stils vai cits jautājums",
+    continueWhatsapp: "Turpināt WhatsApp",
+    preferCall: "Ērtāk piezvanīt?",
+    waShort: "Labdien! Vēlos pieteikties kāzu kleitas pielaikošanai CATRIN.",
+    waIntro: "Labdien! Mani sauc {name}. Vēlos pieteikties kāzu kleitas pielaikošanai CATRIN.",
+    waDate: "Vēlamā diena",
+    waSize: "Aptuvenais izmērs",
+    waNote: "Piezīme"
+  },
+  ru: {
+    metaTitle: "CATRIN — Свадебные платья и примерка в Елгаве",
+    metaDescription: "Свадебный салон CATRIN в Елгаве с 2011 года. Свадебные платья, аксессуары и индивидуальная примерка на ул. Кришьяня Барона, 40. Запись в WhatsApp.",
+    ogTitle: "CATRIN — Свадебный салон в Елгаве",
+    ogDescription: "Свадебные платья, аксессуары и индивидуальная примерка. Найди своё платье без спешки и давления.",
+    skip: "Перейти к содержанию",
+    utilityLocation: "Свадебный салон в Елгаве · ул. Кришьяня Барона, 40",
+    utilityHours: "Пн–Пт 13:00–18:00 · Сб 12:00–17:00",
+    homeAria: "Главная CATRIN",
+    navAria: "Главная навигация",
+    languageAria: "Язык",
+    benefitsAria: "Преимущества CATRIN",
+    quickActionsAria: "Быстрые действия",
+    whatsappAria: "Написать CATRIN в WhatsApp",
+    callAria: "Позвонить в CATRIN",
+    closeAria: "Закрыть",
+    navSalon: "Салон",
+    navDresses: "Платья",
+    navFitting: "Примерка",
+    navContacts: "Контакты",
+    book: "Записаться",
+    menu: "Меню",
+    heroEyebrow: "Свадебный салон в Елгаве · С 2011 года",
+    heroTitle: "Платье, в котором<br><em>ты узнаёшь себя.</em>",
+    heroLead: "Свадебные платья и аксессуары, индивидуальный подбор и честный совет — спокойно, без спешки и давления.",
+    bookFitting: "Записаться на примерку",
+    call: "Позвонить",
+    factSince: "С 2011",
+    factSinceText: "опыт работы в Елгаве",
+    factPersonal: "Лично",
+    factPersonalText: "время и внимание тебе",
+    factPrices: "Доступно",
+    factPricesText: "демократичные предложения",
+    heroImageAlt: "Элегантное свадебное платье из предложения CATRIN",
+    detailImageAlt: "Детали свадебного образа CATRIN",
+    centralEntrance: "Центральный вход · 1-й этаж",
+    introKicker: "О CATRIN",
+    introTitle: "Место, где не надо делать вид,<br><em>что ты уже знаешь, чего хочешь.</em>",
+    introText: "На примерке можно менять мнение, сравнивать силуэты и задавать любые вопросы. Мы помогаем найти платье для твоей фигуры, настроения свадьбы и бюджета — а не просто красивое на вешалке.",
+    howFittingWorks: "Как проходит примерка",
+    moodKicker: "Настроения",
+    moodTitle: "Не каталог.<br><em>Три направления для начала.</em>",
+    moodText: "Коллекция меняется. Актуальную доступность моделей и размеров быстрее всего уточнить у нас или посмотреть последние образы в Instagram.",
+    classicAlt: "Классическое свадебное платье с выразительным силуэтом",
+    classicTitle: "Классическая элегантность",
+    classicText: "Чистые линии, подчёркнутая талия, образ вне времени.",
+    romanticAlt: "Свадебное платье с выразительной спинкой",
+    romanticTitle: "Романтичные детали",
+    romanticText: "Кружево, фактуры и детали, которые хочется рассмотреть ближе.",
+    softAlt: "Нежно-розовое свадебное платье",
+    softTitle: "Мягкий акцент",
+    softText: "Воздушный объём и оттенок для невесты, которая не хочет быть предсказуемой.",
+    instagramText: "Новые платья, детали и идеи — в нашем Instagram.",
+    openInstagram: "Открыть Instagram",
+    includedKicker: "Больше, чем платье",
+    includedTitle: "Меньше забот<br><em>перед свадьбой.</em>",
+    includedText: "При выборе свадебного платья в CATRIN важные практические детали уже продуманы.",
+    storageTitle: "Хранение платья",
+    storageText: "Можем хранить платье до дня твоей свадьбы.",
+    ironingTitle: "Предсвадебная глажка",
+    ironingText: "Подготовим платье к празднику без дополнительной оплаты.",
+    bagTitle: "Чехол для платья",
+    bagText: "Он включён для безопасной и удобной перевозки платья.",
+    fittingKicker: "Примерка",
+    fittingTitle: "От первого сообщения<br><em>до твоего платья.</em>",
+    fittingLead: "Запишись заранее, чтобы мы зарезервировали время именно для тебя и подготовились к разговору о твоих пожеланиях.",
+    step1Title: "Напиши",
+    step1Text: "Укажи желаемый день, примерный размер и, если хочешь, приложи фото для вдохновения.",
+    step2Title: "Примерь",
+    step2Text: "Сравним силуэты и детали, не торопя тебя с решением.",
+    step3Title: "Выбери",
+    step3Text: "Когда платье найдено, обсудим следующие шаги и практические детали.",
+    step4Title: "Забери готовым",
+    step4Text: "Храним, гладим и готовим платье к твоему свадебному дню.",
+    bookingPanelEyebrow: "Удобное начало",
+    bookingPanelTitle: "Заполни три поля — мы подготовим готовое сообщение для WhatsApp.",
+    chooseTime: "Выбрать время",
+    socialAlt: "Свадебный образ CATRIN",
+    socialKicker: "Живой CATRIN",
+    socialTitle: "Модели меняются.<br><em>Подход остаётся личным.</em>",
+    socialText: "В наших соцсетях — более свежие образы, детали платьев и идеи. Если что-то понравилось, пришли скриншот — проверим наличие.",
+    visitKicker: "Контакты",
+    visitTitle: "Найди нас<br><em>в центре Елгавы.</em>",
+    visitText: "Вход через центральный вход здания, салон находится на первом этаже. Перед поездкой рекомендуем записаться на примерку.",
+    actualAddress: "Адрес салона",
+    entranceHint: "Центральный вход · 1-й этаж",
+    route: "Построить маршрут",
+    hours: "Время работы",
+    weekdays: "Понедельник–пятница",
+    saturday: "Суббота",
+    sunday: "Воскресенье",
+    closed: "Закрыто",
+    phone: "Телефон",
+    writeMessage: "Написать сообщение ↗",
+    showMap: "Показать карту",
+    mapNotice: "Карта Google Maps загрузится только после твоего нажатия.",
+    legalAddress: "Юридический адрес",
+    closingEyebrow: "Твоя примерка",
+    closingTitle: "Начнём не с платья.<br><em>Начнём с тебя.</em>",
+    privacy: "Политика конфиденциальности",
+    dialogEyebrow: "Запись через WhatsApp",
+    dialogTitle: "Когда хочешь на примерку?",
+    dialogText: "Сайт ничего не сохраняет. После нажатия откроется WhatsApp с готовым сообщением.",
+    nameLabel: "Твоё имя",
+    namePlaceholder: "Например, Анна",
+    dateLabel: "Желаемый день",
+    sizeLabel: "Примерный размер платья",
+    sizeUnknown: "Пока не знаю",
+    noteLabel: "Комментарий ",
+    optional: "(необязательно)",
+    notePlaceholder: "Дата свадьбы, желаемый стиль или другой вопрос",
+    continueWhatsapp: "Продолжить в WhatsApp",
+    preferCall: "Удобнее позвонить?",
+    waShort: "Здравствуйте! Хочу записаться на примерку свадебного платья в CATRIN.",
+    waIntro: "Здравствуйте! Меня зовут {name}. Хочу записаться на примерку свадебного платья в CATRIN.",
+    waDate: "Желаемый день",
+    waSize: "Примерный размер",
+    waNote: "Комментарий"
+  },
+  en: {
+    metaTitle: "CATRIN — Wedding dresses and fittings in Jelgava",
+    metaDescription: "CATRIN bridal salon in Jelgava since 2011. Wedding dresses, accessories and personal fittings at Krišjāņa Barona Street 40. Book via WhatsApp.",
+    ogTitle: "CATRIN — Bridal salon in Jelgava",
+    ogDescription: "Wedding dresses, accessories and personal fittings. Find your dress without pressure or rushing.",
+    skip: "Skip to content",
+    utilityLocation: "Bridal salon in Jelgava · Krišjāņa Barona Street 40",
+    utilityHours: "Mon–Fri 13:00–18:00 · Sat 12:00–17:00",
+    homeAria: "CATRIN home",
+    navAria: "Main navigation",
+    languageAria: "Language",
+    benefitsAria: "CATRIN benefits",
+    quickActionsAria: "Quick actions",
+    whatsappAria: "Message CATRIN on WhatsApp",
+    callAria: "Call CATRIN",
+    closeAria: "Close",
+    navSalon: "Salon",
+    navDresses: "Dresses",
+    navFitting: "Fitting",
+    navContacts: "Contact",
+    book: "Book now",
+    menu: "Menu",
+    heroEyebrow: "Bridal salon in Jelgava · Since 2011",
+    heroTitle: "A dress in which<br><em>you recognise yourself.</em>",
+    heroLead: "Wedding dresses and accessories, personal curation and honest advice — calmly, without pressure or rushing.",
+    bookFitting: "Book a fitting",
+    call: "Call us",
+    factSince: "Since 2011",
+    factSinceText: "experience in Jelgava",
+    factPersonal: "Personal",
+    factPersonalText: "time and attention for you",
+    factPrices: "Accessible",
+    factPricesText: "attainable choices",
+    heroImageAlt: "Elegant wedding dress offered by CATRIN",
+    detailImageAlt: "CATRIN bridal look details",
+    centralEntrance: "Main entrance · 1st floor",
+    introKicker: "About CATRIN",
+    introTitle: "A place where you do not have to pretend<br><em>you already know what you want.</em>",
+    introText: "During your fitting you can change your mind, compare silhouettes and ask any question. We help you find a dress for your figure, wedding mood and budget — not simply one that looks good on a hanger.",
+    howFittingWorks: "How the fitting works",
+    moodKicker: "Dress moods",
+    moodTitle: "Not a catalogue.<br><em>Three directions to begin with.</em>",
+    moodText: "Our collection changes. The quickest way to check current models and sizes is to message us or browse our latest looks on Instagram.",
+    classicAlt: "Classic wedding dress with a defined silhouette",
+    classicTitle: "Classic elegance",
+    classicText: "Clean lines, a defined waist and a timeless presence.",
+    romanticAlt: "Wedding dress with an ornate back",
+    romanticTitle: "Romantic details",
+    romanticText: "Lace, texture and details that invite a closer look.",
+    softAlt: "Soft blush wedding dress",
+    softTitle: "A gentle accent",
+    softText: "Airy volume and colour for a bride who does not want to be predictable.",
+    instagramText: "New dresses, details and ideas — on our Instagram.",
+    openInstagram: "Open Instagram",
+    includedKicker: "More than a dress",
+    includedTitle: "Fewer worries<br><em>before the wedding.</em>",
+    includedText: "When you choose your wedding dress at CATRIN, important practical details are already considered.",
+    storageTitle: "Dress storage",
+    storageText: "We can keep your dress safely until your wedding day.",
+    ironingTitle: "Pre-wedding pressing",
+    ironingText: "We prepare the dress for your celebration at no extra charge.",
+    bagTitle: "Garment bag",
+    bagText: "It is included for safe and convenient transport.",
+    fittingKicker: "Your fitting",
+    fittingTitle: "From the first message<br><em>to the right dress.</em>",
+    fittingLead: "Book in advance so we can reserve time just for you and prepare to discuss your wishes.",
+    step1Title: "Message us",
+    step1Text: "Share your preferred day, approximate size and, if you like, an inspiration photo.",
+    step2Title: "Try on",
+    step2Text: "Compare silhouettes and details without being rushed into a decision.",
+    step3Title: "Choose",
+    step3Text: "Once you find your dress, we discuss the next steps and practical details.",
+    step4Title: "Collect it ready",
+    step4Text: "We store, press and prepare the dress for your wedding day.",
+    bookingPanelEyebrow: "The easiest start",
+    bookingPanelTitle: "Complete three fields and we will prepare your WhatsApp message.",
+    chooseTime: "Choose a time",
+    socialAlt: "CATRIN bridal look",
+    socialKicker: "Real CATRIN",
+    socialTitle: "The dresses change.<br><em>The approach stays personal.</em>",
+    socialText: "Our social channels show newer looks, dress details and ideas. If something catches your eye, send us a screenshot and we will check availability.",
+    visitKicker: "Contact",
+    visitTitle: "Find us<br><em>in central Jelgava.</em>",
+    visitText: "Use the building’s main entrance; the salon is on the first floor. We recommend booking your fitting before you travel.",
+    actualAddress: "Salon address",
+    entranceHint: "Main entrance · 1st floor",
+    route: "Get directions",
+    hours: "Opening hours",
+    weekdays: "Monday–Friday",
+    saturday: "Saturday",
+    sunday: "Sunday",
+    closed: "Closed",
+    phone: "Phone",
+    writeMessage: "Send a message ↗",
+    showMap: "Show map",
+    mapNotice: "Google Maps will load only after you click.",
+    legalAddress: "Legal address",
+    closingEyebrow: "Your fitting",
+    closingTitle: "Let us start with you.<br><em>Not with the dress.</em>",
+    privacy: "Privacy policy",
+    dialogEyebrow: "WhatsApp booking",
+    dialogTitle: "When would you like to visit?",
+    dialogText: "Nothing is stored on this website. The button opens WhatsApp with a prepared message.",
+    nameLabel: "Your name",
+    namePlaceholder: "For example, Anna",
+    dateLabel: "Preferred day",
+    sizeLabel: "Approximate dress size",
+    sizeUnknown: "I do not know yet",
+    noteLabel: "Note ",
+    optional: "(optional)",
+    notePlaceholder: "Wedding date, preferred style or another question",
+    continueWhatsapp: "Continue in WhatsApp",
+    preferCall: "Prefer to call?",
+    waShort: "Hello! I would like to book a wedding dress fitting at CATRIN.",
+    waIntro: "Hello! My name is {name}. I would like to book a wedding dress fitting at CATRIN.",
+    waDate: "Preferred day",
+    waSize: "Approximate size",
+    waNote: "Note"
+  }
 };
-function setLanguage(lang){const t=translations[lang]||translations.lv;document.documentElement.lang=lang;document.querySelectorAll("[data-i18n]").forEach(el=>{if(t[el.dataset.i18n])el.textContent=t[el.dataset.i18n]});document.querySelectorAll("[data-i18n-html]").forEach(el=>{if(t[el.dataset.i18nHtml])el.innerHTML=t[el.dataset.i18nHtml]});document.querySelectorAll("[data-lang]").forEach(b=>b.classList.toggle("active",b.dataset.lang===lang));localStorage.setItem("catrin-lang",lang)}
-document.querySelectorAll("[data-lang]").forEach(b=>b.addEventListener("click",()=>setLanguage(b.dataset.lang)));
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
-const dialog=document.querySelector("#privacyDialog");document.querySelector(".privacy-open").addEventListener("click",()=>dialog.showModal());document.querySelector(".dialog-close").addEventListener("click",()=>dialog.close());dialog.addEventListener("click",e=>{if(e.target===dialog)dialog.close()});
-document.querySelector("#year").textContent=new Date().getFullYear();
-setLanguage(localStorage.getItem("catrin-lang")||"lv");
+
+const state = {
+  language: "lv"
+};
+
+const metaDescription = document.querySelector('meta[name="description"]');
+const ogTitle = document.querySelector('meta[property="og:title"]');
+const ogDescription = document.querySelector('meta[property="og:description"]');
+const ogLocale = document.querySelector('meta[property="og:locale"]');
+const bookingDialog = document.querySelector("[data-booking-dialog]");
+const bookingForm = document.querySelector("[data-booking-form]");
+const nav = document.querySelector("[data-nav]");
+const menuToggle = document.querySelector("[data-menu-toggle]");
+const header = document.querySelector("[data-header]");
+
+function supportedLanguage(language) {
+  return Object.hasOwn(translations, language) ? language : "lv";
+}
+
+function directWhatsAppUrl(language) {
+  return `https://wa.me/${PHONE}?text=${encodeURIComponent(translations[language].waShort)}`;
+}
+
+function setLanguage(language, updateUrl = true) {
+  const nextLanguage = supportedLanguage(language);
+  const copy = translations[nextLanguage];
+  state.language = nextLanguage;
+  document.documentElement.lang = nextLanguage;
+  document.title = copy.metaTitle;
+  metaDescription?.setAttribute("content", copy.metaDescription);
+  ogTitle?.setAttribute("content", copy.ogTitle);
+  ogDescription?.setAttribute("content", copy.ogDescription);
+  ogLocale?.setAttribute("content", nextLanguage === "lv" ? "lv_LV" : nextLanguage === "ru" ? "ru_RU" : "en_GB");
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const value = copy[element.dataset.i18n];
+    if (value !== undefined) element.textContent = value;
+  });
+
+  document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+    const value = copy[element.dataset.i18nHtml];
+    if (value !== undefined) element.innerHTML = value;
+  });
+
+  document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+    const value = copy[element.dataset.i18nAlt];
+    if (value !== undefined) element.alt = value;
+  });
+
+  document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+    const value = copy[element.dataset.i18nAria];
+    if (value !== undefined) element.setAttribute("aria-label", value);
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const value = copy[element.dataset.i18nPlaceholder];
+    if (value !== undefined) element.placeholder = value;
+  });
+
+  document.querySelectorAll("[data-lang]").forEach((button) => {
+    button.setAttribute("aria-pressed", String(button.dataset.lang === nextLanguage));
+  });
+
+  document.querySelectorAll("[data-wa-link]").forEach((link) => {
+    link.href = directWhatsAppUrl(nextLanguage);
+  });
+
+  document.querySelectorAll("[data-privacy-link]").forEach((link) => {
+    link.href = `privacy.html?lang=${nextLanguage}`;
+  });
+
+  localStorage.setItem("catrin-language", nextLanguage);
+
+  if (updateUrl) {
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", nextLanguage);
+    history.replaceState(null, "", `${url.pathname}?${url.searchParams.toString()}${url.hash}`);
+  }
+}
+
+function closeMenu() {
+  nav?.classList.remove("is-open");
+  menuToggle?.setAttribute("aria-expanded", "false");
+  document.body.classList.remove("menu-open");
+}
+
+document.querySelectorAll("[data-lang]").forEach((button) => {
+  button.addEventListener("click", () => {
+    setLanguage(button.dataset.lang);
+    closeMenu();
+  });
+});
+
+menuToggle?.addEventListener("click", () => {
+  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+  menuToggle.setAttribute("aria-expanded", String(!isOpen));
+  nav?.classList.toggle("is-open", !isOpen);
+  document.body.classList.toggle("menu-open", !isOpen);
+});
+
+nav?.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", closeMenu);
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 960) closeMenu();
+});
+
+function openBookingDialog() {
+  if (!bookingDialog) return;
+  if (typeof bookingDialog.showModal === "function") {
+    bookingDialog.showModal();
+  } else {
+    bookingDialog.setAttribute("open", "");
+  }
+  window.setTimeout(() => bookingForm?.elements.name?.focus(), 50);
+}
+
+function closeBookingDialog() {
+  if (!bookingDialog) return;
+  if (typeof bookingDialog.close === "function") {
+    bookingDialog.close();
+  } else {
+    bookingDialog.removeAttribute("open");
+  }
+}
+
+document.querySelectorAll("[data-open-booking]").forEach((button) => {
+  button.addEventListener("click", openBookingDialog);
+});
+
+document.querySelector("[data-close-booking]")?.addEventListener("click", closeBookingDialog);
+
+bookingDialog?.addEventListener("click", (event) => {
+  if (event.target === bookingDialog) closeBookingDialog();
+});
+
+bookingForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (!bookingForm.reportValidity()) return;
+
+  const copy = translations[state.language];
+  const formData = new FormData(bookingForm);
+  const name = String(formData.get("name") || "").trim();
+  const date = String(formData.get("date") || "").trim();
+  const size = String(formData.get("size") || "").trim();
+  const note = String(formData.get("note") || "").trim();
+  const parts = [copy.waIntro.replace("{name}", name)];
+
+  if (date) parts.push(`${copy.waDate}: ${date}.`);
+  if (size) parts.push(`${copy.waSize}: ${size}.`);
+  if (note) parts.push(`${copy.waNote}: ${note}`);
+
+  const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(parts.join("\n"))}`;
+  window.open(url, "_blank", "noopener,noreferrer");
+});
+
+const dateInput = bookingForm?.querySelector('input[type="date"]');
+if (dateInput) {
+  const today = new Date();
+  const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000);
+  dateInput.min = localDate.toISOString().slice(0, 10);
+}
+
+document.querySelector("[data-load-map]")?.addEventListener("click", () => {
+  const container = document.querySelector("[data-map-container]");
+  if (!container || container.querySelector("iframe")) return;
+
+  const frame = document.createElement("iframe");
+  frame.src = "https://www.google.com/maps?q=Kri%C5%A1j%C4%81%C5%86a%20Barona%20iela%2040%2C%20Jelgava&output=embed";
+  frame.title = "CATRIN — Krišjāņa Barona iela 40, Jelgava";
+  frame.loading = "lazy";
+  frame.referrerPolicy = "no-referrer-when-downgrade";
+  frame.setAttribute("allowfullscreen", "");
+  container.append(frame);
+});
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-in-view");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: "0px 0px -40px" });
+
+  document.querySelectorAll("[data-reveal]").forEach((element) => revealObserver.observe(element));
+} else {
+  document.querySelectorAll("[data-reveal]").forEach((element) => element.classList.add("is-in-view"));
+}
+
+function updateHeader() {
+  header?.classList.toggle("is-scrolled", window.scrollY > 20);
+}
+
+updateHeader();
+window.addEventListener("scroll", updateHeader, { passive: true });
+
+document.querySelectorAll("[data-year]").forEach((element) => {
+  element.textContent = String(new Date().getFullYear());
+});
+
+const urlLanguage = new URLSearchParams(window.location.search).get("lang");
+const savedLanguage = localStorage.getItem("catrin-language");
+setLanguage(urlLanguage || savedLanguage || "lv", false);
