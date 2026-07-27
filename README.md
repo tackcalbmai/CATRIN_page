@@ -1,11 +1,12 @@
 # CATRIN
 
-Official one-page website for the CATRIN bridal salon in Jelgava, Latvia.
+Official multilingual website for the CATRIN bridal salon and atelier in Jelgava, Latvia.
 
-- Latvian, Russian and English
-- WhatsApp fitting request builder
-- Responsive layout and accessible navigation
-- Business structured data, sitemap and privacy policy
-- No analytics, advertising cookies or build step
+Static GitHub Pages project:
 
-Published with GitHub Pages.
+- `index.html` — LV/RU/EN homepage
+- `styles.css` — responsive cinematic design system
+- `script.js` — translations, motion, navigation and WhatsApp booking
+- `privacy.html` — privacy information
+
+Public URL: https://tackcalbmai.github.io/CATRIN_page/
