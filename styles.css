@@ -1349,13 +1349,19 @@ footer p {
 }
 
 .direct-call {
-  display: block;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
   margin-top: 1.5rem;
   font-size: 0.75rem;
 }
 
 .direct-call span {
   opacity: 0.55;
+}
+
+.direct-call a {
+  font-weight: 400;
 }
 
 .js .reveal {
