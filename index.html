@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="lv">
 <head>
   <meta charset="utf-8">
@@ -14,9 +14,12 @@
   <link rel="alternate" hreflang="x-default" href="https://tackcalbmai.github.io/CATRIN_page/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="CATRIN — Kāzu salons Jelgavā">
-  <meta property="og:description" content="Tava kleita. Tavs stāsts. Pielaikošana un kāzu kleitu ateljē Jelgavā.">
+  <meta property="og:description" content="Kāzu kleitas, individuāla šūšana un rūpīga pielāgošana CATRIN salonā Jelgavā.">
   <meta property="og:url" content="https://tackcalbmai.github.io/CATRIN_page/">
   <meta property="og:image" content="https://tackcalbmai.github.io/CATRIN_page/assets/dress-hero.jpg">
+  <meta property="og:image:alt" content="Kāzu kleita CATRIN salonā Jelgavā">
+  <meta property="og:locale" content="lv_LV">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/dress-hero.jpg" as="image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,26 +49,29 @@
 </head>
 <body>
   <a class="skip" href="#main" data-t="skip">Pāriet uz saturu</a>
+  <div class="scroll-progress" data-progress aria-hidden="true"></div>
   <div class="noise" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="ambient-light" aria-hidden="true"><i></i><i></i></div>
 
   <header class="header" data-header>
     <a class="wordmark" href="#top" aria-label="CATRIN">
-      <span>CATRIN</span><small>BRIDAL · JELGAVA</small>
+      <i class="brand-sign" aria-hidden="true"></i>
+      <span><b>CATRIN</b><small data-t="wordmarkSmall">KĀZU SALONS · JELGAVA</small></span>
     </a>
     <nav class="nav" id="nav" data-nav>
-      <a href="#atelier" data-t="navAtelier">Ateljē</a>
+      <a href="#atelier" data-t="navAtelier">Par salonu</a>
       <a href="#services" data-t="navServices">Pakalpojumi</a>
       <a href="#fitting" data-t="navFitting">Pielaikošana</a>
       <a href="#contact" data-t="navContact">Kontakti</a>
     </nav>
     <div class="header-side">
-      <div class="langs" aria-label="Valoda">
-        <button data-lang="lv" class="active">LV</button>
-        <button data-lang="ru">RU</button>
-        <button data-lang="en">EN</button>
+      <div class="langs" role="group" aria-label="Valoda">
+        <button type="button" data-lang="lv" class="active">LV</button>
+        <button type="button" data-lang="ru">RU</button>
+        <button type="button" data-lang="en">EN</button>
       </div>
-      <button class="nav-toggle" data-nav-toggle aria-controls="nav" aria-expanded="false"><i></i><i></i><span data-t="menu">Izvēlne</span></button>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-controls="nav" aria-expanded="false" data-t-aria="menu"><i></i><i></i><span data-t="menu">Izvēlne</span></button>
     </div>
   </header>
 
@@ -77,35 +83,35 @@
       <div class="hero-shade"></div>
       <div class="light light-one" aria-hidden="true"></div>
       <div class="light light-two" aria-hidden="true"></div>
+      <div class="fabric-lines" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="hero-copy">
-        <p class="overline reveal" data-t="heroOverline">Kāzu salons un ateljē Jelgavā · kopš 2011</p>
-        <h1 class="reveal"><span data-t="heroLine1">Tava kleita.</span><em data-t="heroLine2">Tavs stāsts.</em></h1>
-        <p class="hero-lead reveal" data-t="heroLead">No pirmās pielaikošanas līdz nevainojamam piegriezumam — radām kāzu kleitu, kurā jūties kā pati.</p>
+        <p class="overline reveal" data-t="heroOverline">Kāzu salons un šūšanas darbnīca · kopš 2011. gada</p>
+        <h1 class="reveal"><span data-t="heroLine1">Kāzu kleitas</span><em data-t="heroLine2">un šūšana Jelgavā</em></h1>
+        <p class="hero-lead reveal" data-t="heroLead">Salonā vari pielaikot gatavus modeļus, pasūtīt kleitu pēc saviem mēriem vai atnest fotogrāfiju ar ieceri. Palīdzēsim ar izvēli, pielāgošanu un pēdējām detaļām.</p>
         <div class="hero-actions reveal">
-          <button class="primary" data-book><span data-t="bookFitting">Pieteikt pielaikošanu</span><b>↗</b></button>
-          <a class="ghost" href="#atelier"><span data-t="discover">Iepazīt CATRIN</span><b>↓</b></a>
+          <button type="button" class="primary" data-book><span data-t="bookFitting">Pieteikt pielaikošanu</span><i class="brand-glyph" aria-hidden="true"></i></button>
+          <a class="ghost" href="#atelier"><span data-t="discover">Par salonu</span></a>
         </div>
       </div>
       <div class="hero-meta">
         <p><span data-t="addressLabel">Salons</span><strong>Krišjāņa Barona iela 40, Jelgava</strong></p>
         <p><span data-t="hoursLabel">Darba laiks</span><strong data-t="hoursShort">P.–Pk. 13–18 · S. 12–17</strong></p>
       </div>
-      <span class="scroll-mark" aria-hidden="true">SCROLL</span>
     </section>
 
     <section class="manifesto" id="atelier">
-      <div class="orbit" aria-hidden="true"></div>
+      <i class="atelier-mark brand-glyph" aria-hidden="true"></i>
       <p class="section-number">01 / CATRIN</p>
       <div class="manifesto-title reveal">
-        <p data-t="manifestoSmall">Nevis vienkārši kleita</p>
-        <h2 data-t="manifestoTitle">Sajūta, kas paliek ilgāk par vienu dienu.</h2>
+        <p data-t="manifestoSmall">Par salonu</p>
+        <h2 data-t="manifestoTitle">Pielaikošanā sākam ar sarunu.</h2>
       </div>
       <div class="manifesto-copy reveal">
-        <p data-t="manifestoText">CATRIN apvieno salona izvēli ar ateljē precizitāti. Mēs uzklausām, piemeklējam un pielāgojam — bez steigas, spiediena un svešiem priekšstatiem par to, kādai tev jāizskatās.</p>
+        <p data-t="manifestoText">Sākumā pārrunājam, ko meklē un kādām kāzām kleita paredzēta. Tad piemeklējam vairākus piegriezumus, salīdzinām, kā tie pieguļ, un izrunājam, ko var mainīt. Vari nākt ar saglabātiem attēliem vai bez konkrētas ieceres.</p>
         <div class="facts">
-          <span><strong>2011</strong><small data-t="factYear">dibināts Jelgavā</small></span>
-          <span><strong>1:1</strong><small data-t="factCare">personiska uzmanība</small></span>
-          <span><strong>LV · RU · EN</strong><small data-t="factLang">apkalpošanas valodas</small></span>
+          <span><strong>2011</strong><small data-t="factYear">strādājam Jelgavā</small></span>
+          <span><strong data-t="factCareValue">Pēc pieraksta</strong><small data-t="factCare">mierīgai pielaikošanai</small></span>
+          <span><strong>LV · RU · EN</strong><small data-t="factLang">saziņas valodas</small></span>
         </div>
       </div>
     </section>
@@ -113,8 +119,9 @@
     <section class="editorial">
       <figure class="editorial-large reveal"><img src="assets/dress-classic.jpg" alt="Klasiska kāzu kleita" loading="lazy" width="600" height="800"></figure>
       <div class="editorial-center reveal">
-        <span data-t="editorialLabel">INDIVIDUALITĀTE / PRECIZITĀTE / SAJŪTA</span>
-        <p data-t="editorialText">Meklē gatavu kleitu vai vēlies radīt vienīgo eksemplāru — sākam ar tevi, nevis ar šablonu.</p>
+        <i class="section-glyph brand-glyph" aria-hidden="true"></i>
+        <span data-t="editorialLabel">SALONS / DARBNĪCA / KOPŠANA</span>
+        <p data-t="editorialText">Ja salonā atrodi īsto kleitu, pielāgojam tās garumu un piegulumu. Ja vajadzīgs cits risinājums, varam šūt no jauna — pēc tavas ieceres, fotogrāfijas un mēriem.</p>
       </div>
       <figure class="editorial-small reveal"><img src="assets/dress-back.jpg" alt="Kāzu kleitas muguras detaļas" loading="lazy" width="600" height="800"></figure>
     </section>
@@ -122,16 +129,16 @@
     <section class="services" id="services">
       <div class="services-head">
         <p class="section-number">02 / <span data-t="navServices">Pakalpojumi</span></p>
-        <h2 class="reveal" data-t="servicesTitle">Viss kleitai.<br>Viss līgavai.</h2>
-        <p class="reveal" data-t="servicesIntro">No idejas un izvēles līdz pēdējam dūrienam pirms kāzām.</p>
+        <h2 class="reveal" data-t="servicesTitle">Kāzu kleitas, šūšana un kopšana</h2>
+        <p class="reveal" data-t="servicesIntro">Ar kāzu kleitām strādājam no pirmās idejas līdz gatavam rezultātam. Pirms darba uzsākšanas pārrunājam iespējas, termiņu un nepieciešamās pielaikošanas.</p>
       </div>
       <div class="service-list">
-        <article class="service reveal"><span>01</span><h3 data-t="s1Title">Kāzu kleitu pārdošana</h3><p data-t="s1Text">Dažādi silueti, faktūras un noskaņas. Palīdzēsim salīdzināt un atrast tavu.</p><i>↗</i></article>
-        <article class="service reveal"><span>02</span><h3 data-t="s2Title">Individuāla šūšana</h3><p data-t="s2Text">Kleita, kas radīta tavām proporcijām, vēlmēm un kāzu raksturam.</p><i>↗</i></article>
-        <article class="service reveal"><span>03</span><h3 data-t="s3Title">Šūšana pēc fotogrāfijas</h3><p data-t="s3Text">Pārvēršam iedvesmas attēlu pārdomātā, tev pielāgotā kleitā.</p><i>↗</i></article>
-        <article class="service reveal"><span>04</span><h3 data-t="s4Title">Pielāgošana un remonts</h3><p data-t="s4Text">Garums, apjoms, piegulums, detaļas un rūpīgi labojumi.</p><i>↗</i></article>
-        <article class="service reveal"><span>05</span><h3 data-t="s5Title">Kleitu ķīmiskā tīrīšana</h3><p data-t="s5Text">Profesionāla kopšana pirms vai pēc svētkiem.</p><i>↗</i></article>
-        <article class="service reveal"><span>06</span><h3 data-t="s6Title">Līgavas aksesuāri</h3><p data-t="s6Text">Plīvuri, jostas, rotas un apakšsvārki vienotam koptēlam.</p><i>↗</i></article>
+        <article class="service reveal"><span>01</span><h3 data-t="s1Title">Kāzu kleitas</h3><p data-t="s1Text">Salonā vari pielaikot dažādu piegriezumu modeļus. Palīdzēsim novērtēt ne tikai izskatu, bet arī ērtumu un iespējamās izmaiņas.</p><i class="petal-mark" aria-hidden="true"></i></article>
+        <article class="service reveal"><span>02</span><h3 data-t="s2Title">Individuāla šūšana</h3><p data-t="s2Text">Izstrādājam modeli, piemeklējam audumu un šujam kleitu pēc taviem mēriem. Darba gaitā ieplānojam pielaikošanas.</p><i class="petal-mark" aria-hidden="true"></i></article>
+        <article class="service reveal"><span>03</span><h3 data-t="s3Title">Šūšana pēc fotogrāfijas</h3><p data-t="s3Text">Izvērtējam, kā iecerēto modeli pielāgot tavai figūrai un izvēlētajam audumam. Pirms šūšanas kopā precizējam detaļas.</p><i class="petal-mark" aria-hidden="true"></i></article>
+        <article class="service reveal"><span>04</span><h3 data-t="s4Title">Pielāgošana un remonts</h3><p data-t="s4Text">Saīsinām, iešujam, mainām piegulumu un rūpīgi sakārtojam kleitas detaļas. Darba apjomu novērtējam, apskatot kleitu.</p><i class="petal-mark" aria-hidden="true"></i></article>
+        <article class="service reveal"><span>05</span><h3 data-t="s5Title">Kāzu kleitu ķīmiskā tīrīšana</h3><p data-t="s5Text">Pieņemam kleitas tīrīšanai pirms kāzām vai pēc svinībām. Par iespējamo rezultātu un termiņu vienojamies pēc kleitas apskates.</p><i class="petal-mark" aria-hidden="true"></i></article>
+        <article class="service reveal"><span>06</span><h3 data-t="s6Title">Aksesuāri līgavai</h3><p data-t="s6Text">Plīvuru, jostu, rotu un apakšsvārku vari piemeklēt kopā ar kleitu, lai uzreiz redzētu visu koptēlu.</p><i class="petal-mark" aria-hidden="true"></i></article>
       </div>
     </section>
 
@@ -139,22 +146,23 @@
       <div class="fitting-image" data-parallax><img src="assets/dress-blush.jpg" alt="Maigi rozā kāzu kleita" loading="lazy" width="600" height="800"></div>
       <div class="fitting-panel">
         <p class="section-number">03 / <span data-t="navFitting">Pielaikošana</span></p>
-        <h2 class="reveal" data-t="fittingTitle">Viena tikšanās.<br>Daudz skaidrāka sajūta.</h2>
+        <h2 class="reveal" data-t="fittingTitle">Pielaikošana salonā</h2>
+        <p class="fitting-intro reveal" data-t="fittingIntro">Lai vizītei varam sagatavoties un visu uzmanību veltīt tev, lūdzam iepriekš pieteikties.</p>
         <ol>
-          <li class="reveal"><b>01</b><div><h3 data-t="step1Title">Piesakies</h3><p data-t="step1Text">Izvēlies ērtāko saziņas veidu un vēlamo laiku.</p></div></li>
-          <li class="reveal"><b>02</b><div><h3 data-t="step2Title">Pastāsti savu ideju</h3><p data-t="step2Text">Parādi iedvesmu vai nāc bez gatavas atbildes — abas izvēles ir pareizas.</p></div></li>
-          <li class="reveal"><b>03</b><div><h3 data-t="step3Title">Pielaiko un salīdzini</h3><p data-t="step3Text">Veltām tev laiku, lai lēmums būtu pārliecinošs.</p></div></li>
+          <li class="reveal"><b>01</b><div><h3 data-t="step1Title">Piesaki vēlamo laiku</h3><p data-t="step1Text">Aizpildi formu, uzraksti WhatsApp vai piezvani. Apstiprināsim laiku un precizēsim, ko vēlies pielaikot.</p></div></li>
+          <li class="reveal"><b>02</b><div><h3 data-t="step2Title">Salonā salīdzinām variantus</h3><p data-t="step2Text">Vari parādīt saglabātos attēlus, taču tas nav obligāti. Pielaikošanā redzēsim, kuri piegriezumi un audumi der vislabāk.</p></div></li>
+          <li class="reveal"><b>03</b><div><h3 data-t="step3Title">Saskaņojam nākamos soļus</h3><p data-t="step3Text">Ja kleita jāpielāgo vai jāšuj, pārrunāsim darbu, termiņu un nākamās pielaikošanas.</p></div></li>
         </ol>
-        <button class="primary pale" data-book><span data-t="bookVisit">Rezervēt vizīti</span><b>↗</b></button>
+        <button type="button" class="primary pale" data-book><span data-t="bookVisit">Pieteikt vizīti</span><i class="brand-glyph" aria-hidden="true"></i></button>
       </div>
     </section>
 
     <section class="social-proof">
       <div class="social-copy reveal">
         <p class="section-number">04 / INSTAGRAM</p>
-        <h2 data-t="socialTitle">Kleitas kustībā.<br>Detaļas tuvplānā.</h2>
-        <p data-t="socialText">Jaunākie modeļi, audumi un CATRIN ikdiena — mūsu Instagram profilā.</p>
-        <a class="ghost light-ghost" href="https://www.instagram.com/catrin_bridal/" target="_blank" rel="noopener"><span>@catrin_bridal</span><b>↗</b></a>
+        <h2 data-t="socialTitle">Jaunumi un kleitu detaļas</h2>
+        <p data-t="socialText">Instagram publicējam jaunumus, kleitu detaļas un darbus no šūšanas darbnīcas. Par konkrēta modeļa pieejamību visdrošāk pajautāt pirms vizītes.</p>
+        <a class="ghost light-ghost" href="https://www.instagram.com/catrin_bridal/" target="_blank" rel="noopener"><span>@catrin_bridal</span></a>
       </div>
       <div class="social-collage">
         <figure class="reveal"><img src="assets/catrin-instagram.jpg" alt="CATRIN Instagram" loading="lazy" width="640" height="640"></figure>
@@ -164,40 +172,41 @@
 
     <section class="contact" id="contact">
       <div class="contact-glow" aria-hidden="true"></div>
+      <i class="contact-mark brand-glyph" aria-hidden="true"></i>
       <p class="section-number">05 / <span data-t="navContact">Kontakti</span></p>
-      <h2 class="reveal"><span data-t="contactLine1">Sāksim ar</span> <em data-t="contactLine2">pielaikošanu.</em></h2>
-      <p class="contact-lead reveal" data-t="contactLead">Uzraksti mums — vienosimies par laiku un sagatavosim tavu pirmo CATRIN pieredzi.</p>
-      <button class="primary huge reveal" data-book><span data-t="bookFitting">Pieteikt pielaikošanu</span><b>↗</b></button>
+      <h2 class="reveal"><span data-t="contactLine1">Pieteikt</span> <em data-t="contactLine2">pielaikošanu</em></h2>
+      <p class="contact-lead reveal" data-t="contactLead">Izvēlies sev ērtāko saziņas veidu. Atbildēsim, precizēsim vajadzīgo un vienosimies par vizītes laiku.</p>
+      <button type="button" class="primary huge reveal" data-book><span data-t="bookFitting">Pieteikt pielaikošanu</span><i class="brand-glyph" aria-hidden="true"></i></button>
       <div class="contact-grid">
-        <div><span data-t="contactUs">Sazināties</span><a href="tel:+37127164000">+371 27 164 000</a><a href="https://wa.me/37127164000" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.facebook.com/catrinJelgava/" target="_blank" rel="noopener">Facebook</a></div>
-        <div><span data-t="visitUs">Apmeklēt</span><a href="https://www.google.com/maps/search/?api=1&query=Kri%C5%A1j%C4%81%C5%86a+Barona+iela+40+Jelgava" target="_blank" rel="noopener">Krišjāņa Barona iela 40<br>Jelgava, LV-3001 ↗</a></div>
+        <div><span data-t="contactUs">Sazināties</span><a href="tel:+37127164000">+371&nbsp;27&nbsp;164&nbsp;000</a><a href="https://wa.me/37127164000" target="_blank" rel="noopener">WhatsApp</a><a href="https://www.facebook.com/catrinJelgava/" target="_blank" rel="noopener">Facebook</a></div>
+        <div><span data-t="visitUs">Apmeklēt</span><a href="https://www.google.com/maps/search/?api=1&query=Kri%C5%A1j%C4%81%C5%86a+Barona+iela+40+Jelgava" target="_blank" rel="noopener">Krišjāņa Barona iela 40<br>Jelgava, LV-3001</a></div>
         <div><span data-t="workingHours">Darba laiks</span><p data-t="hoursFull">Pirmdiena–piektdiena 13:00–18:00<br>Sestdiena 12:00–17:00<br>Svētdiena — slēgts</p></div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="footer-mark">CATRIN</div>
+    <div class="footer-mark"><i class="brand-sign" aria-hidden="true"></i><span>CATRIN</span></div>
     <p>© <span data-year></span> SIA CATRIN · Reģ. Nr. 43603051076</p>
     <p>Juridiskā adrese: Sudrabu Edžus iela 1–19, Jelgava, LV-3001</p>
     <a href="privacy.html" data-t="privacy">Privātuma politika</a>
   </footer>
 
-  <div class="mobile-bar"><a href="tel:+37127164000" data-t="call">Zvanīt</a><button data-book data-t="bookShort">Pieteikties</button></div>
+  <div class="mobile-bar"><a href="tel:+37127164000" data-t="call">Zvanīt</a><button type="button" data-book data-t="bookShort">Pieteikties</button></div>
 
   <dialog class="booking" data-modal>
-    <button class="modal-close" data-close aria-label="Aizvērt">×</button>
+    <button type="button" class="modal-close" data-close aria-label="Aizvērt" data-t-aria="close"><i></i><i></i></button>
     <p class="section-number">CATRIN / <span data-t="bookingLabel">PIETEIKUMS</span></p>
     <h2 data-t="bookingTitle">Pieteikt pielaikošanu</h2>
-    <p data-t="bookingIntro">Aizpildi īso formu — WhatsApp atvērs sagatavotu ziņu. Mēs atbildēsim un saskaņosim precīzu laiku.</p>
+    <p data-t="bookingIntro">Norādi kontaktinformāciju, vēlamo dienu un to, kas tevi interesē. Forma sagatavos ziņu WhatsApp; precīzu vizītes laiku apstiprināsim sarakstē.</p>
     <form data-form>
-      <label><span data-t="name">Vārds</span><input name="name" required autocomplete="name"></label>
-      <label><span data-t="phone">Tālrunis</span><input name="phone" required inputmode="tel" autocomplete="tel"></label>
+      <label><span data-t="name">Vārds</span><input name="name" type="text" required autocomplete="name"></label>
+      <label><span data-t="phone">Tālrunis</span><input name="phone" type="tel" required inputmode="tel" autocomplete="tel"></label>
       <label><span data-t="date">Vēlamā diena</span><input name="date" type="date"></label>
       <label><span data-t="interest">Interesē</span><select name="interest"><option data-t="optFitting">Kleitas pielaikošana</option><option data-t="optCustom">Individuāla šūšana</option><option data-t="optPhoto">Šūšana pēc foto</option><option data-t="optAlter">Pielāgošana / remonts</option><option data-t="optClean">Ķīmiskā tīrīšana</option></select></label>
-      <button class="primary" type="submit"><span data-t="sendWhatsapp">Turpināt WhatsApp</span><b>↗</b></button>
+      <button class="primary" type="submit"><span data-t="sendWhatsapp">Turpināt WhatsApp</span><i class="brand-glyph" aria-hidden="true"></i></button>
     </form>
-    <a class="direct-call" href="tel:+37127164000"><span data-t="orCall">Vai zvani</span> +371 27 164 000</a>
+    <a class="direct-call" href="tel:+37127164000"><span data-t="orCall">Vai zvani</span>&nbsp;+371&nbsp;27&nbsp;164&nbsp;000</a>
   </dialog>
 
   <script src="script.js"></script>
