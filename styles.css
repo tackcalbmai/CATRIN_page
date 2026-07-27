@@ -883,6 +883,135 @@ h2 em {
   color: white;
 }
 
+.services {
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.services::before {
+  content: "CATRIN";
+  position: absolute;
+  right: -0.03em;
+  top: 0.02em;
+  color: rgba(91, 23, 109, 0.035);
+  font: 600 clamp(120px, 21vw, 340px)/0.8 var(--serif);
+  letter-spacing: -0.07em;
+  pointer-events: none;
+}
+
+.services-heading {
+  position: relative;
+  z-index: 1;
+}
+
+.services-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.service-card {
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 42px;
+  padding: clamp(28px, 3vw, 46px);
+  background: var(--paper);
+  transition: background 0.35s ease, color 0.35s ease, transform 0.35s ease;
+}
+
+.service-card:nth-child(4) {
+  grid-column: 2 / 4;
+  min-height: 250px;
+}
+
+.service-card:hover {
+  position: relative;
+  z-index: 2;
+  transform: translateY(-5px);
+  background: var(--blush);
+  box-shadow: 0 24px 70px rgba(43, 13, 52, 0.11);
+}
+
+.service-card-featured {
+  grid-row: span 2;
+  min-height: 581px;
+  background:
+    linear-gradient(180deg, rgba(32, 10, 39, 0.18), rgba(32, 10, 39, 0.88)),
+    url("assets/dress-back.jpg") center 18% / cover;
+  color: white;
+}
+
+.service-card-featured:hover {
+  background:
+    linear-gradient(180deg, rgba(32, 10, 39, 0.1), rgba(32, 10, 39, 0.82)),
+    url("assets/dress-back.jpg") center 18% / cover;
+}
+
+.service-number {
+  color: var(--violet-600);
+  font: 600 18px/1 var(--serif);
+}
+
+.service-card-featured .service-number {
+  color: var(--lilac-200);
+}
+
+.service-label {
+  margin: 0 0 13px;
+  color: var(--lilac-200);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.service-card h3 {
+  margin: 0 0 15px;
+  font: 500 clamp(30px, 3vw, 44px)/1 var(--serif);
+  letter-spacing: -0.025em;
+}
+
+.service-card p:not(.service-label) {
+  max-width: 410px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.service-card-featured p:not(.service-label) {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.service-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  background: transparent;
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.service-link span:last-child {
+  font-size: 18px;
+  font-weight: 400;
+}
+
 .included::before {
   content: "♡";
   position: absolute;
@@ -1862,6 +1991,21 @@ h2 em {
     min-height: 500px;
   }
 
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .service-card-featured {
+    grid-column: 1 / 3;
+    grid-row: auto;
+    min-height: 580px;
+  }
+
+  .service-card:nth-child(4) {
+    grid-column: auto;
+    min-height: 330px;
+  }
+
   .included-intro {
     max-width: 720px;
   }
@@ -2119,6 +2263,25 @@ h2 em {
 
   .instagram-row .button {
     width: 100%;
+  }
+
+  .services::before {
+    top: 0.2em;
+    font-size: 125px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card,
+  .service-card:nth-child(4) {
+    grid-column: auto;
+    min-height: 280px;
+  }
+
+  .service-card-featured {
+    min-height: 510px;
   }
 
   .included-list article {
