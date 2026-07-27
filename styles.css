@@ -23,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
   background: var(--ink);
 }
 
@@ -137,11 +138,52 @@ img {
   animation: ambient-drift 18s ease-in-out infinite alternate;
 }
 
-.ambient-light i:last-child {
+.ambient-light i:nth-child(2) {
   bottom: -25vh;
   left: -15vw;
   background: var(--warm-light);
   animation: ambient-drift 23s ease-in-out -7s infinite alternate-reverse;
+}
+
+.ambient-light i:nth-child(3) {
+  top: 38vh;
+  left: 38vw;
+  width: 34vw;
+  background: #f2c7bc;
+  opacity: 0.055;
+  animation: ambient-drift 27s ease-in-out -12s infinite alternate;
+}
+
+.page-sheen {
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  opacity: 0.42;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.page-sheen i {
+  position: absolute;
+  top: -30vh;
+  left: -72vw;
+  display: block;
+  width: 42vw;
+  height: 160vh;
+  background: linear-gradient(90deg, transparent, rgba(255, 220, 204, 0.2), transparent);
+  filter: blur(18px);
+  transform: rotate(14deg);
+  animation: page-sheen 24s var(--ease) infinite;
+  will-change: transform;
+}
+
+.page-sheen i:last-child {
+  top: -40vh;
+  width: 24vw;
+  background: linear-gradient(90deg, transparent, rgba(241, 189, 215, 0.14), transparent);
+  animation-duration: 31s;
+  animation-delay: -15s;
 }
 
 main,
@@ -183,6 +225,7 @@ footer {
   border-color: var(--line);
   background: rgba(29, 11, 28, 0.84);
   backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
 }
 
 .wordmark {
@@ -280,12 +323,23 @@ footer {
   background: none;
 }
 
-.section-number {
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   margin: 0;
   font-size: 0.66rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   opacity: 0.68;
+}
+
+.section-label::before {
+  width: 1.7rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  opacity: 0.38;
 }
 
 .hero {
@@ -584,7 +638,7 @@ html[lang="en"] .hero h1 {
   content: "";
 }
 
-.manifesto .section-number {
+.manifesto .section-label {
   align-self: start;
 }
 
@@ -776,8 +830,26 @@ html[lang="en"] .hero h1 {
   content: "";
 }
 
+.services::after {
+  position: absolute;
+  z-index: 0;
+  top: 12%;
+  left: -58vw;
+  width: 68vw;
+  height: 24vw;
+  min-height: 12rem;
+  background: linear-gradient(100deg, transparent 8%, rgba(236, 183, 205, 0.15), transparent 72%);
+  content: "";
+  filter: blur(26px);
+  mix-blend-mode: screen;
+  transform: rotate(-10deg);
+  animation: section-glint 19s ease-in-out infinite;
+  pointer-events: none;
+}
+
 .services-head {
   position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 0.45fr 1.55fr 0.7fr;
   align-items: end;
@@ -801,12 +873,13 @@ html[lang="en"] .hero h1 {
 
 .service-list {
   position: relative;
+  z-index: 1;
 }
 
 .service {
   position: relative;
   display: grid;
-  grid-template-columns: 0.2fr 1.12fr 1fr auto;
+  grid-template-columns: minmax(0, 1.12fr) minmax(18rem, 1fr) auto;
   align-items: center;
   gap: 2vw;
   padding: 2.15rem 0;
@@ -815,6 +888,20 @@ html[lang="en"] .hero h1 {
   transition:
     color 0.4s var(--ease),
     padding 0.4s var(--ease);
+}
+
+.service::after {
+  position: absolute;
+  inset: -1px;
+  background: radial-gradient(
+    circle 20rem at var(--spot-x, 76%) var(--spot-y, 50%),
+    rgba(238, 190, 212, 0.15),
+    transparent 65%
+  );
+  content: "";
+  opacity: 0.22;
+  transition: opacity 0.45s var(--ease);
+  pointer-events: none;
 }
 
 .service::before {
@@ -839,19 +926,20 @@ html[lang="en"] .hero h1 {
   color: var(--powder);
 }
 
-.service:hover::before {
+.service:hover::before,
+.service:focus-within::before {
   opacity: 1;
   transform: translateX(0);
+}
+
+.service:hover::after,
+.service:focus-within::after {
+  opacity: 0.95;
 }
 
 .service > * {
   position: relative;
   z-index: 1;
-}
-
-.service > span {
-  font-size: 0.61rem;
-  opacity: 0.55;
 }
 
 .service h3 {
@@ -880,6 +968,14 @@ html[lang="en"] .hero h1 {
 .service:hover .petal-mark {
   opacity: 0.95;
   transform: rotate(11deg) scale(1.08);
+}
+
+.service:nth-child(even) .petal-mark {
+  transform: rotate(-8deg) scale(0.92);
+}
+
+.service:nth-child(even):hover .petal-mark {
+  transform: rotate(3deg) scale(1.04);
 }
 
 .fitting {
@@ -966,15 +1062,19 @@ html[lang="en"] .hero h1 {
 
 .fitting li {
   display: grid;
-  grid-template-columns: 3rem 1fr;
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: 0;
   padding: 1.35rem 0;
   border-top: 1px solid var(--dark-line);
+  transition:
+    padding 0.4s var(--ease),
+    background 0.4s var(--ease);
 }
 
-.fitting li b {
-  font-size: 0.61rem;
-  font-weight: 400;
+.fitting li:hover {
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  background: linear-gradient(90deg, rgba(255, 250, 246, 0.28), transparent);
 }
 
 .fitting li h3 {
@@ -1041,7 +1141,7 @@ html[lang="en"] .hero h1 {
   text-wrap: balance;
 }
 
-.social-copy > p:not(.section-number) {
+.social-copy > p:not(.section-label) {
   max-width: 430px;
   line-height: 1.75;
 }
@@ -1111,6 +1211,23 @@ html[lang="en"] .hero h1 {
   text-align: center;
 }
 
+.contact::before {
+  position: absolute;
+  z-index: 0;
+  top: 4%;
+  left: -55vw;
+  width: 72vw;
+  height: 28vw;
+  min-height: 14rem;
+  background: linear-gradient(100deg, transparent, rgba(231, 187, 207, 0.13), transparent);
+  content: "";
+  filter: blur(28px);
+  mix-blend-mode: screen;
+  transform: rotate(-11deg);
+  animation: section-glint 22s ease-in-out -9s infinite;
+  pointer-events: none;
+}
+
 .contact-glow {
   position: absolute;
   inset: 5% 18% 22%;
@@ -1132,6 +1249,11 @@ html[lang="en"] .hero h1 {
 
 .contact > *:not(.contact-glow, .contact-mark) {
   position: relative;
+  z-index: 1;
+}
+
+.contact .section-label {
+  justify-content: center;
 }
 
 .contact h2 {
@@ -1265,7 +1387,7 @@ footer p {
   font: 400 clamp(2.5rem, 5vw, 4.5rem) / 1 var(--serif);
 }
 
-.booking > p:not(.section-number) {
+.booking > p:not(.section-label) {
   max-width: 560px;
   line-height: 1.65;
 }
@@ -1530,6 +1652,33 @@ footer p {
   }
 }
 
+@keyframes page-sheen {
+  0%,
+  18% {
+    transform: translate3d(0, 0, 0) rotate(14deg);
+  }
+  72%,
+  100% {
+    transform: translate3d(230vw, 0, 0) rotate(14deg);
+  }
+}
+
+@keyframes section-glint {
+  0%,
+  24% {
+    transform: translate3d(0, 0, 0) rotate(-10deg);
+    opacity: 0;
+  }
+  48% {
+    opacity: 0.82;
+  }
+  78%,
+  100% {
+    transform: translate3d(230vw, 8vh, 0) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto !important;
@@ -1548,6 +1697,10 @@ footer p {
   }
 
   .cursor-glow {
+    display: none;
+  }
+
+  .page-sheen {
     display: none;
   }
 }
@@ -1585,6 +1738,19 @@ footer p {
     padding: 0.95rem 1.1rem;
   }
 
+  .header.scrolled {
+    background: rgba(29, 11, 28, 0.97);
+    box-shadow: 0 10px 34px rgba(17, 4, 15, 0.2);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .wordmark,
+  .header-side {
+    position: relative;
+    z-index: 2;
+  }
+
   .wordmark {
     gap: 0.55rem;
   }
@@ -1605,7 +1771,7 @@ footer p {
   .nav {
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1614,8 +1780,14 @@ footer p {
     background:
       radial-gradient(circle at 75% 15%, rgba(177, 99, 145, 0.23), transparent 30%),
       var(--ink);
+    opacity: 0;
     transform: translateY(-105%);
-    transition: transform 0.5s var(--ease);
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      transform 0.5s var(--ease),
+      opacity 0.35s ease,
+      visibility 0s linear 0.5s;
   }
 
   .nav::before {
@@ -1630,7 +1802,11 @@ footer p {
   }
 
   .nav.open {
+    opacity: 1;
     transform: none;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
   }
 
   .nav a {
@@ -1833,7 +2009,7 @@ footer p {
   }
 
   .service {
-    grid-template-columns: 2rem 1fr auto;
+    grid-template-columns: 1fr auto;
     gap: 1rem;
     padding: 1.6rem 0;
   }
@@ -1844,7 +2020,7 @@ footer p {
   }
 
   .service p {
-    grid-column: 2 / -1;
+    grid-column: 1 / -1;
     font-size: 0.88rem;
   }
 
@@ -2011,10 +2187,6 @@ footer p {
 
   .service h3 {
     font-size: 1.35rem;
-  }
-
-  .fitting li {
-    grid-template-columns: 2.2rem 1fr;
   }
 
   .primary.huge {

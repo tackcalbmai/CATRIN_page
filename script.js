@@ -346,6 +346,22 @@ document.addEventListener("keydown", (event) => {
 
 document.querySelectorAll(".service").forEach((element, index) => {
   element.style.setProperty("--reveal-delay", `${index * 55}ms`);
+
+  element.addEventListener(
+    "pointermove",
+    (event) => {
+      if (reducedMotion.matches) return;
+      const bounds = element.getBoundingClientRect();
+      element.style.setProperty("--spot-x", `${((event.clientX - bounds.left) / bounds.width) * 100}%`);
+      element.style.setProperty("--spot-y", `${((event.clientY - bounds.top) / bounds.height) * 100}%`);
+    },
+    { passive: true }
+  );
+
+  element.addEventListener("pointerleave", () => {
+    element.style.removeProperty("--spot-x");
+    element.style.removeProperty("--spot-y");
+  });
 });
 
 document.querySelectorAll(".fitting li").forEach((element, index) => {
