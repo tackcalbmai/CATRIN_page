@@ -136,7 +136,7 @@ const copy = {
     contactPageEyebrow: "CATRIN · Елгава",
     contactPageTitle: "Запись и контакты",
     contactPageLead: "Заполни форму, напиши в WhatsApp или позвони.",
-    phoneLabel: "Телефон и WhatsApp",
+    phoneLabel: "Телефон",
     addressLabel: "Адрес салона",
     bookingEyebrow: "Заявка",
     bookingTitle: "Записаться на визит",
@@ -155,10 +155,8 @@ const copy = {
     message: "Короткий комментарий",
     messagePlaceholder: "Что хочешь примерить или какая работа нужна?",
     photo: "Фотография <small>(необязательно)</small>",
-    photoHint: "С телефона изображение можно отправить вместе с заявкой.",
+    photoHint: "После открытия WhatsApp прикрепи фотографию в чате.",
     photoSelected: "Выбрано",
-    photoFallback: "WhatsApp открыт. Прикрепи выбранное фото в переписке.",
-    shareTitle: "Заявка CATRIN",
     consent: "Согласна, что указанные данные будут использованы для ответа на мою заявку.",
     continueWhatsapp: "Продолжить в WhatsApp",
     visitUs: "Приехать в салон",
@@ -171,7 +169,7 @@ const copy = {
     policyControllerTitle: "Оператор данных",
     policyControllerText: "SIA «CATRIN», регистрационный № 43603051076, юридический адрес: улица Судрабу Эджус, 1–19, Елгава, LV-3001. Телефон: <a href=\"tel:+37127164000\">+371&nbsp;27&nbsp;164&nbsp;000</a>.",
     policyDataTitle: "Какие данные мы обрабатываем",
-    policyDataText: "В форме можно указать имя, телефон, желаемую дату, услугу, комментарий и добавить фотографию. Форма не сохраняет данные или изображения на сервере — она подготавливает их к отправке с вашего устройства. Дальнейшее общение происходит в выбранном канале связи.",
+    policyDataText: "В форме можно указать имя, телефон, желаемую дату, услугу и комментарий, а также выбрать фотографию. Форма не сохраняет данные или изображения на сервере. WhatsApp открывается с текстом заявки, а фотографию пользователь прикрепляет непосредственно в чате.",
     policyPurposeTitle: "Цель и основание обработки",
     policyPurposeText: "Данные используются, чтобы ответить на запрос, согласовать визит, подготовить услугу и выполнить соглашение с клиентом. Основанием служат действия до заключения договора, исполнение договора или ваше согласие.",
     policyStorageTitle: "Хранение и передача",
@@ -321,7 +319,7 @@ const copy = {
     contactPageEyebrow: "CATRIN · Jelgava",
     contactPageTitle: "Booking and contact",
     contactPageLead: "Complete the form, message us on WhatsApp or call.",
-    phoneLabel: "Phone and WhatsApp",
+    phoneLabel: "Phone",
     addressLabel: "Salon address",
     bookingEyebrow: "Request",
     bookingTitle: "Book a visit",
@@ -340,10 +338,8 @@ const copy = {
     message: "Short note",
     messagePlaceholder: "What would you like to try or what work is needed?",
     photo: "Photograph <small>(optional)</small>",
-    photoHint: "On mobile, the image can be sent with your request.",
+    photoHint: "After WhatsApp opens, attach the photo in the chat.",
     photoSelected: "Selected",
-    photoFallback: "WhatsApp is open. Attach the selected photo in the conversation.",
-    shareTitle: "CATRIN booking request",
     consent: "I agree that these details may be used to respond to my request.",
     continueWhatsapp: "Continue in WhatsApp",
     visitUs: "Visit the salon",
@@ -356,7 +352,7 @@ const copy = {
     policyControllerTitle: "Data controller",
     policyControllerText: "SIA “CATRIN”, registration No. 43603051076, registered address: 1–19 Sudrabu Edžus Street, Jelgava, LV-3001. Phone: <a href=\"tel:+37127164000\">+371&nbsp;27&nbsp;164&nbsp;000</a>.",
     policyDataTitle: "Data we process",
-    policyDataText: "The form may include your name, phone number, preferred date, service, note and a photograph. It does not store data or images on a server; it prepares them for sending from your device. Further communication takes place through the selected channel.",
+    policyDataText: "The form may include your name, phone number, preferred date, service and note, and lets you select a photograph. It does not store data or images on a server. WhatsApp opens with the request text, and the user attaches the photograph directly in the chat.",
     policyPurposeTitle: "Purpose and legal basis",
     policyPurposeText: "We use the data to respond to your request, arrange a visit, prepare the service and fulfil an agreement with you. Processing is based on steps taken before entering into a contract, performance of a contract or your consent.",
     policyStorageTitle: "Storage and transfer",
@@ -396,9 +392,7 @@ const page = document.body.dataset.page || "home";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const runtimeCopy = {
   lv: {
-    photoSelected: "Izvēlēts",
-    photoFallback: "WhatsApp ir atvērts. Pievieno izvēlēto fotogrāfiju sarakstē.",
-    shareTitle: "CATRIN pieteikums"
+    photoSelected: "Izvēlēts"
   }
 };
 const initialText = {};
@@ -679,7 +673,7 @@ if (bookingForm) {
     button.addEventListener("click", updatePhotoName);
   });
 
-  bookingForm.addEventListener("submit", async (event) => {
+  bookingForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const data = new FormData(bookingForm);
     const photo = photoField?.files?.[0];
@@ -690,9 +684,9 @@ if (bookingForm) {
       en: "Hello! I would like to book with CATRIN."
     };
     const labels = {
-      lv: { name: "Vārds", phone: "Tālrunis", date: "Vēlamais datums", interest: "Interesē", message: "Komentārs" },
-      ru: { name: "Имя", phone: "Телефон", date: "Желаемая дата", interest: "Интересует", message: "Комментарий" },
-      en: { name: "Name", phone: "Phone", date: "Preferred date", interest: "Interested in", message: "Note" }
+      lv: { name: "Vārds", phone: "Tālrunis", date: "Vēlamais datums", interest: "Interesē", message: "Komentārs", photo: "Fotogrāfiju pievienošu WhatsApp sarakstē." },
+      ru: { name: "Имя", phone: "Телефон", date: "Желаемая дата", interest: "Интересует", message: "Комментарий", photo: "Фотографию прикреплю в чате WhatsApp." },
+      en: { name: "Name", phone: "Phone", date: "Preferred date", interest: "Interested in", message: "Note", photo: "I will attach the photograph in the WhatsApp chat." }
     }[language];
 
     const message = [
@@ -701,25 +695,12 @@ if (bookingForm) {
       `${labels.phone}: ${data.get("phone")}`,
       `${labels.date}: ${data.get("date") || "—"}`,
       `${labels.interest}: ${interest}`,
-      data.get("message") ? `${labels.message}: ${data.get("message")}` : ""
+      data.get("message") ? `${labels.message}: ${data.get("message")}` : "",
+      photo ? labels.photo : ""
     ].filter(Boolean).join("\n");
 
-    if (photo && navigator.share && navigator.canShare?.({ files: [photo] })) {
-      try {
-        await navigator.share({
-          title: valueFor("shareTitle") || "CATRIN",
-          text: message,
-          files: [photo]
-        });
-        if (formStatus) formStatus.textContent = "";
-        return;
-      } catch (error) {
-        if (error?.name === "AbortError") return;
-      }
-    }
-
-    window.open(`https://wa.me/37127164000?text=${encodeURIComponent(message)}`, "_blank", "noopener");
-    if (formStatus) formStatus.textContent = photo ? valueFor("photoFallback") || "" : "";
+    if (formStatus) formStatus.textContent = "";
+    window.location.assign(`https://wa.me/37127164000?text=${encodeURIComponent(message)}`);
   });
 }
 
