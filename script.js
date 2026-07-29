@@ -1,464 +1,610 @@
 const copy = {
-  lv: {
-    metaTitle: "CATRIN — Kāzu kleitas un šūšana Jelgavā",
-    metaDescription: "CATRIN kāzu salons Jelgavā: kāzu kleitas, individuāla šūšana, šūšana pēc fotogrāfijas, pielāgošana, remonts, ķīmiskā tīrīšana un aksesuāri līgavai.",
-    skip: "Pāriet uz saturu",
-    wordmarkSmall: "KĀZU SALONS · JELGAVA",
-    navAtelier: "Par salonu",
-    navServices: "Pakalpojumi",
-    navFitting: "Pielaikošana",
-    navContact: "Kontakti",
-    menu: "Izvēlne",
-    close: "Aizvērt",
-    heroOverline: "Kāzu salons un šūšanas darbnīca · kopš 2011. gada",
-    heroLine1: "Kāzu kleitas",
-    heroLine2: "un šūšana Jelgavā",
-    heroLead: "Salonā vari pielaikot gatavus modeļus, pasūtīt kleitu pēc saviem mēriem vai parādīt fotogrāfiju ar iecerēto modeli. Palīdzēsim ar izvēli, pielāgošanu un pēdējām detaļām.",
-    bookFitting: "Pieteikt pielaikošanu",
-    discover: "Par salonu",
-    addressLabel: "Salons",
-    hoursLabel: "Darba laiks",
-    hoursShort: "P.–Pk. 13–18 · S. 12–17",
-    manifestoSmall: "Par salonu",
-    manifestoTitle: "Pielaikošanā sākam ar sarunu.",
-    manifestoText: "Sākumā pārrunājam, ko meklē un kādām kāzām kleita paredzēta. Tad piemeklējam vairākus piegriezumus, salīdzinām, kā tie pieguļ, un izrunājam, ko var mainīt. Vari nākt ar saglabātiem attēliem vai bez konkrētas ieceres.",
-    factYear: "strādājam Jelgavā",
-    factCareValue: "Pēc pieraksta",
-    factCare: "mierīgai pielaikošanai",
-    factLang: "saziņas valodas",
-    editorialLabel: "SALONS / DARBNĪCA / KOPŠANA",
-    editorialText: "Ja salonā atrodi īsto kleitu, pielāgojam tās garumu un piegulumu. Ja vajadzīgs cits risinājums, varam šūt no jauna — pēc tavas ieceres, fotogrāfijas un mēriem.",
-    servicesTitle: "Kāzu kleitas, šūšana un kopšana",
-    servicesIntro: "Ar kāzu kleitām strādājam no pirmās idejas līdz gatavam rezultātam. Pirms darba uzsākšanas pārrunājam iespējas, termiņu un nepieciešamās pielaikošanas.",
-    s1Title: "Kāzu kleitas",
-    s1Text: "Salonā vari pielaikot dažādu piegriezumu modeļus. Palīdzēsim novērtēt ne tikai izskatu, bet arī ērtumu un iespējamās izmaiņas.",
-    s2Title: "Individuāla šūšana",
-    s2Text: "Izstrādājam modeli, piemeklējam audumu un šujam kleitu pēc taviem mēriem. Darba gaitā ieplānojam pielaikošanas.",
-    s3Title: "Šūšana pēc fotogrāfijas",
-    s3Text: "Izvērtējam, kā iecerēto modeli pielāgot tavai figūrai un izvēlētajam audumam. Pirms šūšanas kopā precizējam detaļas.",
-    s4Title: "Pielāgošana un remonts",
-    s4Text: "Saīsinām, iešujam, mainām piegulumu un rūpīgi sakārtojam kleitas detaļas. Darba apjomu novērtējam, apskatot kleitu.",
-    s5Title: "Kāzu kleitu ķīmiskā tīrīšana",
-    s5Text: "Pieņemam kleitas tīrīšanai pirms kāzām vai pēc svinībām. Pirms tīrīšanas apskatām audumu, rotājumus un kleitas stāvokli, pēc tam vienojamies par termiņu.",
-    s6Title: "Aksesuāri līgavai",
-    s6Text: "Plīvuru, jostu, rotu un apakšsvārku vari piemeklēt kopā ar kleitu, lai uzreiz redzētu visu koptēlu.",
-    fittingTitle: "Pielaikošana salonā",
-    fittingIntro: "Lai vizītei varam sagatavoties un visu uzmanību veltīt tev, lūdzam iepriekš pieteikties.",
-    step1Title: "Piesaki vēlamo laiku",
-    step1Text: "Aizpildi formu, uzraksti WhatsApp vai piezvani. Apstiprināsim laiku un precizēsim, ko vēlies pielaikot.",
-    step2Title: "Salonā salīdzinām variantus",
-    step2Text: "Vari parādīt saglabātos attēlus, taču tas nav obligāti. Pielaikošanā redzēsim, kuri piegriezumi un audumi der vislabāk.",
-    step3Title: "Saskaņojam nākamos soļus",
-    step3Text: "Ja kleita jāpielāgo vai jāšuj, pārrunāsim darbu, termiņu un nākamās pielaikošanas.",
-    bookVisit: "Pieteikt vizīti",
-    socialTitle: "Jaunumi un kleitu detaļas",
-    socialText: "Instagram publicējam jaunumus, kleitu detaļas un darbus no šūšanas darbnīcas. Par konkrēta modeļa pieejamību visdrošāk pajautāt pirms vizītes.",
-    contactLine1: "Pieteikt",
-    contactLine2: "pielaikošanu",
-    contactLead: "Izvēlies sev ērtāko saziņas veidu. Atbildēsim, precizēsim vajadzīgo un vienosimies par vizītes laiku.",
-    contactUs: "Sazināties",
-    visitUs: "Apmeklēt",
-    workingHours: "Darba laiks",
-    hoursFull: "Pirmdiena–piektdiena 13:00–18:00\nSestdiena 12:00–17:00\nSvētdiena — slēgts",
-    privacy: "Privātuma politika",
-    call: "Zvanīt",
-    bookShort: "Pieteikties",
-    bookingLabel: "PIETEIKUMS",
-    bookingTitle: "Pieteikt pielaikošanu",
-    bookingIntro: "Norādi kontaktinformāciju, vēlamo dienu un to, kas tevi interesē. Forma sagatavos ziņu WhatsApp; precīzu vizītes laiku apstiprināsim sarakstē.",
-    name: "Vārds",
-    phone: "Tālrunis",
-    date: "Vēlamā diena",
-    interest: "Interesē",
-    optFitting: "Kleitas pielaikošana",
-    optCustom: "Individuāla šūšana",
-    optPhoto: "Šūšana pēc fotogrāfijas",
-    optAlter: "Pielāgošana / remonts",
-    optClean: "Ķīmiskā tīrīšana",
-    sendWhatsapp: "Turpināt WhatsApp",
-    orCall: "Vai zvani"
-  },
   ru: {
-    metaTitle: "CATRIN — Свадебные платья и пошив в Елгаве",
-    metaDescription: "Свадебный салон CATRIN в Елгаве: свадебные платья, индивидуальный пошив и пошив по фотографии, подгонка, ремонт, химчистка и аксессуары для невесты.",
     skip: "Перейти к содержанию",
-    wordmarkSmall: "СВАДЕБНЫЙ САЛОН · ЕЛГАВА",
-    navAtelier: "О салоне",
+    brandSub: "СВАДЕБНЫЙ САЛОН · ЕЛГАВА",
+    navHome: "Главная",
+    navDresses: "Платья",
     navServices: "Услуги",
-    navFitting: "Примерка",
+    navSalon: "Салон",
     navContact: "Контакты",
-    menu: "Меню",
-    close: "Закрыть",
-    heroOverline: "Свадебный салон и швейная мастерская · с 2011 года",
-    heroLine1: "Свадебные платья",
-    heroLine2: "и пошив в Елгаве",
-    heroLead: "В салоне можно примерить готовые модели, заказать платье по своим меркам или показать фотографию желаемой модели. Поможем с выбором, подгонкой и последними деталями.",
-    bookFitting: "Записаться на примерку",
-    discover: "О салоне",
-    addressLabel: "Салон",
-    hoursLabel: "Время работы",
-    hoursShort: "Пн–Пт 13–18 · Сб 12–17",
-    manifestoSmall: "О салоне",
-    manifestoTitle: "Примерку начинаем с разговора.",
-    manifestoText: "Сначала обсуждаем, что ты ищешь и для какой свадьбы нужно платье. Затем подбираем несколько вариантов, сравниваем посадку и объясняем, что можно изменить. Можно прийти с сохранёнными фотографиями или без конкретной идеи.",
-    factYear: "работаем в Елгаве",
-    factCareValue: "По записи",
-    factCare: "чтобы примерить без спешки",
-    factLang: "языки общения",
-    editorialLabel: "САЛОН / МАСТЕРСКАЯ / УХОД",
-    editorialText: "Если подходящее платье нашлось в салоне, подгоним длину и посадку. Если нужен другой вариант, можем сшить его заново — по твоей идее, фотографии и меркам.",
-    servicesTitle: "Свадебные платья, пошив и уход",
-    servicesIntro: "Работаем со свадебным платьем от первой идеи до готового результата. До начала работы обсуждаем возможности, срок и необходимые примерки.",
-    s1Title: "Свадебные платья",
-    s1Text: "В салоне можно примерить модели разного кроя. Поможем оценить не только внешний вид, но и удобство, а также возможные изменения.",
-    s2Title: "Индивидуальный пошив",
-    s2Text: "Разрабатываем модель, подбираем ткань и шьём платье по твоим меркам. В процессе планируем необходимые примерки.",
-    s3Title: "Пошив по фотографии",
-    s3Text: "Оцениваем, как адаптировать выбранную модель к фигуре и ткани. Перед пошивом вместе уточняем все детали.",
-    s4Title: "Подгонка и ремонт",
-    s4Text: "Укорачиваем, ушиваем, меняем посадку и аккуратно приводим в порядок детали. Объём работы оцениваем после осмотра платья.",
-    s5Title: "Химчистка свадебных платьев",
-    s5Text: "Принимаем платья на чистку до свадьбы или после торжества. Перед чисткой оцениваем ткань, отделку и состояние платья, затем согласуем срок.",
-    s6Title: "Аксессуары для невесты",
-    s6Text: "Фату, пояс, украшения и подъюбник можно подобрать вместе с платьем, чтобы сразу увидеть весь образ.",
-    fittingTitle: "Примерка в салоне",
-    fittingIntro: "Чтобы мы могли подготовиться к визиту и уделить всё внимание тебе, просим записаться заранее.",
-    step1Title: "Предложи удобное время",
-    step1Text: "Заполни форму, напиши в WhatsApp или позвони. Подтвердим время и уточним, что ты хочешь примерить.",
-    step2Title: "Сравним варианты в салоне",
-    step2Text: "Можно показать сохранённые фотографии, но это не обязательно. На примерке станет понятно, какой крой и ткань подходят лучше.",
-    step3Title: "Согласуем следующие шаги",
-    step3Text: "Если платье нужно подогнать или сшить, обсудим работу, срок и следующие примерки.",
-    bookVisit: "Записаться на визит",
-    socialTitle: "Новинки и детали платьев",
-    socialText: "В Instagram публикуем новинки, детали платьев и работы из швейной мастерской. Наличие конкретной модели лучше уточнить перед визитом.",
-    contactLine1: "Записаться",
-    contactLine2: "на примерку",
-    contactLead: "Выбери удобный способ связи. Мы ответим, уточним необходимое и договоримся о времени визита.",
-    contactUs: "Связаться",
-    visitUs: "Приехать",
-    workingHours: "Время работы",
-    hoursFull: "Понедельник–пятница 13:00–18:00\nСуббота 12:00–17:00\nВоскресенье — закрыто",
-    privacy: "Политика конфиденциальности",
-    call: "Позвонить",
+    book: "Записаться на примерку",
     bookShort: "Записаться",
-    bookingLabel: "ЗАПИСЬ",
-    bookingTitle: "Запись на примерку",
-    bookingIntro: "Укажи контактные данные, желаемый день и то, что тебя интересует. Форма подготовит сообщение в WhatsApp; точное время визита подтвердим в переписке.",
+    bookVisit: "Записаться на визит",
+    menu: "Меню",
+    call: "Позвонить",
+    privacy: "Политика конфиденциальности",
+    location: "Адрес",
+    hours: "Время работы",
+    hoursShort: "Пн–Пт 13–18 · Сб 12–17",
+    hoursFull: "Понедельник–пятница 13:00–18:00<br>Суббота 12:00–17:00<br>Воскресенье — закрыто",
+
+    homeEyebrow: "Свадебный салон и швейная мастерская · с 2011 года",
+    homeTitle: "Свадебные платья и пошив в Елгаве",
+    homeIntro: "В салоне можно примерить готовые свадебные платья, заказать платье по своим меркам или принести уже купленное для подгонки. Сначала выясним, что именно нужно, и только после этого предложим решение.",
+    seeDresses: "Посмотреть платья",
+    routeEyebrow: "Первый шаг",
+    routeTitle: "С чего начнём?",
+    routeIntro: "Выбери ситуацию, которая сейчас подходит тебе. Покажем разумный следующий шаг.",
+    routeFind: "Ищу платье",
+    routeSew: "Хочу сшить",
+    routeAlter: "Платье уже есть",
+    routeFindText: "Запишись на примерку. Перед визитом уточним пожелания, а в салоне сравним несколько силуэтов.",
+    routeSewText: "Покажи сохранённые фотографии или опиши идею. Обсудим модель, ткань, сроки и необходимые примерки.",
+    routeAlterText: "Принеси платье на осмотр. Проверим посадку и детали, после чего согласуем объём работы и срок.",
+    routeBook: "Записаться на примерку",
+    routeDiscuss: "Обсудить пошив",
+    routeInspect: "Записать платье на осмотр",
+    workEyebrow: "Салон и мастерская в одном месте",
+    workTitle: "Платье можно найти в салоне, подогнать или сшить с нуля.",
+    workText: "На примерке оцениваем не только внешний вид, но и удобство, и посадку. Если нужны изменения, их можно сделать в нашей швейной мастерской.",
+    aboutSalon: "Как проходит примерка",
+    servicesEyebrow: "Что мы делаем",
+    servicesHomeTitle: "Всё необходимое для работы со свадебным платьем",
+    pathDressesLabel: "В салоне",
+    pathDressesTitle: "Свадебные платья и аксессуары",
+    pathDressesText: "Примерь разные силуэты и подбери детали для цельного образа.",
+    pathSewLabel: "В мастерской",
+    pathSewTitle: "Индивидуальный пошив и пошив по фото",
+    pathSewText: "Адаптируем модель к твоей фигуре, выбранной ткани и задумке.",
+    pathCareLabel: "До и после свадьбы",
+    pathCareTitle: "Подгонка, ремонт и химчистка",
+    pathCareText: "Осмотрим платье, обсудим необходимое и согласуем объём работы.",
+    allServices: "Все услуги",
+    lookEyebrow: "Подборка платьев",
+    lookTitle: "До визита посмотри силуэты и детали.",
+    lookText: "Ассортимент в салоне меняется. Наличие конкретного платья лучше уточнить при записи.",
+    openLookbook: "Открыть подборку",
+    contactEyebrow: "Примерка по предварительной записи",
+    contactRibbonTitle: "Предложи удобный день. Точное время подтвердим в переписке.",
+
+    dressesEyebrow: "Подборка платьев",
+    dressesTitle: "Свадебные платья в салоне",
+    dressesLead: "На примерке сравним разные силуэты, ткани и детали. Ассортимент меняется, поэтому наличие конкретного платья лучше уточнить до визита.",
+    dressesCaption: "CATRIN · свадебные платья в Елгаве",
+    lookbookEyebrow: "Посмотри до визита",
+    lookbookTitle: "Разные силуэты, ткани и отделка",
+    lookbookIntro: "Фотографии помогают определить направление, но окончательный выбор лучше делать на примерке — видя посадку и движение платья.",
+    detailVolume: "Объёмный силуэт и лёгкий тюль",
+    detailLace: "Фактура кружева и чистая линия талии",
+    detailBack: "Вырез на спине и тонкая отделка",
+    detailSoft: "Мягкий оттенок и конструкция корсета",
+    detailSleeves: "Рукава и классический силуэт",
+    detailBlush: "Пудровый тон и декоративные детали",
+    detailClassic: "Классическая форма и выразительное кружево",
+    detailTrain: "Плавная линия юбки и длинный подол",
+    accessoriesEyebrow: "Для цельного образа",
+    accessoriesTitle: "Аксессуары подбираем вместе с платьем",
+    accessoriesText: "Фату, пояс, украшения и подъюбник можно примерить сразу с выбранным платьем. Так проще оценить пропорции и общий вид.",
+    dressesCtaEyebrow: "Платье лучше всего оценивать на примерке",
+    dressesCtaTitle: "Запишись на визит, и до приезда мы уточним, что ты ищешь.",
+
+    servicesPageEyebrow: "Услуги",
+    servicesPageTitle: "Пошив, подгонка и уход за платьями",
+    servicesPageLead: "До начала работы осматриваем платье или обсуждаем идею, уточняем возможности, срок и необходимые примерки. После этого понятны и объём работы, и следующий шаг.",
+    servicesCaption: "CATRIN · швейная мастерская",
+    createEyebrow: "Если платье ещё выбирают или создают с нуля",
+    createTitle: "Выбор и пошив",
+    serviceDressTitle: "Свадебные платья",
+    serviceDressText: "В салоне можно примерить модели разного кроя. Поможем оценить посадку, удобство и возможные изменения конкретного платья.",
+    seeSelection: "Посмотреть подборку",
+    serviceCustomTitle: "Индивидуальный пошив",
+    serviceCustomText: "Разрабатываем модель, подбираем ткань и шьём платье по твоим меркам. По ходу работы планируем примерки и постепенно уточняем посадку.",
+    discussIdea: "Обсудить идею",
+    servicePhotoTitle: "Пошив по фотографии",
+    servicePhotoText: "Оценим, как адаптировать модель с фотографии к фигуре и доступным тканям. До начала пошива согласуем конструкцию, детали и срок.",
+    showPhoto: "Показать идею",
+    finishEyebrow: "Если платье уже выбрано",
+    finishTitle: "Подгонка и уход",
+    serviceAlterTitle: "Подгонка и ремонт",
+    serviceAlterText: "Укорачиваем платье, ушиваем или меняем посадку, корректируем детали и выполняем аккуратный ремонт. Точный объём определяем после осмотра.",
+    bringDress: "Записать платье на осмотр",
+    serviceCleanTitle: "Химчистка свадебных платьев",
+    serviceCleanText: "Принимаем платья на чистку до свадьбы или после торжества. Сначала оцениваем ткань, отделку и состояние, затем согласуем возможность и срок.",
+    askCleaning: "Спросить о чистке",
+    serviceAccessoryTitle: "Аксессуары для невесты",
+    serviceAccessoryText: "Фату, пояс, украшения и подъюбник можно подобрать вместе с платьем. Примеряя всё сразу, проще увидеть пропорции и общий образ.",
+    timingEyebrow: "О сроках",
+    timingTitle: "Свяжись с нами, как только станет понятно, какая работа нужна.",
+    timingText: "Для пошива и сложной подгонки требуется несколько примерок. Возможность и срок всегда уточняем индивидуально.",
+    contactUs: "Связаться с салоном",
+
+    salonEyebrow: "О CATRIN",
+    salonTitle: "Свадебный салон и швейная мастерская в Елгаве",
+    salonLead: "CATRIN работает в Елгаве с 2011 года. В салоне можно примерить свадебные платья, а в мастерской — сшить новое или подогнать уже выбранное.",
+    salonCaption: "CATRIN · Елгава · с 2011 года",
+    visitEyebrow: "Визит в салон",
+    visitTitle: "Примерку начинаем с разговора",
+    visitIntro: "Необязательно заранее знать точную модель. Достаточно рассказать о свадьбе, примерной задумке и о том, чего точно не хочется.",
+    visitTalkTitle: "Уточним задачу",
+    visitTalkText: "Обсудим стиль, размер, дату свадьбы и то, что нужно: готовое платье, индивидуальный пошив или подгонка.",
+    visitTryTitle: "Сравним силуэты",
+    visitTryText: "Примерь несколько вариантов и оцени, как они выглядят, сидят и ощущаются в движении.",
+    visitPlanTitle: "Согласуем дальнейшее",
+    visitPlanText: "Если нужны пошив или изменения, обсудим объём работы, срок и следующие примерки.",
+    bringEyebrow: "Если удобно",
+    bringTitle: "Что можно взять с собой",
+    bringText: "Сохранённые фотографии платьев, обувь с похожей высотой каблука и бельё, которое планируешь надевать. Если этого пока нет, на примерку можно прийти и без подготовки.",
+    factSinceLabel: "Работаем в Елгаве",
+    factSinceValue: "С 2011 года",
+    factVisitLabel: "Примерка",
+    factVisitValue: "По предварительной записи",
+    factLanguagesLabel: "Языки общения",
+    factAddressLabel: "Адрес салона",
+    salonCtaEyebrow: "Подготовимся к визиту заранее",
+    salonCtaTitle: "При записи коротко расскажи, что ищешь или какая работа нужна.",
+
+    contactPageEyebrow: "CATRIN · Елгава",
+    contactPageTitle: "Запись и контакты",
+    contactPageLead: "Заполни короткую форму, напиши в WhatsApp или позвони. Точное время визита подтвердим в переписке.",
+    phoneLabel: "Телефон и WhatsApp",
+    addressLabel: "Адрес салона",
+    bookingEyebrow: "Заявка",
+    bookingTitle: "Предложи удобный день для визита",
+    bookingIntro: "Форма подготовит сообщение в WhatsApp. Введённые данные на этом сайте не сохраняются.",
+    bookingNote: "Если вопрос касается подгонки, ремонта или чистки, к сообщению можно добавить фотографию платья.",
     name: "Имя",
     phone: "Телефон",
     date: "Желаемый день",
-    interest: "Интересует",
+    interest: "Что тебя интересует",
     optFitting: "Примерка платья",
     optCustom: "Индивидуальный пошив",
     optPhoto: "Пошив по фотографии",
-    optAlter: "Подгонка / ремонт",
+    optAlter: "Подгонка или ремонт",
     optClean: "Химчистка",
-    sendWhatsapp: "Продолжить в WhatsApp",
-    orCall: "Или позвони"
+    optOther: "Другой вопрос",
+    message: "Короткий комментарий",
+    messagePlaceholder: "Что хочешь примерить или какая работа нужна?",
+    consent: "Согласна, что указанные данные будут использованы для связи по моей заявке.",
+    continueWhatsapp: "Продолжить в WhatsApp",
+    visitUs: "Приехать в салон",
+    mapText: "Салон находится на 2-м этаже. Вход — справа от угла здания, со стороны улицы Кришьяня Барона.",
+    openMap: "Открыть Google Maps"
   },
   en: {
-    metaTitle: "CATRIN — Wedding dresses and dressmaking in Jelgava",
-    metaDescription: "CATRIN bridal salon in Jelgava: wedding dresses, bespoke and photo-based dressmaking, alterations, repairs, dry cleaning and bridal accessories.",
     skip: "Skip to content",
-    wordmarkSmall: "BRIDAL SALON · JELGAVA",
-    navAtelier: "About the salon",
+    brandSub: "BRIDAL SALON · JELGAVA",
+    navHome: "Home",
+    navDresses: "Dresses",
     navServices: "Services",
-    navFitting: "Fitting",
+    navSalon: "Salon",
     navContact: "Contact",
-    menu: "Menu",
-    close: "Close",
-    heroOverline: "Bridal salon and sewing studio · since 2011",
-    heroLine1: "Wedding dresses",
-    heroLine2: "and dressmaking in Jelgava",
-    heroLead: "Try ready-made gowns, order a dress made to your measurements or show us a photograph of the design you have in mind. We can help with the choice, alterations and finishing details.",
-    bookFitting: "Book a fitting",
-    discover: "About the salon",
-    addressLabel: "Salon",
-    hoursLabel: "Opening hours",
-    hoursShort: "Mon–Fri 13–18 · Sat 12–17",
-    manifestoSmall: "About CATRIN",
-    manifestoTitle: "A fitting begins with a conversation.",
-    manifestoText: "We first discuss what you are looking for and the kind of wedding the dress is for. Then we compare several cuts, look at the fit and explain what can be changed. You are welcome to bring saved images or arrive without a fixed idea.",
-    factYear: "working in Jelgava",
-    factCareValue: "By appointment",
-    factCare: "time for an unhurried fitting",
-    factLang: "languages spoken",
-    editorialLabel: "SALON / STUDIO / CARE",
-    editorialText: "If you find the right gown in the salon, we can adjust its length and fit. If you need a different solution, we can make a new dress from your idea, photograph and measurements.",
-    servicesTitle: "Wedding dresses, dressmaking and care",
-    servicesIntro: "We work with wedding dresses from the first idea to the finished result. Before starting, we discuss the options, timing and fittings required.",
-    s1Title: "Wedding dresses",
-    s1Text: "Try gowns in a range of cuts. We help you assess not only the look, but also comfort and any alterations that may be useful.",
-    s2Title: "Bespoke dressmaking",
-    s2Text: "We develop the design, select the fabric and make the dress to your measurements, with fittings planned along the way.",
-    s3Title: "Made from a photograph",
-    s3Text: "We assess how to adapt the chosen design to your figure and fabric, then agree every detail before sewing begins.",
-    s4Title: "Alterations and repairs",
-    s4Text: "We shorten, take in, adjust the fit and carefully restore dress details. The scope is assessed after we inspect the gown.",
-    s5Title: "Wedding dress dry cleaning",
-    s5Text: "We accept dresses for cleaning before the wedding or after the celebration. Before cleaning, we assess the fabric, embellishments and condition of the gown, then agree the timing.",
-    s6Title: "Bridal accessories",
-    s6Text: "Choose a veil, belt, jewellery and petticoat with the dress so you can see the complete look at once.",
-    fittingTitle: "A fitting at the salon",
-    fittingIntro: "Please book in advance so we can prepare for your visit and give you our full attention.",
-    step1Title: "Suggest a convenient time",
-    step1Text: "Complete the form, message us on WhatsApp or call. We will confirm the time and ask what you would like to try.",
-    step2Title: "Compare options at the salon",
-    step2Text: "You may bring saved images, but it is not required. During the fitting, we can see which cuts and fabrics work best.",
-    step3Title: "Agree the next steps",
-    step3Text: "If the gown needs altering or making, we will discuss the work, timing and further fittings.",
-    bookVisit: "Book a visit",
-    socialTitle: "New arrivals and dress details",
-    socialText: "On Instagram we share new arrivals, close-up dress details and work from the sewing studio. Please ask about a specific gown before visiting.",
-    contactLine1: "Book",
-    contactLine2: "a fitting",
-    contactLead: "Choose the easiest way to reach us. We will reply, clarify what you need and agree a time for your visit.",
-    contactUs: "Contact",
-    visitUs: "Visit",
-    workingHours: "Opening hours",
-    hoursFull: "Monday–Friday 13:00–18:00\nSaturday 12:00–17:00\nSunday — closed",
-    privacy: "Privacy policy",
-    call: "Call",
+    book: "Book a fitting",
     bookShort: "Book",
-    bookingLabel: "BOOKING",
-    bookingTitle: "Book a fitting",
-    bookingIntro: "Add your contact details, preferred day and the service you need. The form will prepare a WhatsApp message; we will confirm the exact time in our conversation.",
+    bookVisit: "Book a visit",
+    menu: "Menu",
+    call: "Call",
+    privacy: "Privacy policy",
+    location: "Location",
+    hours: "Opening hours",
+    hoursShort: "Mon–Fri 13–18 · Sat 12–17",
+    hoursFull: "Monday–Friday 13:00–18:00<br>Saturday 12:00–17:00<br>Sunday — closed",
+
+    homeEyebrow: "Bridal salon and sewing studio · since 2011",
+    homeTitle: "Wedding dresses and dressmaking in Jelgava",
+    homeIntro: "At the salon you can try ready-made wedding dresses, order one to your measurements or bring in a gown you have already bought for alterations. We first clarify what you need and only then suggest a solution.",
+    seeDresses: "View dresses",
+    routeEyebrow: "First step",
+    routeTitle: "Where shall we begin?",
+    routeIntro: "Choose the situation that fits you now. We will show you a practical next step.",
+    routeFind: "I am looking for a dress",
+    routeSew: "I want a dress made",
+    routeAlter: "I already have a dress",
+    routeFindText: "Book a fitting. Before your visit we will ask about your preferences, then compare several silhouettes at the salon.",
+    routeSewText: "Show us saved photographs or describe your idea. We will discuss the design, fabric, timing and fittings required.",
+    routeAlterText: "Bring the gown in for an assessment. We will check the fit and details, then agree the scope and timing.",
+    routeBook: "Book a fitting",
+    routeDiscuss: "Discuss dressmaking",
+    routeInspect: "Book a dress assessment",
+    workEyebrow: "Salon and studio in one place",
+    workTitle: "Find a dress at the salon, alter it or have one made from scratch.",
+    workText: "At a fitting we consider comfort and fit as well as appearance. Any necessary changes can be completed in our sewing studio.",
+    aboutSalon: "How a fitting works",
+    servicesEyebrow: "What we do",
+    servicesHomeTitle: "Everything needed for work on a wedding dress",
+    pathDressesLabel: "At the salon",
+    pathDressesTitle: "Wedding dresses and accessories",
+    pathDressesText: "Try different silhouettes and choose details for a complete look.",
+    pathSewLabel: "At the studio",
+    pathSewTitle: "Bespoke and photo-based dressmaking",
+    pathSewText: "We adapt the design to your figure, chosen fabric and idea.",
+    pathCareLabel: "Before and after the wedding",
+    pathCareTitle: "Alterations, repairs and dry cleaning",
+    pathCareText: "We assess the gown, discuss what is needed and agree the scope.",
+    allServices: "All services",
+    lookEyebrow: "Dress selection",
+    lookTitle: "Explore silhouettes and details before your visit.",
+    lookText: "The selection at the salon changes. Please ask about a particular gown when booking.",
+    openLookbook: "Open the selection",
+    contactEyebrow: "Fittings by appointment",
+    contactRibbonTitle: "Suggest a suitable day. We will confirm the exact time by message.",
+
+    dressesEyebrow: "Dress selection",
+    dressesTitle: "Wedding dresses at the salon",
+    dressesLead: "During a fitting we compare silhouettes, fabrics and details. The selection changes, so please ask about a particular gown before visiting.",
+    dressesCaption: "CATRIN · wedding dresses in Jelgava",
+    lookbookEyebrow: "Explore before visiting",
+    lookbookTitle: "Different silhouettes, fabrics and finishes",
+    lookbookIntro: "Photographs help define a direction, but the final choice is best made during a fitting, when you can see how the dress fits and moves.",
+    detailVolume: "Full silhouette with light tulle volume",
+    detailLace: "Lace texture and a clean waistline",
+    detailBack: "Open back with delicate finishing",
+    detailSoft: "Soft colour and corset structure",
+    detailSleeves: "Sleeves with a classic silhouette",
+    detailBlush: "Powder tone and decorative detail",
+    detailClassic: "Classic shape with defined lace",
+    detailTrain: "Flowing skirt line and long hem",
+    accessoriesEyebrow: "For the complete look",
+    accessoriesTitle: "Accessories are selected with the dress",
+    accessoriesText: "Try a veil, belt, jewellery and petticoat with the chosen dress. This makes it easier to assess proportions and the complete look.",
+    dressesCtaEyebrow: "A dress is best assessed during a fitting",
+    dressesCtaTitle: "Book a visit and tell us what you are looking for before you arrive.",
+
+    servicesPageEyebrow: "Services",
+    servicesPageTitle: "Dressmaking, alterations and gown care",
+    servicesPageLead: "Before starting, we assess the dress or discuss the idea, clarify the options, timing and fittings required. This gives you a clear scope and next step.",
+    servicesCaption: "CATRIN · sewing studio",
+    createEyebrow: "When choosing or creating a dress",
+    createTitle: "Selection and dressmaking",
+    serviceDressTitle: "Wedding dresses",
+    serviceDressText: "Try gowns in different cuts at the salon. We help you assess fit, comfort and the alterations possible for each dress.",
+    seeSelection: "View the selection",
+    serviceCustomTitle: "Bespoke dressmaking",
+    serviceCustomText: "We develop the design, select the fabric and make the dress to your measurements. Fittings are planned along the way to refine the fit.",
+    discussIdea: "Discuss your idea",
+    servicePhotoTitle: "Made from a photograph",
+    servicePhotoText: "We assess how to adapt the photographed design to your figure and available fabrics. Construction, details and timing are agreed before sewing.",
+    showPhoto: "Show us your idea",
+    finishEyebrow: "When the dress is already chosen",
+    finishTitle: "Alterations and care",
+    serviceAlterTitle: "Alterations and repairs",
+    serviceAlterText: "We shorten gowns, take them in, adjust fit and details, and complete careful repairs. The exact scope is set after assessing the dress.",
+    bringDress: "Book a dress assessment",
+    serviceCleanTitle: "Wedding dress dry cleaning",
+    serviceCleanText: "We accept gowns for cleaning before or after the wedding. We first assess the fabric, embellishments and condition, then agree feasibility and timing.",
+    askCleaning: "Ask about cleaning",
+    serviceAccessoryTitle: "Bridal accessories",
+    serviceAccessoryText: "Choose a veil, belt, jewellery and petticoat with the dress. Trying everything together makes proportions and the complete look easier to judge.",
+    timingEyebrow: "Timing",
+    timingTitle: "Contact us as soon as you know what work is needed.",
+    timingText: "Dressmaking and complex alterations require several fittings. Availability and timing are always confirmed individually.",
+    contactUs: "Contact the salon",
+
+    salonEyebrow: "About CATRIN",
+    salonTitle: "Bridal salon and sewing studio in Jelgava",
+    salonLead: "CATRIN has worked in Jelgava since 2011. You can try wedding dresses at the salon and have a new gown made or an existing one altered at the studio.",
+    salonCaption: "CATRIN · Jelgava · since 2011",
+    visitEyebrow: "Your visit",
+    visitTitle: "A fitting begins with a conversation",
+    visitIntro: "You do not need to know the exact design in advance. Tell us about the wedding, your general idea and anything you definitely do not want.",
+    visitTalkTitle: "Clarify what you need",
+    visitTalkText: "We discuss style, size, wedding date and whether you need a ready-made gown, bespoke dressmaking or alterations.",
+    visitTryTitle: "Compare silhouettes",
+    visitTryText: "Try several options and assess how they look, fit and feel in motion.",
+    visitPlanTitle: "Agree the next steps",
+    visitPlanText: "If dressmaking or alterations are needed, we discuss the scope, timing and further fittings.",
+    bringEyebrow: "If useful",
+    bringTitle: "What you can bring",
+    bringText: "Saved dress images, shoes with a similar heel height and the underwear you plan to wear. If you do not have these yet, you can still come without preparation.",
+    factSinceLabel: "Working in Jelgava",
+    factSinceValue: "Since 2011",
+    factVisitLabel: "Fittings",
+    factVisitValue: "By prior appointment",
+    factLanguagesLabel: "Languages spoken",
+    factAddressLabel: "Salon address",
+    salonCtaEyebrow: "We prepare for your visit",
+    salonCtaTitle: "When booking, briefly tell us what you are looking for or what work is needed.",
+
+    contactPageEyebrow: "CATRIN · Jelgava",
+    contactPageTitle: "Booking and contact",
+    contactPageLead: "Complete the short form, message us on WhatsApp or call. We will confirm the exact time by message.",
+    phoneLabel: "Phone and WhatsApp",
+    addressLabel: "Salon address",
+    bookingEyebrow: "Request",
+    bookingTitle: "Suggest a suitable day for your visit",
+    bookingIntro: "The form prepares a WhatsApp message. The details you enter are not stored on this website.",
+    bookingNote: "For alterations, repairs or cleaning, you can also attach a photograph of the dress to your message.",
     name: "Name",
     phone: "Phone",
     date: "Preferred day",
-    interest: "Interested in",
+    interest: "What you need",
     optFitting: "Dress fitting",
     optCustom: "Bespoke dressmaking",
     optPhoto: "Made from a photograph",
-    optAlter: "Alterations / repairs",
+    optAlter: "Alterations or repairs",
     optClean: "Dry cleaning",
-    sendWhatsapp: "Continue in WhatsApp",
-    orCall: "Or call"
+    optOther: "Another question",
+    message: "Short note",
+    messagePlaceholder: "What would you like to try or what work is needed?",
+    consent: "I agree that these details may be used to contact me about this request.",
+    continueWhatsapp: "Continue in WhatsApp",
+    visitUs: "Visit the salon",
+    mapText: "The salon is on the 2nd floor. The entrance is to the right of the building corner, from Krišjāņa Barona Street.",
+    openMap: "Open Google Maps"
   }
 };
 
-const storedLanguage = () => {
+const metadata = {
+  ru: {
+    home: ["CATRIN — Свадебные платья и пошив в Елгаве", "Свадебный салон CATRIN в Елгаве: свадебные платья, индивидуальный пошив, пошив по фото, подгонка, ремонт и химчистка."],
+    dresses: ["Свадебные платья в Елгаве — CATRIN", "Подборка свадебных платьев и примерка в салоне CATRIN в Елгаве."],
+    services: ["Пошив и подгонка свадебных платьев — CATRIN", "Индивидуальный пошив, пошив по фото, подгонка, ремонт и химчистка свадебных платьев в Елгаве."],
+    salon: ["О свадебном салоне CATRIN в Елгаве", "CATRIN — свадебный салон и швейная мастерская в Елгаве с 2011 года."],
+    contact: ["Запись и контакты — CATRIN Елгава", "Запись на примерку свадебного платья в салоне CATRIN в Елгаве."]
+  },
+  en: {
+    home: ["CATRIN — Wedding dresses and dressmaking in Jelgava", "CATRIN bridal salon in Jelgava: wedding dresses, bespoke and photo-based dressmaking, alterations, repairs and dry cleaning."],
+    dresses: ["Wedding dresses in Jelgava — CATRIN", "Wedding dress selection and fittings at the CATRIN bridal salon in Jelgava."],
+    services: ["Wedding dressmaking and alterations — CATRIN", "Bespoke and photo-based dressmaking, alterations, repairs and wedding dress dry cleaning in Jelgava."],
+    salon: ["About the CATRIN bridal salon in Jelgava", "CATRIN bridal salon and sewing studio in Jelgava, working since 2011."],
+    contact: ["Booking and contact — CATRIN Jelgava", "Book a wedding dress fitting at the CATRIN bridal salon in Jelgava."]
+  }
+};
+
+const page = document.body.dataset.page || "home";
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const initialText = {};
+const initialPlaceholders = {};
+const initialMeta = {
+  title: document.title,
+  description: document.querySelector('meta[name="description"]')?.content || ""
+};
+
+document.querySelectorAll("[data-t]").forEach((element) => {
+  const key = element.dataset.t;
+  if (!(key in initialText)) initialText[key] = element.innerHTML;
+});
+
+document.querySelectorAll("[data-t-placeholder]").forEach((element) => {
+  initialPlaceholders[element.dataset.tPlaceholder] = element.placeholder;
+});
+
+Object.assign(initialText, {
+  routeSewText: "Parādi saglabātos attēlus vai izstāsti ieceri. Pārrunāsim modeli, audumu, termiņu un nepieciešamās pielaikošanas.",
+  routeAlterText: "Atnes kleitu apskatei. Pārbaudīsim piegulumu un detaļas, pēc tam vienosimies par darba apjomu un termiņu.",
+  routeDiscuss: "Pārrunāt šūšanu",
+  routeInspect: "Pieteikt kleitas apskati"
+});
+
+function storedLanguage() {
   try {
     return localStorage.getItem("catrin-lang");
   } catch {
     return null;
   }
-};
+}
 
-let lang = new URLSearchParams(location.search).get("lang") || storedLanguage() || "lv";
-if (!copy[lang]) lang = "lv";
+let language = new URLSearchParams(location.search).get("lang") || storedLanguage() || "lv";
+if (!["lv", "ru", "en"].includes(language)) language = "lv";
 
-function translate(next) {
-  lang = copy[next] ? next : "lv";
-  const current = copy[lang];
+function valueFor(key) {
+  if (language === "lv") return initialText[key];
+  return copy[language]?.[key] ?? initialText[key];
+}
 
-  document.documentElement.lang = lang;
-  document.title = current.metaTitle;
-  document.querySelector('meta[name="description"]').content = current.metaDescription;
-  document.querySelector('meta[property="og:description"]').content = current.metaDescription;
+function translate(nextLanguage, updateAddress = true) {
+  language = ["lv", "ru", "en"].includes(nextLanguage) ? nextLanguage : "lv";
+  document.documentElement.lang = language;
 
   document.querySelectorAll("[data-t]").forEach((element) => {
-    const value = current[element.dataset.t];
-    if (value !== undefined) element.textContent = value;
+    const value = valueFor(element.dataset.t);
+    if (value !== undefined) element.innerHTML = value;
   });
 
-  document.querySelectorAll("[data-t-aria]").forEach((element) => {
-    const value = current[element.dataset.tAria];
-    if (value !== undefined) element.setAttribute("aria-label", value);
+  document.querySelectorAll("[data-t-placeholder]").forEach((element) => {
+    const key = element.dataset.tPlaceholder;
+    element.placeholder = language === "lv" ? initialPlaceholders[key] : copy[language]?.[key] ?? initialPlaceholders[key];
   });
 
   document.querySelectorAll("[data-lang]").forEach((button) => {
-    const active = button.dataset.lang === lang;
-    button.classList.toggle("active", active);
+    const active = button.dataset.lang === language;
     button.setAttribute("aria-pressed", String(active));
   });
 
+  const translatedMeta = metadata[language]?.[page];
+  document.title = translatedMeta?.[0] || initialMeta.title;
+  const description = document.querySelector('meta[name="description"]');
+  if (description) description.content = translatedMeta?.[1] || initialMeta.description;
+
   try {
-    localStorage.setItem("catrin-lang", lang);
+    localStorage.setItem("catrin-lang", language);
   } catch {
-    /* The selected language still works for the current visit. */
+    // The current page still remains translated.
   }
 
-  const url = new URL(location.href);
-  if (lang === "lv") url.searchParams.delete("lang");
-  else url.searchParams.set("lang", lang);
-  history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  if (updateAddress) {
+    const url = new URL(location.href);
+    if (language === "lv") url.searchParams.delete("lang");
+    else url.searchParams.set("lang", language);
+    history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  }
+
+  updateLocalLinks();
+  updateRouteAnswer(document.querySelector("[data-route][aria-selected='true']")?.dataset.route || "find", false);
 }
 
-translate(lang);
+function updateLocalLinks() {
+  document.querySelectorAll("a[data-local-link]").forEach((link) => {
+    const raw = link.getAttribute("href");
+    if (!raw || raw.startsWith("#") || raw.startsWith("tel:") || raw.startsWith("mailto:")) return;
+    const url = new URL(raw, location.href);
+    if (language === "lv") url.searchParams.delete("lang");
+    else url.searchParams.set("lang", language);
+    link.href = url.href;
+  });
+}
 
 document.querySelectorAll("[data-lang]").forEach((button) => {
   button.addEventListener("click", () => translate(button.dataset.lang));
 });
 
-const header = document.querySelector("[data-header]");
-const progress = document.querySelector("[data-progress]");
-const parallaxImages = [...document.querySelectorAll("[data-parallax] img")];
-const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-let scrollFrame = 0;
+document.querySelector(`[data-page-link="${page}"]`)?.setAttribute("aria-current", "page");
 
-function updateMotion() {
-  scrollFrame = 0;
-  header.classList.toggle("scrolled", scrollY > 30);
+const menuButton = document.querySelector("[data-menu-button]");
+const navigation = document.querySelector("[data-nav]");
 
-  const scrollable = document.documentElement.scrollHeight - innerHeight;
-  const amount = scrollable > 0 ? Math.min(scrollY / scrollable, 1) : 0;
-  progress.style.transform = `scaleX(${amount})`;
+function closeMenu() {
+  if (!menuButton || !navigation) return;
+  menuButton.setAttribute("aria-expanded", "false");
+  navigation.classList.remove("is-open");
+  document.body.classList.remove("nav-open");
+}
 
-  if (!reducedMotion.matches) {
-    parallaxImages.forEach((image) => {
-      const bounds = image.parentElement.getBoundingClientRect();
-      if (bounds.bottom > 0 && bounds.top < innerHeight) {
-        const offset = (bounds.top + bounds.height / 2 - innerHeight / 2) * -0.035;
-        image.style.setProperty("--parallax-y", `${offset}px`);
-      }
-    });
+menuButton?.addEventListener("click", () => {
+  const open = menuButton.getAttribute("aria-expanded") !== "true";
+  menuButton.setAttribute("aria-expanded", String(open));
+  navigation.classList.toggle("is-open", open);
+  document.body.classList.toggle("nav-open", open);
+});
+
+navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeMenu();
+});
+
+const routeContent = {
+  find: {
+    text: "routeFindText",
+    cta: "routeBook",
+    href: "kontakti.html#pieraksts"
+  },
+  sew: {
+    text: "routeSewText",
+    cta: "routeDiscuss",
+    href: "kontakti.html#pieraksts"
+  },
+  alter: {
+    text: "routeAlterText",
+    cta: "routeInspect",
+    href: "kontakti.html#pieraksts"
+  }
+};
+
+function updateRouteAnswer(route, animate = true) {
+  const finder = document.querySelector("[data-route-finder]");
+  if (!finder || !routeContent[route]) return;
+  const answer = finder.querySelector(".route-answer");
+  const text = finder.querySelector("[data-route-copy]");
+  const cta = finder.querySelector("[data-route-cta]");
+  const link = finder.querySelector("[data-route-link]");
+
+  const apply = () => {
+    text.innerHTML = valueFor(routeContent[route].text);
+    cta.innerHTML = valueFor(routeContent[route].cta);
+    link.setAttribute("href", routeContent[route].href);
+    updateLocalLinks();
+    answer.classList.remove("is-changing");
+  };
+
+  if (animate && !reducedMotion.matches) {
+    answer.classList.add("is-changing");
+    window.setTimeout(apply, 180);
+  } else {
+    apply();
   }
 }
 
-function requestMotionUpdate() {
-  if (!scrollFrame) scrollFrame = requestAnimationFrame(updateMotion);
-}
+translate(language, false);
 
-addEventListener("scroll", requestMotionUpdate, { passive: true });
-addEventListener("resize", requestMotionUpdate, { passive: true });
-updateMotion();
-
-const toggle = document.querySelector("[data-nav-toggle]");
-const nav = document.querySelector("[data-nav]");
-
-function closeNavigation() {
-  nav.classList.remove("open");
-  toggle.setAttribute("aria-expanded", "false");
-}
-
-toggle.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  toggle.setAttribute("aria-expanded", String(open));
-});
-
-nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNavigation));
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeNavigation();
-});
-
-document.querySelectorAll(".service").forEach((element, index) => {
-  element.style.setProperty("--reveal-delay", `${index * 55}ms`);
-
-  element.addEventListener(
-    "pointermove",
-    (event) => {
-      if (reducedMotion.matches) return;
-      const bounds = element.getBoundingClientRect();
-      element.style.setProperty("--spot-x", `${((event.clientX - bounds.left) / bounds.width) * 100}%`);
-      element.style.setProperty("--spot-y", `${((event.clientY - bounds.top) / bounds.height) * 100}%`);
-    },
-    { passive: true }
-  );
-
-  element.addEventListener("pointerleave", () => {
-    element.style.removeProperty("--spot-x");
-    element.style.removeProperty("--spot-y");
-  });
-});
-
-document.querySelectorAll(".fitting li").forEach((element, index) => {
-  element.style.setProperty("--reveal-delay", `${index * 85}ms`);
-});
-
-if ("IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -4% 0px" }
-  );
-
-  document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
-} else {
-  document.querySelectorAll(".reveal").forEach((element) => element.classList.add("visible"));
-}
-
-if (!reducedMotion.matches) {
-  const glow = document.querySelector(".cursor-glow");
-  let pointerFrame = 0;
-  let pointerX = innerWidth / 2;
-  let pointerY = innerHeight / 2;
-
-  addEventListener(
-    "pointermove",
-    (event) => {
-      pointerX = event.clientX;
-      pointerY = event.clientY;
-      if (!pointerFrame) {
-        pointerFrame = requestAnimationFrame(() => {
-          pointerFrame = 0;
-          glow.style.transform = `translate3d(${pointerX}px, ${pointerY}px, 0) translate(-50%, -50%)`;
-        });
-      }
-    },
-    { passive: true }
-  );
-}
-
-const modal = document.querySelector("[data-modal]");
-const closeButton = document.querySelector("[data-close]");
-const bookingButtons = document.querySelectorAll("[data-book]");
-const dateInput = document.querySelector('input[name="date"]');
-let modalOpener = null;
-
-dateInput.min = new Date().toISOString().slice(0, 10);
-
-bookingButtons.forEach((button) => {
+document.querySelectorAll("[data-route]").forEach((button) => {
   button.addEventListener("click", () => {
-    modalOpener = button;
-    if (typeof modal.showModal === "function") modal.showModal();
-    else modal.setAttribute("open", "");
-    document.body.classList.add("modal-open");
+    document.querySelectorAll("[data-route]").forEach((item) => item.setAttribute("aria-selected", String(item === button)));
+    updateRouteAnswer(button.dataset.route);
   });
 });
 
-function closeModal() {
-  if (typeof modal.close === "function") modal.close();
-  else modal.removeAttribute("open");
-  document.body.classList.remove("modal-open");
-  modalOpener?.focus();
+const gallery = document.querySelector("[data-gallery]");
+if (gallery) {
+  const slides = [...gallery.querySelectorAll(".hero-images figure")];
+  const controls = [...gallery.querySelectorAll("[data-slide]")];
+  let currentSlide = 0;
+  let galleryTimer = 0;
+
+  function showSlide(index) {
+    currentSlide = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => slide.classList.toggle("is-active", slideIndex === currentSlide));
+    controls.forEach((control, controlIndex) => {
+      const active = controlIndex === currentSlide;
+      control.classList.toggle("is-active", active);
+      control.setAttribute("aria-pressed", String(active));
+    });
+  }
+
+  function stopGallery() {
+    window.clearInterval(galleryTimer);
+  }
+
+  function startGallery() {
+    stopGallery();
+    if (!reducedMotion.matches) galleryTimer = window.setInterval(() => showSlide(currentSlide + 1), 5600);
+  }
+
+  controls.forEach((control) => {
+    control.addEventListener("click", () => {
+      showSlide(Number(control.dataset.slide));
+      startGallery();
+    });
+  });
+
+  gallery.addEventListener("pointerenter", stopGallery);
+  gallery.addEventListener("pointerleave", startGallery);
+  gallery.addEventListener("focusin", stopGallery);
+  gallery.addEventListener("focusout", startGallery);
+  showSlide(0);
+  startGallery();
 }
 
-closeButton.addEventListener("click", closeModal);
-modal.addEventListener("close", () => document.body.classList.remove("modal-open"));
-modal.addEventListener("click", (event) => {
-  if (event.target === modal) closeModal();
+if ("IntersectionObserver" in window && !reducedMotion.matches) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -5% 0px" });
+
+  document.querySelectorAll(".reveal").forEach((element, index) => {
+    element.style.transitionDelay = `${Math.min(index % 3, 2) * 70}ms`;
+    revealObserver.observe(element);
+  });
+} else {
+  document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
+}
+
+const bookingForm = document.querySelector("[data-booking-form]");
+if (bookingForm) {
+  const dateField = bookingForm.querySelector('input[name="date"]');
+  dateField.min = new Date().toISOString().slice(0, 10);
+
+  bookingForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(bookingForm);
+    const interest = bookingForm.querySelector('select[name="interest"]').selectedOptions[0].textContent.trim();
+    const opening = {
+      lv: "Sveiki! Vēlos pieteikties CATRIN.",
+      ru: "Здравствуйте! Хочу записаться в CATRIN.",
+      en: "Hello! I would like to book with CATRIN."
+    };
+    const labels = {
+      lv: { name: "Vārds", phone: "Tālrunis", date: "Vēlamā diena", interest: "Interesē", message: "Komentārs" },
+      ru: { name: "Имя", phone: "Телефон", date: "Желаемый день", interest: "Интересует", message: "Комментарий" },
+      en: { name: "Name", phone: "Phone", date: "Preferred day", interest: "Interested in", message: "Note" }
+    }[language];
+
+    const message = [
+      opening[language],
+      `${labels.name}: ${data.get("name")}`,
+      `${labels.phone}: ${data.get("phone")}`,
+      `${labels.date}: ${data.get("date") || "—"}`,
+      `${labels.interest}: ${interest}`,
+      data.get("message") ? `${labels.message}: ${data.get("message")}` : ""
+    ].filter(Boolean).join("\n");
+
+    window.open(`https://wa.me/37127164000?text=${encodeURIComponent(message)}`, "_blank", "noopener");
+  });
+}
+
+document.querySelectorAll("[data-year]").forEach((element) => {
+  element.textContent = new Date().getFullYear();
 });
 
-document.querySelector("[data-form]").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const data = new FormData(event.currentTarget);
-  const opening = {
-    lv: "Sveiki! Vēlos pieteikties CATRIN.",
-    ru: "Здравствуйте! Хочу записаться в CATRIN.",
-    en: "Hello! I would like to book with CATRIN."
-  };
-  const message = [
-    opening[lang],
-    `${copy[lang].name}: ${data.get("name")}`,
-    `${copy[lang].phone}: ${data.get("phone")}`,
-    `${copy[lang].date}: ${data.get("date") || "—"}`,
-    `${copy[lang].interest}: ${data.get("interest")}`
-  ].join("\n");
-
-  window.open(
-    `https://wa.me/37127164000?text=${encodeURIComponent(message)}`,
-    "_blank",
-    "noopener"
-  );
-});
-
-document.querySelector("[data-year]").textContent = new Date().getFullYear();
+requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("is-ready")));
