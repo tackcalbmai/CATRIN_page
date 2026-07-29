@@ -17,7 +17,7 @@
   <meta property="og:description" content="Piesaki pielaikošanu CATRIN kāzu salonā un izveido maršrutu uz salonu.">
   <meta property="og:image" content="https://tackcalbmai.github.io/CATRIN_page/assets/dress-back.jpg">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260729-7">
+  <link rel="stylesheet" href="styles.css?v=20260729-8">
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-page="contact">
@@ -39,9 +39,24 @@
         <p class="page-lead reveal" data-t="contactPageLead">Aizpildi formu, uzraksti WhatsApp vai piezvani.</p>
       </div>
       <div class="contact-cards reveal">
-        <div><span data-t="phoneLabel">Tālrunis un WhatsApp</span><a href="tel:+37127164000">+371 27 164 000</a><a href="https://wa.me/37127164000" target="_blank" rel="noopener">WhatsApp</a></div>
-        <div><span data-t="addressLabel">Salona adrese</span><a href="https://www.google.com/maps/search/?api=1&query=Kri%C5%A1j%C4%81%C5%86a+Barona+iela+40+Jelgava" target="_blank" rel="noopener">Krišjāņa Barona iela 40<br>Jelgava, LV-3001</a></div>
-        <div><span data-t="hours">Darba laiks</span><p data-t="hoursFull">Pirmdiena–piektdiena 13.00–18.00<br>Sestdiena 12.00–17.00<br>Svētdiena — slēgts</p></div>
+        <div class="contact-card contact-card-phone">
+          <span data-t="phoneLabel">Tālrunis</span>
+          <a class="contact-number" href="tel:+37127164000">+371 27 164 000</a>
+          <div class="contact-channels" aria-label="Saziņas kanāli">
+            <a class="contact-channel" href="https://wa.me/37127164000" target="_blank" rel="noopener" aria-label="Rakstīt WhatsApp"><img src="assets/icon-whatsapp.svg" alt="" width="19" height="19"><b>WhatsApp</b></a>
+            <a class="contact-channel" href="https://www.facebook.com/catrinJelgava/" target="_blank" rel="noopener" aria-label="Atvērt CATRIN Facebook"><img src="assets/icon-facebook.svg" alt="" width="19" height="19"><b>Facebook</b></a>
+            <a class="contact-channel" href="https://www.instagram.com/catrin_bridal/" target="_blank" rel="noopener" aria-label="Atvērt CATRIN Instagram"><img src="assets/icon-instagram.svg" alt="" width="19" height="19"><b>Instagram</b></a>
+          </div>
+        </div>
+        <div class="contact-card contact-card-address">
+          <span data-t="addressLabel">Salona adrese</span>
+          <a class="contact-address" href="https://www.google.com/maps/search/?api=1&amp;query=Kri%C5%A1j%C4%81%C5%86a+Barona+iela+40+Jelgava" target="_blank" rel="noopener">Krišjāņa Barona iela 40<br>Jelgava, LV-3001</a>
+          <div class="contact-routes">
+            <a class="contact-route" href="https://www.google.com/maps/dir/?api=1&amp;destination=Kri%C5%A1j%C4%81%C5%86a%20Barona%20iela%2040%2C%20Jelgava%2C%20LV-3001" target="_blank" rel="noopener"><img src="assets/icon-google-maps.svg" alt="" width="18" height="18"><b>Google Maps</b></a>
+            <a class="contact-route" href="https://waze.com/ul?q=Kri%C5%A1j%C4%81%C5%86a%20Barona%20iela%2040%2C%20Jelgava&amp;navigate=yes" target="_blank" rel="noopener"><img src="assets/icon-waze.svg" alt="" width="18" height="18"><b>Waze</b></a>
+          </div>
+        </div>
+        <div class="contact-card contact-card-hours"><span data-t="hours">Darba laiks</span><p data-t="hoursFull">Pirmdiena–piektdiena 13.00–18.00<br>Sestdiena 12.00–17.00<br>Svētdiena — slēgts</p></div>
       </div>
       <svg class="contact-hero-thread" viewBox="0 0 900 220" fill="none" aria-hidden="true"><path d="M-10 164C126 19 260 221 427 85C553-17 696 13 926 55"/><path d="M652 57C682 7 746 13 750 61C753 95 700 103 652 57Z"/></svg>
     </section>
@@ -70,7 +85,7 @@
         <label class="file-field full-field">
           <span data-t="photo">Fotogrāfija <small>(nav obligāti)</small></span>
           <input name="photo" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif">
-          <small class="file-help" data-file-name data-t="photoHint">Mobilajā telefonā attēlu varēsi nosūtīt kopā ar pieteikumu.</small>
+          <small class="file-help" data-file-name data-t="photoHint">Pēc WhatsApp atvēršanas pievieno fotogrāfiju sarakstē.</small>
         </label>
         <label class="consent full-field"><input type="checkbox" required><span data-t="consent">Piekrītu, ka norādītie dati tiek izmantoti, lai atbildētu uz manu pieteikumu.</span></label>
         <button class="button button-primary full-field" type="submit" data-t="continueWhatsapp">Turpināt WhatsApp</button>
@@ -83,10 +98,6 @@
         <p class="eyebrow" data-t="visitUs">Apmeklēt salonu</p>
         <h2>Krišjāņa Barona iela 40, Jelgava</h2>
         <p data-t="mapText">Pirms brauciena piesaki vizīti.</p>
-        <div class="map-actions">
-          <a class="button button-light button-with-icon" href="https://www.google.com/maps/dir/?api=1&amp;destination=Kri%C5%A1j%C4%81%C5%86a%20Barona%20iela%2040%2C%20Jelgava%2C%20LV-3001" target="_blank" rel="noopener"><img src="assets/icon-google-maps.svg" alt="" width="21" height="21"><span data-t="routeGoogle">Maršruts Google Maps</span></a>
-          <a class="button button-outline-light button-with-icon" href="https://waze.com/ul?q=Kri%C5%A1j%C4%81%C5%86a%20Barona%20iela%2040%2C%20Jelgava&amp;navigate=yes" target="_blank" rel="noopener"><img src="assets/icon-waze.svg" alt="" width="21" height="21"><span data-t="routeWaze">Atvērt Waze</span></a>
-        </div>
       </div>
       <div class="map-frame reveal">
         <iframe
@@ -106,6 +117,6 @@
     <div class="footer-legal"><span>© <span data-year></span> SIA CATRIN · Reģ. Nr. 43603051076</span><a href="privacy.html" data-local-link data-t="privacy">Privātuma politika</a></div>
   </footer>
   <div class="mobile-actions"><a href="tel:+37127164000" data-t="call">Zvanīt</a><a href="#pieraksts" data-t="bookShort">Pieteikties</a></div>
-  <script src="script.js?v=20260729-4"></script>
+  <script src="script.js?v=20260729-5"></script>
 </body>
 </html>
