@@ -7,4 +7,4 @@ The dress photographs are CATRIN materials already publicly associated with the 
 
 Files are served locally to avoid third-party hotlinks. `catrin-mark.svg` is the site’s custom thread-and-petal mark.
 
-Brand interface icons (`icon-google.svg`, `icon-facebook.svg`, `icon-instagram.svg`, `icon-google-maps.svg`, `icon-waze.svg`) use Simple Icons 16.27.1 paths under the CC0 1.0 license: https://simpleicons.org/
+Brand interface icons (`icon-google.svg`, `icon-facebook.svg`, `icon-instagram.svg`, `icon-whatsapp.svg`, `icon-google-maps.svg`, `icon-waze.svg`) use Simple Icons 16.27.1 paths under the CC0 1.0 license: https://simpleicons.org/
