@@ -1,6 +1,6 @@
 # CATRIN
 
-Multilingual website for the CATRIN bridal salon and sewing studio, serving brides across Latvia from its salon in Jelgava.
+Multilingual website for the CATRIN bridal salon and sewing studio.
 
 ## Pages
 
@@ -8,8 +8,8 @@ Multilingual website for the CATRIN bridal salon and sewing studio, serving brid
 - `kleitas.html` — wedding dress lookbook
 - `pakalpojumi.html` — dressmaking, alterations, care and accessories
 - `salons.html` — salon and fitting process
-- `atsauksmes.html` — verified Google and Facebook review excerpts with original-source links
-- `kontakti.html` — contact details, WhatsApp booking form, map and route links
+- `atsauksmes.html` — compact rotating reviews from Google, Facebook and Precos.lv
+- `kontakti.html` — contact details, WhatsApp booking form with optional photo sharing, map and route links
 - `privacy.html` — privacy information
 
 The site uses a lightweight shared CSS and JavaScript system. Motion is limited to compositor-friendly opacity and transform effects; there is no scroll-linked parallax or full-screen blur stack.

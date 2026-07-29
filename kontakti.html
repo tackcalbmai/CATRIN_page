@@ -17,7 +17,7 @@
   <meta property="og:description" content="Piesaki pielaikošanu CATRIN kāzu salonā un izveido maršrutu uz salonu.">
   <meta property="og:image" content="https://tackcalbmai.github.io/CATRIN_page/assets/dress-back.jpg">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260729-6">
+  <link rel="stylesheet" href="styles.css?v=20260729-7">
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-page="contact">
@@ -36,7 +36,7 @@
       <div class="contact-hero-copy">
         <p class="eyebrow reveal" data-t="contactPageEyebrow">CATRIN · Jelgava</p>
         <h1 class="reveal" data-t="contactPageTitle">Pieraksts un kontakti</h1>
-        <p class="page-lead reveal" data-t="contactPageLead">Aizpildi īso formu, uzraksti WhatsApp vai piezvani. Precīzu vizītes laiku apstiprināsim sarakstē.</p>
+        <p class="page-lead reveal" data-t="contactPageLead">Aizpildi formu, uzraksti WhatsApp vai piezvani.</p>
       </div>
       <div class="contact-cards reveal">
         <div><span data-t="phoneLabel">Tālrunis un WhatsApp</span><a href="tel:+37127164000">+371 27 164 000</a><a href="https://wa.me/37127164000" target="_blank" rel="noopener">WhatsApp</a></div>
@@ -49,9 +49,8 @@
     <section class="booking-section" id="pieraksts">
       <div class="booking-copy reveal">
         <p class="eyebrow" data-t="bookingEyebrow">Pieteikums</p>
-        <h2 data-t="bookingTitle">Norādi vēlamo vizītes dienu</h2>
-        <p data-t="bookingIntro">Forma sagatavos ziņu WhatsApp. Tavi ievadītie dati šajā vietnē netiek saglabāti.</p>
-        <div class="booking-note"><img src="assets/catrin-mark.svg" alt="" width="50" height="50"><p data-t="bookingNote">Ja jautājums ir par pielāgošanu, remontu vai tīrīšanu, vari ziņai pievienot arī kleitas fotogrāfiju.</p></div>
+        <h2 data-t="bookingTitle">Piesaki vizīti</h2>
+        <p data-t="bookingIntro">Forma atvērs WhatsApp. Dati vietnē netiek saglabāti.</p>
       </div>
       <form class="booking-form reveal" data-booking-form>
         <label><span data-t="name">Vārds</span><input name="name" type="text" autocomplete="name" required></label>
@@ -68,8 +67,14 @@
           </select>
         </label>
         <label class="full-field"><span data-t="message">Īss komentārs</span><textarea name="message" rows="4" data-t-placeholder="messagePlaceholder" placeholder="Ko vēlies pielaikot vai kāds darbs ir vajadzīgs?"></textarea></label>
+        <label class="file-field full-field">
+          <span data-t="photo">Fotogrāfija <small>(nav obligāti)</small></span>
+          <input name="photo" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif">
+          <small class="file-help" data-file-name data-t="photoHint">Mobilajā telefonā attēlu varēsi nosūtīt kopā ar pieteikumu.</small>
+        </label>
         <label class="consent full-field"><input type="checkbox" required><span data-t="consent">Piekrītu, ka norādītie dati tiek izmantoti, lai atbildētu uz manu pieteikumu.</span></label>
         <button class="button button-primary full-field" type="submit" data-t="continueWhatsapp">Turpināt WhatsApp</button>
+        <p class="form-status full-field" data-form-status aria-live="polite"></p>
       </form>
     </section>
 
@@ -77,7 +82,7 @@
       <div class="map-copy reveal">
         <p class="eyebrow" data-t="visitUs">Apmeklēt salonu</p>
         <h2>Krišjāņa Barona iela 40, Jelgava</h2>
-        <p data-t="mapText">Salons atrodas Jelgavas centrā. Pirms brauciena piesaki vizīti, lai varam rezervēt laiku tieši tev.</p>
+        <p data-t="mapText">Pirms brauciena piesaki vizīti.</p>
         <div class="map-actions">
           <a class="button button-light button-with-icon" href="https://www.google.com/maps/dir/?api=1&amp;destination=Kri%C5%A1j%C4%81%C5%86a%20Barona%20iela%2040%2C%20Jelgava%2C%20LV-3001" target="_blank" rel="noopener"><img src="assets/icon-google-maps.svg" alt="" width="21" height="21"><span data-t="routeGoogle">Maršruts Google Maps</span></a>
           <a class="button button-outline-light button-with-icon" href="https://waze.com/ul?q=Kri%C5%A1j%C4%81%C5%86a%20Barona%20iela%2040%2C%20Jelgava&amp;navigate=yes" target="_blank" rel="noopener"><img src="assets/icon-waze.svg" alt="" width="21" height="21"><span data-t="routeWaze">Atvērt Waze</span></a>
@@ -101,6 +106,6 @@
     <div class="footer-legal"><span>© <span data-year></span> SIA CATRIN · Reģ. Nr. 43603051076</span><a href="privacy.html" data-local-link data-t="privacy">Privātuma politika</a></div>
   </footer>
   <div class="mobile-actions"><a href="tel:+37127164000" data-t="call">Zvanīt</a><a href="#pieraksts" data-t="bookShort">Pieteikties</a></div>
-  <script src="script.js?v=20260729-3"></script>
+  <script src="script.js?v=20260729-4"></script>
 </body>
 </html>

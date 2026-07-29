@@ -2745,3 +2745,709 @@ h3 {
     transform: none;
   }
 }
+
+/* Compact content refresh */
+:root {
+  --page: min(90vw, 1280px);
+  --header-height: 68px;
+}
+
+body {
+  font-size: 15.5px;
+  line-height: 1.58;
+}
+
+h1 {
+  font-size: clamp(2.9rem, 5.25vw, 5.65rem);
+  line-height: 0.98;
+}
+
+h2 {
+  font-size: clamp(2.05rem, 3.5vw, 3.85rem);
+  line-height: 1.04;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 1.7vw, 1.8rem);
+}
+
+.site-header {
+  min-height: var(--header-height);
+}
+
+.site-nav {
+  gap: clamp(1rem, 1.65vw, 1.9rem);
+}
+
+.site-nav a {
+  padding-block: 1.35rem 1.25rem;
+  font-size: 0.72rem;
+}
+
+.site-nav a::after {
+  bottom: 0.95rem;
+}
+
+.header-book {
+  padding: 0.68rem 0.9rem;
+}
+
+.button {
+  min-height: 46px;
+  padding: 0.75rem 1.15rem;
+}
+
+.home-hero {
+  min-height: 620px;
+}
+
+.hero-copy {
+  padding: clamp(3.5rem, 5.2vw, 5.8rem);
+}
+
+.hero-copy h1 {
+  margin: 0.85rem 0 1.15rem;
+}
+
+.hero-intro {
+  font-size: clamp(0.98rem, 1.05vw, 1.08rem);
+  line-height: 1.62;
+}
+
+.hero-actions {
+  gap: 1.35rem;
+  margin-top: 1.55rem;
+}
+
+.hero-facts {
+  gap: 1.4rem;
+  margin-top: clamp(2rem, 4vh, 3rem);
+  padding-top: 1rem;
+}
+
+.hero-stage {
+  min-height: 620px;
+}
+
+.service-paths {
+  padding-block: clamp(4.5rem, 7vw, 6.5rem);
+}
+
+.path-list {
+  margin: clamp(2rem, 3.5vw, 3.25rem) 0 2rem;
+}
+
+.path-item {
+  grid-template-columns: minmax(280px, 1fr) minmax(240px, 0.75fr) 44px;
+  gap: 2rem;
+  min-height: 128px;
+  padding: 1.35rem 0;
+}
+
+.lookbook-teaser {
+  min-height: 560px;
+}
+
+.lookbook-copy {
+  padding: clamp(3.5rem, 6vw, 6rem);
+}
+
+.lookbook-copy h2 {
+  margin: 0.75rem 0 1rem;
+}
+
+.lookbook-copy .button {
+  margin-top: 1.4rem;
+}
+
+.lookbook-tiles {
+  padding-block: 3.5vw;
+}
+
+.contact-ribbon {
+  gap: 3rem;
+  min-height: 320px;
+  padding: clamp(3.8rem, 5vw, 5.5rem) max(5vw, calc((100vw - 1280px) / 2));
+}
+
+.contact-ribbon h2 {
+  max-width: 760px;
+  margin-top: 0.7rem;
+}
+
+.contact-ribbon-actions {
+  gap: 0.85rem;
+}
+
+.page-hero {
+  min-height: 570px;
+}
+
+.page-hero-copy {
+  padding: clamp(4rem, 6vw, 6.2rem);
+}
+
+.page-hero-copy h1 {
+  margin: 0.8rem 0 1.1rem;
+}
+
+.page-lead {
+  font-size: clamp(0.98rem, 1.08vw, 1.08rem);
+}
+
+.page-hero-image {
+  min-height: 520px;
+}
+
+.page-hero-image figcaption {
+  right: 1.3rem;
+  bottom: 1.3rem;
+}
+
+.lookbook {
+  padding-block: clamp(4.5rem, 7vw, 6.5rem);
+}
+
+.lookbook .section-heading {
+  margin-bottom: 3rem;
+}
+
+.lookbook-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.6vw, 1.35rem);
+}
+
+.lookbook-card,
+.lookbook-card.wide,
+.lookbook-card:nth-child(3),
+.lookbook-card:nth-child(5),
+.lookbook-card:nth-child(7) {
+  grid-column: auto;
+  grid-row: auto;
+  margin-top: 0;
+}
+
+.accessory-band {
+  min-height: 520px;
+}
+
+.accessory-image {
+  min-height: 480px;
+}
+
+.accessory-copy {
+  padding: clamp(3.5rem, 6vw, 6rem);
+}
+
+.accessory-copy h2 {
+  margin: 0.75rem 0 1rem;
+}
+
+.accessory-copy .text-link {
+  margin-top: 1.4rem;
+}
+
+.service-ledger {
+  grid-template-columns: 0.43fr 1.57fr;
+  gap: 4.5vw;
+  padding-block: clamp(4.5rem, 6.5vw, 6rem);
+}
+
+.service-ledger-dark {
+  padding-inline: max(5vw, calc((100vw - 1280px) / 2));
+}
+
+.ledger-heading {
+  top: calc(var(--header-height) + 2rem);
+}
+
+.ledger-item {
+  grid-template-columns: 40px minmax(190px, 0.72fr) 1.28fr;
+  column-gap: 1.4rem;
+  min-height: 165px;
+  padding: 2rem 0;
+}
+
+.ledger-item > a {
+  margin-top: 0.9rem;
+}
+
+.visit-story {
+  padding-block: clamp(4.5rem, 6.5vw, 6rem);
+}
+
+.visit-flow {
+  margin-top: 2.8rem;
+}
+
+.visit-step {
+  min-height: 230px;
+  padding: 2rem 2rem 2rem 0;
+}
+
+.visit-step + .visit-step {
+  padding-left: 2rem;
+}
+
+.visit-step .thread-mark {
+  margin-bottom: 1.6rem;
+}
+
+.visit-step p {
+  margin-top: 0.7rem;
+}
+
+.salon-collage {
+  min-height: 620px;
+  padding: 3vw 5vw;
+}
+
+.salon-collage-main {
+  height: 560px;
+}
+
+.salon-collage-note {
+  padding: clamp(2.5rem, 4vw, 4.25rem);
+}
+
+.salon-collage-note > img {
+  width: 46px;
+  margin-bottom: 1.3rem;
+}
+
+.salon-collage-detail {
+  height: 390px;
+}
+
+.contact-hero {
+  min-height: 470px;
+  padding: clamp(3.8rem, 5.5vw, 5.6rem) max(5vw, calc((100vw - 1280px) / 2));
+}
+
+.contact-hero h1 {
+  margin: 0.7rem 0 1rem;
+}
+
+.contact-cards {
+  margin-top: clamp(2.3rem, 4vw, 3.6rem);
+}
+
+.contact-cards > div {
+  min-height: 132px;
+  padding: 1.35rem 1.35rem 1.35rem 0;
+}
+
+.contact-cards > div + div {
+  padding-left: 1.35rem;
+}
+
+.contact-cards span {
+  margin-bottom: 0.65rem;
+}
+
+.booking-section {
+  grid-template-columns: 0.62fr 1.38fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  padding-block: clamp(4.5rem, 6.5vw, 6rem);
+}
+
+.booking-copy h2 {
+  margin: 0.7rem 0 1rem;
+}
+
+.booking-form {
+  gap: 1rem;
+  padding: clamp(1.7rem, 3vw, 2.6rem);
+}
+
+.booking-form input,
+.booking-form select {
+  min-height: 48px;
+}
+
+.booking-form textarea {
+  min-height: 88px;
+}
+
+.file-field input[type="file"] {
+  min-height: 0;
+  padding: 0.7rem;
+  border: 1px dashed rgba(74,23,64,0.32);
+  background: rgba(255,253,249,0.58);
+  cursor: pointer;
+}
+
+.file-field > span small {
+  color: var(--muted);
+  font-size: 0.95em;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.file-help {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
+.form-status {
+  min-height: 1.25rem;
+  color: var(--berry);
+  font-size: 0.78rem;
+}
+
+.map-band {
+  min-height: 480px;
+}
+
+.map-copy {
+  padding: clamp(3.8rem, 5.5vw, 5.8rem);
+}
+
+.map-copy h2 {
+  margin: 0.7rem 0 0.9rem;
+}
+
+.map-actions {
+  margin-top: 1.4rem;
+}
+
+.map-frame,
+.map-frame iframe {
+  min-height: 480px;
+}
+
+.site-footer {
+  gap: 1.8rem;
+  padding: 3rem max(5vw, calc((100vw - 1280px) / 2)) 1.5rem;
+}
+
+/* Compact reviews carousel */
+.reviews-heading {
+  padding: clamp(3.8rem, 6vw, 6rem) 0 1.5rem;
+}
+
+.reviews-heading h1 {
+  max-width: 840px;
+  margin-top: 0.75rem;
+  color: var(--plum);
+}
+
+.reviews-section {
+  padding-block: 1.5rem clamp(4.5rem, 7vw, 6.5rem);
+}
+
+.reviews-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.review-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+}
+
+.review-controls button {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--plum);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.review-controls button:hover {
+  border-color: var(--rose);
+}
+
+.review-controls span {
+  min-width: 3.6rem;
+  text-align: center;
+}
+
+.reviews-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  touch-action: pan-x;
+}
+
+.reviews-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 1rem;
+}
+
+.reviews-track .review-card {
+  flex: 0 0 calc((100% - 2rem) / 3);
+  min-height: 240px;
+  padding: 1.5rem;
+  scroll-snap-align: start;
+}
+
+.reviews-track .review-card-source {
+  gap: 0.55rem;
+}
+
+.reviews-track .review-card-source img {
+  width: 22px;
+  height: 22px;
+}
+
+.review-source-word {
+  display: inline-grid;
+  min-width: 46px;
+  height: 22px;
+  place-items: center;
+  border-radius: 3px;
+  background: #6a2855;
+  color: #fff;
+  font-size: 0.51rem;
+  letter-spacing: 0.08em;
+}
+
+.reviews-track .review-card blockquote {
+  margin: 1.25rem 0 1.5rem;
+  font-size: clamp(1.2rem, 1.55vw, 1.55rem);
+  line-height: 1.3;
+}
+
+.reviews-track .review-card footer {
+  font-size: 0.72rem;
+}
+
+.review-platforms {
+  margin-top: 1rem;
+}
+
+.review-platform {
+  padding: 1rem 1.2rem;
+}
+
+.review-platform > img {
+  width: 30px;
+  height: 30px;
+}
+
+.review-platform strong {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1100px) {
+  .reviews-track .review-card {
+    flex-basis: calc((100% - 1rem) / 2);
+  }
+}
+
+@media (max-width: 820px) {
+  :root {
+    --page: min(90vw, 720px);
+    --header-height: 64px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: clamp(2.75rem, 12vw, 4.25rem);
+  }
+
+  h2 {
+    font-size: clamp(2.1rem, 8.8vw, 3.2rem);
+  }
+
+  .hero-stage {
+    min-height: 48svh;
+  }
+
+  .hero-copy {
+    padding: 2.9rem 6vw 3.6rem;
+  }
+
+  .hero-facts {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 2.2rem;
+  }
+
+  .service-paths,
+  .lookbook,
+  .visit-story {
+    padding-block: 4rem;
+  }
+
+  .path-item {
+    padding-block: 1.55rem;
+  }
+
+  .lookbook-copy,
+  .accessory-copy,
+  .process-note-copy,
+  .reviews-social-copy,
+  .map-copy {
+    padding: 3.6rem 6vw;
+  }
+
+  .lookbook-tiles {
+    min-height: 420px;
+    padding-bottom: 3.5rem;
+  }
+
+  .page-hero-copy {
+    padding: 3rem 6vw 3.6rem;
+  }
+
+  .page-hero-image {
+    min-height: 46svh;
+  }
+
+  .lookbook .section-heading {
+    margin-bottom: 2.4rem;
+  }
+
+  .accessory-image {
+    min-height: 50svh;
+  }
+
+  .service-ledger,
+  .service-ledger-dark {
+    padding: 4rem 6vw;
+  }
+
+  .ledger-heading {
+    margin-bottom: 2.4rem;
+  }
+
+  .ledger-item {
+    padding: 1.8rem 0;
+  }
+
+  .visit-flow {
+    margin-top: 2.4rem;
+  }
+
+  .visit-step,
+  .visit-step + .visit-step {
+    padding: 1.8rem 0;
+  }
+
+  .salon-collage {
+    padding: 6vw;
+  }
+
+  .salon-collage-main {
+    height: 54svh;
+  }
+
+  .salon-collage-note {
+    padding: 2.2rem 1.8rem;
+  }
+
+  .contact-hero {
+    padding: 3.5rem 6vw;
+  }
+
+  .contact-cards {
+    margin-top: 2.2rem;
+  }
+
+  .contact-cards > div,
+  .contact-cards > div + div {
+    padding-block: 1.25rem;
+  }
+
+  .booking-section {
+    gap: 2.4rem;
+    padding-block: 4rem;
+  }
+
+  .booking-form {
+    padding: 1.6rem 1.2rem;
+  }
+
+  .map-frame,
+  .map-frame iframe {
+    min-height: 58vw;
+  }
+
+  .contact-ribbon {
+    gap: 2rem;
+    padding: 3.6rem 6vw;
+  }
+
+  .reviews-heading {
+    padding: 3.5rem 0 1rem;
+  }
+
+  .reviews-section {
+    padding-block: 1rem 4rem;
+  }
+
+  .site-footer {
+    padding-top: 2.8rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .reviews-track .review-card {
+    flex-basis: 100%;
+  }
+
+  .reviews-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .review-platforms {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .lookbook-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .lookbook-card,
+  .lookbook-card:nth-child(even) {
+    margin: 0;
+  }
+
+  .lookbook-card figcaption {
+    font-size: 0.65rem;
+  }
+
+  .contact-ribbon h2 {
+    font-size: 2.35rem;
+  }
+
+  .reviews-track .review-card {
+    min-height: 225px;
+    padding: 1.35rem 1.2rem;
+  }
+
+  .reviews-track .review-card blockquote {
+    font-size: 1.3rem;
+  }
+}
