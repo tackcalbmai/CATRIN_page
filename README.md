@@ -4,10 +4,11 @@ Multilingual website for the CATRIN bridal salon and sewing studio, serving brid
 
 ## Pages
 
-- `index.html` — concise homepage with services, lookbook, review sources and social channels
+- `index.html` — concise homepage with services and dress selection
 - `kleitas.html` — wedding dress lookbook
 - `pakalpojumi.html` — dressmaking, alterations, care and accessories
 - `salons.html` — salon and fitting process
+- `atsauksmes.html` — verified Google and Facebook review excerpts with original-source links
 - `kontakti.html` — contact details, WhatsApp booking form, map and route links
 - `privacy.html` — privacy information
 
