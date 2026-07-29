@@ -140,7 +140,7 @@ button {
   min-height: var(--header-height);
   padding: 0 3vw;
   border-bottom: 1px solid var(--line);
-  background: rgba(247, 242, 237, 0.97);
+  background: var(--paper);
 }
 
 .brand {
