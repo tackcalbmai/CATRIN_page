@@ -196,40 +196,18 @@ button {
   min-height: var(--header-height);
   padding: 0 3vw;
   border-bottom: 1px solid var(--line);
-  background: var(--paper);
+  background: #fdf9f8;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  min-width: 196px;
-  color: var(--plum);
+  min-width: 138px;
 }
 
 .brand img {
-  width: 38px;
-  height: 38px;
-}
-
-.brand span {
-  display: grid;
-  line-height: 1;
-}
-
-.brand b {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.13em;
-}
-
-.brand small {
-  margin-top: 0.35rem;
-  color: var(--muted);
-  font-size: 0.56rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  width: 132px;
+  height: auto;
 }
 
 .site-nav {
@@ -1578,8 +1556,10 @@ h3 {
 }
 
 .salon-collage-note > img {
-  width: 58px;
+  width: 74px;
+  height: auto;
   margin-bottom: 2rem;
+  background: #fdf9f8;
 }
 
 .salon-collage-note h2 {
@@ -1898,30 +1878,11 @@ h3 {
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
 .footer-brand img {
-  width: 46px;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
-}
-
-.footer-brand div {
-  display: grid;
-}
-
-.footer-brand b {
-  color: var(--white);
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-}
-
-.footer-brand span {
-  font-size: 0.56rem;
-  letter-spacing: 0.15em;
+  width: 92px;
+  height: auto;
 }
 
 .footer-contact {
@@ -1975,20 +1936,17 @@ h3 {
   min-height: var(--header-height);
   padding: 0 4vw;
   border-bottom: 1px solid var(--line);
+  background: #fdf9f8;
 }
 
 .policy-brand {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  color: var(--plum);
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  letter-spacing: 0.12em;
 }
 
 .policy-brand img {
-  width: 40px;
+  width: 136px;
+  height: auto;
 }
 
 .policy-tools {
@@ -2073,6 +2031,10 @@ h3 {
 
   .site-header {
     grid-template-columns: auto 1fr;
+  }
+
+  .brand img {
+    width: 120px;
   }
 
   .site-nav {
@@ -2224,15 +2186,10 @@ h3 {
   }
 
   .brand img {
-    width: 34px;
-    height: 34px;
+    width: 104px;
+    height: auto;
   }
 
-  .brand b {
-    font-size: 1.14rem;
-  }
-
-  .brand small,
   .header-book,
   .menu-button b {
     display: none;
@@ -2643,12 +2600,12 @@ h3 {
   }
 
   .policy-brand {
-    gap: 0.5rem;
-    font-size: 1.2rem;
+    min-width: 0;
   }
 
   .policy-brand img {
-    width: 32px;
+    width: 104px;
+    height: auto;
   }
 
   .policy-tools {
@@ -3011,7 +2968,8 @@ h3 {
 }
 
 .salon-collage-note > img {
-  width: 46px;
+  width: 64px;
+  height: auto;
   margin-bottom: 1.3rem;
 }
 

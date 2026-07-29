@@ -5,6 +5,6 @@ The dress photographs are CATRIN materials already publicly associated with the 
 - `dress-hero.jpg`, `dress-back.jpg`, `dress-classic.jpg`, `dress-blush.jpg`, `dress-profile.jpg`, `dress-atelier.jpg`, `dress-detail.jpg`, `dress-soft.jpg`, `dress-window.jpg`, `dress-train.jpg`: CATRIN gallery on Wedding Day Latvia — https://wedday.lv/catalog/kazu-kleitas/kazu-modes-salons-catrin
 - `catrin-instagram.jpg`: CATRIN social content — https://www.instagram.com/catrin_bridal/
 
-Files are served locally to avoid third-party hotlinks. `catrin-mark.svg` is the site’s custom thread-and-petal mark.
+Files are served locally to avoid third-party hotlinks. `logo-horizontal.png` and `logo-round.png` are the original CATRIN logo files supplied by the company and are used without redrawing or modification.
 
 Brand interface icons (`icon-google.svg`, `icon-facebook.svg`, `icon-instagram.svg`, `icon-whatsapp.svg`, `icon-google-maps.svg`, `icon-waze.svg`) use Simple Icons 16.27.1 paths under the CC0 1.0 license: https://simpleicons.org/
