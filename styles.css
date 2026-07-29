@@ -3020,29 +3020,84 @@ h3 {
 }
 
 .contact-hero {
-  min-height: 470px;
-  padding: clamp(3.8rem, 5.5vw, 5.6rem) max(5vw, calc((100vw - 1280px) / 2));
+  min-height: 390px;
+  padding: clamp(2.7rem, 4vw, 4rem) max(5vw, calc((100vw - 1280px) / 2));
 }
 
 .contact-hero h1 {
-  margin: 0.7rem 0 1rem;
+  max-width: 720px;
+  margin: 0.55rem 0 0.7rem;
+  font-size: clamp(2.65rem, 4.35vw, 4.7rem);
 }
 
 .contact-cards {
-  margin-top: clamp(2.3rem, 4vw, 3.6rem);
+  margin-top: clamp(1.65rem, 2.7vw, 2.5rem);
 }
 
 .contact-cards > div {
-  min-height: 132px;
-  padding: 1.35rem 1.35rem 1.35rem 0;
+  min-height: 146px;
+  padding: 1.15rem 1.2rem 1.2rem 0;
 }
 
 .contact-cards > div + div {
-  padding-left: 1.35rem;
+  padding-left: 1.2rem;
 }
 
 .contact-cards span {
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+.contact-number,
+.contact-address {
+  color: var(--white) !important;
+  font-size: 0.96rem;
+  text-decoration: none !important;
+}
+
+.contact-channels,
+.contact-routes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.contact-channel,
+.contact-route {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.45rem;
+  width: auto !important;
+  min-height: 34px;
+  margin: 0 !important;
+  padding: 0.42rem 0.58rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.07);
+  color: var(--white) !important;
+  text-decoration: none !important;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.contact-channel:hover,
+.contact-route:hover {
+  border-color: rgba(255,255,255,0.42);
+  background: rgba(255,255,255,0.12);
+}
+
+.contact-channel img,
+.contact-route img {
+  flex: 0 0 auto;
+}
+
+.contact-channel b,
+.contact-route b {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.contact-card-hours p {
+  line-height: 1.6;
 }
 
 .booking-section {
@@ -3359,19 +3414,29 @@ h3 {
   }
 
   .contact-hero {
-    padding: 3.5rem 6vw;
+    padding: 2.65rem 6vw;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2.45rem, 10vw, 3.6rem);
   }
 
   .contact-cards {
-    margin-top: 2.2rem;
+    margin-top: 1.5rem;
   }
 
   .contact-cards > div,
   .contact-cards > div + div {
-    padding-block: 1.25rem;
+    padding-block: 1rem;
+  }
+
+  .contact-channels,
+  .contact-routes {
+    margin-top: 0.7rem;
   }
 
   .booking-section {
+    grid-template-columns: 1fr;
     gap: 2.4rem;
     padding-block: 4rem;
   }
