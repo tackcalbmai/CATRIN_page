@@ -678,20 +678,43 @@ if (bookingForm) {
     event.preventDefault();
     const data = new FormData(bookingForm);
     const attachPhoto = data.get("attachPhoto") === "on";
+    const interestKey = data.get("interest");
     const interest = bookingForm.querySelector('select[name="interest"]').selectedOptions[0].textContent.trim();
-    const opening = {
-      lv: "Sveiki! Vēlos pieteikt vizīti CATRIN.",
-      ru: "Здравствуйте! Хочу записаться в CATRIN.",
-      en: "Hello! I would like to book with CATRIN."
+    const openings = {
+      lv: {
+        fitting: "Sveiki! Vēlos pieteikties kāzu kleitas pielaikošanai salonā CATRIN.",
+        custom: "Sveiki! Vēlos pārrunāt individuālu kleitas šūšanu salonā CATRIN.",
+        photo: "Sveiki! Vēlos noskaidrot iespēju uzšūt kleitu pēc fotogrāfijas salonā CATRIN.",
+        alter: "Sveiki! Vēlos pieteikties kleitas pielāgošanai vai remontam salonā CATRIN.",
+        clean: "Sveiki! Vēlos pieteikt kāzu kleitas ķīmisko tīrīšanu salonā CATRIN.",
+        other: "Sveiki! Vēlos uzdot salonam CATRIN citu jautājumu."
+      },
+      ru: {
+        fitting: "Здравствуйте! Хочу записаться на примерку свадебного платья в салон CATRIN.",
+        custom: "Здравствуйте! Хочу обсудить индивидуальный пошив платья в CATRIN.",
+        photo: "Здравствуйте! Хочу узнать о пошиве платья по фотографии в CATRIN.",
+        alter: "Здравствуйте! Хочу записаться на подгонку или ремонт платья в CATRIN.",
+        clean: "Здравствуйте! Хочу уточнить возможность химчистки свадебного платья в CATRIN.",
+        other: "Здравствуйте! Хочу задать салону CATRIN другой вопрос."
+      },
+      en: {
+        fitting: "Hello! I would like to book a wedding dress fitting at CATRIN.",
+        custom: "Hello! I would like to discuss bespoke dressmaking with CATRIN.",
+        photo: "Hello! I would like to ask about having a dress made from a photograph at CATRIN.",
+        alter: "Hello! I would like to book a dress alteration or repair at CATRIN.",
+        clean: "Hello! I would like to ask about wedding dress dry cleaning at CATRIN.",
+        other: "Hello! I have another question for the CATRIN salon."
+      }
     };
     const labels = {
-      lv: { name: "Vārds", phone: "Tālrunis", date: "Vēlamais datums", interest: "Interesē", message: "Komentārs", photo: "Fotogrāfiju pievienošu WhatsApp sarakstē." },
-      ru: { name: "Имя", phone: "Телефон", date: "Желаемая дата", interest: "Интересует", message: "Комментарий", photo: "Фотографию прикреплю в чате WhatsApp." },
-      en: { name: "Name", phone: "Phone", date: "Preferred date", interest: "Interested in", message: "Note", photo: "I will attach the photograph in the WhatsApp chat." }
+      lv: { name: "Vārds", phone: "Tālrunis", date: "Vēlamais datums", interest: "Pakalpojums", message: "Komentārs", photo: "Fotogrāfiju pievienošu WhatsApp sarakstē." },
+      ru: { name: "Имя", phone: "Телефон", date: "Желаемая дата", interest: "Услуга", message: "Комментарий", photo: "Фотографию прикреплю в чате WhatsApp." },
+      en: { name: "Name", phone: "Phone", date: "Preferred date", interest: "Service", message: "Note", photo: "I will attach the photograph in the WhatsApp chat." }
     }[language];
+    const opening = openings[language]?.[interestKey] || openings[language].other;
 
     const message = [
-      opening[language],
+      opening,
       `${labels.name}: ${data.get("name")}`,
       `${labels.phone}: ${data.get("phone")}`,
       `${labels.date}: ${data.get("date") || "—"}`,
