@@ -49,6 +49,7 @@ const copy = {
     reviewsCtaTitle: "Запишись на визит в CATRIN",
     reviewsAria: "Отзывы клиентов",
     reviewsSourcesAria: "Оригинальные источники отзывов",
+    readReviews: "Читать отзывы",
     googleReviewsAria: "Читать отзывы о CATRIN в Google",
     facebookReviewsAria: "Читать отзывы о CATRIN в Facebook",
     facebookOriginalAria: "Открыть оригинальную публикацию в Facebook",
@@ -233,6 +234,7 @@ const copy = {
     reviewsCtaTitle: "Book your visit to CATRIN",
     reviewsAria: "Client reviews",
     reviewsSourcesAria: "Original review sources",
+    readReviews: "Read reviews",
     googleReviewsAria: "Read CATRIN reviews on Google",
     facebookReviewsAria: "Read CATRIN reviews on Facebook",
     facebookOriginalAria: "Open the original Facebook post",
@@ -565,7 +567,7 @@ if (reviewSpotlight && reviewItems.length) {
   const spotlightAuthor = reviewSpotlight.querySelector("[data-spotlight-author]");
   const spotlightDate = reviewSpotlight.querySelector("[data-spotlight-date]");
   const spotlightIcon = reviewSpotlight.querySelector("[data-spotlight-icon]");
-  const reviewDelay = 7200;
+  const reviewDelay = 5600;
   let currentReview = 0;
   let reviewTimer = 0;
   let switchTimer = 0;
@@ -610,13 +612,9 @@ if (reviewSpotlight && reviewItems.length) {
       return;
     }
     reviewSpotlight.classList.add("is-switching");
-    switchTimer = window.setTimeout(() => applyReview(index), 190);
+    switchTimer = window.setTimeout(() => applyReview(index), 520);
   }
 
-  reviewSpotlight.addEventListener("pointerenter", stopReviewRotation);
-  reviewSpotlight.addEventListener("pointerleave", scheduleReviewRotation);
-  reviewSpotlight.addEventListener("focusin", stopReviewRotation);
-  reviewSpotlight.addEventListener("focusout", scheduleReviewRotation);
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stopReviewRotation();
     else scheduleReviewRotation();
