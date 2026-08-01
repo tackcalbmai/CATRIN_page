@@ -54,6 +54,7 @@ const copy = {
     reviewsSocialText: "В Instagram и Facebook мы публикуем модели, детали и новости салона. Если что-то понравится, отправь скриншот в WhatsApp — проверим наличие.",
     reviewsCtaTitle: "Запишись на визит в CATRIN",
     reviewsAria: "Отзывы клиентов",
+    reviewsCarouselAria: "Карусель отзывов клиентов",
     reviewPrev: "Предыдущие отзывы",
     reviewNext: "Следующие отзывы",
 
@@ -138,9 +139,16 @@ const copy = {
     contactPageLead: "Заполни форму, напиши в WhatsApp или позвони.",
     phoneLabel: "Телефон",
     addressLabel: "Адрес салона",
+    contactChannelsAria: "Способы связи",
+    whatsappAria: "Написать в WhatsApp",
+    facebookAria: "Открыть Facebook CATRIN",
+    instagramAria: "Открыть Instagram CATRIN",
+    routeAppsAria: "Приложения для маршрута",
+    googleMapsAria: "Построить маршрут в Google Maps",
+    wazeAria: "Построить маршрут в Waze",
     bookingEyebrow: "Заявка",
     bookingTitle: "Записаться на визит",
-    bookingIntro: "Форма откроет WhatsApp. Данные на сайте не сохраняются.",
+    bookingIntro: "Форма составит сообщение и откроет WhatsApp. Данные на сайте не сохраняются.",
     bookingNote: "Если вопрос касается подгонки, ремонта или чистки, к сообщению можно добавить фотографию платья.",
     name: "Имя",
     phone: "Телефон",
@@ -154,9 +162,7 @@ const copy = {
     optOther: "Другой вопрос",
     message: "Короткий комментарий",
     messagePlaceholder: "Что хочешь примерить или какая работа нужна?",
-    photo: "Фотография <small>(необязательно)</small>",
-    photoHint: "После открытия WhatsApp прикрепи фотографию в чате.",
-    photoSelected: "Выбрано",
+    photoPlan: "<strong>Я добавлю фотографию.</strong> Выбрать её нужно уже в чате после открытия WhatsApp.",
     consent: "Согласна, что указанные данные будут использованы для ответа на мою заявку.",
     continueWhatsapp: "Продолжить в WhatsApp",
     visitUs: "Приехать в салон",
@@ -169,7 +175,7 @@ const copy = {
     policyControllerTitle: "Оператор данных",
     policyControllerText: "SIA «CATRIN», регистрационный № 43603051076, юридический адрес: улица Судрабу Эджус, 1–19, Елгава, LV-3001. Телефон: <a href=\"tel:+37127164000\">+371&nbsp;27&nbsp;164&nbsp;000</a>.",
     policyDataTitle: "Какие данные мы обрабатываем",
-    policyDataText: "В форме можно указать имя, телефон, желаемую дату, услугу и комментарий, а также выбрать фотографию. Форма не сохраняет данные или изображения на сервере. WhatsApp открывается с текстом заявки, а фотографию пользователь прикрепляет непосредственно в чате.",
+    policyDataText: "В форме можно указать имя, телефон, желаемую дату, услугу и комментарий. Фотография на сайте не выбирается и не загружается — пользователь может прикрепить её непосредственно в чате WhatsApp.",
     policyPurposeTitle: "Цель и основание обработки",
     policyPurposeText: "Данные используются, чтобы ответить на запрос, согласовать визит, подготовить услугу и выполнить соглашение с клиентом. Основанием служат действия до заключения договора, исполнение договора или ваше согласие.",
     policyStorageTitle: "Хранение и передача",
@@ -237,6 +243,7 @@ const copy = {
     reviewsSocialText: "We post new gowns, details and salon news on Instagram and Facebook. If something catches your eye, send us a screenshot on WhatsApp and we will check availability.",
     reviewsCtaTitle: "Book your visit to CATRIN",
     reviewsAria: "Client reviews",
+    reviewsCarouselAria: "Client review carousel",
     reviewPrev: "Previous reviews",
     reviewNext: "Next reviews",
 
@@ -321,9 +328,16 @@ const copy = {
     contactPageLead: "Complete the form, message us on WhatsApp or call.",
     phoneLabel: "Phone",
     addressLabel: "Salon address",
+    contactChannelsAria: "Contact channels",
+    whatsappAria: "Message us on WhatsApp",
+    facebookAria: "Open CATRIN on Facebook",
+    instagramAria: "Open CATRIN on Instagram",
+    routeAppsAria: "Route apps",
+    googleMapsAria: "Get directions in Google Maps",
+    wazeAria: "Get directions in Waze",
     bookingEyebrow: "Request",
     bookingTitle: "Book a visit",
-    bookingIntro: "The form opens WhatsApp. Details are not stored on the website.",
+    bookingIntro: "The form prepares a message and opens WhatsApp. Details are not stored on the website.",
     bookingNote: "For alterations, repairs or cleaning, you can also attach a photograph of the dress to your message.",
     name: "Name",
     phone: "Phone",
@@ -337,9 +351,7 @@ const copy = {
     optOther: "Another question",
     message: "Short note",
     messagePlaceholder: "What would you like to try or what work is needed?",
-    photo: "Photograph <small>(optional)</small>",
-    photoHint: "After WhatsApp opens, attach the photo in the chat.",
-    photoSelected: "Selected",
+    photoPlan: "<strong>I will add a photograph.</strong> Select it in the chat after WhatsApp opens.",
     consent: "I agree that these details may be used to respond to my request.",
     continueWhatsapp: "Continue in WhatsApp",
     visitUs: "Visit the salon",
@@ -352,7 +364,7 @@ const copy = {
     policyControllerTitle: "Data controller",
     policyControllerText: "SIA “CATRIN”, registration No. 43603051076, registered address: 1–19 Sudrabu Edžus Street, Jelgava, LV-3001. Phone: <a href=\"tel:+37127164000\">+371&nbsp;27&nbsp;164&nbsp;000</a>.",
     policyDataTitle: "Data we process",
-    policyDataText: "The form may include your name, phone number, preferred date, service and note, and lets you select a photograph. It does not store data or images on a server. WhatsApp opens with the request text, and the user attaches the photograph directly in the chat.",
+    policyDataText: "The form may include your name, phone number, preferred date, service and note. A photograph is not selected or uploaded on the website — the user may attach it directly in the WhatsApp chat.",
     policyPurposeTitle: "Purpose and legal basis",
     policyPurposeText: "We use the data to respond to your request, arrange a visit, prepare the service and fulfil an agreement with you. Processing is based on steps taken before entering into a contract, performance of a contract or your consent.",
     policyStorageTitle: "Storage and transfer",
@@ -390,11 +402,6 @@ const metadata = {
 
 const page = document.body.dataset.page || "home";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const runtimeCopy = {
-  lv: {
-    photoSelected: "Izvēlēts"
-  }
-};
 const initialText = {};
 const initialPlaceholders = {};
 const initialAriaLabels = {};
@@ -428,7 +435,7 @@ let language = new URLSearchParams(location.search).get("lang") || storedLanguag
 if (!["lv", "ru", "en"].includes(language)) language = "lv";
 
 function valueFor(key) {
-  if (language === "lv") return runtimeCopy.lv[key] ?? initialText[key];
+  if (language === "lv") return initialText[key];
   return copy[language]?.[key] ?? initialText[key];
 }
 
@@ -580,7 +587,10 @@ if (reviewViewport) {
   }
 
   function updateReviewStatus() {
-    if (status) status.textContent = `${reviewIndex + 1} / ${cards.length}`;
+    if (!status) return;
+    const start = reviewIndex + 1;
+    const end = Math.min(cards.length, reviewIndex + visibleReviews());
+    status.textContent = start === end ? `${start} / ${cards.length}` : `${start}–${end} / ${cards.length}`;
   }
 
   function showReview(index, behavior = "smooth") {
@@ -613,6 +623,12 @@ if (reviewViewport) {
   reviewViewport.addEventListener("pointerleave", startReviews);
   reviewViewport.addEventListener("focusin", stopReviews);
   reviewViewport.addEventListener("focusout", startReviews);
+  reviewViewport.addEventListener("keydown", (event) => {
+    if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+    event.preventDefault();
+    showReview(reviewIndex + (event.key === "ArrowRight" ? 1 : -1));
+    startReviews();
+  });
   reviewViewport.addEventListener("scroll", () => {
     window.requestAnimationFrame(() => {
       const nearest = cards.reduce((best, card, index) => {
@@ -649,8 +665,6 @@ if ("IntersectionObserver" in window && !reducedMotion.matches) {
 const bookingForm = document.querySelector("[data-booking-form]");
 if (bookingForm) {
   const dateField = bookingForm.querySelector('input[name="date"]');
-  const photoField = bookingForm.querySelector('input[name="photo"]');
-  const photoName = bookingForm.querySelector("[data-file-name]");
   const formStatus = bookingForm.querySelector("[data-form-status]");
   const today = new Date();
   const localToday = [
@@ -660,23 +674,10 @@ if (bookingForm) {
   ].join("-");
   dateField.min = localToday;
 
-  function updatePhotoName() {
-    if (!photoName || !photoField) return;
-    const file = photoField.files?.[0];
-    photoName.textContent = file
-      ? `${valueFor("photoSelected") || "Izvēlēts"}: ${file.name}`
-      : valueFor("photoHint") || "";
-  }
-
-  photoField?.addEventListener("change", updatePhotoName);
-  document.querySelectorAll("[data-lang]").forEach((button) => {
-    button.addEventListener("click", updatePhotoName);
-  });
-
   bookingForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const data = new FormData(bookingForm);
-    const photo = photoField?.files?.[0];
+    const attachPhoto = data.get("attachPhoto") === "on";
     const interest = bookingForm.querySelector('select[name="interest"]').selectedOptions[0].textContent.trim();
     const opening = {
       lv: "Sveiki! Vēlos pieteikt vizīti CATRIN.",
@@ -696,7 +697,7 @@ if (bookingForm) {
       `${labels.date}: ${data.get("date") || "—"}`,
       `${labels.interest}: ${interest}`,
       data.get("message") ? `${labels.message}: ${data.get("message")}` : "",
-      photo ? labels.photo : ""
+      attachPhoto ? labels.photo : ""
     ].filter(Boolean).join("\n");
 
     if (formStatus) formStatus.textContent = "";
