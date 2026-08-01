@@ -1779,25 +1779,39 @@ h3 {
   grid-column: 1 / -1;
 }
 
-.booking-form .consent {
+.booking-form .consent,
+.booking-form .photo-reminder {
   grid-template-columns: auto 1fr;
   align-items: start;
 }
 
-.booking-form .consent input {
+.booking-form .consent input,
+.booking-form .photo-reminder input {
   width: 17px;
   min-height: 17px;
   margin-top: 0.25rem;
   accent-color: var(--plum);
 }
 
-.booking-form .consent span {
+.booking-form .consent span,
+.booking-form .photo-reminder span {
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0;
   line-height: 1.5;
   text-transform: none;
+}
+
+.booking-form .photo-reminder {
+  padding: 0.85rem 1rem;
+  border: 1px dashed rgba(74,23,64,0.28);
+  background: rgba(255,253,249,0.5);
+}
+
+.booking-form .photo-reminder strong {
+  color: var(--plum);
+  font-weight: 600;
 }
 
 .map-band {
@@ -3080,27 +3094,6 @@ h3 {
 
 .booking-form textarea {
   min-height: 88px;
-}
-
-.file-field input[type="file"] {
-  min-height: 0;
-  padding: 0.7rem;
-  border: 1px dashed rgba(74,23,64,0.32);
-  background: rgba(255,253,249,0.58);
-  cursor: pointer;
-}
-
-.file-field > span small {
-  color: var(--muted);
-  font-size: 0.95em;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-.file-help {
-  color: var(--muted);
-  font-size: 0.74rem;
 }
 
 .form-status {
