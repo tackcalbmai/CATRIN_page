@@ -54,9 +54,10 @@ const copy = {
     reviewsSocialText: "В Instagram и Facebook мы публикуем модели, детали и новости салона. Если что-то понравится, отправь скриншот в WhatsApp — проверим наличие.",
     reviewsCtaTitle: "Запишись на визит в CATRIN",
     reviewsAria: "Отзывы клиентов",
-    reviewsCarouselAria: "Карусель отзывов клиентов",
-    reviewPrev: "Предыдущие отзывы",
-    reviewNext: "Следующие отзывы",
+    reviewsSourcesAria: "Оригинальные источники отзывов",
+    googleReviewsAria: "Читать отзывы о CATRIN в Google",
+    facebookReviewsAria: "Читать отзывы о CATRIN в Facebook",
+    precosReviewAria: "Читать отзыв на Precos.lv",
 
     dressesEyebrow: "Подборка платьев",
     dressesTitle: "Свадебные платья в салоне",
@@ -243,9 +244,10 @@ const copy = {
     reviewsSocialText: "We post new gowns, details and salon news on Instagram and Facebook. If something catches your eye, send us a screenshot on WhatsApp and we will check availability.",
     reviewsCtaTitle: "Book your visit to CATRIN",
     reviewsAria: "Client reviews",
-    reviewsCarouselAria: "Client review carousel",
-    reviewPrev: "Previous reviews",
-    reviewNext: "Next reviews",
+    reviewsSourcesAria: "Original review sources",
+    googleReviewsAria: "Read CATRIN reviews on Google",
+    facebookReviewsAria: "Read CATRIN reviews on Facebook",
+    precosReviewAria: "Read the review on Precos.lv",
 
     dressesEyebrow: "Dress selection",
     dressesTitle: "Wedding dresses at the salon",
@@ -564,85 +566,6 @@ if (gallery) {
   gallery.addEventListener("focusout", startGallery);
   showSlide(0);
   startGallery();
-}
-
-const reviewViewport = document.querySelector("[data-review-viewport]");
-if (reviewViewport) {
-  const track = reviewViewport.querySelector(".reviews-track");
-  const cards = [...track.querySelectorAll(".review-card")];
-  const previous = document.querySelector("[data-review-prev]");
-  const next = document.querySelector("[data-review-next]");
-  const status = document.querySelector("[data-review-status]");
-  let reviewIndex = 0;
-  let reviewTimer = 0;
-
-  function visibleReviews() {
-    if (window.innerWidth <= 700) return 1;
-    if (window.innerWidth <= 1100) return 2;
-    return 3;
-  }
-
-  function maxReviewIndex() {
-    return Math.max(0, cards.length - visibleReviews());
-  }
-
-  function updateReviewStatus() {
-    if (!status) return;
-    const start = reviewIndex + 1;
-    const end = Math.min(cards.length, reviewIndex + visibleReviews());
-    status.textContent = start === end ? `${start} / ${cards.length}` : `${start}–${end} / ${cards.length}`;
-  }
-
-  function showReview(index, behavior = "smooth") {
-    const maxIndex = maxReviewIndex();
-    reviewIndex = index > maxIndex ? 0 : index < 0 ? maxIndex : index;
-    reviewViewport.scrollTo({ left: cards[reviewIndex].offsetLeft, behavior });
-    updateReviewStatus();
-  }
-
-  function stopReviews() {
-    window.clearInterval(reviewTimer);
-  }
-
-  function startReviews() {
-    stopReviews();
-    if (!reducedMotion.matches && maxReviewIndex() > 0) {
-      reviewTimer = window.setInterval(() => showReview(reviewIndex + 1), 6500);
-    }
-  }
-
-  previous?.addEventListener("click", () => {
-    showReview(reviewIndex - 1);
-    startReviews();
-  });
-  next?.addEventListener("click", () => {
-    showReview(reviewIndex + 1);
-    startReviews();
-  });
-  reviewViewport.addEventListener("pointerenter", stopReviews);
-  reviewViewport.addEventListener("pointerleave", startReviews);
-  reviewViewport.addEventListener("focusin", stopReviews);
-  reviewViewport.addEventListener("focusout", startReviews);
-  reviewViewport.addEventListener("keydown", (event) => {
-    if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
-    event.preventDefault();
-    showReview(reviewIndex + (event.key === "ArrowRight" ? 1 : -1));
-    startReviews();
-  });
-  reviewViewport.addEventListener("scroll", () => {
-    window.requestAnimationFrame(() => {
-      const nearest = cards.reduce((best, card, index) => {
-        const distance = Math.abs(card.offsetLeft - reviewViewport.scrollLeft);
-        return distance < best.distance ? { index, distance } : best;
-      }, { index: reviewIndex, distance: Infinity });
-      reviewIndex = Math.min(nearest.index, maxReviewIndex());
-      updateReviewStatus();
-    });
-  }, { passive: true });
-  window.addEventListener("resize", () => showReview(Math.min(reviewIndex, maxReviewIndex()), "auto"));
-  document.addEventListener("visibilitychange", () => document.hidden ? stopReviews() : startReviews());
-  showReview(0, "auto");
-  startReviews();
 }
 
 if ("IntersectionObserver" in window && !reducedMotion.matches) {
