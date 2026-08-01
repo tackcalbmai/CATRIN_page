@@ -43,13 +43,18 @@ const copy = {
     contactRibbonTitle: "Запишись на удобный день",
     socialEyebrow: "Новости и вдохновение",
     reviewsPageEyebrow: "Отзывы",
-    reviewsPageTitle: "Опыт клиентов CATRIN",
+    reviewsPageTitle: "Что клиентки говорят о CATRIN",
     reviewsPageLead: "",
     reviewSelectionEyebrow: "Подборка отзывов",
-    reviewSelectionTitle: "Отзывы из Google, Facebook и Precos.lv",
-    reviewOriginalNote: "Отзывы оставлены в публичных профилях CATRIN. Указаны имена авторов и дата публикации, если она была доступна.",
-    openGoogleProfile: "Посмотреть все отзывы",
-    openFacebookReviews: "Посмотреть все отзывы",
+    reviewSelectionTitle: "Google и Facebook в одном месте",
+    reviewOriginalNote: "Здесь собраны реальные отзывы и публичные рекомендации из Google и Facebook. Текст сохранён на языке оригинала.",
+    openGoogleProfile: "Читать отзывы",
+    openFacebookReviews: "Читать отзывы",
+    facebookRecommendations: "Рекомендации",
+    reviewCountLabel: "реальных отзывов и рекомендаций",
+    recentRecommendation: "Недавняя публикация",
+    facebookCommunityAuthor: "Публичная рекомендация в Facebook",
+    facebookClientPost: "Публикация клиентки в Facebook",
     reviewsSocialTitle: "Новые платья — в наших социальных сетях",
     reviewsSocialText: "В Instagram и Facebook мы публикуем модели, детали и новости салона. Если что-то понравится, отправь скриншот в WhatsApp — проверим наличие.",
     reviewsCtaTitle: "Запишись на визит в CATRIN",
@@ -57,7 +62,7 @@ const copy = {
     reviewsSourcesAria: "Оригинальные источники отзывов",
     googleReviewsAria: "Читать отзывы о CATRIN в Google",
     facebookReviewsAria: "Читать отзывы о CATRIN в Facebook",
-    precosReviewAria: "Читать отзыв на Precos.lv",
+    facebookOriginalAria: "Открыть оригинальную публикацию в Facebook",
 
     dressesEyebrow: "Подборка платьев",
     dressesTitle: "Свадебные платья в салоне",
@@ -233,13 +238,18 @@ const copy = {
     contactRibbonTitle: "Book a day that suits you",
     socialEyebrow: "News and dress inspiration",
     reviewsPageEyebrow: "Reviews",
-    reviewsPageTitle: "Client experiences with CATRIN",
+    reviewsPageTitle: "What clients say about CATRIN",
     reviewsPageLead: "",
     reviewSelectionEyebrow: "Review selection",
-    reviewSelectionTitle: "Reviews from Google, Facebook and Precos.lv",
-    reviewOriginalNote: "The reviews were left on CATRIN’s public profiles. Reviewer names and publication dates are shown where available.",
-    openGoogleProfile: "See all reviews",
-    openFacebookReviews: "See all reviews",
+    reviewSelectionTitle: "Google and Facebook in one place",
+    reviewOriginalNote: "This page brings together genuine reviews and public recommendations from Google and Facebook. The original language has been preserved.",
+    openGoogleProfile: "Read reviews",
+    openFacebookReviews: "Read reviews",
+    facebookRecommendations: "Recommendations",
+    reviewCountLabel: "genuine reviews and recommendations",
+    recentRecommendation: "Recently published",
+    facebookCommunityAuthor: "Public Facebook recommendation",
+    facebookClientPost: "Client post on Facebook",
     reviewsSocialTitle: "See the latest dresses on social media",
     reviewsSocialText: "We post new gowns, details and salon news on Instagram and Facebook. If something catches your eye, send us a screenshot on WhatsApp and we will check availability.",
     reviewsCtaTitle: "Book your visit to CATRIN",
@@ -247,7 +257,7 @@ const copy = {
     reviewsSourcesAria: "Original review sources",
     googleReviewsAria: "Read CATRIN reviews on Google",
     facebookReviewsAria: "Read CATRIN reviews on Facebook",
-    precosReviewAria: "Read the review on Precos.lv",
+    facebookOriginalAria: "Open the original Facebook post",
 
     dressesEyebrow: "Dress selection",
     dressesTitle: "Wedding dresses at the salon",
@@ -387,7 +397,7 @@ const metadata = {
     dresses: ["Свадебные платья — CATRIN", "Подборка свадебных платьев и индивидуальная примерка в салоне CATRIN."],
     services: ["Пошив и подгонка свадебных платьев — CATRIN", "Индивидуальный пошив, платье по фотографии, подгонка, ремонт и химчистка свадебных платьев."],
     salon: ["О свадебном салоне CATRIN", "CATRIN — свадебный салон и швейная мастерская с 2011 года."],
-    reviews: ["Отзывы клиенток — CATRIN", "Отзывы клиентов о свадебном салоне CATRIN из Google, Facebook и Precos.lv."],
+    reviews: ["Отзывы клиенток — CATRIN", "Реальные отзывы и публичные рекомендации о свадебном салоне CATRIN из Google и Facebook."],
     contact: ["Запись и контакты — CATRIN", "Запись на примерку свадебного платья в салоне CATRIN. Адрес: улица Кришьяня Барона, 40, Елгава."],
     privacy: ["Политика конфиденциальности — CATRIN", "Информация об обработке персональных данных на сайте CATRIN и при обращении в салон."]
   },
@@ -396,7 +406,7 @@ const metadata = {
     dresses: ["Wedding dresses — CATRIN", "Wedding dress selection and individual fittings at the CATRIN bridal salon."],
     services: ["Wedding dressmaking and alterations — CATRIN", "Bespoke dressmaking, dresses from a photograph, alterations, repairs and wedding dress dry cleaning."],
     salon: ["About the CATRIN bridal salon", "CATRIN is a bridal salon and sewing studio established in 2011."],
-    reviews: ["Client reviews — CATRIN", "Client reviews of the CATRIN bridal salon from Google, Facebook and Precos.lv."],
+    reviews: ["Client reviews — CATRIN", "Genuine reviews and public recommendations about the CATRIN bridal salon from Google and Facebook."],
     contact: ["Booking and contact — CATRIN", "Book a wedding dress fitting at CATRIN. Address: 40 Krišjāņa Barona Street, Jelgava."],
     privacy: ["Privacy policy — CATRIN", "Information about personal data processing on the CATRIN website and when contacting the salon."]
   }
@@ -484,6 +494,7 @@ function translate(nextLanguage, updateAddress = true) {
   }
 
   updateLocalLinks();
+  document.dispatchEvent(new CustomEvent("catrin:languagechange"));
 }
 
 function updateLocalLinks() {
@@ -566,6 +577,78 @@ if (gallery) {
   gallery.addEventListener("focusout", startGallery);
   showSlide(0);
   startGallery();
+}
+
+const reviewSpotlight = document.querySelector("[data-review-spotlight]");
+const reviewItems = [...document.querySelectorAll("[data-review-item]")];
+
+if (reviewSpotlight && reviewItems.length) {
+  const spotlightQuote = reviewSpotlight.querySelector("[data-spotlight-quote]");
+  const spotlightAuthor = reviewSpotlight.querySelector("[data-spotlight-author]");
+  const spotlightDate = reviewSpotlight.querySelector("[data-spotlight-date]");
+  const spotlightIcon = reviewSpotlight.querySelector("[data-spotlight-icon]");
+  const spotlightSource = reviewSpotlight.querySelector("[data-spotlight-source]");
+  const spotlightCurrent = reviewSpotlight.querySelector("[data-spotlight-current]");
+  const reviewDelay = 6800;
+  let currentReview = 0;
+  let reviewTimer = 0;
+  let switchTimer = 0;
+
+  function stopReviewRotation() {
+    window.clearTimeout(reviewTimer);
+    window.clearTimeout(switchTimer);
+    reviewSpotlight.classList.remove("is-running");
+  }
+
+  function scheduleReviewRotation() {
+    window.clearTimeout(reviewTimer);
+    reviewSpotlight.classList.remove("is-running");
+    if (reducedMotion.matches || document.hidden) return;
+    void reviewSpotlight.offsetWidth;
+    reviewSpotlight.classList.add("is-running");
+    reviewTimer = window.setTimeout(() => showReview(currentReview + 1), reviewDelay);
+  }
+
+  function applyReview(index) {
+    currentReview = (index + reviewItems.length) % reviewItems.length;
+    const item = reviewItems[currentReview];
+    const source = item.querySelector(".review-card-source");
+    const icon = source?.querySelector("img");
+    const date = item.querySelector("time");
+
+    spotlightQuote.textContent = item.querySelector("blockquote")?.textContent.trim() || "";
+    spotlightAuthor.textContent = item.querySelector("footer strong")?.textContent.trim() || "";
+    spotlightDate.textContent = date?.textContent.trim() || "";
+    if (date?.dateTime) spotlightDate.dateTime = date.dateTime;
+    else spotlightDate.removeAttribute("datetime");
+    spotlightIcon.src = icon?.getAttribute("src") || "assets/icon-google.svg";
+    spotlightSource.textContent = source?.querySelector("span")?.textContent.trim() || "";
+    spotlightCurrent.textContent = String(currentReview + 1).padStart(2, "0");
+    reviewItems.forEach((review, reviewIndex) => review.classList.toggle("is-current", reviewIndex === currentReview));
+    reviewSpotlight.classList.remove("is-switching");
+    scheduleReviewRotation();
+  }
+
+  function showReview(index, animate = true) {
+    window.clearTimeout(switchTimer);
+    if (!animate || reducedMotion.matches) {
+      applyReview(index);
+      return;
+    }
+    reviewSpotlight.classList.add("is-switching");
+    switchTimer = window.setTimeout(() => applyReview(index), 190);
+  }
+
+  reviewSpotlight.addEventListener("pointerenter", stopReviewRotation);
+  reviewSpotlight.addEventListener("pointerleave", scheduleReviewRotation);
+  reviewSpotlight.addEventListener("focusin", stopReviewRotation);
+  reviewSpotlight.addEventListener("focusout", scheduleReviewRotation);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopReviewRotation();
+    else scheduleReviewRotation();
+  });
+  document.addEventListener("catrin:languagechange", () => showReview(currentReview, false));
+  showReview(0, false);
 }
 
 if ("IntersectionObserver" in window && !reducedMotion.matches) {
