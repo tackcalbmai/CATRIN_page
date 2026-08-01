@@ -3912,3 +3912,482 @@ h3 {
     font-size: 1.16rem;
   }
 }
+
+/* Reviews — open editorial composition */
+body[data-page="reviews"] main {
+  position: relative;
+  overflow: clip;
+}
+
+body[data-page="reviews"] main::before {
+  position: absolute;
+  z-index: -1;
+  width: min(58vw, 820px);
+  height: min(58vw, 820px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 178, 195, 0.2), rgba(217, 178, 195, 0) 69%);
+  content: "";
+  pointer-events: none;
+  right: -22vw;
+  top: 16rem;
+}
+
+.reviews-page-hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-block: clamp(4rem, 7vw, 7rem) clamp(1.8rem, 3vw, 2.8rem);
+}
+
+.reviews-page-heading h1 {
+  max-width: 900px;
+  margin-top: 0.75rem;
+  color: var(--plum);
+}
+
+.review-platform-icons {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.72rem;
+  padding-bottom: 0.35rem;
+}
+
+.review-platform-icon {
+  position: relative;
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgba(87, 48, 72, 0.14);
+  border-radius: 50%;
+  background: rgba(255, 253, 249, 0.94);
+  box-shadow: 0 10px 28px rgba(68, 34, 58, 0.08);
+  transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+.review-platform-icon::after {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-top: 1px solid var(--berry);
+  border-right: 1px solid var(--berry);
+  content: "";
+  opacity: 0;
+  right: 5px;
+  top: 5px;
+  transform: translate(-3px, 3px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.review-platform-icon:hover,
+.review-platform-icon:focus-visible {
+  border-color: rgba(124, 49, 95, 0.38);
+  box-shadow: 0 14px 32px rgba(68, 34, 58, 0.13);
+  transform: translateY(-3px);
+}
+
+.review-platform-icon:hover::after,
+.review-platform-icon:focus-visible::after {
+  opacity: 1;
+  transform: none;
+}
+
+.review-platform-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.review-stage {
+  position: relative;
+  display: grid;
+  min-height: clamp(360px, 38vw, 490px);
+  place-items: center;
+  isolation: isolate;
+  padding: clamp(3.4rem, 7vw, 6.5rem) clamp(1.2rem, 8vw, 8rem);
+}
+
+.review-stage-shape {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.review-stage-shape-large {
+  width: min(76vw, 930px);
+  height: min(35vw, 450px);
+  border: 1px solid rgba(116, 70, 98, 0.12);
+  border-radius: 49% 51% 42% 58% / 56% 43% 57% 44%;
+  background:
+    radial-gradient(circle at 28% 28%, rgba(255, 253, 249, 0.74), transparent 31%),
+    linear-gradient(137deg, #eedde4 0%, #e7cbd8 52%, #f5e9e6 100%);
+  box-shadow: 0 34px 90px rgba(74, 23, 64, 0.1);
+  transform: rotate(-2.5deg);
+}
+
+.review-stage-shape-small {
+  width: clamp(90px, 12vw, 170px);
+  height: clamp(90px, 12vw, 170px);
+  border: 1px solid rgba(124, 49, 95, 0.2);
+  border-radius: 50%;
+  left: 9%;
+  top: 14%;
+}
+
+.review-stage-content {
+  display: grid;
+  width: min(100%, 920px);
+  justify-items: center;
+  text-align: center;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.review-stage.is-switching .review-stage-content {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.review-stage-quote {
+  height: 2.6rem;
+  color: rgba(74, 23, 64, 0.25);
+  font-family: var(--serif);
+  font-size: clamp(5rem, 8vw, 8rem);
+  line-height: 0.8;
+}
+
+.review-stage blockquote {
+  margin: 0;
+  color: var(--plum-deep);
+  font-family: var(--serif);
+  font-size: clamp(1.55rem, 3vw, 2.75rem);
+  font-weight: 420;
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.review-stage-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.72rem;
+  min-height: 34px;
+  margin-top: clamp(1.4rem, 2.6vw, 2rem);
+  color: rgba(57, 35, 49, 0.63);
+  font-size: 0.72rem;
+}
+
+.review-stage-author strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.review-stage-author strong:empty,
+.review-stage-author time:empty {
+  display: none;
+}
+
+.review-stage-author time:not(:empty)::before {
+  margin-right: 0.72rem;
+  color: rgba(74, 23, 64, 0.28);
+  content: "·";
+}
+
+.review-stage-author strong:empty + time::before {
+  display: none;
+}
+
+.review-stage-source {
+  display: grid;
+  width: 33px;
+  height: 33px;
+  place-items: center;
+  border: 1px solid rgba(87, 48, 72, 0.11);
+  border-radius: 50%;
+  background: rgba(255, 253, 249, 0.88);
+}
+
+.review-stage-source img {
+  width: 20px;
+  height: 20px;
+}
+
+.reviews-collage {
+  padding-block: clamp(3rem, 5vw, 5rem) clamp(5rem, 8vw, 8rem);
+}
+
+.review-notes {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(230px, auto));
+  gap: 0.95rem;
+  align-items: stretch;
+}
+
+.review-note {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1.35rem, 2vw, 1.85rem);
+  overflow: hidden;
+  border: 1px solid rgba(105, 68, 91, 0.13);
+  background: rgba(255, 253, 249, 0.76);
+  box-shadow: 0 18px 52px rgba(74, 23, 64, 0.055);
+  transition: border-color 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease);
+}
+
+.review-note::after {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(124, 49, 95, 0.085);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+  right: -70px;
+  top: -72px;
+}
+
+.review-note:hover,
+.review-note:focus-within,
+.review-note.is-current {
+  border-color: rgba(124, 49, 95, 0.28);
+  background: rgba(255, 253, 249, 0.94);
+  box-shadow: 0 22px 58px rgba(74, 23, 64, 0.09);
+}
+
+.review-note-mark {
+  color: rgba(124, 49, 95, 0.24);
+  font-family: var(--serif);
+  font-size: 3.9rem;
+  line-height: 0.68;
+}
+
+.review-note blockquote {
+  position: relative;
+  z-index: 1;
+  margin: 0.55rem 0 1.4rem;
+  color: var(--plum-deep);
+  font-family: var(--serif);
+  font-size: clamp(1.06rem, 1.35vw, 1.32rem);
+  font-weight: 420;
+  line-height: 1.45;
+}
+
+.review-note footer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--muted);
+  font-size: 0.66rem;
+}
+
+.review-note footer strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.review-note footer time {
+  margin-right: auto;
+}
+
+.review-note footer strong + time::before {
+  margin-right: 0.65rem;
+  color: rgba(74, 23, 64, 0.25);
+  content: "·";
+}
+
+.review-note-origin {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  place-items: center;
+  margin-left: auto;
+  border: 1px solid rgba(87, 48, 72, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+
+.review-note-origin:hover,
+.review-note-origin:focus-visible {
+  border-color: rgba(124, 49, 95, 0.4);
+  transform: translateY(-2px);
+}
+
+.review-note-origin img {
+  width: 19px;
+  height: 19px;
+}
+
+.review-note-egija {
+  grid-column: 1 / span 5;
+  grid-row: 1;
+  border-radius: 54px 24px 76px 28px;
+  background: linear-gradient(145deg, rgba(255, 253, 249, 0.94), rgba(244, 231, 235, 0.8));
+}
+
+.review-note-dace {
+  grid-column: 6 / span 4;
+  grid-row: 1;
+  margin-top: 2.2rem;
+  border-radius: 26px 68px 30px 74px;
+}
+
+.review-note-dzigunda {
+  grid-column: 10 / span 3;
+  grid-row: 1;
+  margin-bottom: 2.8rem;
+  border-radius: 80px 28px 68px 34px;
+  background: rgba(237, 216, 225, 0.62);
+}
+
+.review-note-liza {
+  grid-column: 1 / span 4;
+  grid-row: 2;
+  margin: 1.4rem 0 0 1.8rem;
+  border-radius: 28px 70px 36px 62px;
+}
+
+.review-note-anda {
+  grid-column: 5 / span 3;
+  grid-row: 2;
+  margin-bottom: 2.2rem;
+  border-radius: 72px 30px 74px 28px;
+  background: rgba(255, 253, 249, 0.9);
+}
+
+.review-note-community {
+  grid-column: 8 / span 2;
+  grid-row: 2;
+  margin-top: 2.3rem;
+  border-radius: 70px 28px 34px 76px;
+  background: rgba(235, 214, 224, 0.68);
+}
+
+.review-note-client {
+  grid-column: 10 / span 3;
+  grid-row: 2;
+  margin: -0.8rem 0 1.5rem;
+  border-radius: 28px 62px 70px 34px;
+}
+
+@media (max-width: 1080px) {
+  .review-notes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+
+  .review-note,
+  .review-note-egija,
+  .review-note-dace,
+  .review-note-dzigunda,
+  .review-note-liza,
+  .review-note-anda,
+  .review-note-community,
+  .review-note-client {
+    min-height: 220px;
+    grid-column: auto;
+    grid-row: auto;
+    margin: 0;
+  }
+
+  .review-note-egija,
+  .review-note-client {
+    grid-column: 1 / -1;
+  }
+
+  .review-stage-shape-large {
+    width: min(86vw, 850px);
+    height: min(47vw, 450px);
+  }
+}
+
+@media (max-width: 700px) {
+  .reviews-page-hero {
+    align-items: center;
+    gap: 1.2rem;
+    padding-block: 3.3rem 1rem;
+  }
+
+  .reviews-page-heading h1 {
+    font-size: clamp(2.85rem, 12vw, 4.3rem);
+  }
+
+  .review-platform-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .review-platform-icon img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .review-stage {
+    min-height: 390px;
+    padding: 4rem 1.05rem;
+  }
+
+  .review-stage-shape-large {
+    width: 112vw;
+    height: 350px;
+    border-radius: 43% 57% 48% 52% / 55% 45% 55% 45%;
+  }
+
+  .review-stage-shape-small {
+    left: -5%;
+    top: 7%;
+  }
+
+  .review-stage blockquote {
+    font-size: clamp(1.45rem, 6.3vw, 2rem);
+  }
+
+  .review-notes {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .review-note,
+  .review-note-egija,
+  .review-note-dace,
+  .review-note-dzigunda,
+  .review-note-liza,
+  .review-note-anda,
+  .review-note-community,
+  .review-note-client {
+    min-height: 0;
+    grid-column: auto;
+    padding: 1.35rem 1.25rem 1.15rem;
+    border-radius: 30px 22px 42px 24px;
+  }
+
+  .review-note:nth-child(even) {
+    margin-left: 5vw;
+    border-radius: 22px 38px 24px 44px;
+  }
+
+  .review-note:nth-child(odd) {
+    margin-right: 5vw;
+  }
+
+  .review-note blockquote {
+    margin-bottom: 1.05rem;
+    font-size: 1.08rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .review-platform-icon,
+  .review-note,
+  .review-note-origin,
+  .review-stage-content {
+    transition: none;
+  }
+}

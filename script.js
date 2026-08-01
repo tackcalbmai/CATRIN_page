@@ -44,17 +44,6 @@ const copy = {
     socialEyebrow: "Новости и вдохновение",
     reviewsPageEyebrow: "Отзывы",
     reviewsPageTitle: "Что клиентки говорят о CATRIN",
-    reviewsPageLead: "",
-    reviewSelectionEyebrow: "Подборка отзывов",
-    reviewSelectionTitle: "Google и Facebook в одном месте",
-    reviewOriginalNote: "Здесь собраны реальные отзывы и публичные рекомендации из Google и Facebook. Текст сохранён на языке оригинала.",
-    openGoogleProfile: "Читать отзывы",
-    openFacebookReviews: "Читать отзывы",
-    facebookRecommendations: "Рекомендации",
-    reviewCountLabel: "реальных отзывов и рекомендаций",
-    recentRecommendation: "Недавняя публикация",
-    facebookCommunityAuthor: "Публичная рекомендация в Facebook",
-    facebookClientPost: "Публикация клиентки в Facebook",
     reviewsSocialTitle: "Новые платья — в наших социальных сетях",
     reviewsSocialText: "В Instagram и Facebook мы публикуем модели, детали и новости салона. Если что-то понравится, отправь скриншот в WhatsApp — проверим наличие.",
     reviewsCtaTitle: "Запишись на визит в CATRIN",
@@ -239,17 +228,6 @@ const copy = {
     socialEyebrow: "News and dress inspiration",
     reviewsPageEyebrow: "Reviews",
     reviewsPageTitle: "What clients say about CATRIN",
-    reviewsPageLead: "",
-    reviewSelectionEyebrow: "Review selection",
-    reviewSelectionTitle: "Google and Facebook in one place",
-    reviewOriginalNote: "This page brings together genuine reviews and public recommendations from Google and Facebook. The original language has been preserved.",
-    openGoogleProfile: "Read reviews",
-    openFacebookReviews: "Read reviews",
-    facebookRecommendations: "Recommendations",
-    reviewCountLabel: "genuine reviews and recommendations",
-    recentRecommendation: "Recently published",
-    facebookCommunityAuthor: "Public Facebook recommendation",
-    facebookClientPost: "Client post on Facebook",
     reviewsSocialTitle: "See the latest dresses on social media",
     reviewsSocialText: "We post new gowns, details and salon news on Instagram and Facebook. If something catches your eye, send us a screenshot on WhatsApp and we will check availability.",
     reviewsCtaTitle: "Book your visit to CATRIN",
@@ -397,7 +375,7 @@ const metadata = {
     dresses: ["Свадебные платья — CATRIN", "Подборка свадебных платьев и индивидуальная примерка в салоне CATRIN."],
     services: ["Пошив и подгонка свадебных платьев — CATRIN", "Индивидуальный пошив, платье по фотографии, подгонка, ремонт и химчистка свадебных платьев."],
     salon: ["О свадебном салоне CATRIN", "CATRIN — свадебный салон и швейная мастерская с 2011 года."],
-    reviews: ["Отзывы клиенток — CATRIN", "Реальные отзывы и публичные рекомендации о свадебном салоне CATRIN из Google и Facebook."],
+    reviews: ["Отзывы клиенток — CATRIN", "Отзывы клиенток о свадебном салоне CATRIN."],
     contact: ["Запись и контакты — CATRIN", "Запись на примерку свадебного платья в салоне CATRIN. Адрес: улица Кришьяня Барона, 40, Елгава."],
     privacy: ["Политика конфиденциальности — CATRIN", "Информация об обработке персональных данных на сайте CATRIN и при обращении в салон."]
   },
@@ -406,7 +384,7 @@ const metadata = {
     dresses: ["Wedding dresses — CATRIN", "Wedding dress selection and individual fittings at the CATRIN bridal salon."],
     services: ["Wedding dressmaking and alterations — CATRIN", "Bespoke dressmaking, dresses from a photograph, alterations, repairs and wedding dress dry cleaning."],
     salon: ["About the CATRIN bridal salon", "CATRIN is a bridal salon and sewing studio established in 2011."],
-    reviews: ["Client reviews — CATRIN", "Genuine reviews and public recommendations about the CATRIN bridal salon from Google and Facebook."],
+    reviews: ["Client reviews — CATRIN", "Client reviews of the CATRIN bridal salon."],
     contact: ["Booking and contact — CATRIN", "Book a wedding dress fitting at CATRIN. Address: 40 Krišjāņa Barona Street, Jelgava."],
     privacy: ["Privacy policy — CATRIN", "Information about personal data processing on the CATRIN website and when contacting the salon."]
   }
@@ -587,9 +565,7 @@ if (reviewSpotlight && reviewItems.length) {
   const spotlightAuthor = reviewSpotlight.querySelector("[data-spotlight-author]");
   const spotlightDate = reviewSpotlight.querySelector("[data-spotlight-date]");
   const spotlightIcon = reviewSpotlight.querySelector("[data-spotlight-icon]");
-  const spotlightSource = reviewSpotlight.querySelector("[data-spotlight-source]");
-  const spotlightCurrent = reviewSpotlight.querySelector("[data-spotlight-current]");
-  const reviewDelay = 6800;
+  const reviewDelay = 7200;
   let currentReview = 0;
   let reviewTimer = 0;
   let switchTimer = 0;
@@ -612,7 +588,7 @@ if (reviewSpotlight && reviewItems.length) {
   function applyReview(index) {
     currentReview = (index + reviewItems.length) % reviewItems.length;
     const item = reviewItems[currentReview];
-    const source = item.querySelector(".review-card-source");
+    const source = item.querySelector(".review-note-origin");
     const icon = source?.querySelector("img");
     const date = item.querySelector("time");
 
@@ -622,8 +598,6 @@ if (reviewSpotlight && reviewItems.length) {
     if (date?.dateTime) spotlightDate.dateTime = date.dateTime;
     else spotlightDate.removeAttribute("datetime");
     spotlightIcon.src = icon?.getAttribute("src") || "assets/icon-google.svg";
-    spotlightSource.textContent = source?.querySelector("span")?.textContent.trim() || "";
-    spotlightCurrent.textContent = String(currentReview + 1).padStart(2, "0");
     reviewItems.forEach((review, reviewIndex) => review.classList.toggle("is-current", reviewIndex === currentReview));
     reviewSpotlight.classList.remove("is-switching");
     scheduleReviewRotation();
