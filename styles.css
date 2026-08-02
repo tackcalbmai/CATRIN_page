@@ -14,3 +14,14 @@
     object-position: center 77%;
   }
 }
+
+/* Contact page background crop: reduce empty space above the models. */
+.contact-hero::before {
+  background-position: center 68%;
+}
+
+@media (max-width: 620px) {
+  .contact-hero::before {
+    background-position: 52% center;
+  }
+}
