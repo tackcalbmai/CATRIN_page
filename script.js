@@ -502,6 +502,13 @@ document.querySelectorAll("[data-lang]").forEach((button) => {
 
 document.querySelector(`[data-page-link="${page}"]`)?.setAttribute("aria-current", "page");
 
+const floatingHeader = document.querySelector(".site-header, .policy-header");
+if (floatingHeader) {
+  const updateHeaderSurface = () => floatingHeader.classList.toggle("is-scrolled", window.scrollY > 24);
+  updateHeaderSurface();
+  window.addEventListener("scroll", updateHeaderSurface, { passive: true });
+}
+
 const menuButton = document.querySelector("[data-menu-button]");
 const navigation = document.querySelector("[data-nav]");
 

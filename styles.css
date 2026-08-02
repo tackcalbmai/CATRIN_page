@@ -53,9 +53,9 @@
 }
 
 :root {
-  --paper: #f8f5f2;
-  --paper-deep: #eee8e4;
-  --paper-soft: #f2eeeb;
+  --paper: #f8f3ef;
+  --paper-deep: #eee5e1;
+  --paper-soft: #f3ece8;
   --white: #fffdfb;
   --ink: #271b22;
   --ink-soft: #71656b;
@@ -64,13 +64,17 @@
   --plum-wash: #eadde5;
   --line: rgba(65, 40, 53, 0.16);
   --line-strong: rgba(65, 40, 53, 0.3);
+  --glass: rgba(255, 253, 251, 0.62);
+  --glass-strong: rgba(255, 253, 251, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.72);
+  --shadow-soft: 0 22px 60px rgba(59, 37, 48, 0.09);
   --serif: "Noto Serif Display", Georgia, serif;
   --sans: "Onest", Arial, sans-serif;
-  --wide: min(92vw, 1440px);
-  --page: min(88vw, 1240px);
+  --wide: min(94vw, 1540px);
+  --page: min(90vw, 1360px);
   --reading: min(86vw, 760px);
-  --header-height: 78px;
-  --section-space: clamp(5.5rem, 9vw, 9.5rem);
+  --header-height: 70px;
+  --section-space: clamp(5rem, 7.5vw, 8rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -86,7 +90,10 @@ html {
 body {
   margin: 0;
   overflow-x: clip;
-  background: var(--paper);
+  background:
+    radial-gradient(circle at 8% 4%, rgba(255, 255, 255, 0.88), transparent 31rem),
+    radial-gradient(circle at 90% 24%, rgba(225, 196, 211, 0.19), transparent 36rem),
+    linear-gradient(180deg, #faf6f3 0%, var(--paper) 48%, #f5efeb 100%);
   color: var(--ink);
   font-family: var(--sans);
   font-size: 16px;
@@ -97,6 +104,16 @@ body {
 
 body.nav-open {
   overflow: hidden;
+}
+
+#pieraksts,
+#susana,
+#kopsana {
+  scroll-margin-top: calc(var(--header-height) + 2.5rem);
+}
+
+body[data-page="reviews"] main {
+  padding-top: calc(var(--header-height) + 2rem);
 }
 
 ::selection {
@@ -148,20 +165,21 @@ h3 {
   font-family: var(--serif);
   font-weight: 430;
   letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(3.15rem, 6vw, 6.8rem);
-  line-height: 0.94;
+  font-size: clamp(3rem, 4.5vw, 5rem);
+  line-height: 0.98;
 }
 
 h2 {
-  font-size: clamp(2.35rem, 4.3vw, 4.9rem);
-  line-height: 1;
+  font-size: clamp(2.15rem, 3vw, 3.4rem);
+  line-height: 1.04;
 }
 
 h3 {
-  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  font-size: clamp(1.35rem, 1.65vw, 1.8rem);
   line-height: 1.1;
 }
 
@@ -223,7 +241,7 @@ h3 {
   justify-content: center;
   padding: 0.9rem 1.35rem;
   border: 1px solid transparent;
-  border-radius: 1px;
+  border-radius: 8px;
   font-size: 0.74rem;
   font-weight: 650;
   letter-spacing: 0.12em;
@@ -285,31 +303,44 @@ h3 {
 
 /* Header */
 .site-header {
-  position: sticky;
+  position: fixed;
   z-index: 50;
-  top: 0;
+  top: 14px;
+  right: max(14px, calc((100vw - 1460px) / 2));
+  left: max(14px, calc((100vw - 1460px) / 2));
   display: grid;
-  width: 100%;
+  width: auto;
   min-height: var(--header-height);
-  grid-template-columns: 190px 1fr auto;
+  grid-template-columns: 176px 1fr auto;
   align-items: center;
-  gap: 2rem;
-  padding: 0 clamp(1.5rem, 4vw, 4.5rem);
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--paper) 94%, transparent);
-  backdrop-filter: blur(18px);
+  gap: 1.5rem;
+  padding: 0 1rem 0 1.25rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  background: rgba(250, 247, 244, 0.64);
+  box-shadow: 0 12px 36px rgba(48, 29, 39, 0.08);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  transition: background-color 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.site-header.is-scrolled,
+.policy-header.is-scrolled {
+  border-color: rgba(255, 255, 255, 0.9);
+  background: rgba(250, 247, 244, 0.86);
+  box-shadow: 0 16px 44px rgba(48, 29, 39, 0.12);
 }
 
 .brand {
   display: flex;
-  width: 150px;
-  height: 64px;
+  width: 142px;
+  height: 58px;
   align-items: center;
 }
 
 .brand img {
-  width: 148px;
-  height: 64px;
+  width: 140px;
+  height: 58px;
   object-fit: contain;
 }
 
@@ -322,7 +353,7 @@ h3 {
 
 .site-nav a {
   position: relative;
-  padding: 1.75rem 0 1.65rem;
+  padding: 1.45rem 0 1.35rem;
   color: #4f4249;
   font-size: 0.7rem;
   font-weight: 620;
@@ -334,7 +365,7 @@ h3 {
 .site-nav a::after {
   position: absolute;
   right: 0;
-  bottom: 1.25rem;
+  bottom: 0.95rem;
   left: 0;
   height: 1px;
   transform: scaleX(0);
@@ -390,7 +421,9 @@ h3 {
   align-items: center;
   justify-content: center;
   padding: 0.65rem 0.95rem;
-  border: 1px solid var(--plum);
+  border: 1px solid rgba(100, 31, 75, 0.42);
+  border-radius: 8px;
+  background: rgba(255, 253, 251, 0.42);
   color: var(--plum);
   font-size: 0.66rem;
   font-weight: 650;
@@ -416,7 +449,7 @@ h3 {
   isolation: isolate;
   display: flex;
   width: 100%;
-  min-height: calc(100svh - var(--header-height));
+  min-height: 100svh;
   align-items: center;
   overflow: hidden;
   background: #6c5c63;
@@ -427,8 +460,8 @@ h3 {
   z-index: 1;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(30, 13, 24, 0.84) 0%, rgba(30, 13, 24, 0.65) 38%, rgba(30, 13, 24, 0.22) 69%, rgba(30, 13, 24, 0.08) 100%),
-    linear-gradient(0deg, rgba(30, 13, 24, 0.2), transparent 45%);
+    linear-gradient(90deg, rgba(30, 13, 24, 0.76) 0%, rgba(30, 13, 24, 0.57) 40%, rgba(30, 13, 24, 0.2) 72%, rgba(30, 13, 24, 0.06) 100%),
+    linear-gradient(0deg, rgba(30, 13, 24, 0.18), transparent 46%);
   content: "";
   pointer-events: none;
 }
@@ -442,7 +475,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   margin-inline: auto;
-  padding-block: clamp(5rem, 10vw, 10rem);
+  padding: calc(var(--header-height) + clamp(5rem, 9vw, 8rem)) 0 clamp(4.5rem, 7vw, 7rem);
   color: var(--white);
 }
 
@@ -451,15 +484,15 @@ h3 {
 }
 
 .hero-copy h1 {
-  max-width: 980px;
+  max-width: 1260px;
   margin: 1.25rem 0 1.65rem;
   color: var(--white);
-  font-size: clamp(4.25rem, 7.2vw, 7.8rem);
-  line-height: 0.91;
+  font-size: clamp(3.55rem, 5.1vw, 5.6rem);
+  line-height: 0.98;
 }
 
 .hero-intro {
-  max-width: 690px;
+  max-width: 720px;
   color: rgba(255, 253, 251, 0.82);
   font-size: clamp(1rem, 1.3vw, 1.2rem);
   line-height: 1.75;
@@ -646,9 +679,11 @@ h3 {
 
 .lookbook-teaser {
   display: grid;
-  min-height: 720px;
+  min-height: 680px;
   grid-template-columns: minmax(480px, 0.92fr) minmax(620px, 1.08fr);
-  background: var(--paper-deep);
+  border-block: 1px solid rgba(255, 255, 255, 0.7);
+  background:
+    linear-gradient(120deg, rgba(239, 228, 224, 0.92), rgba(248, 243, 240, 0.72));
 }
 
 .lookbook-copy {
@@ -656,11 +691,12 @@ h3 {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(4rem, 8vw, 9rem) clamp(3rem, 7vw, 8rem);
+  padding: clamp(4rem, 7vw, 7rem) clamp(2.5rem, 5vw, 5.5rem);
 }
 
 .lookbook-copy h2 {
   margin: 1rem 0 1.4rem;
+  font-size: clamp(2.2rem, 2.65vw, 3rem);
 }
 
 .lookbook-copy > p:not(.eyebrow) {
@@ -714,7 +750,7 @@ h3 {
   margin: var(--section-space) auto;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: clamp(3.5rem, 9vw, 9rem);
+  gap: clamp(3.5rem, 8vw, 8rem);
 }
 
 .home-story-image {
@@ -728,6 +764,7 @@ h3 {
 
 .home-story-copy h2 {
   margin: 1rem 0 1.5rem;
+  font-size: clamp(2.2rem, 2.8vw, 3.2rem);
 }
 
 .home-story-copy > p:not(.eyebrow) {
@@ -744,7 +781,7 @@ h3 {
   isolation: isolate;
   display: flex;
   width: 100%;
-  min-height: min(790px, calc(88svh - var(--header-height)));
+  min-height: clamp(620px, 78svh, 760px);
   align-items: center;
   overflow: hidden;
   background: #6c5c63;
@@ -754,7 +791,7 @@ h3 {
   position: absolute;
   z-index: 1;
   inset: 0;
-  background: linear-gradient(90deg, rgba(30, 13, 24, 0.84) 0%, rgba(30, 13, 24, 0.59) 42%, rgba(30, 13, 24, 0.16) 74%, rgba(30, 13, 24, 0.06) 100%);
+  background: linear-gradient(90deg, rgba(30, 13, 24, 0.77) 0%, rgba(30, 13, 24, 0.56) 43%, rgba(30, 13, 24, 0.16) 76%, rgba(30, 13, 24, 0.05) 100%);
   content: "";
   pointer-events: none;
 }
@@ -768,7 +805,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   margin-inline: auto;
-  padding-block: clamp(5rem, 9vw, 9rem);
+  padding: calc(var(--header-height) + clamp(4rem, 7vw, 6.5rem)) 0 clamp(4rem, 7vw, 6rem);
   color: var(--white);
 }
 
@@ -777,15 +814,15 @@ h3 {
 }
 
 .page-hero-copy h1 {
-  max-width: 1000px;
+  max-width: 1280px;
   margin: 1rem 0 1.5rem;
   color: var(--white);
-  font-size: clamp(3.9rem, 6.5vw, 7.2rem);
-  line-height: 0.93;
+  font-size: clamp(3.2rem, 4.1vw, 4.5rem);
+  line-height: 0.99;
 }
 
 .page-hero .page-lead {
-  max-width: 720px;
+  max-width: 760px;
   color: rgba(255, 253, 251, 0.82);
   font-size: clamp(1rem, 1.25vw, 1.14rem);
 }
@@ -872,8 +909,12 @@ body[data-page="services"] .page-hero-image img {
   bottom: 1rem;
   left: 1rem;
   padding: 0.8rem 1rem;
-  background: color-mix(in srgb, var(--paper) 90%, transparent);
-  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.64);
+  border-radius: 9px;
+  background: rgba(250, 247, 244, 0.74);
+  box-shadow: 0 12px 28px rgba(48, 29, 39, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: var(--ink);
   font-size: 0.78rem;
 }
@@ -882,7 +923,8 @@ body[data-page="services"] .page-hero-image img {
   display: grid;
   min-height: 650px;
   grid-template-columns: 1.1fr 0.9fr;
-  background: var(--paper-deep);
+  border-block: 1px solid rgba(255, 255, 255, 0.7);
+  background: linear-gradient(120deg, rgba(239, 228, 224, 0.92), rgba(248, 243, 240, 0.74));
 }
 
 .accessory-image {
@@ -895,11 +937,12 @@ body[data-page="services"] .page-hero-image img {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(4rem, 8vw, 9rem);
+  padding: clamp(4rem, 7vw, 7rem) clamp(2.5rem, 5vw, 5.5rem);
 }
 
 .accessory-copy h2 {
   margin: 1rem 0 1.5rem;
+  font-size: clamp(2.2rem, 2.65vw, 3rem);
 }
 
 .accessory-copy .text-link {
@@ -937,7 +980,7 @@ body[data-page="services"] .page-hero-image img {
 .ledger-item {
   display: grid;
   min-height: 190px;
-  grid-template-columns: minmax(310px, 0.72fr) minmax(420px, 1.28fr) auto;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr) auto;
   align-content: center;
   align-items: center;
   column-gap: clamp(2rem, 5vw, 5rem);
@@ -1009,9 +1052,13 @@ body[data-page="services"] .page-hero-image img {
   display: grid;
   width: var(--wide);
   margin: 0 auto;
-  grid-template-columns: minmax(560px, 1.25fr) minmax(380px, 0.75fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
   grid-template-rows: auto auto;
-  background: var(--paper-deep);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 20px;
+  background: rgba(246, 239, 236, 0.78);
+  box-shadow: var(--shadow-soft);
 }
 
 .salon-collage-main {
@@ -1035,6 +1082,7 @@ body[data-page="services"] .page-hero-image img {
 
 .salon-collage-note h2 {
   margin: 1rem 0 1.4rem;
+  font-size: clamp(2.15rem, 2.6vw, 2.95rem);
 }
 
 .salon-collage-note p:not(.eyebrow) {
@@ -1095,7 +1143,7 @@ body[data-page="reviews"] main {
   grid-template-columns: minmax(480px, 1fr) auto;
   align-items: end;
   gap: 3rem;
-  padding: clamp(5rem, 9vw, 9rem) 0 clamp(3rem, 6vw, 5.5rem);
+  padding: clamp(4rem, 7vw, 6.5rem) 0 clamp(3rem, 5vw, 4.5rem);
   border-bottom: 1px solid var(--line);
 }
 
@@ -1103,6 +1151,7 @@ body[data-page="reviews"] main {
   max-width: 850px;
   margin-top: 1rem;
   color: var(--plum-dark);
+  font-size: clamp(3rem, 3.8vw, 4.35rem);
 }
 
 .review-platform-icons {
@@ -1117,15 +1166,20 @@ body[data-page="reviews"] main {
   align-items: center;
   gap: 0.85rem;
   padding: 0.85rem 1rem;
-  border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--white) 72%, transparent);
-  transition: border-color 220ms ease, transform 220ms ease, background-color 220ms ease;
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  background: var(--glass);
+  box-shadow: 0 14px 36px rgba(55, 35, 45, 0.07);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  transition: border-color 220ms ease, transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
 }
 
 .review-platform-icon:hover {
   transform: translateY(-2px);
   border-color: var(--line-strong);
-  background: var(--white);
+  background: var(--glass-strong);
+  box-shadow: 0 18px 42px rgba(55, 35, 45, 0.1);
 }
 
 .review-platform-icon-mark {
@@ -1161,7 +1215,7 @@ body[data-page="reviews"] main {
 
 .review-stage {
   display: grid;
-  min-height: 500px;
+  min-height: 430px;
   place-items: center;
   padding-block: clamp(5rem, 9vw, 9rem);
   text-align: center;
@@ -1189,9 +1243,11 @@ body[data-page="reviews"] main {
 }
 
 .review-stage blockquote {
+  max-width: 980px;
+  margin-inline: auto;
   color: var(--plum-dark);
   font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 4.2rem);
+  font-size: clamp(1.9rem, 3vw, 3.25rem);
   font-weight: 390;
   letter-spacing: -0.035em;
   line-height: 1.08;
@@ -1234,9 +1290,11 @@ body[data-page="reviews"] main {
   flex-direction: column;
   justify-content: space-between;
   padding: clamp(1.35rem, 2.4vw, 2.1rem);
-  border: 1px solid var(--line);
-  background: rgba(255, 253, 251, 0.52);
-  transition: border-color 300ms ease, background-color 300ms ease, transform 500ms var(--ease);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  background: rgba(255, 253, 251, 0.5);
+  box-shadow: 0 14px 40px rgba(55, 35, 45, 0.055);
+  transition: border-color 300ms ease, background-color 300ms ease, transform 500ms var(--ease), box-shadow 300ms ease;
 }
 
 .review-note:nth-child(1),
@@ -1262,7 +1320,8 @@ body[data-page="reviews"] main {
 .review-note.is-current {
   transform: translateY(-4px);
   border-color: var(--line-strong);
-  background: var(--white);
+  background: rgba(255, 253, 251, 0.86);
+  box-shadow: 0 20px 48px rgba(55, 35, 45, 0.09);
 }
 
 .review-note-mark {
@@ -1307,11 +1366,14 @@ body[data-page="reviews"] main {
 /* Contact */
 .contact-hero {
   position: relative;
-  min-height: 650px;
-  padding: clamp(4.5rem, 8vw, 8rem) max(5vw, calc((100vw - 1240px) / 2));
+  isolation: isolate;
+  min-height: 720px;
+  padding: calc(var(--header-height) + clamp(5rem, 8vw, 7.5rem)) max(5vw, calc((100vw - 1360px) / 2)) clamp(4.5rem, 7vw, 6.5rem);
   overflow: hidden;
-  background: var(--plum-dark);
-  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(249, 245, 242, 0.98) 0%, rgba(249, 245, 242, 0.94) 45%, rgba(244, 235, 232, 0.82) 70%, rgba(235, 218, 225, 0.66) 100%),
+    url("assets/dress-back.jpg") center 31% / cover no-repeat;
+  color: var(--ink);
 }
 
 .contact-hero-copy {
@@ -1319,17 +1381,18 @@ body[data-page="reviews"] main {
 }
 
 .contact-hero .eyebrow {
-  color: rgba(255, 253, 251, 0.68);
+  color: var(--plum);
 }
 
 .contact-hero-copy h1 {
   margin: 1rem 0 1.5rem;
-  color: var(--white);
+  max-width: 1080px;
+  color: var(--plum-dark);
 }
 
 .contact-hero .page-lead {
   max-width: 660px;
-  color: rgba(255, 253, 251, 0.72);
+  color: var(--ink-soft);
 }
 
 .contact-cards {
@@ -1337,34 +1400,37 @@ body[data-page="reviews"] main {
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  margin-top: clamp(3.5rem, 7vw, 7rem);
-  border-top: 1px solid rgba(255, 253, 251, 0.25);
-  border-bottom: 1px solid rgba(255, 253, 251, 0.25);
+  gap: clamp(0.8rem, 1.5vw, 1.25rem);
+  margin-top: clamp(3rem, 5vw, 5rem);
 }
 
 .contact-card {
   display: grid;
-  min-height: 178px;
+  min-height: 190px;
   grid-template-rows: auto 1fr auto;
   align-items: start;
-  padding: 1.8rem 1.8rem 1.8rem 0;
-  border-right: 1px solid rgba(255, 253, 251, 0.2);
+  padding: clamp(1.5rem, 2.4vw, 2.1rem);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  background: rgba(255, 253, 251, 0.58);
+  box-shadow: 0 18px 48px rgba(55, 35, 45, 0.08);
+  backdrop-filter: blur(20px) saturate(1.15);
+  -webkit-backdrop-filter: blur(20px) saturate(1.15);
 }
 
 .contact-card + .contact-card {
-  padding-left: 1.8rem;
+  padding-left: clamp(1.5rem, 2.4vw, 2.1rem);
 }
 
 .contact-card-hours {
   grid-column: auto;
-  min-height: 178px;
-  border-right: 0;
+  min-height: 190px;
 }
 
 .contact-card > span {
   display: block;
   margin-bottom: 1rem;
-  color: rgba(255, 253, 251, 0.62);
+  color: var(--ink-soft);
   font-size: 0.67rem;
   font-weight: 650;
   letter-spacing: 0.13em;
@@ -1374,15 +1440,15 @@ body[data-page="reviews"] main {
 .contact-number,
 .contact-address,
 .contact-card-hours p {
-  color: var(--white);
+  color: var(--plum-dark);
   font-family: var(--serif);
-  font-size: clamp(1.28rem, 2vw, 1.8rem);
+  font-size: clamp(1.25rem, 1.55vw, 1.65rem);
   line-height: 1.3;
 }
 
 .contact-number:hover,
 .contact-address:hover {
-  color: var(--plum-wash);
+  color: var(--plum);
 }
 
 .contact-channels,
@@ -1398,17 +1464,18 @@ body[data-page="reviews"] main {
   width: 42px;
   height: 42px;
   place-items: center;
-  border: 1px solid rgba(255, 253, 251, 0.2);
+  border: 1px solid rgba(100, 31, 75, 0.14);
   border-radius: 50%;
-  background: rgba(255, 253, 251, 0.08);
+  background: rgba(255, 253, 251, 0.72);
+  box-shadow: 0 8px 20px rgba(55, 35, 45, 0.06);
   transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease;
 }
 
 .contact-channel:hover,
 .contact-route:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 253, 251, 0.44);
-  background: rgba(255, 253, 251, 0.14);
+  border-color: rgba(100, 31, 75, 0.34);
+  background: var(--white);
 }
 
 .contact-channel img,
@@ -1421,8 +1488,8 @@ body[data-page="reviews"] main {
   display: grid;
   width: var(--page);
   margin: 0 auto;
-  grid-template-columns: minmax(300px, 0.62fr) minmax(620px, 1.38fr);
-  gap: clamp(4rem, 8vw, 8rem);
+  grid-template-columns: minmax(300px, 0.58fr) minmax(620px, 1.42fr);
+  gap: clamp(3.5rem, 7vw, 7rem);
   padding-block: var(--section-space);
 }
 
@@ -1440,7 +1507,12 @@ body[data-page="reviews"] main {
   grid-template-columns: repeat(2, 1fr);
   gap: 1.4rem 1.25rem;
   padding: clamp(1.7rem, 3.5vw, 3.25rem);
-  background: var(--paper-deep);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  background: rgba(255, 253, 251, 0.58);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
 }
 
 .booking-form label {
@@ -1464,9 +1536,9 @@ body[data-page="reviews"] main {
   padding: 0.8rem 0.9rem;
   border: 0;
   border-bottom: 1px solid var(--line-strong);
-  border-radius: 0;
+  border-radius: 8px 8px 3px 3px;
   outline: 0;
-  background: rgba(255, 253, 251, 0.68);
+  background: rgba(255, 253, 251, 0.74);
   transition: border-color 220ms ease, background-color 220ms ease;
 }
 
@@ -1527,41 +1599,49 @@ body[data-page="reviews"] main {
 
 .map-band {
   display: grid;
-  min-height: 600px;
-  grid-template-columns: minmax(500px, 1fr) minmax(560px, 0.92fr);
+  min-height: 560px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
   align-items: stretch;
-  background: var(--plum);
-  color: var(--white);
+  border-block: 1px solid rgba(255, 255, 255, 0.72);
+  background: linear-gradient(120deg, rgba(234, 219, 225, 0.9), rgba(248, 243, 240, 0.88));
+  color: var(--ink);
 }
 
 .map-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(4rem, 8vw, 9rem) max(5vw, calc((100vw - 1240px) / 2));
+  padding: clamp(4rem, 7vw, 7.5rem) max(5vw, calc((100vw - 1360px) / 2));
 }
 
 .map-copy .eyebrow {
-  color: rgba(255, 253, 251, 0.68);
+  color: var(--plum);
 }
 
 .map-copy h2 {
   margin: 1rem 0 1.2rem;
-  font-size: clamp(2.1rem, 3.3vw, 3.7rem);
+  max-width: 620px;
+  color: var(--plum-dark);
+  font-size: clamp(2rem, 2.7vw, 3.1rem);
 }
 
 .map-copy p:not(.eyebrow) {
-  color: rgba(255, 253, 251, 0.72);
+  color: var(--ink-soft);
 }
 
 .map-frame {
-  min-height: 600px;
+  min-height: 500px;
+  margin: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem) 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 18px;
+  box-shadow: var(--shadow-soft);
 }
 
 .map-frame iframe {
   width: 100%;
   height: 100%;
-  min-height: 600px;
+  min-height: 500px;
   border: 0;
   filter: grayscale(0.18) saturate(0.72) sepia(0.08) contrast(0.95);
 }
@@ -1570,14 +1650,18 @@ body[data-page="reviews"] main {
 .contact-ribbon {
   display: grid;
   width: var(--page);
-  min-height: 330px;
-  margin: 0 auto;
+  min-height: 270px;
+  margin: var(--section-space) auto;
   grid-template-columns: minmax(480px, 1fr) auto;
   align-items: center;
   gap: clamp(3rem, 8vw, 8rem);
-  padding-block: clamp(4rem, 7vw, 7rem);
-  border-top: 1px solid var(--line-strong);
-  background: transparent;
+  padding: clamp(2.5rem, 4.5vw, 4rem);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  background: rgba(255, 253, 251, 0.5);
+  box-shadow: 0 18px 50px rgba(55, 35, 45, 0.065);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   color: var(--ink);
 }
 
@@ -1585,7 +1669,7 @@ body[data-page="reviews"] main {
   max-width: 820px;
   margin-top: 1rem;
   color: var(--plum-dark);
-  font-size: clamp(2.35rem, 4vw, 4.5rem);
+  font-size: clamp(2.1rem, 2.85vw, 3.25rem);
 }
 
 .contact-ribbon-actions {
@@ -1610,9 +1694,11 @@ body[data-page="reviews"] main {
   grid-template-columns: 180px 1fr 1fr;
   align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
-  padding: clamp(3rem, 5vw, 5rem) max(4vw, calc((100vw - 1240px) / 2));
-  border-top: 1px solid var(--line);
-  background: var(--paper-soft);
+  padding: clamp(3rem, 5vw, 5rem) max(4vw, calc((100vw - 1360px) / 2));
+  border-top: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(243, 236, 232, 0.74);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .footer-brand {
@@ -1686,12 +1772,22 @@ body[data-page="reviews"] main {
 }
 
 .policy-header {
+  position: sticky;
+  z-index: 50;
+  top: 14px;
   display: flex;
+  width: min(calc(100% - 28px), 1460px);
   min-height: var(--header-height);
   align-items: center;
   justify-content: space-between;
-  padding: 0 max(4vw, calc((100vw - 1240px) / 2));
-  border-bottom: 1px solid var(--line);
+  margin: 14px auto 0;
+  padding: 0 1.25rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  background: rgba(250, 247, 244, 0.72);
+  box-shadow: 0 12px 36px rgba(48, 29, 39, 0.08);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
 }
 
 .policy-brand {
@@ -1728,11 +1824,12 @@ body[data-page="reviews"] main {
 .policy-main h1 {
   margin-bottom: 2.5rem;
   color: var(--plum-dark);
+  font-size: clamp(2.7rem, 3.4vw, 3.55rem);
 }
 
 .policy-main h2 {
   margin: 3rem 0 0.9rem;
-  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  font-size: clamp(1.6rem, 2.2vw, 2.15rem);
 }
 
 .policy-main p {
@@ -1771,7 +1868,7 @@ body[data-page="reviews"] main {
   .site-header {
     grid-template-columns: 160px 1fr auto;
     gap: 1rem;
-    padding-inline: 1.8rem;
+    padding-inline: 1.2rem;
   }
 
   .brand,
@@ -1802,8 +1899,8 @@ body[data-page="reviews"] main {
   }
 
   .hero-copy h1 {
-    max-width: 900px;
-    font-size: clamp(4rem, 7vw, 6.8rem);
+    max-width: 1060px;
+    font-size: clamp(3.45rem, 5.2vw, 5.35rem);
   }
 
   .lookbook-teaser {
@@ -1845,9 +1942,31 @@ body[data-page="reviews"] main {
   }
 
   .site-header {
+    top: 10px;
+    right: 10px;
+    left: 10px;
     min-height: var(--header-height);
     grid-template-columns: 140px 1fr;
     padding-inline: 1.25rem;
+    border-radius: 15px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .site-header.is-scrolled {
+    background: transparent;
+  }
+
+  .site-header::before {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    border-radius: inherit;
+    background: rgba(250, 247, 244, 0.88);
+    backdrop-filter: blur(22px) saturate(1.15);
+    -webkit-backdrop-filter: blur(22px) saturate(1.15);
+    content: "";
   }
 
   .brand,
@@ -1857,7 +1976,14 @@ body[data-page="reviews"] main {
   }
 
   .header-tools {
+    position: relative;
+    z-index: 2;
     justify-self: end;
+  }
+
+  .brand {
+    position: relative;
+    z-index: 2;
   }
 
   .language-switcher {
@@ -1899,18 +2025,20 @@ body[data-page="reviews"] main {
 
   .site-nav {
     position: fixed;
-    z-index: 45;
-    inset: var(--header-height) 0 0;
+    z-index: 1;
+    inset: 0;
     display: flex;
     visibility: hidden;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 0;
-    padding: 2rem 8vw 5rem;
+    padding: calc(var(--header-height) + 4rem) 8vw 5rem;
     transform: translateY(-12px);
     opacity: 0;
-    background: var(--paper);
+    background: rgba(248, 243, 239, 0.94);
+    backdrop-filter: blur(28px) saturate(1.1);
+    -webkit-backdrop-filter: blur(28px) saturate(1.1);
     transition: visibility 300ms step-end, opacity 300ms ease, transform 450ms var(--ease);
   }
 
@@ -1940,7 +2068,7 @@ body[data-page="reviews"] main {
   .page-hero,
   body[data-page="services"] .page-hero,
   body[data-page="salon"] .page-hero {
-    min-height: calc(100svh - var(--header-height));
+    min-height: 100svh;
   }
 
   .hero-copy,
@@ -2034,7 +2162,7 @@ body[data-page="reviews"] main {
   }
 
   .ledger-item {
-    grid-template-columns: minmax(250px, 0.78fr) minmax(330px, 1.22fr);
+    grid-template-columns: minmax(190px, 0.78fr) minmax(0, 1.22fr);
   }
 
   .ledger-item h3 {
@@ -2108,7 +2236,11 @@ body[data-page="reviews"] main {
 
   .contact-hero {
     min-height: 0;
-    padding-block: 5rem;
+    padding: calc(var(--header-height) + 5rem) 5vw 5rem;
+  }
+
+  .contact-cards {
+    grid-template-columns: 1fr;
   }
 
   .booking-section {
@@ -2117,6 +2249,10 @@ body[data-page="reviews"] main {
 
   .map-copy {
     padding: 5rem 5vw;
+  }
+
+  .map-frame {
+    margin: 0 5vw 5vw;
   }
 
   .contact-ribbon {
@@ -2153,7 +2289,9 @@ body[data-page="reviews"] main {
     height: 62px;
     grid-template-columns: 0.72fr 1.28fr;
     border-top: 1px solid var(--line);
-    background: var(--paper);
+    background: rgba(248, 243, 239, 0.9);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
   }
 
   .mobile-actions a {
@@ -2181,15 +2319,19 @@ body[data-page="reviews"] main {
   }
 
   h1 {
-    font-size: clamp(3rem, 15vw, 4.8rem);
+    font-size: clamp(2.65rem, 11.5vw, 3.8rem);
   }
 
   h2 {
-    font-size: clamp(2.3rem, 11.5vw, 3.6rem);
+    font-size: clamp(2.05rem, 9.5vw, 3.05rem);
   }
 
   .site-header {
+    top: 8px;
+    right: 8px;
+    left: 8px;
     padding-inline: 0.9rem;
+    border-radius: 13px;
   }
 
   .brand,
@@ -2216,7 +2358,7 @@ body[data-page="reviews"] main {
   .hero-copy h1,
   .page-hero-copy h1 {
     margin-block: 1rem 1.25rem;
-    font-size: clamp(3.15rem, 14vw, 4.8rem);
+    font-size: clamp(2.9rem, 12.2vw, 4rem);
   }
 
   .home-hero::after,
@@ -2393,9 +2535,9 @@ body[data-page="reviews"] main {
   .contact-card:nth-child(even),
   .contact-card:nth-child(odd) {
     min-height: 0;
-    padding: 1.5rem 0;
-    border-right: 0;
-    border-bottom: 1px solid rgba(255, 253, 251, 0.2);
+    padding: 1.5rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 14px;
   }
 
   .contact-card-hours,
@@ -2404,7 +2546,7 @@ body[data-page="reviews"] main {
   }
 
   .contact-card-hours {
-    border-bottom: 0;
+    border-bottom: 1px solid var(--glass-border);
   }
 
   .booking-form .button {
@@ -2443,7 +2585,11 @@ body[data-page="reviews"] main {
   }
 
   .policy-header {
-    padding-inline: 5vw;
+    top: 8px;
+    width: calc(100% - 16px);
+    margin-top: 8px;
+    padding-inline: 1rem;
+    border-radius: 13px;
   }
 
   .policy-brand {
