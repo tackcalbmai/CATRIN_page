@@ -22,7 +22,7 @@
   <link rel="icon" href="assets/logo-round.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/logo-round.png">
   <link rel="preload" href="assets/dress-hero.jpg" as="image">
-  <link rel="stylesheet" href="styles.css?v=20260802-5">
+  <link rel="stylesheet" href="styles.css?v=20260802-6">
   <script>document.documentElement.classList.add("js")</script>
   <script type="application/ld+json">
   {
@@ -52,10 +52,8 @@
   <div class="page-veil" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="brand" href="index.html" data-local-link aria-label="CATRIN sākumlapa">
-      <img src="assets/logo-horizontal.svg" alt="CATRIN kāzu modes salons" width="2229" height="1255">
-    </a>
-    <nav class="site-nav" id="site-nav" data-nav aria-label="Galvenā izvēlne">
+    <a class="site-name" href="index.html" data-local-link aria-label="CATRIN sākumlapa" data-t-aria-label="homeAria">CATRIN</a>
+    <nav class="site-nav" id="site-nav" data-nav aria-label="Galvenā izvēlne" data-t-aria-label="mainNavAria">
       <a href="index.html" data-local-link data-page-link="home" data-t="navHome">Sākums</a>
       <a href="kleitas.html" data-local-link data-page-link="dresses" data-t="navDresses">Kleitas</a>
       <a href="pakalpojumi.html" data-local-link data-page-link="services" data-t="navServices">Pakalpojumi</a>
@@ -64,10 +62,10 @@
       <a href="kontakti.html" data-local-link data-page-link="contact" data-t="navContact">Kontakti</a>
     </nav>
     <div class="header-tools">
-      <div class="language-switcher" role="group" aria-label="Valoda">
-        <button type="button" data-lang="lv">LV</button>
-        <button type="button" data-lang="ru">RU</button>
-        <button type="button" data-lang="en">EN</button>
+      <div class="language-switcher" role="group" aria-label="Valoda" data-t-aria-label="languageAria">
+        <button type="button" data-lang="lv" aria-pressed="true">LV</button>
+        <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
       <a class="header-book" href="kontakti.html#pieraksts" data-local-link data-t="book">Pieteikt pielaikošanu</a>
       <button class="menu-button" type="button" data-menu-button aria-controls="site-nav" aria-expanded="false">
@@ -76,29 +74,35 @@
     </div>
   </header>
 
+  <aside class="social-dock" aria-label="Saziņa un sociālie tīkli" data-t-aria-label="socialLinksAria">
+    <a href="https://wa.me/37127164000" target="_blank" rel="noopener" aria-label="Rakstīt WhatsApp" data-t-aria-label="whatsappAria"><img src="assets/icon-whatsapp.svg" alt="" width="20" height="20"><span>WhatsApp</span></a>
+    <a href="https://www.instagram.com/catrin_bridal/" target="_blank" rel="noopener" aria-label="Atvērt CATRIN Instagram" data-t-aria-label="instagramAria"><img src="assets/icon-instagram.svg" alt="" width="20" height="20"><span>Instagram</span></a>
+    <a href="https://www.facebook.com/catrinJelgava/" target="_blank" rel="noopener" aria-label="Atvērt CATRIN Facebook" data-t-aria-label="facebookAria"><img src="assets/icon-facebook.svg" alt="" width="20" height="20"><span>Facebook</span></a>
+  </aside>
+
   <main id="content">
     <section class="home-hero">
       <div class="hero-copy">
         <p class="eyebrow reveal" data-t="homeEyebrow">Kāzu modes salons Jelgavā · kopš 2011. gada</p>
-        <h1 class="reveal" data-t="homeTitle">Kāzu kleita, kas ir tieši tava</h1>
-        <p class="hero-intro reveal" data-t="homeIntro">Izvēlies salonā, radi no jauna vai pielāgo jau atrasto — visu paveicam vienuviet.</p>
+        <h1 class="home-signature reveal"><span>CATRIN</span><small data-t="homeTitle">Kāzu kleita, kas ir patiesi Jūsu</small></h1>
+        <p class="hero-intro reveal" data-t="homeIntro">Izvēlieties kleitu salonā, pasūtiet individuālu šūšanu vai pielāgojiet jau atrasto — par visu parūpēsimies vienuviet.</p>
         <div class="hero-actions reveal">
           <a class="button button-primary" href="kontakti.html#pieraksts" data-local-link data-t="book">Pieteikt pielaikošanu</a>
           <a class="text-link" href="kleitas.html" data-local-link><span data-t="seeDresses">Apskatīt kleitas</span><i class="thread-tail" aria-hidden="true"></i></a>
         </div>
       </div>
 
-      <section class="hero-stage" data-gallery aria-label="CATRIN kāzu kleitas">
+      <section class="hero-stage" data-gallery aria-label="CATRIN kāzu kleitas" data-t-aria-label="galleryAria">
         <div class="pattern-note" aria-hidden="true"><span>CATRIN</span><i></i></div>
         <div class="hero-images">
           <figure class="is-active"><img src="assets/dress-hero.jpg" alt="Kāzu kleita CATRIN salonā" width="600" height="800" fetchpriority="high"></figure>
           <figure><img src="assets/dress-profile.jpg" alt="Kāzu kleita ar mežģīņu detaļām" width="600" height="800" decoding="async"></figure>
           <figure><img src="assets/dress-atelier.jpg" alt="Klasiska kāzu kleita" width="600" height="800" decoding="async"></figure>
         </div>
-        <div class="gallery-tabs" role="group" aria-label="Mainīt attēlu">
-          <button type="button" class="is-active" data-slide="0" aria-label="Pirmais attēls"><span>Pirmais attēls</span></button>
-          <button type="button" data-slide="1" aria-label="Otrais attēls"><span>Otrais attēls</span></button>
-          <button type="button" data-slide="2" aria-label="Trešais attēls"><span>Trešais attēls</span></button>
+        <div class="gallery-tabs" role="group" aria-label="Mainīt attēlu" data-t-aria-label="galleryControlsAria">
+          <button type="button" class="is-active" data-slide="0" aria-label="Pirmais attēls" data-t-aria-label="slideOneAria"><span>Pirmais attēls</span></button>
+          <button type="button" data-slide="1" aria-label="Otrais attēls" data-t-aria-label="slideTwoAria"><span>Otrais attēls</span></button>
+          <button type="button" data-slide="2" aria-label="Trešais attēls" data-t-aria-label="slideThreeAria"><span>Trešais attēls</span></button>
         </div>
         <svg class="hero-thread" viewBox="0 0 720 260" fill="none" aria-hidden="true">
           <path d="M-10 215C125 110 214 278 354 157C456 68 550 33 735 82"/>
@@ -115,12 +119,12 @@
       <div class="path-list">
         <a class="path-item reveal" href="kleitas.html" data-local-link>
           <div><span data-t="pathDressesLabel">Salonā</span><h3 data-t="pathDressesTitle">Kāzu kleitas un aksesuāri</h3></div>
-          <p data-t="pathDressesText">Pielaiko dažādus piegriezumus un piemeklē detaļas kopējam tēlam.</p>
+          <p data-t="pathDressesText">Pielaikojiet dažādus piegriezumus un piemeklējiet detaļas kopējam tēlam.</p>
           <i class="thread-mark" aria-hidden="true"></i>
         </a>
         <a class="path-item reveal" href="pakalpojumi.html#susana" data-local-link>
           <div><span data-t="pathSewLabel">Šūšana salonā</span><h3 data-t="pathSewTitle">Individuāla šūšana un kleita pēc fotogrāfijas</h3></div>
-          <p data-t="pathSewText">Ieceri pielāgojam tavai figūrai, izvēlētajam audumam un vēlamajam rezultātam.</p>
+          <p data-t="pathSewText">Ieceri pielāgojam Jūsu figūrai, izvēlētajam audumam un vēlamajam rezultātam.</p>
           <i class="thread-mark" aria-hidden="true"></i>
         </a>
         <a class="path-item reveal" href="pakalpojumi.html#kopsana" data-local-link>
@@ -135,8 +139,8 @@
     <section class="lookbook-teaser">
       <div class="lookbook-copy reveal">
         <p class="eyebrow" data-t="lookEyebrow">Kleitas</p>
-        <h2 data-t="lookTitle">Daži virzieni tavai pielaikošanai</h2>
-        <p data-t="lookText">Modeļu klāsts mainās. Fotogrāfijas palīdz sajust virzienu, bet īsto kleitu izvēlamies pielaikošanā.</p>
+        <h2 data-t="lookTitle">Iedvesma Jūsu pielaikošanai</h2>
+        <p data-t="lookText">Modeļu klāsts mainās. Fotogrāfijas palīdz atrast virzienu, bet īsto kleitu vislabāk izvēlēties pielaikošanā.</p>
         <a class="button button-primary" href="kleitas.html" data-local-link data-t="openLookbook">Vairāk par kleitām</a>
       </div>
       <div class="lookbook-tiles" aria-hidden="true">
@@ -152,7 +156,7 @@
       <div class="home-story-copy reveal">
         <p class="eyebrow" data-t="homeStoryEyebrow">CATRIN Jelgavā</p>
         <h2 data-t="homeStoryTitle">Kāzu modes salons ar šūšanu uz vietas</h2>
-        <p data-t="homeStoryText">Te līgava var ne tikai atrast kleitu, bet arī uzšūt, pielāgot un sagatavot to līdz pēdējai detaļai. Sākam ar sarunu un risinām tieši to, kas vajadzīgs tev.</p>
+        <p data-t="homeStoryText">Šeit varat ne tikai atrast kleitu, bet arī to uzšūt, pielāgot un sagatavot līdz pēdējai detaļai. Sākam ar sarunu un piedāvājam tieši Jums piemērotu risinājumu.</p>
         <a class="text-link" href="salons.html" data-local-link><span data-t="homeStoryLink">Iepazīt CATRIN</span></a>
       </div>
     </section>
@@ -160,7 +164,7 @@
     <section class="contact-ribbon">
       <div class="reveal">
         <p class="eyebrow" data-t="contactEyebrow">Pielaikošana pēc pieraksta</p>
-        <h2 data-t="contactRibbonTitle">Piesaki vizīti sev ērtā dienā</h2>
+        <h2 data-t="contactRibbonTitle">Piesakiet vizīti sev ērtā dienā</h2>
       </div>
       <div class="contact-ribbon-actions reveal">
         <a class="button button-light" href="kontakti.html#pieraksts" data-local-link data-t="book">Pieteikt pielaikošanu</a>
@@ -171,10 +175,11 @@
 
   <footer class="site-footer">
     <div class="footer-brand">
-      <img src="assets/logo-round.svg" alt="CATRIN kāzu modes salons" width="1672" height="1672">
+      <img src="assets/logo-round.svg" alt="CATRIN kāzu modes salons" width="1672" height="1672" loading="lazy" decoding="async">
     </div>
     <div class="footer-contact">
       <a href="tel:+37127164000">+371&nbsp;27&nbsp;164&nbsp;000</a>
+      <a class="footer-social" href="https://wa.me/37127164000" target="_blank" rel="noopener"><img src="assets/icon-whatsapp.svg" alt="" width="18" height="18"><span>WhatsApp</span></a>
       <a class="footer-social" href="https://www.instagram.com/catrin_bridal/" target="_blank" rel="noopener"><img src="assets/icon-instagram.svg" alt="" width="18" height="18"><span>Instagram</span></a>
       <a class="footer-social" href="https://www.facebook.com/catrinJelgava/" target="_blank" rel="noopener"><img src="assets/icon-facebook.svg" alt="" width="18" height="18"><span>Facebook</span></a>
     </div>
@@ -185,10 +190,11 @@
     </div>
   </footer>
 
-  <div class="mobile-actions">
-    <a href="tel:+37127164000" data-t="call">Zvanīt</a>
-    <a href="kontakti.html#pieraksts" data-local-link data-t="bookShort">Pieteikties</a>
-  </div>
-  <script src="script.js?v=20260802-5"></script>
+  <nav class="mobile-actions" aria-label="Ātrās saziņas iespējas" data-t-aria-label="quickActionsAria">
+    <a href="tel:+37127164000"><span data-t="call">Zvanīt</span></a>
+    <a href="https://wa.me/37127164000" target="_blank" rel="noopener"><img src="assets/icon-whatsapp.svg" alt="" width="17" height="17"><span>WhatsApp</span></a>
+    <a href="kontakti.html#pieraksts" data-local-link><span data-t="bookShort">Pieteikties</span></a>
+  </nav>
+  <script src="script.js?v=20260802-6"></script>
 </body>
 </html>
