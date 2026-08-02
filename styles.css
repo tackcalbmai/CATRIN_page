@@ -337,19 +337,21 @@ body.nav-open .page-veil {
 .site-header::before {
   position: absolute;
   z-index: -1;
-  inset: 0 0 -34px;
-  background: linear-gradient(180deg, rgba(250, 247, 244, 0.76) 0%, rgba(250, 247, 244, 0.58) 54%, rgba(250, 247, 244, 0.2) 78%, transparent 100%);
-  backdrop-filter: blur(18px) saturate(1.12);
-  -webkit-backdrop-filter: blur(18px) saturate(1.12);
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 58%, rgba(0, 0, 0, 0.72) 76%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 0%, #000 58%, rgba(0, 0, 0, 0.72) 76%, transparent 100%);
+  inset: 0 0 -14px;
+  background: linear-gradient(180deg, rgba(250, 247, 244, 0.3) 0%, rgba(250, 247, 244, 0.16) 58%, rgba(250, 247, 244, 0.04) 82%, transparent 100%);
+  backdrop-filter: blur(10px) saturate(1.06);
+  -webkit-backdrop-filter: blur(10px) saturate(1.06);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.88) 62%, rgba(0, 0, 0, 0.36) 84%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.88) 62%, rgba(0, 0, 0, 0.36) 84%, transparent 100%);
   content: "";
   pointer-events: none;
-  transition: background 250ms ease;
+  transition: background 250ms ease, backdrop-filter 250ms ease;
 }
 
 .site-header.is-scrolled::before {
-  background: linear-gradient(180deg, rgba(250, 247, 244, 0.92) 0%, rgba(250, 247, 244, 0.74) 54%, rgba(250, 247, 244, 0.28) 78%, transparent 100%);
+  background: linear-gradient(180deg, rgba(250, 247, 244, 0.78) 0%, rgba(250, 247, 244, 0.54) 58%, rgba(250, 247, 244, 0.14) 84%, transparent 100%);
+  backdrop-filter: blur(16px) saturate(1.1);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
 }
 
 .site-header > * {
@@ -486,7 +488,7 @@ body.nav-open .page-veil {
   z-index: 1;
   inset: 0;
   background:
-    linear-gradient(0deg, var(--paper) 0%, rgba(248, 243, 239, 0.9) 2%, rgba(248, 243, 239, 0.36) 8%, transparent 19%),
+    linear-gradient(0deg, var(--paper) 0%, rgba(248, 243, 239, 0.82) 1.2%, rgba(248, 243, 239, 0.3) 3.8%, rgba(248, 243, 239, 0.08) 6.5%, transparent 9%),
     linear-gradient(90deg, rgba(30, 13, 24, 0.76) 0%, rgba(30, 13, 24, 0.57) 40%, rgba(30, 13, 24, 0.2) 72%, rgba(30, 13, 24, 0.06) 100%),
     linear-gradient(0deg, rgba(30, 13, 24, 0.18), transparent 46%);
   content: "";
@@ -819,7 +821,7 @@ body.nav-open .page-veil {
   z-index: 1;
   inset: 0;
   background:
-    linear-gradient(0deg, var(--paper) 0%, rgba(248, 243, 239, 0.9) 2%, rgba(248, 243, 239, 0.34) 9%, transparent 22%),
+    linear-gradient(0deg, var(--paper) 0%, rgba(248, 243, 239, 0.82) 1.2%, rgba(248, 243, 239, 0.28) 4%, rgba(248, 243, 239, 0.07) 6.8%, transparent 9.5%),
     linear-gradient(90deg, rgba(30, 13, 24, 0.77) 0%, rgba(30, 13, 24, 0.56) 43%, rgba(30, 13, 24, 0.16) 76%, rgba(30, 13, 24, 0.05) 100%);
   content: "";
   pointer-events: none;
@@ -1835,17 +1837,19 @@ body[data-page="reviews"] main {
 .policy-header::before {
   position: absolute;
   z-index: -1;
-  inset: 0 0 -30px;
-  background: linear-gradient(180deg, rgba(250, 247, 244, 0.88) 0%, rgba(250, 247, 244, 0.66) 56%, rgba(250, 247, 244, 0.22) 80%, transparent 100%);
-  backdrop-filter: blur(18px) saturate(1.12);
-  -webkit-backdrop-filter: blur(18px) saturate(1.12);
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 58%, rgba(0, 0, 0, 0.72) 76%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 0%, #000 58%, rgba(0, 0, 0, 0.72) 76%, transparent 100%);
+  inset: 0 0 -14px;
+  background: linear-gradient(180deg, rgba(250, 247, 244, 0.36) 0%, rgba(250, 247, 244, 0.18) 60%, rgba(250, 247, 244, 0.04) 84%, transparent 100%);
+  backdrop-filter: blur(10px) saturate(1.06);
+  -webkit-backdrop-filter: blur(10px) saturate(1.06);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.88) 62%, rgba(0, 0, 0, 0.36) 84%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.88) 62%, rgba(0, 0, 0, 0.36) 84%, transparent 100%);
   content: "";
 }
 
 .policy-header.is-scrolled::before {
-  background: linear-gradient(180deg, rgba(250, 247, 244, 0.96) 0%, rgba(250, 247, 244, 0.76) 56%, rgba(250, 247, 244, 0.26) 80%, transparent 100%);
+  background: linear-gradient(180deg, rgba(250, 247, 244, 0.8) 0%, rgba(250, 247, 244, 0.56) 60%, rgba(250, 247, 244, 0.14) 84%, transparent 100%);
+  backdrop-filter: blur(16px) saturate(1.1);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
 }
 
 .policy-header > * {
@@ -2016,11 +2020,11 @@ body[data-page="reviews"] main {
   }
 
   .site-header::before {
-    inset: 0 0 -28px;
+    inset: 0 0 -12px;
     border-radius: 0;
-    background: linear-gradient(180deg, rgba(250, 247, 244, 0.86) 0%, rgba(250, 247, 244, 0.64) 56%, rgba(250, 247, 244, 0.2) 80%, transparent 100%);
-    backdrop-filter: blur(18px) saturate(1.12);
-    -webkit-backdrop-filter: blur(18px) saturate(1.12);
+    background: linear-gradient(180deg, rgba(250, 247, 244, 0.36) 0%, rgba(250, 247, 244, 0.18) 60%, rgba(250, 247, 244, 0.04) 84%, transparent 100%);
+    backdrop-filter: blur(10px) saturate(1.06);
+    -webkit-backdrop-filter: blur(10px) saturate(1.06);
   }
 
   .brand,
@@ -2439,7 +2443,7 @@ body[data-page="reviews"] main {
   .home-hero::after,
   .page-hero::after {
     background:
-      linear-gradient(0deg, var(--paper) 0%, rgba(248, 243, 239, 0.88) 2%, rgba(248, 243, 239, 0.24) 11%, transparent 23%),
+      linear-gradient(0deg, var(--paper) 0%, rgba(248, 243, 239, 0.8) 1.5%, rgba(248, 243, 239, 0.26) 5%, rgba(248, 243, 239, 0.06) 8.5%, transparent 11.5%),
       linear-gradient(0deg, rgba(30, 13, 24, 0.82) 0%, rgba(30, 13, 24, 0.6) 58%, rgba(30, 13, 24, 0.32) 100%);
   }
 
