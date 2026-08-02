@@ -1,6 +1,6 @@
 # CATRIN
 
-Multilingual website for the CATRIN bridal salon and sewing studio.
+Multilingual website for the CATRIN bridal fashion salon.
 
 ## Pages
 

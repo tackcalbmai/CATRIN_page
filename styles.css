@@ -412,33 +412,56 @@ h3 {
 
 /* Home */
 .home-hero {
-  display: grid;
-  width: var(--wide);
-  min-height: min(780px, calc(100svh - var(--header-height)));
-  margin: 0 auto;
-  grid-template-columns: minmax(430px, 0.84fr) minmax(560px, 1.16fr);
-  background: var(--paper);
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: 100%;
+  min-height: calc(100svh - var(--header-height));
+  align-items: center;
+  overflow: hidden;
+  background: #6c5c63;
+}
+
+.home-hero::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(30, 13, 24, 0.84) 0%, rgba(30, 13, 24, 0.65) 38%, rgba(30, 13, 24, 0.22) 69%, rgba(30, 13, 24, 0.08) 100%),
+    linear-gradient(0deg, rgba(30, 13, 24, 0.2), transparent 45%);
+  content: "";
+  pointer-events: none;
 }
 
 .hero-copy {
+  position: relative;
+  z-index: 2;
   display: flex;
-  max-width: 700px;
+  width: var(--page);
+  max-width: none;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(4.5rem, 7vw, 8.5rem) clamp(2.5rem, 6vw, 7rem) clamp(4.5rem, 7vw, 8.5rem) max(2rem, calc((100vw - 1440px) / 2 + 2rem));
+  margin-inline: auto;
+  padding-block: clamp(5rem, 10vw, 10rem);
+  color: var(--white);
+}
+
+.home-hero .eyebrow {
+  color: rgba(255, 253, 251, 0.8);
 }
 
 .hero-copy h1 {
-  max-width: 690px;
+  max-width: 980px;
   margin: 1.25rem 0 1.65rem;
-  color: var(--plum-dark);
-  font-size: clamp(3.7rem, 5.6vw, 6.75rem);
+  color: var(--white);
+  font-size: clamp(4.25rem, 7.2vw, 7.8rem);
+  line-height: 0.91;
 }
 
 .hero-intro {
-  max-width: 540px;
-  color: var(--ink-soft);
-  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  max-width: 690px;
+  color: rgba(255, 253, 251, 0.82);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
   line-height: 1.75;
 }
 
@@ -455,8 +478,10 @@ h3 {
 }
 
 .hero-stage {
-  position: relative;
-  min-height: 690px;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  min-height: 0;
   overflow: hidden;
   background: #ddd4cf;
 }
@@ -486,7 +511,7 @@ h3 {
 
 .hero-images img {
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 29%;
   transform: scale(1.025);
   transition: transform 7s ease-out;
 }
@@ -498,10 +523,23 @@ h3 {
 .gallery-tabs {
   position: absolute;
   z-index: 3;
-  right: 2rem;
-  bottom: 1.8rem;
+  right: max(4vw, calc((100vw - 1240px) / 2));
+  bottom: 2.2rem;
   display: flex;
   gap: 0.55rem;
+}
+
+.home-hero .button-primary {
+  background: var(--white);
+  color: var(--plum-dark);
+}
+
+.home-hero .button-primary:hover {
+  background: var(--paper-deep);
+}
+
+.home-hero .text-link {
+  color: var(--white);
 }
 
 .gallery-tabs button {
@@ -609,7 +647,7 @@ h3 {
 .lookbook-teaser {
   display: grid;
   min-height: 720px;
-  grid-template-columns: minmax(360px, 0.7fr) minmax(620px, 1.3fr);
+  grid-template-columns: minmax(480px, 0.92fr) minmax(620px, 1.08fr);
   background: var(--paper-deep);
 }
 
@@ -674,7 +712,7 @@ h3 {
   display: grid;
   width: var(--page);
   margin: var(--section-space) auto;
-  grid-template-columns: 1.08fr 0.92fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: clamp(3.5rem, 9vw, 9rem);
 }
@@ -702,63 +740,75 @@ h3 {
 
 /* Inner page heroes */
 .page-hero {
-  display: grid;
-  width: var(--wide);
-  min-height: 650px;
-  margin: 0 auto;
-  grid-template-columns: minmax(420px, 0.9fr) minmax(500px, 1.1fr);
-  align-items: stretch;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: 100%;
+  min-height: min(790px, calc(88svh - var(--header-height)));
+  align-items: center;
+  overflow: hidden;
+  background: #6c5c63;
+}
+
+.page-hero::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(30, 13, 24, 0.84) 0%, rgba(30, 13, 24, 0.59) 42%, rgba(30, 13, 24, 0.16) 74%, rgba(30, 13, 24, 0.06) 100%);
+  content: "";
+  pointer-events: none;
 }
 
 .page-hero-copy {
+  position: relative;
+  z-index: 2;
   display: flex;
-  max-width: 720px;
+  width: var(--page);
+  max-width: none;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(4.5rem, 8vw, 9rem) clamp(3rem, 8vw, 9rem) clamp(4.5rem, 8vw, 9rem) max(2rem, calc((100vw - 1440px) / 2 + 2rem));
+  margin-inline: auto;
+  padding-block: clamp(5rem, 9vw, 9rem);
+  color: var(--white);
+}
+
+.page-hero-copy .eyebrow {
+  color: rgba(255, 253, 251, 0.78);
 }
 
 .page-hero-copy h1 {
-  max-width: 760px;
+  max-width: 1000px;
   margin: 1rem 0 1.5rem;
-  color: var(--plum-dark);
-  font-size: clamp(3.5rem, 5.7vw, 6.5rem);
+  color: var(--white);
+  font-size: clamp(3.9rem, 6.5vw, 7.2rem);
+  line-height: 0.93;
 }
 
-.page-lead {
-  max-width: 560px;
+.page-hero .page-lead {
+  max-width: 720px;
+  color: rgba(255, 253, 251, 0.82);
   font-size: clamp(1rem, 1.25vw, 1.14rem);
 }
 
 .page-hero-image {
-  min-height: 650px;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  min-height: 0;
   overflow: hidden;
 }
 
 .page-hero-image img {
-  object-position: center 20%;
+  object-position: center 28%;
+  transform: scale(1.025);
 }
 
 .page-hero-image figcaption {
   display: none;
 }
 
-body[data-page="services"] .page-hero,
-body[data-page="salon"] .page-hero {
-  grid-template-columns: minmax(500px, 1.1fr) minmax(420px, 0.9fr);
-}
-
-body[data-page="services"] .page-hero-image,
-body[data-page="salon"] .page-hero-image {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-body[data-page="services"] .page-hero-copy,
-body[data-page="salon"] .page-hero-copy {
-  grid-column: 2;
-  padding-right: max(2rem, calc((100vw - 1440px) / 2 + 2rem));
-  padding-left: clamp(3rem, 8vw, 9rem);
+body[data-page="services"] .page-hero-image img {
+  object-position: center 35%;
 }
 
 /* Dresses: a small editorial selection, not a catalogue */
@@ -767,23 +817,14 @@ body[data-page="salon"] .page-hero-copy {
 }
 
 .lookbook .section-heading {
-  display: grid;
-  max-width: none;
-  grid-template-columns: minmax(360px, 0.9fr) minmax(360px, 0.65fr);
-  align-items: end;
-  justify-content: space-between;
-  gap: 4rem;
+  display: block;
+  max-width: 980px;
   margin-bottom: clamp(3.5rem, 7vw, 7rem);
 }
 
-.lookbook .section-heading .eyebrow,
-.lookbook .section-heading h2 {
-  grid-column: 1;
-}
-
 .lookbook .section-heading > p:not(.eyebrow) {
-  grid-column: 2;
-  grid-row: 1 / span 2;
+  max-width: 720px;
+  margin-top: 1.25rem;
 }
 
 .lookbook-grid {
@@ -867,9 +908,7 @@ body[data-page="salon"] .page-hero-copy {
 
 /* Services */
 .service-ledger {
-  display: grid;
-  grid-template-columns: minmax(270px, 0.45fr) minmax(600px, 1.55fr);
-  gap: clamp(3rem, 8vw, 8rem);
+  display: block;
   padding-block: var(--section-space);
 }
 
@@ -883,7 +922,7 @@ body[data-page="salon"] .page-hero-copy {
 }
 
 .ledger-heading {
-  align-self: start;
+  max-width: 980px;
 }
 
 .ledger-heading h2 {
@@ -891,14 +930,16 @@ body[data-page="salon"] .page-hero-copy {
 }
 
 .ledger-list {
+  margin-top: clamp(3rem, 6vw, 5.5rem);
   border-top: 1px solid var(--line-strong);
 }
 
 .ledger-item {
   display: grid;
-  min-height: 210px;
-  grid-template-columns: minmax(190px, 0.68fr) minmax(260px, 1fr);
+  min-height: 190px;
+  grid-template-columns: minmax(310px, 0.72fr) minmax(420px, 1.28fr) auto;
   align-content: center;
+  align-items: center;
   column-gap: clamp(2rem, 5vw, 5rem);
   padding: 2.4rem 0;
   border-bottom: 1px solid var(--line);
@@ -906,16 +947,16 @@ body[data-page="salon"] .page-hero-copy {
 
 .ledger-item h3 {
   grid-column: 1;
-  grid-row: 1 / span 2;
 }
 
-.ledger-item p,
-.ledger-item > a {
+.ledger-item p {
   grid-column: 2;
 }
 
 .ledger-item > a {
-  margin-top: 1.25rem;
+  grid-column: 3;
+  margin-top: 0;
+  white-space: nowrap;
 }
 
 /* Salon */
@@ -1266,52 +1307,64 @@ body[data-page="reviews"] main {
 /* Contact */
 .contact-hero {
   position: relative;
-  display: grid;
-  width: var(--page);
-  margin: 0 auto;
-  grid-template-columns: minmax(360px, 0.72fr) minmax(600px, 1.28fr);
-  align-items: end;
-  gap: clamp(4rem, 9vw, 9rem);
-  padding-block: clamp(5rem, 9vw, 9rem);
-  border-bottom: 1px solid var(--line-strong);
+  min-height: 650px;
+  padding: clamp(4.5rem, 8vw, 8rem) max(5vw, calc((100vw - 1240px) / 2));
+  overflow: hidden;
+  background: var(--plum-dark);
+  color: var(--white);
+}
+
+.contact-hero-copy {
+  max-width: 920px;
+}
+
+.contact-hero .eyebrow {
+  color: rgba(255, 253, 251, 0.68);
 }
 
 .contact-hero-copy h1 {
   margin: 1rem 0 1.5rem;
-  color: var(--plum-dark);
+  color: var(--white);
+}
+
+.contact-hero .page-lead {
+  max-width: 660px;
+  color: rgba(255, 253, 251, 0.72);
 }
 
 .contact-cards {
+  position: relative;
+  z-index: 2;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  border-top: 1px solid var(--line-strong);
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: clamp(3.5rem, 7vw, 7rem);
+  border-top: 1px solid rgba(255, 253, 251, 0.25);
+  border-bottom: 1px solid rgba(255, 253, 251, 0.25);
 }
 
 .contact-card {
-  min-height: 180px;
+  display: grid;
+  min-height: 178px;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
   padding: 1.8rem 1.8rem 1.8rem 0;
-  border-bottom: 1px solid var(--line);
+  border-right: 1px solid rgba(255, 253, 251, 0.2);
 }
 
-.contact-card:nth-child(odd) {
-  border-right: 1px solid var(--line);
-}
-
-.contact-card:nth-child(even) {
+.contact-card + .contact-card {
   padding-left: 1.8rem;
 }
 
 .contact-card-hours {
-  grid-column: 1 / -1;
-  min-height: 145px;
-  padding-right: 0;
-  border-right: 0 !important;
+  grid-column: auto;
+  min-height: 178px;
+  border-right: 0;
 }
 
 .contact-card > span {
   display: block;
   margin-bottom: 1rem;
-  color: var(--ink-soft);
+  color: rgba(255, 253, 251, 0.62);
   font-size: 0.67rem;
   font-weight: 650;
   letter-spacing: 0.13em;
@@ -1321,6 +1374,7 @@ body[data-page="reviews"] main {
 .contact-number,
 .contact-address,
 .contact-card-hours p {
+  color: var(--white);
   font-family: var(--serif);
   font-size: clamp(1.28rem, 2vw, 1.8rem);
   line-height: 1.3;
@@ -1328,7 +1382,7 @@ body[data-page="reviews"] main {
 
 .contact-number:hover,
 .contact-address:hover {
-  color: var(--plum);
+  color: var(--plum-wash);
 }
 
 .contact-channels,
@@ -1341,18 +1395,20 @@ body[data-page="reviews"] main {
 .contact-channel,
 .contact-route {
   display: grid;
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   place-items: center;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 253, 251, 0.2);
+  border-radius: 50%;
+  background: rgba(255, 253, 251, 0.08);
   transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease;
 }
 
 .contact-channel:hover,
 .contact-route:hover {
   transform: translateY(-2px);
-  border-color: var(--line-strong);
-  background: var(--white);
+  border-color: rgba(255, 253, 251, 0.44);
+  background: rgba(255, 253, 251, 0.14);
 }
 
 .contact-channel img,
@@ -1365,8 +1421,8 @@ body[data-page="reviews"] main {
   display: grid;
   width: var(--page);
   margin: 0 auto;
-  grid-template-columns: minmax(300px, 0.55fr) minmax(620px, 1.45fr);
-  gap: clamp(4rem, 10vw, 10rem);
+  grid-template-columns: minmax(300px, 0.62fr) minmax(620px, 1.38fr);
+  gap: clamp(4rem, 8vw, 8rem);
   padding-block: var(--section-space);
 }
 
@@ -1383,6 +1439,8 @@ body[data-page="reviews"] main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.4rem 1.25rem;
+  padding: clamp(1.7rem, 3.5vw, 3.25rem);
+  background: var(--paper-deep);
 }
 
 .booking-form label {
@@ -1404,10 +1462,11 @@ body[data-page="reviews"] main {
   width: 100%;
   min-height: 52px;
   padding: 0.8rem 0.9rem;
-  border: 1px solid var(--line);
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
   border-radius: 0;
   outline: 0;
-  background: rgba(255, 253, 251, 0.55);
+  background: rgba(255, 253, 251, 0.68);
   transition: border-color 220ms ease, background-color 220ms ease;
 }
 
@@ -1468,16 +1527,22 @@ body[data-page="reviews"] main {
 
 .map-band {
   display: grid;
-  grid-template-columns: minmax(320px, 0.55fr) minmax(660px, 1.45fr);
+  min-height: 600px;
+  grid-template-columns: minmax(500px, 1fr) minmax(560px, 0.92fr);
   align-items: stretch;
-  background: var(--paper-deep);
+  background: var(--plum);
+  color: var(--white);
 }
 
 .map-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(3rem, 6vw, 7rem) max(3rem, calc((100vw - 1240px) / 2));
+  padding: clamp(4rem, 8vw, 9rem) max(5vw, calc((100vw - 1240px) / 2));
+}
+
+.map-copy .eyebrow {
+  color: rgba(255, 253, 251, 0.68);
 }
 
 .map-copy h2 {
@@ -1486,19 +1551,19 @@ body[data-page="reviews"] main {
 }
 
 .map-copy p:not(.eyebrow) {
-  color: var(--ink-soft);
+  color: rgba(255, 253, 251, 0.72);
 }
 
 .map-frame {
-  min-height: 560px;
+  min-height: 600px;
 }
 
 .map-frame iframe {
   width: 100%;
   height: 100%;
-  min-height: 560px;
+  min-height: 600px;
   border: 0;
-  filter: grayscale(0.35) saturate(0.72) contrast(0.95);
+  filter: grayscale(0.18) saturate(0.72) sepia(0.08) contrast(0.95);
 }
 
 /* Quiet booking invitation */
@@ -1728,17 +1793,17 @@ body[data-page="reviews"] main {
 
   .home-hero,
   .page-hero {
-    grid-template-columns: minmax(390px, 0.9fr) minmax(500px, 1.1fr);
+    width: 100%;
   }
 
   .hero-copy,
   .page-hero-copy {
-    padding-left: 4.5vw;
-    padding-right: 4.5vw;
+    padding-inline: 0;
   }
 
   .hero-copy h1 {
-    font-size: clamp(3.5rem, 5.4vw, 5.3rem);
+    max-width: 900px;
+    font-size: clamp(4rem, 7vw, 6.8rem);
   }
 
   .lookbook-teaser {
@@ -1751,8 +1816,7 @@ body[data-page="reviews"] main {
   }
 
   .service-ledger {
-    grid-template-columns: 0.5fr 1.5fr;
-    gap: 5vw;
+    width: var(--page);
   }
 
   .reviews-page-hero {
@@ -1764,9 +1828,8 @@ body[data-page="reviews"] main {
     justify-self: start;
   }
 
-  .contact-hero,
   .booking-section {
-    grid-template-columns: 0.75fr 1.25fr;
+    grid-template-columns: 0.68fr 1.32fr;
     gap: 5vw;
   }
 }
@@ -1877,18 +1940,17 @@ body[data-page="reviews"] main {
   .page-hero,
   body[data-page="services"] .page-hero,
   body[data-page="salon"] .page-hero {
-    min-height: 0;
-    grid-template-columns: 1fr;
+    min-height: calc(100svh - var(--header-height));
   }
 
   .hero-copy,
   .page-hero-copy,
   body[data-page="services"] .page-hero-copy,
   body[data-page="salon"] .page-hero-copy {
+    position: relative;
     max-width: none;
-    grid-column: 1;
-    grid-row: 1;
-    padding: clamp(3.8rem, 11vw, 6rem) 5vw;
+    width: var(--page);
+    padding: clamp(4rem, 11vw, 6.5rem) 0;
   }
 
   .hero-copy h1,
@@ -1900,9 +1962,9 @@ body[data-page="reviews"] main {
   .page-hero-image,
   body[data-page="services"] .page-hero-image,
   body[data-page="salon"] .page-hero-image {
-    min-height: min(76vw, 680px);
-    grid-column: 1;
-    grid-row: 2;
+    position: absolute;
+    inset: 0;
+    min-height: 0;
   }
 
   .service-paths {
@@ -1960,23 +2022,33 @@ body[data-page="reviews"] main {
   }
 
   .lookbook .section-heading {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    max-width: 760px;
   }
 
   .lookbook .section-heading > p:not(.eyebrow) {
-    grid-column: 1;
-    grid-row: auto;
     margin-top: 0.5rem;
   }
 
   .service-ledger {
-    grid-template-columns: 1fr;
-    gap: 3rem;
+    width: var(--page);
   }
 
   .ledger-item {
-    grid-template-columns: 0.72fr 1fr;
+    grid-template-columns: minmax(250px, 0.78fr) minmax(330px, 1.22fr);
+  }
+
+  .ledger-item h3 {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .ledger-item p,
+  .ledger-item > a {
+    grid-column: 2;
+  }
+
+  .ledger-item > a {
+    margin-top: 1.1rem;
   }
 
   .visit-flow {
@@ -2035,8 +2107,8 @@ body[data-page="reviews"] main {
   }
 
   .contact-hero {
-    align-items: start;
-    gap: 3.5rem;
+    min-height: 0;
+    padding-block: 5rem;
   }
 
   .booking-section {
@@ -2138,13 +2210,23 @@ body[data-page="reviews"] main {
   .page-hero-copy,
   body[data-page="services"] .page-hero-copy,
   body[data-page="salon"] .page-hero-copy {
-    padding: 3.6rem 5vw 4rem;
+    padding: 4rem 0;
   }
 
   .hero-copy h1,
   .page-hero-copy h1 {
     margin-block: 1rem 1.25rem;
     font-size: clamp(3.15rem, 14vw, 4.8rem);
+  }
+
+  .home-hero::after,
+  .page-hero::after {
+    background: linear-gradient(0deg, rgba(30, 13, 24, 0.88) 0%, rgba(30, 13, 24, 0.65) 58%, rgba(30, 13, 24, 0.35) 100%);
+  }
+
+  .hero-copy,
+  .page-hero-copy {
+    justify-content: flex-end;
   }
 
   .hero-actions {
@@ -2157,8 +2239,14 @@ body[data-page="reviews"] main {
   .page-hero-image,
   body[data-page="services"] .page-hero-image,
   body[data-page="salon"] .page-hero-image {
-    min-height: 125vw;
-    max-height: 680px;
+    min-height: 0;
+    max-height: none;
+  }
+
+  .hero-images img,
+  .page-hero-image img,
+  body[data-page="services"] .page-hero-image img {
+    object-position: center 24%;
   }
 
   .gallery-tabs {
@@ -2307,11 +2395,16 @@ body[data-page="reviews"] main {
     min-height: 0;
     padding: 1.5rem 0;
     border-right: 0;
+    border-bottom: 1px solid rgba(255, 253, 251, 0.2);
   }
 
   .contact-card-hours,
   .full-field {
     grid-column: 1;
+  }
+
+  .contact-card-hours {
+    border-bottom: 0;
   }
 
   .booking-form .button {
@@ -2355,6 +2448,11 @@ body[data-page="reviews"] main {
 
   .policy-brand {
     width: 116px;
+  }
+
+  .policy-main h1 {
+    overflow-wrap: anywhere;
+    font-size: clamp(2rem, 8vw, 2.8rem);
   }
 
   .policy-back {
