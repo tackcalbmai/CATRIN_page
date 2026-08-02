@@ -511,6 +511,7 @@ if (floatingHeader) {
 
 const menuButton = document.querySelector("[data-menu-button]");
 const navigation = document.querySelector("[data-nav]");
+const pageVeil = document.querySelector(".page-veil");
 
 function closeMenu() {
   if (!menuButton || !navigation) return;
@@ -527,6 +528,7 @@ menuButton?.addEventListener("click", () => {
 });
 
 navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+pageVeil?.addEventListener("click", closeMenu);
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeMenu();
 });
