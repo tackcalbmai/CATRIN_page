@@ -25,49 +25,47 @@
   background-position: center 55%;
 }
 
-/* Make the working-hours card easier to scan. */
+/* Working hours: clean list integrated into the card, without a nested panel. */
 .contact-card-hours > p {
-  margin-top: 0.85rem;
-  padding: 0.78rem 0.9rem;
-  border: 1px solid rgba(65, 40, 53, 0.13);
-  border-radius: 10px;
-  background: rgba(255, 253, 251, 0.58);
+  margin-top: 0.9rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
   color: var(--ink);
   font-size: 0.88rem;
-  font-weight: 560;
-  line-height: 1.55;
+  font-weight: 590;
+  line-height: 1.48;
   font-variant-numeric: tabular-nums;
+  text-transform: capitalize;
 }
 
 .contact-card-hours > p br {
   display: block;
-  margin: 0.58rem 0;
-  border-top: 1px solid rgba(65, 40, 53, 0.12);
+  margin: 0.7rem 0;
+  border-top: 1px solid rgba(65, 40, 53, 0.15);
   content: "";
 }
 
 .contact-card-hours > p::after {
   display: block;
-  margin-top: 0.75rem;
-  padding: 0.62rem 0.72rem;
-  border-radius: 7px;
-  background: rgba(100, 31, 75, 0.09);
-  color: var(--plum-dark);
-  content: "Strādājam pēc iepriekšēja pieraksta";
+  margin-top: 0.9rem;
+  padding-top: 0.82rem;
+  border-top: 1px solid rgba(100, 31, 75, 0.22);
+  color: var(--plum);
+  content: "•  Strādājam pēc iepriekšēja pieraksta";
   font-size: 0.72rem;
   font-weight: 720;
-  letter-spacing: 0.055em;
-  line-height: 1.4;
-  text-align: center;
-  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  line-height: 1.45;
+  text-transform: none;
 }
 
 html[lang="ru"] .contact-card-hours > p::after {
-  content: "Работаем по предварительной записи";
+  content: "•  Работаем по предварительной записи";
 }
 
 html[lang="en"] .contact-card-hours > p::after {
-  content: "Open by prior appointment";
+  content: "•  Open by prior appointment";
 }
 
 @media (max-width: 620px) {
