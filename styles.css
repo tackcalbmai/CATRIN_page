@@ -13,6 +13,11 @@
   .hero-images figure:nth-child(3) img {
     object-position: center 77%;
   }
+
+  /* Reviews background: keep both models and more of the dresses in frame. */
+  .reviews-atmosphere::before {
+    background-position: center 38%;
+  }
 }
 
 /* Contact page portrait background crop. */
@@ -23,5 +28,10 @@
 @media (max-width: 620px) {
   .contact-hero::before {
     background-position: 48% 56%;
+  }
+
+  /* The source is horizontal, so the mobile crop follows the models on the right. */
+  .reviews-atmosphere::before {
+    background-position: 68% 32%;
   }
 }
