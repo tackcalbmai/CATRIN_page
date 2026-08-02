@@ -25,17 +25,14 @@
   background-position: center 55%;
 }
 
-/* Working hours: two aligned columns integrated into the card. */
+/* Working hours: aligned day and time columns without row dividers. */
 .contact-card-hours > p {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  column-gap: 1rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
   margin-top: 0.85rem;
   padding: 0;
-  overflow: hidden;
-  background:
-    linear-gradient(rgba(65, 40, 53, 0.14), rgba(65, 40, 53, 0.14)) 0 calc(33.333% - 0.5px) / 100% 1px no-repeat,
-    linear-gradient(rgba(65, 40, 53, 0.14), rgba(65, 40, 53, 0.14)) 0 calc(66.666% - 0.5px) / 100% 1px no-repeat;
   color: transparent;
   font-size: 0;
   line-height: 0;
@@ -51,25 +48,26 @@
   color: var(--ink);
   font-size: 0.86rem;
   font-weight: 580;
-  line-height: 2.55rem;
-  white-space: pre-line;
+  line-height: 2.25rem;
+  white-space: pre;
 }
 
 .contact-card-hours > p::before {
+  flex: 1 1 auto;
   content: "Pirmdiena–Piektdiena\A Sestdiena\A Svētdiena";
 }
 
 .contact-card-hours > p::after {
-  content: "13.00–18.00\A 12.00–17.00\A Slēgts";
+  flex: 0 0 auto;
+  content: "13:00–18:00\A 12:00–17:00\A Slēgts";
   color: var(--plum-dark);
   font-variant-numeric: tabular-nums;
   text-align: right;
-  white-space: pre-line;
 }
 
 .contact-card-hours::after {
   display: block;
-  margin-top: 0.88rem;
+  margin-top: 0.82rem;
   padding-top: 0.78rem;
   border-top: 1px solid rgba(100, 31, 75, 0.22);
   color: var(--plum);
@@ -117,6 +115,6 @@ html[lang="en"] .contact-card-hours::after {
   .contact-card-hours > p::before,
   .contact-card-hours > p::after {
     font-size: 0.8rem;
-    line-height: 2.4rem;
+    line-height: 2.15rem;
   }
 }
