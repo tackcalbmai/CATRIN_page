@@ -25,6 +25,51 @@
   background-position: center 55%;
 }
 
+/* Make the working-hours card easier to scan. */
+.contact-card-hours > p {
+  margin-top: 0.85rem;
+  padding: 0.78rem 0.9rem;
+  border: 1px solid rgba(65, 40, 53, 0.13);
+  border-radius: 10px;
+  background: rgba(255, 253, 251, 0.58);
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 560;
+  line-height: 1.55;
+  font-variant-numeric: tabular-nums;
+}
+
+.contact-card-hours > p br {
+  display: block;
+  margin: 0.58rem 0;
+  border-top: 1px solid rgba(65, 40, 53, 0.12);
+  content: "";
+}
+
+.contact-card-hours > p::after {
+  display: block;
+  margin-top: 0.75rem;
+  padding: 0.62rem 0.72rem;
+  border-radius: 7px;
+  background: rgba(100, 31, 75, 0.09);
+  color: var(--plum-dark);
+  content: "Strādājam pēc iepriekšēja pieraksta";
+  font-size: 0.72rem;
+  font-weight: 720;
+  letter-spacing: 0.055em;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+html[lang="ru"] .contact-card-hours > p::after {
+  content: "Работаем по предварительной записи";
+}
+
+html[lang="en"] .contact-card-hours > p::after {
+  content: "Open by prior appointment";
+}
+
 @media (max-width: 620px) {
   .contact-hero::before {
     background-position: 48% 56%;
@@ -33,5 +78,9 @@
   /* The source is horizontal, so the mobile crop follows the models on the right. */
   .reviews-atmosphere::before {
     background-position: 68% 32%;
+  }
+
+  .contact-card-hours > p {
+    font-size: 0.84rem;
   }
 }
