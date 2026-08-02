@@ -18,39 +18,50 @@ const copy = {
     hours: "Время работы",
     hoursShort: "Пн–Пт 13–18 · Сб 12–17",
     hoursFull: "Понедельник–пятница 13:00–18:00<br>Суббота 12:00–17:00<br>Воскресенье — закрыто",
+    homeAria: "Главная CATRIN",
+    mainNavAria: "Основная навигация",
+    languageAria: "Язык сайта",
+    socialLinksAria: "Связь и социальные сети",
+    quickActionsAria: "Быстрые способы связи",
+    galleryAria: "Галерея свадебных платьев CATRIN",
+    galleryControlsAria: "Сменить изображение",
+    slideOneAria: "Первое изображение",
+    slideTwoAria: "Второе изображение",
+    slideThreeAria: "Третье изображение",
+    mapFrameTitle: "Расположение салона свадебной моды CATRIN на карте",
 
     homeEyebrow: "Салон свадебной моды в Елгаве · с 2011 года",
-    homeTitle: "Свадебное платье — именно твоё",
-    homeIntro: "Выбери в салоне, создай с нуля или подгони уже найденное — всё сделаем в одном месте.",
+    homeTitle: "Свадебное платье, которое действительно Ваше",
+    homeIntro: "Выберите платье в салоне, закажите индивидуальный пошив или доверьте нам подгонку уже найденного — обо всём позаботимся в одном месте.",
     seeDresses: "Посмотреть платья",
     servicesEyebrow: "Что мы делаем",
     servicesHomeTitle: "Платья, пошив и подгонка",
     pathDressesLabel: "В салоне",
     pathDressesTitle: "Свадебные платья и аксессуары",
-    pathDressesText: "Примерь разные силуэты и подбери детали для цельного образа.",
+    pathDressesText: "Примерьте разные силуэты и подберите детали для цельного образа.",
     pathSewLabel: "Пошив в салоне",
     pathSewTitle: "Индивидуальный пошив и платье по фотографии",
-    pathSewText: "Адаптируем идею к твоей фигуре, выбранной ткани и желаемому результату.",
+    pathSewText: "Адаптируем идею к Вашей фигуре, выбранной ткани и желаемому результату.",
     pathCareLabel: "До и после свадьбы",
     pathCareTitle: "Подгонка, ремонт и химчистка",
     pathCareText: "Осмотрим платье, обсудим необходимое и согласуем объём работы.",
     allServices: "Все услуги",
     lookEyebrow: "Платья",
-    lookTitle: "Несколько направлений для твоей примерки",
-    lookText: "Ассортимент меняется. Фотографии помогают почувствовать направление, а само платье мы выбираем на примерке.",
+    lookTitle: "Вдохновение для Вашей примерки",
+    lookText: "Ассортимент меняется. Фотографии помогают выбрать направление, а само платье лучше всего выбирать на примерке.",
     openLookbook: "Подробнее о платьях",
     homeStoryEyebrow: "CATRIN в Елгаве",
     homeStoryTitle: "Салон свадебной моды с пошивом на месте",
-    homeStoryText: "Здесь невеста может не только найти платье, но и сшить, подогнать и подготовить его до последней детали. Начинаем с разговора и решаем именно твою задачу.",
+    homeStoryText: "Здесь Вы можете не только найти платье, но и заказать пошив, подгонку и подготовку до последней детали. Начинаем с разговора и предлагаем решение именно для Вас.",
     homeStoryLink: "Познакомиться с CATRIN",
     contactEyebrow: "Примерка по предварительной записи",
-    contactRibbonTitle: "Запишись на удобный день",
+    contactRibbonTitle: "Запишитесь на удобный день",
     socialEyebrow: "Новости и вдохновение",
     reviewsPageEyebrow: "Отзывы",
     reviewsPageTitle: "Что невесты говорят о CATRIN",
     reviewsSocialTitle: "Новые платья — в наших социальных сетях",
-    reviewsSocialText: "В Instagram и Facebook мы публикуем модели, детали и новости салона. Если что-то понравится, отправь скриншот в WhatsApp — проверим наличие.",
-    reviewsCtaTitle: "Запишись на визит в CATRIN",
+    reviewsSocialText: "В Instagram и Facebook мы публикуем модели, детали и новости салона. Если что-то понравится, отправьте скриншот в WhatsApp — проверим наличие.",
+    reviewsCtaTitle: "Запишитесь на визит в CATRIN",
     reviewsAria: "Отзывы невест",
     reviewsSourcesAria: "Оригинальные источники отзывов",
     readReviews: "Читать отзывы",
@@ -59,11 +70,11 @@ const copy = {
     facebookOriginalAria: "Открыть оригинальную публикацию в Facebook",
 
     dressesEyebrow: "Платья",
-    dressesTitle: "Найди ощущение, а не только силуэт",
-    dressesLead: "Примерь разные силуэты, ткани и детали. Ассортимент меняется, поэтому наличие конкретного платья уточним до визита.",
+    dressesTitle: "Найдите ощущение, а не только силуэт",
+    dressesLead: "Примерьте разные силуэты, ткани и детали. Ассортимент меняется, поэтому наличие конкретного платья уточним до Вашего визита.",
     dressesCaption: "CATRIN · свадебные платья",
     lookbookEyebrow: "Перед визитом",
-    lookbookTitle: "Три направления для примерки",
+    lookbookTitle: "Три направления для Вашей примерки",
     lookbookIntro: "Эти кадры — вдохновение, а не полный каталог. Окончательный выбор лучше сделать в салоне, увидев платье в движении.",
     detailVolume: "Объёмный силуэт с лёгкими слоями тюля",
     detailLace: "Фактура кружева и чистая линия талии",
@@ -75,24 +86,24 @@ const copy = {
     detailTrain: "Плавная линия юбки и длинный шлейф",
     accessoriesEyebrow: "Для цельного образа",
     accessoriesTitle: "Аксессуары подбираем вместе с платьем",
-    accessoriesText: "Фату, пояс, украшения и подъюбник можно примерить вместе с платьем.",
+    accessoriesText: "Фату, пояс, украшения и подъюбник Вы сможете примерить вместе с платьем.",
     dressesCtaEyebrow: "Платье лучше всего оценивать на примерке",
-    dressesCtaTitle: "Запишись на визит, и до приезда мы уточним, что ты ищешь.",
+    dressesCtaTitle: "Запишитесь на визит, и до приезда мы уточним, что Вы ищете.",
 
     servicesPageEyebrow: "Услуги",
     servicesPageTitle: "Пошив, подгонка и уход за платьями",
-    servicesPageLead: "Осмотрим платье или идею, уточним возможности и согласуем работу, срок и примерки.",
+    servicesPageLead: "Осмотрим платье или идею, оценим возможности и согласуем работу, срок и примерки.",
     servicesCaption: "CATRIN · салон свадебной моды",
-    createEyebrow: "Если платье ещё выбирают или создают с нуля",
+    createEyebrow: "Если Вы ещё выбираете платье или хотите создать его с нуля",
     createTitle: "Выбор и пошив",
     serviceDressTitle: "Свадебные платья",
-    serviceDressText: "Примерь разные силуэты и оцени посадку, удобство и возможные изменения.",
+    serviceDressText: "Примерьте разные силуэты и оцените посадку, удобство и возможные изменения.",
     seeSelection: "Подробнее о платьях",
     serviceCustomTitle: "Индивидуальный пошив",
-    serviceCustomText: "Разрабатываем модель, подбираем ткань и шьём платье по твоим меркам.",
+    serviceCustomText: "Разрабатываем модель, подбираем ткань и шьём платье по Вашим меркам.",
     discussIdea: "Обсудить идею",
     servicePhotoTitle: "Платье по фотографии",
-    servicePhotoText: "Адаптируем модель с фотографии к твоей фигуре, ткани и возможностям.",
+    servicePhotoText: "Адаптируем модель с фотографии к Вашей фигуре, выбранной ткани и возможностям.",
     showPhoto: "Показать идею",
     finishEyebrow: "Если платье уже выбрано",
     finishTitle: "Подгонка и уход",
@@ -103,9 +114,9 @@ const copy = {
     serviceCleanText: "Чистим платья до или после свадьбы. Возможность и срок подтвердим после осмотра.",
     askCleaning: "Спросить о чистке",
     serviceAccessoryTitle: "Аксессуары для невесты",
-    serviceAccessoryText: "Подбери фату, пояс, украшения и подъюбник вместе с платьем.",
+    serviceAccessoryText: "Подберите фату, пояс, украшения и подъюбник вместе с платьем.",
     timingEyebrow: "Сроки индивидуальны",
-    timingTitle: "Покажи платье или идею — скажем, что можно сделать",
+    timingTitle: "Покажите платье или идею — скажем, что можно сделать",
     timingText: "Для пошива и сложной подгонки требуется несколько примерок. Возможность и срок всегда уточняем индивидуально.",
     contactUs: "Связаться с салоном",
 
@@ -115,16 +126,16 @@ const copy = {
     salonCaption: "CATRIN · Елгава · с 2011 года",
     visitEyebrow: "Визит в салон",
     visitTitle: "Примерку начинаем с разговора",
-    visitIntro: "Необязательно знать точную модель. Покажи, что нравится, и расскажи, что ищешь.",
+    visitIntro: "Необязательно знать точную модель. Покажите, что Вам нравится, и расскажите, что ищете.",
     visitTalkTitle: "Уточним задачу",
     visitTalkText: "Обсудим стиль, размер и нужную услугу.",
     visitTryTitle: "Сравним силуэты",
-    visitTryText: "Примерь несколько вариантов и оцени посадку в движении.",
+    visitTryText: "Примерьте несколько вариантов и оцените посадку в движении.",
     visitPlanTitle: "Согласуем дальнейшее",
     visitPlanText: "Если нужны изменения, согласуем работу, срок и примерки.",
-    bringEyebrow: "Если удобно",
-    bringTitle: "Что можно взять с собой",
-    bringText: "Фотографии платьев, обувь с похожим каблуком и планируемое бельё. Если их ещё нет, приходи без подготовки.",
+    bringEyebrow: "Если Вам удобно",
+    bringTitle: "Что Вы можете взять с собой",
+    bringText: "Фотографии платьев, обувь с похожим каблуком и планируемое бельё. Если их ещё нет, можно прийти без специальной подготовки.",
     factSinceLabel: "Опыт",
     factSinceValue: "С 2011 года",
     factVisitLabel: "Примерка",
@@ -132,11 +143,11 @@ const copy = {
     factLanguagesLabel: "Языки общения",
     factAddressLabel: "Адрес салона",
     salonCtaEyebrow: "Примерка по записи",
-    salonCtaTitle: "Запишись и коротко расскажи, что ищешь",
+    salonCtaTitle: "Запишитесь и коротко расскажите, что ищете",
 
     contactPageEyebrow: "CATRIN · Елгава",
     contactPageTitle: "Запись и контакты",
-    contactPageLead: "Заполни форму, напиши в WhatsApp или позвони.",
+    contactPageLead: "Заполните форму, напишите в WhatsApp или позвоните.",
     phoneLabel: "Телефон",
     addressLabel: "Адрес салона",
     contactChannelsAria: "Способы связи",
@@ -153,7 +164,7 @@ const copy = {
     name: "Имя",
     phone: "Телефон",
     date: "Желаемая дата",
-    interest: "Что тебя интересует",
+    interest: "Что Вас интересует",
     optFitting: "Примерка платья",
     optCustom: "Индивидуальный пошив",
     optPhoto: "Пошив по фотографии",
@@ -161,23 +172,23 @@ const copy = {
     optClean: "Химчистка",
     optOther: "Другой вопрос",
     message: "Короткий комментарий",
-    messagePlaceholder: "Что хочешь примерить или какая работа нужна?",
-    photoPlan: "<strong>Я добавлю фотографию.</strong> Выбрать её нужно уже в чате после открытия WhatsApp.",
+    messagePlaceholder: "Что Вы хотите примерить или какая работа нужна?",
+    photoPlan: "<strong>Я добавлю фотографию.</strong> Её можно будет выбрать в чате после открытия WhatsApp.",
     consent: "Согласна, что указанные данные будут использованы для ответа на мою заявку.",
     continueWhatsapp: "Продолжить в WhatsApp",
     visitUs: "Приехать в салон",
-    mapText: "Перед поездкой запишись на визит.",
+    mapText: "Перед поездкой запишитесь на визит.",
     routeGoogle: "Маршрут в Google Maps",
     routeWaze: "Открыть Waze",
 
     policyTitle: "Политика конфиденциальности",
-    policyIntro: "В этой политике описано, как SIA «CATRIN» обрабатывает персональные данные, когда вы связываетесь с салоном или обращаетесь за услугой.",
+    policyIntro: "В этой политике описано, как SIA «CATRIN» обрабатывает персональные данные, когда Вы связываетесь с салоном или обращаетесь за услугой.",
     policyControllerTitle: "Оператор данных",
     policyControllerText: "SIA «CATRIN», регистрационный № 43603051076, юридический адрес: улица Судрабу Эджус, 1–19, Елгава, LV-3001. Телефон: <a href=\"tel:+37127164000\">+371&nbsp;27&nbsp;164&nbsp;000</a>.",
     policyDataTitle: "Какие данные мы обрабатываем",
     policyDataText: "В форме можно указать имя, телефон, желаемую дату, услугу и комментарий. Фотография на сайте не выбирается и не загружается — пользователь может прикрепить её непосредственно в чате WhatsApp.",
     policyPurposeTitle: "Цель и основание обработки",
-    policyPurposeText: "Данные используются, чтобы ответить на запрос, согласовать визит, подготовить услугу и выполнить заключённое с вами соглашение. Основанием служат действия до заключения договора, исполнение договора или ваше согласие.",
+    policyPurposeText: "Данные используются, чтобы ответить на запрос, согласовать визит, подготовить услугу и выполнить заключённое с Вами соглашение. Основанием служат действия до заключения договора, исполнение договора или Ваше согласие.",
     policyStorageTitle: "Хранение и передача",
     policyStorageText: "Мы храним данные только столько, сколько необходимо для общения, оказания услуги или выполнения требований закона. При использовании WhatsApp, Instagram, Facebook или сервисов Google также применяются правила соответствующих поставщиков.",
     policyExternalTitle: "Встроенная карта и внешние ссылки",
@@ -185,8 +196,8 @@ const copy = {
     policyRightsTitle: "Ваши права",
     policyRightsText: "Вы вправе запросить доступ к своим данным, их исправление, удаление или ограничение обработки, а также возразить против обработки и отозвать согласие. Жалобу можно подать в Государственную инспекцию данных Латвии.",
     policyCookiesTitle: "Файлы cookie",
-    policyCookiesText: "Сайт не использует рекламные или аналитические файлы cookie. Выбор языка сохраняется только в локальном хранилище вашего браузера.",
-    policyUpdated: "Обновлено: 29 июля 2026 года."
+    policyCookiesText: "Сайт не использует рекламные или аналитические файлы cookie. Выбор языка сохраняется только в локальном хранилище Вашего браузера.",
+    policyUpdated: "Обновлено: 2 августа 2026 года."
   },
   en: {
     skip: "Skip to content",
@@ -207,10 +218,21 @@ const copy = {
     hours: "Opening hours",
     hoursShort: "Mon–Fri 13–18 · Sat 12–17",
     hoursFull: "Monday–Friday 13:00–18:00<br>Saturday 12:00–17:00<br>Sunday — closed",
+    homeAria: "CATRIN home",
+    mainNavAria: "Main navigation",
+    languageAria: "Website language",
+    socialLinksAria: "Contact and social media",
+    quickActionsAria: "Quick contact options",
+    galleryAria: "CATRIN wedding dress gallery",
+    galleryControlsAria: "Change image",
+    slideOneAria: "First image",
+    slideTwoAria: "Second image",
+    slideThreeAria: "Third image",
+    mapFrameTitle: "CATRIN bridal fashion salon location on the map",
 
     homeEyebrow: "Bridal fashion salon in Jelgava · since 2011",
-    homeTitle: "A wedding dress entirely yours",
-    homeIntro: "Choose it at the salon, create it from scratch or refine the dress you have found — all in one place.",
+    homeTitle: "A wedding dress that is truly yours",
+    homeIntro: "Choose a gown at the salon, commission bespoke dressmaking or have an existing one altered — we take care of it all in one place.",
     seeDresses: "View dresses",
     servicesEyebrow: "What we do",
     servicesHomeTitle: "Dresses, dressmaking and alterations",
@@ -225,8 +247,8 @@ const copy = {
     pathCareText: "We assess the gown, discuss what is needed and agree the scope.",
     allServices: "All services",
     lookEyebrow: "Dresses",
-    lookTitle: "A few directions for your fitting",
-    lookText: "The selection changes. Photographs help set a direction; the right dress is chosen during a fitting.",
+    lookTitle: "Inspiration for your fitting",
+    lookText: "The selection changes. Photographs help set a direction; the right dress is best chosen during a fitting.",
     openLookbook: "More about dresses",
     homeStoryEyebrow: "CATRIN in Jelgava",
     homeStoryTitle: "A bridal fashion salon with dressmaking on site",
@@ -375,7 +397,7 @@ const copy = {
     policyRightsText: "You may request access to, correction or deletion of your data, restriction of processing, object to processing and withdraw consent. You may lodge a complaint with the Data State Inspectorate of Latvia.",
     policyCookiesTitle: "Cookies",
     policyCookiesText: "The website does not use advertising or analytics cookies. Your language choice is stored only in your browser’s local storage.",
-    policyUpdated: "Updated: 29 July 2026."
+    policyUpdated: "Updated: 2 August 2026."
   }
 };
 
@@ -405,6 +427,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const initialText = {};
 const initialPlaceholders = {};
 const initialAriaLabels = {};
+const initialTitles = {};
 const initialMeta = {
   title: document.title,
   description: document.querySelector('meta[name="description"]')?.content || ""
@@ -421,6 +444,10 @@ document.querySelectorAll("[data-t-placeholder]").forEach((element) => {
 
 document.querySelectorAll("[data-t-aria-label]").forEach((element) => {
   initialAriaLabels[element.dataset.tAriaLabel] = element.getAttribute("aria-label") || "";
+});
+
+document.querySelectorAll("[data-t-title]").forEach((element) => {
+  initialTitles[element.dataset.tTitle] = element.getAttribute("title") || "";
 });
 
 function storedLanguage() {
@@ -456,6 +483,11 @@ function translate(nextLanguage, updateAddress = true) {
   document.querySelectorAll("[data-t-aria-label]").forEach((element) => {
     const key = element.dataset.tAriaLabel;
     element.setAttribute("aria-label", language === "lv" ? initialAriaLabels[key] : copy[language]?.[key] ?? initialAriaLabels[key]);
+  });
+
+  document.querySelectorAll("[data-t-title]").forEach((element) => {
+    const key = element.dataset.tTitle;
+    element.setAttribute("title", language === "lv" ? initialTitles[key] : copy[language]?.[key] ?? initialTitles[key]);
   });
 
   document.querySelectorAll("[data-lang]").forEach((button) => {
@@ -513,25 +545,53 @@ const menuButton = document.querySelector("[data-menu-button]");
 const navigation = document.querySelector("[data-nav]");
 const pageVeil = document.querySelector(".page-veil");
 
-function closeMenu() {
+function closeMenu(returnFocus = false) {
   if (!menuButton || !navigation) return;
+  const wasOpen = menuButton.getAttribute("aria-expanded") === "true";
   menuButton.setAttribute("aria-expanded", "false");
   navigation.classList.remove("is-open");
   document.body.classList.remove("nav-open");
+  if (returnFocus && wasOpen) menuButton.focus();
 }
 
 menuButton?.addEventListener("click", () => {
   const open = menuButton.getAttribute("aria-expanded") !== "true";
+  if (!open) {
+    closeMenu(true);
+    return;
+  }
   menuButton.setAttribute("aria-expanded", String(open));
   navigation.classList.toggle("is-open", open);
   document.body.classList.toggle("nav-open", open);
+  requestAnimationFrame(() => navigation.querySelector("a")?.focus());
 });
 
-navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
-pageVeil?.addEventListener("click", closeMenu);
+navigation?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => closeMenu(false)));
+pageVeil?.addEventListener("click", () => closeMenu(true));
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeMenu();
+  if (event.key === "Escape") {
+    closeMenu(true);
+    return;
+  }
+  if (event.key !== "Tab" || menuButton?.getAttribute("aria-expanded") !== "true" || !navigation) return;
+  const focusable = [
+    ...navigation.querySelectorAll("a"),
+    ...document.querySelectorAll(".site-header .language-switcher button"),
+    menuButton
+  ];
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first.focus();
+  }
 });
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 900) closeMenu();
+}, { passive: true });
 
 translate(language, false);
 

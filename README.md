@@ -12,6 +12,6 @@ Multilingual website for the CATRIN bridal fashion salon.
 - `kontakti.html` — compact contact details, direct WhatsApp booking, social channels, map and route links
 - `privacy.html` — privacy information
 
-The site uses the supplied transparent SVG logos and a lightweight shared CSS and JavaScript system. Motion is limited to compositor-friendly opacity and transform effects; there is no scroll-linked parallax or full-screen blur stack.
+The site uses a restrained text wordmark in the navigation and the supplied round SVG mark in the footer. A shared CSS and JavaScript system provides responsive layouts, keyboard-safe mobile navigation, multilingual content, subtle compositor-friendly motion, persistent desktop social shortcuts and a compact mobile action bar.
 
 Public URL: https://tackcalbmai.github.io/CATRIN_page/

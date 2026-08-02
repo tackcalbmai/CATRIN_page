@@ -70,11 +70,11 @@
   --shadow-soft: 0 22px 60px rgba(59, 37, 48, 0.09);
   --serif: "Noto Serif Display", Georgia, serif;
   --sans: "Onest", Arial, sans-serif;
-  --wide: min(94vw, 1540px);
-  --page: min(90vw, 1360px);
+  --wide: min(92vw, 1440px);
+  --page: min(88vw, 1280px);
   --reading: min(86vw, 760px);
   --header-height: 70px;
-  --section-space: clamp(5rem, 7.5vw, 8rem);
+  --section-space: clamp(4.25rem, 6vw, 6.5rem);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -89,6 +89,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   overflow-x: clip;
   background:
     radial-gradient(circle at 8% 4%, rgba(255, 255, 255, 0.88), transparent 31rem),
@@ -114,6 +115,11 @@ body.nav-open {
 
 body[data-page="reviews"] main {
   padding-top: calc(var(--header-height) + 2rem);
+}
+
+body[data-page="reviews"],
+body[data-page="contact"] {
+  --section-space: clamp(5rem, 7.5vw, 8rem);
 }
 
 ::selection {
@@ -251,12 +257,12 @@ body.nav-open .page-veil {
 
 .button {
   display: inline-flex;
-  min-height: 52px;
+  min-height: 50px;
   align-items: center;
   justify-content: center;
   padding: 0.9rem 1.35rem;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 5px;
   font-size: 0.74rem;
   font-weight: 650;
   letter-spacing: 0.12em;
@@ -267,7 +273,7 @@ body.nav-open .page-veil {
 }
 
 .button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 .button-primary {
@@ -326,10 +332,10 @@ body.nav-open .page-veil {
   display: grid;
   width: 100%;
   min-height: var(--header-height);
-  grid-template-columns: 176px 1fr auto;
+  grid-template-columns: 112px 1fr auto;
   align-items: center;
   gap: 1.5rem;
-  padding: 0 max(4vw, calc((100vw - 1460px) / 2));
+  padding: 0 max(4vw, calc((100vw - 1360px) / 2));
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -340,21 +346,18 @@ body.nav-open .page-veil {
 }
 
 .site-header.is-scrolled {
-  background: rgba(250, 247, 244, 0.96);
+  background: rgba(250, 247, 244, 0.9);
   box-shadow: 0 1px 0 rgba(76, 53, 64, 0.08);
 }
 
-.brand {
-  display: flex;
-  width: 142px;
-  height: 58px;
-  align-items: center;
-}
-
-.brand img {
-  width: 140px;
-  height: 58px;
-  object-fit: contain;
+.site-name {
+  color: var(--plum-dark);
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  font-weight: 520;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  transition: color 220ms ease;
 }
 
 .site-nav {
@@ -373,6 +376,7 @@ body.nav-open .page-veil {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   white-space: nowrap;
+  transition: color 220ms ease;
 }
 
 .site-nav a::after {
@@ -414,6 +418,7 @@ body.nav-open .page-veil {
 
 .language-switcher button {
   min-width: 28px;
+  min-height: 36px;
   padding: 0.4rem 0.2rem;
   border: 0;
   background: transparent;
@@ -435,7 +440,7 @@ body.nav-open .page-veil {
   justify-content: center;
   padding: 0.65rem 0.95rem;
   border: 1px solid rgba(100, 31, 75, 0.42);
-  border-radius: 8px;
+  border-radius: 5px;
   background: rgba(255, 253, 251, 0.42);
   color: var(--plum);
   font-size: 0.66rem;
@@ -454,6 +459,88 @@ body.nav-open .page-veil {
   display: none;
   border: 0;
   background: transparent;
+}
+
+body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data-page="salon"]) .site-header:not(.is-scrolled) .site-name,
+body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data-page="salon"]) .site-header:not(.is-scrolled) .site-nav a,
+body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data-page="salon"]) .site-header:not(.is-scrolled) .language-switcher button[aria-pressed="true"] {
+  color: var(--white);
+}
+
+body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data-page="salon"]) .site-header:not(.is-scrolled) .language-switcher button {
+  color: rgba(255, 253, 251, 0.68);
+}
+
+body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data-page="salon"]) .site-header:not(.is-scrolled) .language-switcher {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data-page="salon"]) .site-header:not(.is-scrolled) .header-book {
+  border-color: rgba(255, 255, 255, 0.52);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+
+body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data-page="salon"]) .site-header:not(.is-scrolled) .menu-button span {
+  background: var(--white);
+}
+
+.social-dock {
+  position: fixed;
+  z-index: 42;
+  top: 50%;
+  right: max(0.85rem, calc((100vw - 1500px) / 2));
+  display: grid;
+  gap: 0.55rem;
+  transform: translateY(-50%);
+}
+
+.social-dock a {
+  position: relative;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(100, 31, 75, 0.14);
+  border-radius: 50%;
+  background: rgba(255, 253, 251, 0.96);
+  box-shadow: 0 10px 28px rgba(55, 35, 45, 0.1);
+  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.social-dock a:hover {
+  transform: translateX(-2px);
+  border-color: rgba(100, 31, 75, 0.38);
+  box-shadow: 0 14px 34px rgba(55, 35, 45, 0.14);
+}
+
+.social-dock img {
+  width: 19px;
+  height: 19px;
+}
+
+.social-dock span {
+  position: absolute;
+  right: calc(100% + 0.65rem);
+  padding: 0.4rem 0.65rem;
+  transform: translateX(6px);
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 4px;
+  background: var(--plum-dark);
+  color: var(--white);
+  font-size: 0.68rem;
+  line-height: 1;
+  pointer-events: none;
+  transition: visibility 180ms step-end, opacity 180ms ease, transform 180ms ease;
+}
+
+.social-dock a:hover span,
+.social-dock a:focus-visible span {
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 180ms ease, transform 180ms ease;
 }
 
 /* Home */
@@ -488,7 +575,7 @@ body.nav-open .page-veil {
   flex-direction: column;
   justify-content: center;
   margin-inline: auto;
-  padding: calc(var(--header-height) + clamp(5rem, 9vw, 8rem)) 0 clamp(4.5rem, 7vw, 7rem);
+  padding: calc(var(--header-height) + clamp(3rem, 6vw, 5rem)) 0 clamp(3.5rem, 6vw, 5.5rem);
   color: var(--white);
 }
 
@@ -496,12 +583,29 @@ body.nav-open .page-veil {
   color: rgba(255, 253, 251, 0.8);
 }
 
-.hero-copy h1 {
-  max-width: 1260px;
-  margin: 1.25rem 0 1.65rem;
+.home-signature {
+  max-width: 1000px;
+  margin: 1.15rem 0 1.6rem;
   color: var(--white);
-  font-size: clamp(3.55rem, 5.1vw, 5.6rem);
-  line-height: 0.98;
+}
+
+.home-signature > span {
+  display: block;
+  font-size: clamp(4.8rem, 8.2vw, 8rem);
+  font-weight: 360;
+  letter-spacing: 0.045em;
+  line-height: 0.82;
+}
+
+.home-signature > small {
+  display: block;
+  max-width: 780px;
+  margin-top: 1.35rem;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 2.75vw, 3rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
 }
 
 .hero-intro {
@@ -560,6 +664,18 @@ body.nav-open .page-veil {
   object-position: center 29%;
   transform: scale(1.025);
   transition: transform 7s ease-out;
+}
+
+.hero-images figure:nth-child(1) img {
+  object-position: center 25%;
+}
+
+.hero-images figure:nth-child(2) img {
+  object-position: center 18%;
+}
+
+.hero-images figure:nth-child(3) img {
+  object-position: center 22%;
 }
 
 .hero-images figure.is-active img {
@@ -646,11 +762,11 @@ body.nav-open .page-veil {
 
 .path-item {
   display: grid;
-  min-height: 150px;
+  min-height: 128px;
   grid-template-columns: minmax(300px, 0.9fr) minmax(280px, 1fr) 28px;
   align-items: center;
   gap: clamp(2rem, 5vw, 6rem);
-  padding: 2rem 0;
+  padding: 1.7rem 0;
   border-bottom: 1px solid var(--line);
   transition: color 250ms ease, padding 350ms var(--ease);
 }
@@ -692,7 +808,7 @@ body.nav-open .page-veil {
 
 .lookbook-teaser {
   display: grid;
-  min-height: 680px;
+  min-height: 600px;
   grid-template-columns: minmax(480px, 0.92fr) minmax(620px, 1.08fr);
   border-block: 1px solid rgba(255, 255, 255, 0.7);
   background:
@@ -704,7 +820,7 @@ body.nav-open .page-veil {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(4rem, 7vw, 7rem) clamp(2.5rem, 5vw, 5.5rem);
+  padding: clamp(3.5rem, 5.5vw, 5.5rem) clamp(2.5rem, 5vw, 5.5rem);
 }
 
 .lookbook-copy h2 {
@@ -729,13 +845,13 @@ body.nav-open .page-veil {
 }
 
 .lookbook-tiles figure {
-  min-height: 560px;
+  min-height: 500px;
   overflow: hidden;
 }
 
 .lookbook-tiles figure:nth-child(2) {
-  min-height: 430px;
-  margin-block: 5rem 1rem;
+  min-height: 370px;
+  margin-block: 4rem 1rem;
 }
 
 .lookbook-tiles img,
@@ -767,7 +883,7 @@ body.nav-open .page-veil {
 }
 
 .home-story-image {
-  min-height: 640px;
+  min-height: 560px;
   overflow: hidden;
 }
 
@@ -794,8 +910,8 @@ body.nav-open .page-veil {
   isolation: isolate;
   display: flex;
   width: 100%;
-  min-height: clamp(620px, 78svh, 760px);
-  align-items: center;
+  min-height: clamp(560px, 72svh, 690px);
+  align-items: flex-start;
   overflow: hidden;
   background: #6c5c63;
 }
@@ -816,9 +932,9 @@ body.nav-open .page-veil {
   width: var(--page);
   max-width: none;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   margin-inline: auto;
-  padding: calc(var(--header-height) + clamp(4rem, 7vw, 6.5rem)) 0 clamp(4rem, 7vw, 6rem);
+  padding: calc(var(--header-height) + clamp(2.6rem, 5vw, 4.2rem)) 0 clamp(3rem, 5vw, 4.5rem);
   color: var(--white);
 }
 
@@ -827,10 +943,10 @@ body.nav-open .page-veil {
 }
 
 .page-hero-copy h1 {
-  max-width: 1280px;
+  max-width: 980px;
   margin: 1rem 0 1.5rem;
   color: var(--white);
-  font-size: clamp(3.2rem, 4.1vw, 4.5rem);
+  font-size: clamp(3rem, 3.75vw, 4.05rem);
   line-height: 0.99;
 }
 
@@ -849,8 +965,12 @@ body.nav-open .page-veil {
 }
 
 .page-hero-image img {
-  object-position: center 28%;
-  transform: scale(1.025);
+  object-position: center 22%;
+  transform: none;
+}
+
+body[data-page="dresses"] .page-hero-image img {
+  object-position: center 18%;
 }
 
 .page-hero-image figcaption {
@@ -858,7 +978,29 @@ body.nav-open .page-veil {
 }
 
 body[data-page="services"] .page-hero-image img {
-  object-position: center 35%;
+  object-position: center 16%;
+}
+
+body[data-page="salon"] .page-hero-image img {
+  object-position: center 22%;
+}
+
+.page-hero .hero-actions {
+  margin-top: 1.85rem;
+}
+
+.page-hero .button-primary {
+  background: var(--white);
+  color: var(--plum-dark);
+}
+
+.page-hero .button-primary:hover {
+  background: var(--paper-deep);
+}
+
+.js .page-hero-image.reveal {
+  transform: none;
+  transition: opacity 900ms ease;
 }
 
 /* Dresses: a small editorial selection, not a catalogue */
@@ -924,24 +1066,22 @@ body[data-page="services"] .page-hero-image img {
   padding: 0.8rem 1rem;
   border: 1px solid rgba(255, 255, 255, 0.64);
   border-radius: 9px;
-  background: rgba(250, 247, 244, 0.74);
+  background: rgba(250, 247, 244, 0.92);
   box-shadow: 0 12px 28px rgba(48, 29, 39, 0.08);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   color: var(--ink);
   font-size: 0.78rem;
 }
 
 .accessory-band {
   display: grid;
-  min-height: 650px;
+  min-height: 560px;
   grid-template-columns: 1.1fr 0.9fr;
   border-block: 1px solid rgba(255, 255, 255, 0.7);
   background: linear-gradient(120deg, rgba(239, 228, 224, 0.92), rgba(248, 243, 240, 0.74));
 }
 
 .accessory-image {
-  min-height: 650px;
+  min-height: 560px;
   overflow: hidden;
 }
 
@@ -950,7 +1090,7 @@ body[data-page="services"] .page-hero-image img {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: clamp(4rem, 7vw, 7rem) clamp(2.5rem, 5vw, 5.5rem);
+  padding: clamp(3.5rem, 5.5vw, 5.5rem) clamp(2.5rem, 5vw, 5.5rem);
 }
 
 .accessory-copy h2 {
@@ -992,12 +1132,12 @@ body[data-page="services"] .page-hero-image img {
 
 .ledger-item {
   display: grid;
-  min-height: 190px;
+  min-height: 154px;
   grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr) auto;
   align-content: center;
   align-items: center;
   column-gap: clamp(2rem, 5vw, 5rem);
-  padding: 2.4rem 0;
+  padding: 2rem 0;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1032,8 +1172,8 @@ body[data-page="services"] .page-hero-image img {
 }
 
 .visit-step {
-  min-height: 280px;
-  padding: 2.5rem clamp(1.5rem, 3vw, 3.5rem) 2.5rem 0;
+  min-height: 225px;
+  padding: 2rem clamp(1.5rem, 3vw, 3.5rem) 2rem 0;
   border-right: 1px solid var(--line);
 }
 
@@ -1047,7 +1187,7 @@ body[data-page="services"] .page-hero-image img {
 
 .visit-step::before {
   display: block;
-  margin-bottom: clamp(3.5rem, 7vw, 6.5rem);
+  margin-bottom: clamp(2.25rem, 4vw, 3.8rem);
   color: var(--plum);
   font-family: var(--serif);
   font-size: 1rem;
@@ -1075,14 +1215,14 @@ body[data-page="services"] .page-hero-image img {
 }
 
 .salon-collage-main {
-  min-height: 760px;
+  min-height: 620px;
   grid-row: 1 / span 2;
   overflow: hidden;
 }
 
 .salon-collage-note {
   display: flex;
-  min-height: 380px;
+  min-height: 310px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
@@ -1103,7 +1243,7 @@ body[data-page="services"] .page-hero-image img {
 }
 
 .salon-collage-detail {
-  min-height: 380px;
+  min-height: 310px;
   overflow: hidden;
 }
 
@@ -1662,18 +1802,16 @@ body[data-page="reviews"] main {
 .contact-ribbon {
   display: grid;
   width: var(--page);
-  min-height: 270px;
+  min-height: 220px;
   margin: var(--section-space) auto;
   grid-template-columns: minmax(480px, 1fr) auto;
   align-items: center;
   gap: clamp(3rem, 8vw, 8rem);
-  padding: clamp(2.5rem, 4.5vw, 4rem);
+  padding: clamp(2.25rem, 3.5vw, 3.25rem);
   border: 1px solid var(--glass-border);
   border-radius: 18px;
   background: rgba(255, 253, 251, 0.5);
   box-shadow: 0 18px 50px rgba(55, 35, 45, 0.065);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   color: var(--ink);
 }
 
@@ -1709,8 +1847,6 @@ body[data-page="reviews"] main {
   padding: clamp(3rem, 5vw, 5rem) max(4vw, calc((100vw - 1360px) / 2));
   border-top: 1px solid rgba(255, 255, 255, 0.72);
   background: rgba(243, 236, 232, 0.74);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 .footer-brand {
@@ -1804,19 +1940,16 @@ body[data-page="reviews"] main {
 }
 
 .policy-header.is-scrolled {
-  background: rgba(250, 247, 244, 0.96);
+  background: rgba(250, 247, 244, 0.9);
   box-shadow: 0 1px 0 rgba(76, 53, 64, 0.08);
 }
 
 .policy-brand {
-  width: 150px;
-  height: 64px;
-}
-
-.policy-brand img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  color: var(--plum-dark);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 520;
+  letter-spacing: 0.14em;
 }
 
 .policy-tools {
@@ -1867,9 +2000,9 @@ body[data-page="reviews"] main {
 
 /* Motion */
 .js .reveal {
-  transform: translateY(22px);
+  transform: translateY(16px);
   opacity: 0;
-  transition: transform 820ms var(--ease), opacity 760ms ease;
+  transition: transform 680ms var(--ease), opacity 620ms ease;
 }
 
 .js .reveal.is-visible {
@@ -1880,18 +2013,17 @@ body[data-page="reviews"] main {
 @media (max-width: 1180px) {
   :root {
     --wide: 100%;
-    --page: min(91vw, 1080px);
+    --page: min(90vw, 1080px);
   }
 
   .site-header {
-    grid-template-columns: 160px 1fr auto;
+    grid-template-columns: 96px 1fr auto;
     gap: 1rem;
     padding-inline: 1.2rem;
   }
 
-  .brand,
-  .brand img {
-    width: 138px;
+  .site-name {
+    font-size: 1.05rem;
   }
 
   .site-nav {
@@ -1906,6 +2038,20 @@ body[data-page="reviews"] main {
     display: none;
   }
 
+  .social-dock {
+    right: 0.5rem;
+  }
+
+  .social-dock a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social-dock img {
+    width: 17px;
+    height: 17px;
+  }
+
   .home-hero,
   .page-hero {
     width: 100%;
@@ -1916,9 +2062,8 @@ body[data-page="reviews"] main {
     padding-inline: 0;
   }
 
-  .hero-copy h1 {
-    max-width: 1060px;
-    font-size: clamp(3.45rem, 5.2vw, 5.35rem);
+  .home-signature {
+    max-width: 900px;
   }
 
   .lookbook-teaser {
@@ -1947,16 +2092,21 @@ body[data-page="reviews"] main {
     grid-template-columns: 0.68fr 1.32fr;
     gap: 5vw;
   }
+
 }
 
 @media (max-width: 900px) {
   :root {
     --header-height: 70px;
-    --section-space: clamp(4.5rem, 11vw, 7rem);
+    --section-space: clamp(3.75rem, 9vw, 5.5rem);
   }
 
   body {
-    padding-bottom: 62px;
+    padding-bottom: calc(82px + env(safe-area-inset-bottom));
+  }
+
+  .social-dock {
+    display: none;
   }
 
   .site-header {
@@ -1964,7 +2114,7 @@ body[data-page="reviews"] main {
     right: 0;
     left: 0;
     min-height: var(--header-height);
-    grid-template-columns: 140px 1fr;
+    grid-template-columns: auto 1fr;
     padding-inline: 1.25rem;
     border-radius: 0;
     background: transparent;
@@ -1973,17 +2123,16 @@ body[data-page="reviews"] main {
   }
 
   .site-header.is-scrolled {
-    background: transparent;
+    background: rgba(250, 247, 244, 0.9);
+    box-shadow: 0 1px 0 rgba(76, 53, 64, 0.08);
   }
 
   .site-header::before {
     content: none;
   }
 
-  .brand,
-  .brand img {
-    width: 128px;
-    height: 58px;
+  .site-name {
+    font-size: 1rem;
   }
 
   .header-tools {
@@ -1992,7 +2141,7 @@ body[data-page="reviews"] main {
     justify-self: end;
   }
 
-  .brand {
+  .site-name {
     position: relative;
     z-index: 4;
   }
@@ -2042,13 +2191,13 @@ body[data-page="reviews"] main {
     bottom: 0;
     left: auto;
     display: flex;
-    width: min(82vw, 360px);
+    width: min(84vw, 340px);
     visibility: hidden;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 0;
-    padding: calc(var(--header-height) + 2.4rem) 2rem 2.5rem;
+    padding: calc(var(--header-height) + 2rem) 1.75rem 2.25rem;
     transform: translateX(102%);
     opacity: 0;
     border-left: 1px solid rgba(76, 53, 64, 0.1);
@@ -2064,6 +2213,23 @@ body[data-page="reviews"] main {
     transform: translateX(0);
     opacity: 1;
     transition: visibility 0s, opacity 280ms ease, transform 420ms var(--ease);
+  }
+
+  body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data-page="salon"]) .site-header:not(.is-scrolled) .site-nav.is-open a {
+    color: var(--ink);
+  }
+
+  body.nav-open .site-header .language-switcher button,
+  body.nav-open .site-header .language-switcher button[aria-pressed="true"] {
+    color: var(--plum);
+  }
+
+  body.nav-open .site-header .language-switcher {
+    border-color: var(--line);
+  }
+
+  body.nav-open .site-header .menu-button span {
+    background: var(--ink);
   }
 
   .site-nav a {
@@ -2083,11 +2249,14 @@ body[data-page="reviews"] main {
     display: none;
   }
 
-  .home-hero,
+  .home-hero {
+    min-height: 100svh;
+  }
+
   .page-hero,
   body[data-page="services"] .page-hero,
   body[data-page="salon"] .page-hero {
-    min-height: 100svh;
+    min-height: clamp(580px, 82svh, 720px);
   }
 
   .hero-copy,
@@ -2097,7 +2266,7 @@ body[data-page="reviews"] main {
     position: relative;
     max-width: none;
     width: var(--page);
-    padding: clamp(4rem, 11vw, 6.5rem) 0;
+    padding: calc(var(--header-height) + clamp(2.5rem, 6vw, 3.75rem)) 0 clamp(2.75rem, 7vw, 4rem);
   }
 
   .hero-copy h1,
@@ -2148,16 +2317,16 @@ body[data-page="reviews"] main {
   }
 
   .lookbook-tiles {
-    min-height: 620px;
+    min-height: 560px;
     padding: 0 5vw 5vw;
   }
 
   .lookbook-tiles figure {
-    min-height: 560px;
+    min-height: 500px;
   }
 
   .lookbook-tiles figure:nth-child(2) {
-    min-height: 440px;
+    min-height: 380px;
   }
 
   .home-story {
@@ -2165,7 +2334,7 @@ body[data-page="reviews"] main {
   }
 
   .home-story-image {
-    min-height: min(90vw, 700px);
+    min-height: min(84vw, 620px);
   }
 
   .lookbook .section-heading {
@@ -2301,14 +2470,18 @@ body[data-page="reviews"] main {
   .mobile-actions {
     position: fixed;
     z-index: 60;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    right: 0.7rem;
+    bottom: max(0.65rem, env(safe-area-inset-bottom));
+    left: 0.7rem;
     display: grid;
-    height: 62px;
-    grid-template-columns: 0.72fr 1.28fr;
-    border-top: 1px solid var(--line);
-    background: rgba(248, 243, 239, 0.98);
+    height: 58px;
+    grid-template-columns: 0.8fr 1.05fr 1.25fr;
+    gap: 2px;
+    padding: 4px;
+    border: 1px solid rgba(65, 40, 53, 0.14);
+    border-radius: 18px;
+    background: rgba(255, 253, 251, 0.98);
+    box-shadow: 0 16px 42px rgba(55, 35, 45, 0.18);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     transition: opacity 220ms ease, transform 300ms var(--ease), visibility 220ms step-start;
@@ -2323,9 +2496,13 @@ body[data-page="reviews"] main {
   }
 
   .mobile-actions a {
-    display: grid;
-    place-items: center;
-    font-size: 0.7rem;
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border-radius: 14px;
+    font-size: 0.64rem;
     font-weight: 650;
     letter-spacing: 0.09em;
     text-transform: uppercase;
@@ -2334,6 +2511,12 @@ body[data-page="reviews"] main {
   .mobile-actions a:last-child {
     background: var(--plum);
     color: var(--white);
+  }
+
+  .mobile-actions img {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
   }
 }
 
@@ -2362,9 +2545,8 @@ body[data-page="reviews"] main {
     border-radius: 0;
   }
 
-  .brand,
-  .brand img {
-    width: 116px;
+  .site-name {
+    font-size: 0.94rem;
   }
 
   .language-switcher {
@@ -2376,27 +2558,40 @@ body[data-page="reviews"] main {
     font-size: 0.61rem;
   }
 
-  .hero-copy,
+  .hero-copy {
+    justify-content: center;
+    padding: calc(var(--header-height) + 2rem) 0 4rem;
+  }
+
   .page-hero-copy,
   body[data-page="services"] .page-hero-copy,
   body[data-page="salon"] .page-hero-copy {
-    padding: 4rem 0;
+    justify-content: flex-start;
+    padding: calc(var(--header-height) + 2.2rem) 0 2.75rem;
   }
 
-  .hero-copy h1,
   .page-hero-copy h1 {
     margin-block: 1rem 1.25rem;
-    font-size: clamp(2.9rem, 12.2vw, 4rem);
+    font-size: clamp(2.55rem, 10.8vw, 3.45rem);
+  }
+
+  .home-signature {
+    margin-block: 1rem 1.3rem;
+  }
+
+  .home-signature > span {
+    font-size: clamp(4.1rem, 20vw, 5.8rem);
+  }
+
+  .home-signature > small {
+    max-width: 320px;
+    margin-top: 1rem;
+    font-size: clamp(1.6rem, 7.8vw, 2.2rem);
   }
 
   .home-hero::after,
   .page-hero::after {
     background: linear-gradient(0deg, rgba(30, 13, 24, 0.88) 0%, rgba(30, 13, 24, 0.65) 58%, rgba(30, 13, 24, 0.35) 100%);
-  }
-
-  .hero-copy,
-  .page-hero-copy {
-    justify-content: flex-end;
   }
 
   .hero-actions {
@@ -2448,16 +2643,16 @@ body[data-page="reviews"] main {
   }
 
   .lookbook-tiles figure {
-    min-height: 105vw;
+    min-height: 94vw;
   }
 
   .lookbook-tiles figure:nth-child(2) {
-    min-height: 76vw;
+    min-height: 68vw;
     margin-block: 3rem 1rem;
   }
 
   .home-story-image {
-    min-height: 125vw;
+    min-height: 105vw;
   }
 
   .lookbook-grid {
@@ -2482,7 +2677,7 @@ body[data-page="reviews"] main {
   }
 
   .accessory-image {
-    min-height: 115vw;
+    min-height: 98vw;
   }
 
   .service-ledger {
@@ -2621,7 +2816,7 @@ body[data-page="reviews"] main {
   }
 
   .policy-brand {
-    width: 116px;
+    font-size: 0.94rem;
   }
 
   .policy-main h1 {
@@ -2631,6 +2826,25 @@ body[data-page="reviews"] main {
 
   .policy-back {
     display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-actions {
+    right: 0.45rem;
+    left: 0.45rem;
+  }
+
+  .mobile-actions a {
+    gap: 0.25rem;
+    font-size: 0.59rem;
+    letter-spacing: 0.06em;
+  }
+
+  .mobile-actions img {
+    width: 14px;
+    height: 14px;
+    flex-basis: 14px;
   }
 }
 
