@@ -60,154 +60,41 @@
   text-align: center;
 }
 
-/* Unified interaction rhythm for every button-like control. */
-:root {
-  --control-duration: 240ms;
-  --control-press-duration: 120ms;
-  --control-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --control-hover-transform: translateY(-2px) scale(1.018);
-  --control-active-transform: translateY(0) scale(0.99);
-}
-
-button,
+/*
+ * One canonical style for every large CTA.
+ * This exactly mirrors the primary buttons in the photo heroes on
+ * Kleitas, Pakalpojumi and Salons.
+ */
 .button,
-.header-book,
-.review-platform-icon,
-.contact-channel,
-.contact-route,
-.map-action,
-.social-dock a,
-.mobile-actions a {
-  transition-property: transform, background-color, border-color, color, box-shadow, opacity;
-  transition-duration: var(--control-duration);
-  transition-timing-function: var(--control-ease);
+.button-primary,
+.button-quiet,
+.button-light,
+.booking-form button[type="submit"] {
+  border-color: transparent;
+  background: var(--white);
+  box-shadow: none;
+  color: var(--plum-dark);
+  transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease, transform 220ms ease;
 }
 
-.text-link,
-.ledger-item > a,
-.footer-social,
-.policy-back,
-.contact-number,
-.contact-address,
-.footer-nav a,
-.site-nav a {
-  transition-duration: var(--control-duration);
-  transition-timing-function: var(--control-ease);
-}
-
-.text-link::after,
-.ledger-item > a::after,
-.review-platform-icon-arrow,
-.vector-arrow,
-.site-nav a::after,
-.footer-nav a::after {
-  transition-duration: var(--control-duration);
-  transition-timing-function: var(--control-ease);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  button:hover,
-  .button:hover,
-  .header-book:hover,
-  .review-platform-icon:hover,
-  .contact-channel:hover,
-  .contact-route:hover,
-  .map-action:hover,
-  .social-dock a:hover,
-  .mobile-actions a:hover {
-    transform: var(--control-hover-transform);
-  }
-
-  .text-link:hover,
-  .ledger-item > a:hover,
-  .footer-social:hover,
-  .policy-back:hover,
-  .contact-number:hover,
-  .contact-address:hover {
-    color: var(--plum);
-  }
-
-  .text-link:hover::after,
-  .ledger-item > a:hover::after,
-  .review-platform-icon:hover .review-platform-icon-arrow,
-  .map-action:hover .vector-arrow {
-    transform: translate(2px, -2px);
-  }
-}
-
-button:active,
-.button:active,
-.header-book:active,
-.review-platform-icon:active,
-.contact-channel:active,
-.contact-route:active,
-.map-action:active,
-.social-dock a:active,
-.mobile-actions a:active {
-  transform: var(--control-active-transform);
-  transition-duration: var(--control-press-duration);
-}
-
-/* Neutral outline buttons use the same hover treatment everywhere. */
+.button:hover,
+.button-primary:hover,
 .button-quiet:hover,
 .button-light:hover,
 .booking-form button[type="submit"]:hover {
-  border-color: var(--plum);
-  background: rgba(255, 253, 251, 0.82);
-  color: var(--plum);
-}
-
-.header-book:hover {
-  border-color: var(--plum);
-  background: rgba(255, 253, 251, 0.88);
-  color: var(--plum);
-}
-
-body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data-page="salon"])
-  .site-header:not(.is-scrolled) .header-book:hover {
-  border-color: #fff;
-  background: #fff;
-  color: var(--ink);
-}
-
-.review-platform-icon:hover,
-.contact-channel:hover,
-.contact-route:hover,
-.map-action:hover,
-.social-dock a:hover {
-  border-color: var(--line-strong);
-  background: rgba(255, 253, 251, 0.96);
-}
-
-/* Match the secondary homepage and form CTAs to the site's neutral outline buttons. */
-body[data-page="home"] .button-primary,
-.booking-form button[type="submit"] {
-  border-color: var(--line-strong);
-  background: transparent;
+  transform: translateY(-2px) scale(1.018);
+  border-color: transparent;
+  background: var(--paper-deep);
   box-shadow: none;
-  color: var(--ink);
+  color: var(--plum-dark);
 }
 
-body[data-page="home"] .button-primary:hover,
-.booking-form button[type="submit"]:hover {
-  border-color: var(--plum);
-  background: rgba(255, 253, 251, 0.82);
-  color: var(--plum);
-}
-
-/* The first CTA sits over the hero photography and needs a clear light surface. */
-body[data-page="home"] .home-hero .hero-actions .button-primary {
-  border-color: rgba(255, 255, 255, 0.92);
-  background: rgba(255, 253, 251, 0.94);
-  box-shadow: 0 10px 30px rgba(39, 27, 34, 0.12);
-  color: var(--ink);
-}
-
-body[data-page="home"] .home-hero .hero-actions .button-primary:hover {
-  border-color: #fff;
-  background: #fff;
-  box-shadow: 0 14px 34px rgba(39, 27, 34, 0.16);
-  color: var(--ink);
+.button:active,
+.button-primary:active,
+.button-quiet:active,
+.button-light:active,
+.booking-form button[type="submit"]:active {
+  transform: translateY(0) scale(0.99);
 }
 
 .booking-form button[type="submit"] {
@@ -223,42 +110,24 @@ body[data-page="home"] .home-hero .hero-actions .button-primary:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  button,
   .button,
-  .header-book,
-  .review-platform-icon,
-  .contact-channel,
-  .contact-route,
-  .map-action,
-  .social-dock a,
-  .mobile-actions a,
-  .text-link,
-  .ledger-item > a,
-  .footer-social,
-  .policy-back,
-  .contact-number,
-  .contact-address {
+  .button-primary,
+  .button-quiet,
+  .button-light,
+  .booking-form button[type="submit"] {
     transition-duration: 0.01ms !important;
   }
 
-  button:hover,
-  button:active,
   .button:hover,
   .button:active,
-  .header-book:hover,
-  .header-book:active,
-  .review-platform-icon:hover,
-  .review-platform-icon:active,
-  .contact-channel:hover,
-  .contact-channel:active,
-  .contact-route:hover,
-  .contact-route:active,
-  .map-action:hover,
-  .map-action:active,
-  .social-dock a:hover,
-  .social-dock a:active,
-  .mobile-actions a:hover,
-  .mobile-actions a:active {
+  .button-primary:hover,
+  .button-primary:active,
+  .button-quiet:hover,
+  .button-quiet:active,
+  .button-light:hover,
+  .button-light:active,
+  .booking-form button[type="submit"]:hover,
+  .booking-form button[type="submit"]:active {
     transform: none !important;
   }
 }
