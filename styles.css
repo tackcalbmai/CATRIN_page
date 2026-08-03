@@ -60,7 +60,7 @@
   text-align: center;
 }
 
-/* Match the homepage and form CTAs to the site's neutral outline buttons. */
+/* Match the secondary homepage and form CTAs to the site's neutral outline buttons. */
 body[data-page="home"] .button-primary,
 .booking-form button[type="submit"] {
   border-color: var(--line-strong);
@@ -74,6 +74,20 @@ body[data-page="home"] .button-primary:hover,
   border-color: var(--plum);
   background: transparent;
   color: var(--plum);
+}
+
+/* The first CTA sits over the hero photography and needs a clear light surface. */
+body[data-page="home"] .home-hero .hero-actions .button-primary {
+  border-color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 253, 251, 0.94);
+  box-shadow: 0 10px 30px rgba(39, 27, 34, 0.12);
+  color: var(--ink);
+}
+
+body[data-page="home"] .home-hero .hero-actions .button-primary:hover {
+  border-color: #fff;
+  background: #fff;
+  color: var(--ink);
 }
 
 .booking-form button[type="submit"] {
