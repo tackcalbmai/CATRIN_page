@@ -1,7 +1,7 @@
 (() => {
   const current = document.currentScript;
   const base = new URL(".", current?.src || location.href);
-  const version = "20260803-3";
+  const version = "20260803-4";
   const load = (name) => new Promise((resolve, reject) => {
     const script = document.createElement("script");
     script.src = new URL(`${name}?v=${version}`, base).href;
@@ -22,6 +22,7 @@
     load("catrin-metadata.js")
   ])
     .then(() => load("catrin-copy-polish.js"))
+    .then(() => load("catrin-copy-warmth.js"))
     .then(() => load("catrin-runtime.js"))
     .catch((error) => console.error(error));
 })();
