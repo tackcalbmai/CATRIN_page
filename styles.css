@@ -33,6 +33,33 @@
   justify-content: center;
 }
 
+/* Editorial additions. */
+.salon-editorial-story {
+  padding-top: clamp(4.5rem, 7vw, 7rem);
+}
+
+.salon-editorial-story .ledger-heading {
+  align-items: start;
+}
+
+.salon-editorial-intro {
+  max-width: 760px;
+  margin-top: 1rem;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  line-height: 1.72;
+}
+
+.reviews-editorial-note {
+  width: min(100%, 760px);
+  margin: 0 auto clamp(2.25rem, 4vw, 3.5rem);
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.025em;
+  line-height: 1.55;
+  text-align: center;
+}
+
 /* Working hours: aligned day and time columns without row dividers. */
 .contact-card-hours > p {
   display: flex;
@@ -122,6 +149,20 @@ html[lang="en"] .contact-card-hours::after {
 
   .review-stage blockquote {
     min-height: 7.6em;
+  }
+
+  .salon-editorial-story {
+    padding-top: 4.25rem;
+  }
+
+  .salon-editorial-intro {
+    font-size: 0.95rem;
+  }
+
+  .reviews-editorial-note {
+    margin-bottom: 2rem;
+    font-size: 0.74rem;
+    text-align: left;
   }
 
   .contact-card-hours > p::before,
