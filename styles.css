@@ -25,6 +25,14 @@
   background-position: center 55%;
 }
 
+/* Keep the rotating featured review at a stable height. */
+.review-stage blockquote {
+  display: flex;
+  min-height: 4.4em;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Working hours: aligned day and time columns without row dividers. */
 .contact-card-hours > p {
   display: flex;
@@ -110,6 +118,10 @@ html[lang="en"] .contact-card-hours::after {
   /* The source is horizontal, so the mobile crop follows the models on the right. */
   .reviews-atmosphere::before {
     background-position: 68% 32%;
+  }
+
+  .review-stage blockquote {
+    min-height: 7.6em;
   }
 
   .contact-card-hours > p::before,
