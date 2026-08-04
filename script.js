@@ -1,7 +1,7 @@
 (() => {
   const current = document.currentScript;
   const base = new URL(".", current?.src || location.href);
-  const version = "20260804-1";
+  const version = "20260804-2";
   const load = (name) => new Promise((resolve, reject) => {
     const script = document.createElement("script");
     script.src = new URL(`${name}?v=${version}`, base).href;
