@@ -22,3 +22,7 @@ window.CATRIN_COPY.ru.serviceAccessoryTitle = "Аксессуары и хран�
 window.CATRIN_COPY.ru.serviceAccessoryText = "Подберите аксессуары вместе с платьем. По предварительной договорённости купленное платье можно оставить на хранение до свадьбы.";
 window.CATRIN_COPY.en.serviceAccessoryTitle = "Accessories and dress storage";
 window.CATRIN_COPY.en.serviceAccessoryText = "Choose accessories together with the dress. By prior agreement, a purchased dress can be stored until the wedding.";
+
+window.CATRIN_COPY.lv.factLanguagesValue = "LV · RU · ENG";
+window.CATRIN_COPY.ru.factLanguagesValue = "LV · RU · ENG";
+window.CATRIN_COPY.en.factLanguagesValue = "LV · RU · ENG";
