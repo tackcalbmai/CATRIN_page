@@ -268,3 +268,406 @@ html[lang="en"] .contact-card-hours::after {
     line-height: 2.15rem;
   }
 }
+
+/* Complete mobile audit. Desktop rules above remain untouched. */
+@media (max-width: 900px) {
+  html {
+    scroll-padding-top: calc(var(--header-height) + 1rem);
+  }
+
+  body {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom));
+  }
+
+  main,
+  section,
+  article,
+  form,
+  .site-footer {
+    min-width: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  p,
+  a,
+  button,
+  label,
+  dt,
+  dd {
+    overflow-wrap: anywhere;
+  }
+
+  .site-nav {
+    max-height: 100dvh;
+    padding-bottom: calc(2.25rem + env(safe-area-inset-bottom));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-nav a,
+  .language-switcher button,
+  .menu-button,
+  .gallery-tabs button,
+  .contact-channel,
+  .contact-route,
+  .mobile-actions a {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .button,
+  .button-primary,
+  .button-quiet,
+  .button-light,
+  .booking-form button[type="submit"] {
+    min-height: 52px;
+    padding: 0.95rem 1.15rem;
+  }
+
+  .contact-ribbon-actions {
+    width: 100%;
+  }
+
+  .mobile-actions {
+    min-height: 62px;
+    height: auto;
+    padding: 5px;
+  }
+
+  .mobile-actions a {
+    padding-inline: 0.4rem;
+    line-height: 1.15;
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 620px) {
+  :root {
+    --page: calc(100vw - 2rem);
+    --reading: calc(100vw - 2rem);
+  }
+
+  .site-header {
+    padding-right: max(0.85rem, env(safe-area-inset-right));
+    padding-left: max(0.85rem, env(safe-area-inset-left));
+  }
+
+  .header-tools {
+    gap: 0.2rem;
+  }
+
+  .language-switcher {
+    gap: 0;
+    padding-right: 0.45rem;
+  }
+
+  .language-switcher button {
+    min-width: 30px;
+    padding-inline: 0.15rem;
+  }
+
+  .menu-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .site-nav {
+    width: min(88vw, 360px);
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+    padding-left: 1.5rem;
+  }
+
+  .hero-copy,
+  .page-hero-copy,
+  body[data-page="services"] .page-hero-copy,
+  body[data-page="salon"] .page-hero-copy {
+    width: var(--page);
+  }
+
+  .hero-intro,
+  .page-lead,
+  .section-heading > p:not(.eyebrow),
+  .booking-copy > p:not(.eyebrow) {
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    width: 100%;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .hero-actions .button {
+    width: min(100%, 320px);
+  }
+
+  .hero-actions .text-link {
+    width: fit-content;
+    min-height: 44px;
+    padding-block: 0.55rem;
+  }
+
+  .button,
+  .button-primary,
+  .button-quiet,
+  .button-light,
+  .booking-form button[type="submit"] {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    letter-spacing: 0.095em;
+    line-height: 1.3;
+    white-space: normal;
+  }
+
+  .button-quiet,
+  .button-light {
+    border-color: rgba(65, 40, 53, 0.18);
+  }
+
+  .text-link,
+  .ledger-item > a {
+    min-height: 44px;
+    align-items: center;
+    line-height: 1.35;
+  }
+
+  .service-paths .button,
+  .lookbook-copy .button,
+  .accessory-copy .button,
+  .contact-ribbon-actions .button {
+    width: 100%;
+  }
+
+  .path-item,
+  .ledger-item,
+  .visit-step,
+  .review-note,
+  .contact-card {
+    min-width: 0;
+  }
+
+  .lookbook-copy,
+  .accessory-copy,
+  .salon-collage-note,
+  .map-copy {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .contact-ribbon {
+    width: var(--page);
+    gap: 1.75rem;
+    padding: 1.5rem;
+    border-radius: 14px;
+  }
+
+  .contact-ribbon-actions {
+    max-width: none;
+  }
+
+  .contact-ribbon-actions > a:not(.button) {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .review-platform-icon {
+    min-height: 66px;
+    padding: 0.85rem;
+  }
+
+  .review-note {
+    padding: 1.25rem;
+  }
+
+  .review-note footer {
+    flex-wrap: wrap;
+  }
+
+  .contact-card {
+    padding: 1.35rem;
+  }
+
+  .contact-number,
+  .contact-address {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .contact-channel,
+  .contact-route {
+    width: 46px;
+    height: 46px;
+  }
+
+  .booking-section {
+    width: var(--page);
+  }
+
+  .booking-form {
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: 14px;
+  }
+
+  .booking-form label > span:first-child {
+    line-height: 1.35;
+  }
+
+  .booking-form input,
+  .booking-form select,
+  .booking-form textarea {
+    min-height: 54px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .booking-form textarea {
+    min-height: 128px;
+  }
+
+  .photo-reminder,
+  .consent {
+    min-height: 48px;
+    align-items: flex-start;
+    padding-block: 0.25rem;
+  }
+
+  .photo-reminder input,
+  .consent input {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+    margin-top: 0.15rem;
+  }
+
+  .booking-form button[type="submit"] {
+    min-height: 56px;
+  }
+
+  .map-actions {
+    gap: 0.65rem;
+  }
+
+  .map-action {
+    min-height: 54px;
+    padding: 0.75rem 0.85rem;
+    border-radius: 12px;
+  }
+
+  .map-frame,
+  .map-frame iframe {
+    min-height: min(112vw, 460px);
+  }
+
+  .site-footer {
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+
+  .footer-contact a,
+  .footer-nav a,
+  .footer-legal a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .footer-nav a {
+    line-height: 1.3;
+  }
+
+  .mobile-actions {
+    right: max(0.65rem, env(safe-area-inset-right));
+    bottom: max(0.65rem, env(safe-area-inset-bottom));
+    left: max(0.65rem, env(safe-area-inset-left));
+    grid-template-columns: 0.82fr 1fr 1.18fr;
+    border-radius: 17px;
+  }
+
+  .mobile-actions a {
+    min-height: 50px;
+    border-radius: 12px;
+    font-size: 0.61rem;
+    letter-spacing: 0.07em;
+  }
+}
+
+@media (max-width: 420px) {
+  .map-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .home-signature > span {
+    font-size: clamp(3.65rem, 19vw, 5rem);
+  }
+
+  .mobile-actions {
+    grid-template-columns: 0.76fr 0.98fr 1.26fr;
+  }
+
+  .mobile-actions a {
+    gap: 0.25rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.045em;
+  }
+}
+
+@media (max-width: 350px) {
+  .language-switcher button {
+    min-width: 27px;
+  }
+
+  .site-name {
+    font-size: 0.88rem;
+  }
+
+  .mobile-actions a {
+    font-size: 0.54rem;
+  }
+
+  .mobile-actions img {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) and (hover: none),
+       (max-width: 900px) and (pointer: coarse) {
+  .button:hover,
+  .button-primary:hover,
+  .button-quiet:hover,
+  .button-light:hover,
+  .booking-form button[type="submit"]:hover,
+  .review-platform-icon:hover,
+  .review-note:hover,
+  .map-action:hover,
+  .map-frame:hover {
+    transform: none;
+  }
+
+  .button:active,
+  .button-primary:active,
+  .button-quiet:active,
+  .button-light:active,
+  .booking-form button[type="submit"]:active,
+  .review-platform-icon:active,
+  .map-action:active,
+  .mobile-actions a:active {
+    transform: scale(0.985);
+  }
+
+  .text-link:hover::after,
+  .ledger-item > a:hover::after,
+  .review-platform-icon:hover .review-platform-icon-arrow,
+  .map-action:hover .vector-arrow {
+    transform: none;
+  }
+}
