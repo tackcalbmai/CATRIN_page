@@ -1,6 +1,16 @@
 (() => {
   const mobileQuery = window.matchMedia("(max-width: 900px)");
 
+  const loadMobileBarStyles = () => {
+    if (document.querySelector('link[data-catrin-mobile-bar]')) return;
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = new URL("catrin-mobile-bar.css?v=20260805-2", document.currentScript?.src || location.href).href;
+    link.media = "(max-width: 900px)";
+    link.dataset.catrinMobileBar = "";
+    document.head.appendChild(link);
+  };
+
   const setSalonLanguageAbbreviations = () => {
     if (document.body.dataset.page !== "salon") return;
     const value = document.querySelector(".salon-facts > div:nth-child(3) dd");
@@ -75,6 +85,7 @@
   document.addEventListener("catrin:languagechange", setSalonLanguageAbbreviations);
   window.addEventListener("orientationchange", closeMobileMenu, { passive: true });
 
+  loadMobileBarStyles();
   setSalonLanguageAbbreviations();
   setupGallerySwipe();
   setupKeyboardAwareness();
