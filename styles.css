@@ -104,6 +104,7 @@
   background: #e8ddd8;
   box-shadow: 0 8px 22px rgba(55, 35, 45, 0.08);
   color: var(--ink);
+  cursor: pointer;
 }
 
 .booking-form button[type="submit"]:hover {
