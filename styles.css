@@ -60,6 +60,12 @@
   text-align: center;
 }
 
+/* The three salon visit blocks do not need decorative step numbers. */
+body[data-page="salon"] .visit-step::before {
+  display: none;
+  content: none;
+}
+
 /*
  * One canonical style for every large CTA.
  * This exactly mirrors the primary buttons in the photo heroes on
