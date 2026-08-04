@@ -1,7 +1,7 @@
 (() => {
   const current = document.currentScript;
   const base = new URL(".", current?.src || location.href);
-  const version = "20260805-4";
+  const version = "20260805-5";
 
   if (!document.querySelector("style[data-catrin-mobile-bar]")) {
     const style = document.createElement("style");
@@ -9,36 +9,50 @@
     style.textContent = `
 @media (max-width: 900px) {
   .mobile-actions {
+    position: fixed;
+    isolation: isolate;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 0 !important;
     padding: 4px !important;
-    border: 1px solid rgba(255,255,255,.7) !important;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.58) !important;
     border-radius: 18px !important;
-    background: rgba(250,247,244,.42) !important;
-    box-shadow: 0 10px 30px rgba(55,35,45,.1) !important;
-    backdrop-filter: blur(20px) saturate(1.12) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(1.12) !important;
+    background: rgba(250,247,244,.27) !important;
+    box-shadow: 0 9px 28px rgba(55,35,45,.08) !important;
+    backdrop-filter: blur(22px) saturate(1.1) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(1.1) !important;
   }
+  .mobile-actions::before,
+  .mobile-actions::after {
+    position: absolute;
+    z-index: 1;
+    top: 13px;
+    bottom: 13px;
+    width: 1px;
+    transform: translateX(-.5px);
+    background: rgba(65,40,53,.16);
+    content: "";
+    pointer-events: none;
+  }
+  .mobile-actions::before { left: 33.333333%; }
+  .mobile-actions::after { left: 66.666667%; }
   .mobile-actions a,
   .mobile-actions a:last-child {
+    position: relative;
+    z-index: 2;
     min-width: 0;
     min-height: 50px;
     gap: .42rem;
-    padding: .55rem .45rem;
+    padding: .55rem .4rem;
     border: 0 !important;
-    border-radius: 12px;
+    border-radius: 12px !important;
     background: transparent !important;
     box-shadow: none !important;
     color: var(--plum-dark) !important;
     transition: background-color 180ms ease, transform 180ms ease;
   }
   .mobile-actions a + a {
-    border-left: 1px solid rgba(65,40,53,.12) !important;
-    border-radius: 0;
-  }
-  .mobile-actions a:first-child { border-radius: 12px 0 0 12px; }
-  .mobile-actions a:last-child {
-    border-radius: 0 12px 12px 0;
-    background: rgba(255,253,251,.18) !important;
+    border-left: 0 !important;
   }
   .mobile-actions a:first-child::before,
   .mobile-actions a:last-child::before {
@@ -60,7 +74,7 @@
   .mobile-actions a:active,
   .mobile-actions a:last-child:active {
     transform: scale(.985);
-    background: rgba(238,229,225,.56) !important;
+    background: rgba(238,229,225,.46) !important;
   }
   #pieraksts { scroll-margin-top: calc(var(--header-height) + .35rem) !important; }
   .booking-section { gap: 1.5rem !important; padding-top: 2rem !important; }
@@ -71,7 +85,7 @@
 }
 @media (max-width: 420px) {
   .mobile-actions a,
-  .mobile-actions a:last-child { gap: .28rem; padding-inline: .32rem; font-size: .57rem; letter-spacing: .04em; }
+  .mobile-actions a:last-child { gap: .28rem; padding-inline: .28rem; font-size: .57rem; letter-spacing: .04em; }
   .mobile-actions a:first-child::before,
   .mobile-actions a:last-child::before,
   .mobile-actions img { width: 14px; height: 14px; flex-basis: 14px; }
@@ -82,7 +96,7 @@
   .mobile-actions img { display: none; }
 }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  @media (max-width: 900px) { .mobile-actions { background: rgba(250,247,244,.84) !important; } }
+  @media (max-width: 900px) { .mobile-actions { background: rgba(250,247,244,.74) !important; } }
 }`;
     document.head.appendChild(style);
   }
