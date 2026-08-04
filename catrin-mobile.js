@@ -94,6 +94,73 @@
     });
   };
 
+  const setupHeroScrollCue = () => {
+    const page = document.body.dataset.page;
+    let host = null;
+    let target = null;
+
+    if (page === "home") {
+      host = document.querySelector(".home-hero");
+      target = document.querySelector(".service-paths");
+    } else if (["dresses", "services", "salon"].includes(page)) {
+      host = document.querySelector(".page-hero");
+      target = host?.nextElementSibling || null;
+    } else if (page === "reviews") {
+      host = document.querySelector(".reviews-page-hero");
+      target = document.querySelector(".review-stage");
+    } else if (page === "contact") {
+      host = document.querySelector(".contact-hero");
+      target = document.querySelector(".booking-section");
+    }
+
+    if (!host || !target || document.querySelector(".hero-scroll-cue")) return;
+
+    const cue = document.createElement("button");
+    cue.type = "button";
+    cue.className = "hero-scroll-cue";
+    document.body.appendChild(cue);
+
+    const updateLabel = () => {
+      const labels = {
+        lv: "Skatīt nākamo sadaļu",
+        ru: "Перейти к следующему разделу",
+        en: "View the next section"
+      };
+      const label = labels[document.documentElement.lang] || labels.lv;
+      cue.setAttribute("aria-label", label);
+      cue.title = label;
+    };
+
+    const updateVisibility = () => {
+      if (!mobileQuery.matches) {
+        cue.classList.remove("is-visible");
+        return;
+      }
+      const hostRect = host.getBoundingClientRect();
+      const headerHeight = document.querySelector(".site-header")?.offsetHeight || 70;
+      const visibleRange = Math.min(host.offsetHeight * 0.7, window.innerHeight * 0.84);
+      const withinOpening = window.scrollY < host.offsetTop + visibleRange;
+      const hostStillVisible = hostRect.bottom > headerHeight + 80;
+      const unobstructed = !document.body.classList.contains("nav-open") && !document.body.classList.contains("mobile-keyboard-open");
+      cue.classList.toggle("is-visible", withinOpening && hostStillVisible && unobstructed);
+    };
+
+    cue.addEventListener("click", () => {
+      const headerHeight = document.querySelector(".site-header")?.offsetHeight || 70;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 8;
+      cue.classList.remove("is-visible");
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    });
+
+    document.addEventListener("catrin:languagechange", updateLabel);
+    window.addEventListener("scroll", updateVisibility, { passive: true });
+    window.addEventListener("resize", updateVisibility, { passive: true });
+    window.addEventListener("orientationchange", () => window.setTimeout(updateVisibility, 180), { passive: true });
+
+    updateLabel();
+    window.requestAnimationFrame(updateVisibility);
+  };
+
   document.querySelectorAll(".site-header [data-lang]").forEach((button) => {
     button.addEventListener("click", () => window.setTimeout(() => {
       setSalonLanguageAbbreviations();
@@ -108,4 +175,5 @@
   setupGallerySwipe();
   setupKeyboardAwareness();
   setupBookingAnchor();
+  setupHeroScrollCue();
 })();
