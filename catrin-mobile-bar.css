@@ -1,11 +1,13 @@
 @media (max-width: 900px) {
   .mobile-actions {
-    gap: 5px;
+    gap: 4px;
     padding: 5px;
-    border: 1px solid rgba(65, 40, 53, 0.14);
-    border-radius: 17px;
-    background: rgba(255, 253, 251, 0.96);
-    box-shadow: 0 14px 38px rgba(55, 35, 45, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    background: rgba(250, 247, 244, 0.68);
+    box-shadow: 0 12px 34px rgba(55, 35, 45, 0.12);
+    backdrop-filter: blur(18px) saturate(1.12);
+    -webkit-backdrop-filter: blur(18px) saturate(1.12);
   }
 
   .mobile-actions a,
@@ -14,18 +16,18 @@
     min-height: 50px;
     gap: 0.42rem;
     padding: 0.55rem 0.45rem;
-    border: 1px solid rgba(65, 40, 53, 0.12);
-    border-radius: 12px;
-    background: rgba(255, 253, 251, 0.92);
+    border: 1px solid transparent;
+    border-radius: 13px;
+    background: transparent;
     box-shadow: none;
     color: var(--plum-dark);
     transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
   }
 
   .mobile-actions a:last-child {
-    border-color: rgba(65, 40, 53, 0.2);
-    background: #e8ddd8;
-    color: var(--ink);
+    border-color: rgba(255, 255, 255, 0.48);
+    background: rgba(255, 253, 251, 0.38);
+    color: var(--plum-dark);
   }
 
   .mobile-actions a:first-child::before,
@@ -56,14 +58,22 @@
   .mobile-actions a:active,
   .mobile-actions a:last-child:active {
     transform: scale(0.985);
-    border-color: rgba(65, 40, 53, 0.25);
-    background: var(--paper-deep);
+    border-color: rgba(255, 255, 255, 0.62);
+    background: rgba(238, 229, 225, 0.72);
+  }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  @media (max-width: 900px) {
+    .mobile-actions {
+      background: rgba(250, 247, 244, 0.92);
+    }
   }
 }
 
 @media (max-width: 420px) {
   .mobile-actions {
-    gap: 4px;
+    gap: 3px;
   }
 
   .mobile-actions a,
