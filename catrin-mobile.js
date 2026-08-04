@@ -36,6 +36,7 @@
       if (Math.abs(deltaX) < 48 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
 
       const controls = [...gallery.querySelectorAll("[data-slide]")];
+      if (!controls.length) return;
       const activeIndex = Math.max(0, controls.findIndex((control) => control.classList.contains("is-active")));
       const nextIndex = deltaX < 0
         ? (activeIndex + 1) % controls.length
@@ -46,15 +47,16 @@
 
   const setupKeyboardAwareness = () => {
     const viewport = window.visualViewport;
-    if (!viewport) return;
+    const actionBar = document.querySelector(".mobile-actions");
+    if (!viewport || !actionBar) return;
 
     const update = () => {
-      if (!mobileQuery.matches) {
-        document.body.classList.remove("mobile-keyboard-open");
-        return;
-      }
-      const keyboardOpen = viewport.height < window.innerHeight * 0.72;
+      const keyboardOpen = mobileQuery.matches && viewport.height < window.innerHeight * 0.72;
       document.body.classList.toggle("mobile-keyboard-open", keyboardOpen);
+      actionBar.style.visibility = keyboardOpen ? "hidden" : "";
+      actionBar.style.opacity = keyboardOpen ? "0" : "";
+      actionBar.style.pointerEvents = keyboardOpen ? "none" : "";
+      actionBar.style.transform = keyboardOpen ? "translateY(120%)" : "";
     };
 
     viewport.addEventListener("resize", update, { passive: true });
