@@ -5,7 +5,7 @@
     if (document.querySelector('link[data-catrin-mobile-bar]')) return;
     const link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = new URL("catrin-mobile-bar.css?v=20260805-2", document.currentScript?.src || location.href).href;
+    link.href = new URL("catrin-mobile-bar.css?v=20260805-3", document.currentScript?.src || location.href).href;
     link.media = "(max-width: 900px)";
     link.dataset.catrinMobileBar = "";
     document.head.appendChild(link);
