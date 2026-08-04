@@ -1,16 +1,6 @@
 (() => {
   const mobileQuery = window.matchMedia("(max-width: 900px)");
 
-  const loadMobileBarStyles = () => {
-    if (document.querySelector('link[data-catrin-mobile-bar]')) return;
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = new URL("catrin-mobile-bar.css?v=20260805-3", document.currentScript?.src || location.href).href;
-    link.media = "(max-width: 900px)";
-    link.dataset.catrinMobileBar = "";
-    document.head.appendChild(link);
-  };
-
   const setSalonLanguageAbbreviations = () => {
     if (document.body.dataset.page !== "salon") return;
     const value = document.querySelector(".salon-facts > div:nth-child(3) dd");
@@ -75,6 +65,35 @@
     update();
   };
 
+  const scrollToBooking = (behavior = "auto") => {
+    if (!mobileQuery.matches || location.hash !== "#pieraksts") return;
+    const target = document.querySelector("#pieraksts .booking-copy") || document.getElementById("pieraksts");
+    if (!target) return;
+    const headerHeight = document.querySelector(".site-header")?.offsetHeight || 70;
+    const top = target.getBoundingClientRect().top + window.scrollY - headerHeight - 6;
+    window.scrollTo({ top: Math.max(0, top), behavior });
+  };
+
+  const setupBookingAnchor = () => {
+    const alignAfterLayout = () => window.setTimeout(() => scrollToBooking("auto"), 80);
+
+    if (document.readyState === "complete") alignAfterLayout();
+    else window.addEventListener("load", alignAfterLayout, { once: true });
+
+    window.addEventListener("hashchange", alignAfterLayout);
+
+    document.addEventListener("click", (event) => {
+      const link = event.target.closest("a[href]");
+      if (!link || !mobileQuery.matches) return;
+      const url = new URL(link.href, location.href);
+      if (url.pathname !== location.pathname || url.hash !== "#pieraksts") return;
+      event.preventDefault();
+      history.pushState(null, "", `${url.pathname}${url.search}${url.hash}`);
+      closeMobileMenu();
+      window.setTimeout(() => scrollToBooking("smooth"), 0);
+    });
+  };
+
   document.querySelectorAll(".site-header [data-lang]").forEach((button) => {
     button.addEventListener("click", () => window.setTimeout(() => {
       setSalonLanguageAbbreviations();
@@ -85,8 +104,8 @@
   document.addEventListener("catrin:languagechange", setSalonLanguageAbbreviations);
   window.addEventListener("orientationchange", closeMobileMenu, { passive: true });
 
-  loadMobileBarStyles();
   setSalonLanguageAbbreviations();
   setupGallerySwipe();
   setupKeyboardAwareness();
+  setupBookingAnchor();
 })();
