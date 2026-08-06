@@ -1,6 +1,72 @@
 (() => {
   const mobileQuery = window.matchMedia("(max-width: 900px)");
 
+  const installBrandStyles = () => {
+    if (document.querySelector("style[data-catrin-branding]")) return;
+    const style = document.createElement("style");
+    style.dataset.catrinBranding = "";
+    style.textContent = `
+.footer-brand {
+  width: clamp(100px, 8vw, 118px) !important;
+  height: clamp(100px, 8vw, 118px) !important;
+}
+
+.footer-brand img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+body[data-page="salon"] .salon-collage-note > img {
+  display: block !important;
+  width: clamp(104px, 9vw, 136px);
+  height: auto;
+  margin: 0 0 1.55rem;
+  opacity: .94;
+  transition: transform 420ms cubic-bezier(.22,1,.36,1), opacity 240ms ease;
+}
+
+body[data-page="salon"] .salon-collage-note:hover > img {
+  transform: translateY(-3px) scale(1.025);
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .footer-brand {
+    width: 96px !important;
+    height: 96px !important;
+  }
+
+  body[data-page="salon"] .salon-collage-note > img {
+    width: 112px;
+    margin-bottom: 1.35rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .footer-brand {
+    width: 92px !important;
+    height: 92px !important;
+  }
+
+  body[data-page="salon"] .salon-collage-note > img {
+    width: 104px;
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="salon"] .salon-collage-note > img {
+    transition: none !important;
+  }
+
+  body[data-page="salon"] .salon-collage-note:hover > img {
+    transform: none !important;
+  }
+}`;
+    document.head.appendChild(style);
+  };
+
   const setSalonLanguageAbbreviations = () => {
     if (document.body.dataset.page !== "salon") return;
     const value = document.querySelector(".salon-facts > div:nth-child(3) dd");
@@ -171,6 +237,7 @@
   document.addEventListener("catrin:languagechange", setSalonLanguageAbbreviations);
   window.addEventListener("orientationchange", closeMobileMenu, { passive: true });
 
+  installBrandStyles();
   setSalonLanguageAbbreviations();
   setupGallerySwipe();
   setupKeyboardAwareness();
