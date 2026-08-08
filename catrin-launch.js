@@ -59,10 +59,7 @@
       name.maxLength = 80;
       name.autocapitalize = "words";
     }
-    if (phone) {
-      phone.maxLength = 32;
-      phone.setAttribute("aria-describedby", phone.getAttribute("aria-describedby") || "");
-    }
+    if (phone) phone.maxLength = 32;
     if (message) message.maxLength = 800;
     if (interest) interest.required = true;
   };
