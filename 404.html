@@ -9,50 +9,81 @@
   <meta name="theme-color" content="#f5efe9">
   <link rel="icon" href="assets/logo-round.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/logo-round.png">
-  <link rel="stylesheet" href="styles.css?v=20260802-8">
+  <link rel="stylesheet" href="styles.css?v=20260808-404-2">
   <style>
-    .not-found{min-height:100svh;display:grid;place-items:center;padding:clamp(7rem,13vw,10rem) 1rem 4rem;text-align:center;background:var(--paper,#f5efe9)}
-    .not-found-inner{width:min(720px,100%)}
-    .not-found-code{margin:0;color:var(--plum,#641f4b);font-family:var(--font-display,serif);font-size:clamp(5rem,17vw,10rem);font-weight:400;line-height:.82;opacity:.14}
-    .not-found h1{margin:1.4rem 0 .8rem;font-size:clamp(2rem,5vw,4.4rem)}
-    .not-found p{max-width:600px;margin:0 auto 2rem;color:var(--ink-soft,#665b61);line-height:1.7}
+    :root{--nf-paper:#f7f1ed;--nf-plum:#641f4b;--nf-ink:#2f2630;--nf-soft:#73656e}
+    *{box-sizing:border-box}
+    html,body{min-height:100%;margin:0}
+    body{background:var(--nf-paper);color:var(--nf-ink);overflow-x:hidden}
+    .not-found{position:relative;isolation:isolate;min-height:100svh;display:grid;place-items:center;padding:clamp(6.5rem,11vw,9rem) 1.25rem 4rem;overflow:hidden;text-align:center;background:radial-gradient(circle at 50% 32%,rgba(255,255,255,.92),rgba(247,241,237,.76) 44%,rgba(240,229,228,.92) 100%)}
+    .not-found::before{position:absolute;z-index:-3;inset:0;background:url("assets/dress-soft.jpg") center 34%/cover no-repeat;content:"";opacity:.12;filter:saturate(.72) contrast(.92)}
+    .not-found::after{position:absolute;z-index:-2;inset:0;background:linear-gradient(180deg,rgba(248,244,241,.82),rgba(247,241,237,.96) 72%,rgba(247,241,237,1));content:""}
+    .not-found-mark{position:absolute;z-index:-1;top:50%;left:50%;width:min(66vw,660px);aspect-ratio:1;transform:translate(-50%,-53%);opacity:.075;filter:grayscale(1)}
+    .not-found-inner{width:min(760px,100%);display:grid;justify-items:center}
+    .not-found-kicker{margin:0 0 1rem;color:var(--nf-plum);font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+    .not-found-code{margin:0;color:var(--nf-plum);font-family:var(--font-display,"Noto Serif Display",serif);font-size:clamp(5.8rem,18vw,11rem);font-weight:400;line-height:.78;letter-spacing:-.05em;opacity:.18}
+    .not-found h1{max-width:720px;margin:1.25rem 0 .9rem;font-family:var(--font-display,"Noto Serif Display",serif);font-size:clamp(2.25rem,6vw,4.8rem);font-weight:450;line-height:.98;letter-spacing:-.035em}
+    .not-found p.not-found-text{max-width:590px;margin:0 auto 2.15rem;color:var(--nf-soft);font-size:clamp(.98rem,1.8vw,1.08rem);line-height:1.72}
     .not-found-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem}
-    @media(max-width:620px){.not-found-actions{display:grid}.not-found-actions .button{width:100%}}
+    .not-found-actions .button{min-width:190px}
+    .not-found-language{display:flex;gap:.22rem;margin-top:2rem;padding:.2rem;border:1px solid rgba(100,31,75,.13);border-radius:999px;background:rgba(255,255,255,.44);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .not-found-language button{min-width:42px;height:38px;border:0;border-radius:999px;background:transparent;color:var(--nf-soft);font:inherit;font-size:.7rem;font-weight:700;letter-spacing:.08em;cursor:pointer}
+    .not-found-language button[aria-pressed="true"]{background:rgba(100,31,75,.09);color:var(--nf-plum)}
+    .not-found-homebrand{position:absolute;top:max(1.2rem,env(safe-area-inset-top));left:50%;transform:translateX(-50%);color:var(--nf-plum);font-family:var(--font-display,"Noto Serif Display",serif);font-size:.94rem;letter-spacing:.18em;text-decoration:none}
+    @media(max-width:620px){.not-found{padding-top:6.2rem}.not-found::before{background-position:68% 30%;opacity:.1}.not-found-mark{width:min(112vw,520px);transform:translate(-50%,-57%);opacity:.065}.not-found-code{font-size:clamp(5.2rem,28vw,8.2rem)}.not-found h1{font-size:clamp(2.15rem,10.8vw,3.3rem)}.not-found-actions{width:min(100%,360px);display:grid}.not-found-actions .button{width:100%;min-width:0}.not-found p.not-found-text{font-size:.96rem}}
+    @media(prefers-reduced-motion:no-preference){.not-found-inner{animation:nf-enter .7s cubic-bezier(.22,1,.36,1) both}.not-found-mark{animation:nf-mark 9s ease-in-out infinite alternate}@keyframes nf-enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}@keyframes nf-mark{from{transform:translate(-50%,-53%) scale(.985)}to{transform:translate(-50%,-53%) scale(1.02)}}}
   </style>
 </head>
 <body>
   <main class="not-found" id="content">
+    <a class="not-found-homebrand" href="index.html" id="nf-brand">CATRIN</a>
+    <img class="not-found-mark" src="assets/logo-round.svg" alt="" aria-hidden="true">
     <div class="not-found-inner">
+      <p class="not-found-kicker" id="nf-kicker">CATRIN · Kāzu modes salons Jelgavā</p>
       <p class="not-found-code" aria-hidden="true">404</p>
-      <p class="eyebrow" id="nf-eyebrow">CATRIN · Jelgava</p>
-      <h1 id="nf-title">Lapa nav atrasta</h1>
-      <p id="nf-text">Iespējams, saite ir novecojusi vai adrese ievadīta nepareizi. Atgriezieties sākumlapā vai atveriet kontaktus.</p>
+      <h1 id="nf-title">Šī lapa nav atrasta</h1>
+      <p class="not-found-text" id="nf-text">Izskatās, ka esat nonākuši nepareizajā adresē. Atgriezieties CATRIN sākumlapā vai sazinieties ar salonu — mēs palīdzēsim atrast pareizo ceļu.</p>
       <div class="not-found-actions">
-        <a class="button button-primary" id="nf-home" href="index.html">Uz sākumlapu</a>
-        <a class="button button-quiet" id="nf-contact" href="kontakti.html">Kontakti</a>
+        <a class="button button-primary" id="nf-home" href="index.html">Atgriezties sākumlapā</a>
+        <a class="button button-quiet" id="nf-contact" href="kontakti.html">Sazināties ar CATRIN</a>
+      </div>
+      <div class="not-found-language" role="group" aria-label="Valoda">
+        <button type="button" data-lang="lv" aria-pressed="true">LV</button>
+        <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
     </div>
   </main>
   <script>
     (()=>{
+      const copies={
+        lv:{kicker:"CATRIN · Kāzu modes salons Jelgavā",title:"Šī lapa nav atrasta",text:"Izskatās, ka esat nonākuši nepareizajā adresē. Atgriezieties CATRIN sākumlapā vai sazinieties ar salonu — mēs palīdzēsim atrast pareizo ceļu.",home:"Atgriezties sākumlapā",contact:"Sazināties ar CATRIN",doc:"Lapa nav atrasta — CATRIN"},
+        ru:{kicker:"CATRIN · Салон свадебной моды в Елгаве",title:"Эта страница не найдена",text:"Похоже, вы попали не по тому адресу. Вернитесь на главную страницу CATRIN или свяжитесь с салоном — мы поможем найти нужный путь.",home:"Вернуться на главную",contact:"Связаться с CATRIN",doc:"Страница не найдена — CATRIN"},
+        en:{kicker:"CATRIN · Bridal fashion salon in Jelgava",title:"This page could not be found",text:"It looks like this address does not lead where expected. Return to the CATRIN homepage or contact the salon and we will help you find the right way.",home:"Back to homepage",contact:"Contact CATRIN",doc:"Page not found — CATRIN"}
+      };
+      const valid=(lang)=>["lv","ru","en"].includes(lang);
       let lang=new URLSearchParams(location.search).get("lang");
-      if(!["lv","ru","en"].includes(lang)){try{lang=localStorage.getItem("catrin-lang")}catch{lang="lv"}}
-      if(!["lv","ru","en"].includes(lang))lang="lv";
-      const copy={
-        lv:{title:"Lapa nav atrasta",text:"Iespējams, saite ir novecojusi vai adrese ievadīta nepareizi. Atgriezieties sākumlapā vai atveriet kontaktus.",home:"Uz sākumlapu",contact:"Kontakti",doc:"Lapa nav atrasta — CATRIN"},
-        ru:{title:"Страница не найдена",text:"Возможно, ссылка устарела или адрес введён неверно. Вернитесь на главную страницу или откройте контакты.",home:"На главную",contact:"Контакты",doc:"Страница не найдена — CATRIN"},
-        en:{title:"Page not found",text:"The link may be outdated or the address may be incorrect. Return to the homepage or open the contact page.",home:"Homepage",contact:"Contact",doc:"Page not found — CATRIN"}
-      }[lang];
-      document.documentElement.lang=lang;
-      document.title=copy.doc;
-      document.getElementById("nf-title").textContent=copy.title;
-      document.getElementById("nf-text").textContent=copy.text;
-      document.getElementById("nf-home").textContent=copy.home;
-      document.getElementById("nf-contact").textContent=copy.contact;
-      if(lang!=="lv"){
-        document.getElementById("nf-home").href=`index.html?lang=${lang}`;
-        document.getElementById("nf-contact").href=`kontakti.html?lang=${lang}`;
-      }
+      if(!valid(lang)){try{lang=localStorage.getItem("catrin-lang")}catch{lang="lv"}}
+      if(!valid(lang))lang="lv";
+      const apply=(next)=>{
+        lang=valid(next)?next:"lv";
+        const copy=copies[lang];
+        document.documentElement.lang=lang;
+        document.title=copy.doc;
+        document.getElementById("nf-kicker").textContent=copy.kicker;
+        document.getElementById("nf-title").textContent=copy.title;
+        document.getElementById("nf-text").textContent=copy.text;
+        document.getElementById("nf-home").textContent=copy.home;
+        document.getElementById("nf-contact").textContent=copy.contact;
+        const suffix=lang==="lv"?"":`?lang=${lang}`;
+        document.getElementById("nf-home").href=`index.html${suffix}`;
+        document.getElementById("nf-brand").href=`index.html${suffix}`;
+        document.getElementById("nf-contact").href=`kontakti.html${suffix}`;
+        document.querySelectorAll("[data-lang]").forEach(button=>button.setAttribute("aria-pressed",String(button.dataset.lang===lang)));
+        try{localStorage.setItem("catrin-lang",lang)}catch{}
+      };
+      document.querySelectorAll("[data-lang]").forEach(button=>button.addEventListener("click",()=>apply(button.dataset.lang)));
+      apply(lang);
     })();
   </script>
 </body>
