@@ -1,7 +1,7 @@
 (() => {
   const current = document.currentScript;
   const base = new URL(".", current?.src || location.href);
-  const version = "20260805-6";
+  const version = "20260808-1";
 
   if (!document.querySelector("style[data-catrin-mobile-bar]")) {
     const style = document.createElement("style");
@@ -210,5 +210,6 @@
     .then(() => load("catrin-copy-final.js"))
     .then(() => load("catrin-runtime.js"))
     .then(() => load("catrin-mobile.js"))
+    .then(() => load("catrin-launch.js"))
     .catch((error) => console.error(error));
 })();

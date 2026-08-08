@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lapa nav atrasta — CATRIN</title>
+  <meta name="description" content="Pieprasītā CATRIN vietnes lapa nav atrasta.">
+  <meta name="robots" content="noindex,follow">
+  <meta name="theme-color" content="#f5efe9">
+  <link rel="icon" href="assets/logo-round.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/logo-round.png">
+  <link rel="stylesheet" href="styles.css?v=20260802-8">
+  <style>
+    .not-found{min-height:100svh;display:grid;place-items:center;padding:clamp(7rem,13vw,10rem) 1rem 4rem;text-align:center;background:var(--paper,#f5efe9)}
+    .not-found-inner{width:min(720px,100%)}
+    .not-found-code{margin:0;color:var(--plum,#641f4b);font-family:var(--font-display,serif);font-size:clamp(5rem,17vw,10rem);font-weight:400;line-height:.82;opacity:.14}
+    .not-found h1{margin:1.4rem 0 .8rem;font-size:clamp(2rem,5vw,4.4rem)}
+    .not-found p{max-width:600px;margin:0 auto 2rem;color:var(--ink-soft,#665b61);line-height:1.7}
+    .not-found-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem}
+    @media(max-width:620px){.not-found-actions{display:grid}.not-found-actions .button{width:100%}}
+  </style>
+</head>
+<body>
+  <main class="not-found" id="content">
+    <div class="not-found-inner">
+      <p class="not-found-code" aria-hidden="true">404</p>
+      <p class="eyebrow" id="nf-eyebrow">CATRIN · Jelgava</p>
+      <h1 id="nf-title">Lapa nav atrasta</h1>
+      <p id="nf-text">Iespējams, saite ir novecojusi vai adrese ievadīta nepareizi. Atgriezieties sākumlapā vai atveriet kontaktus.</p>
+      <div class="not-found-actions">
+        <a class="button button-primary" id="nf-home" href="index.html">Uz sākumlapu</a>
+        <a class="button button-quiet" id="nf-contact" href="kontakti.html">Kontakti</a>
+      </div>
+    </div>
+  </main>
+  <script>
+    (()=>{
+      let lang=new URLSearchParams(location.search).get("lang");
+      if(!["lv","ru","en"].includes(lang)){try{lang=localStorage.getItem("catrin-lang")}catch{lang="lv"}}
+      if(!["lv","ru","en"].includes(lang))lang="lv";
+      const copy={
+        lv:{title:"Lapa nav atrasta",text:"Iespējams, saite ir novecojusi vai adrese ievadīta nepareizi. Atgriezieties sākumlapā vai atveriet kontaktus.",home:"Uz sākumlapu",contact:"Kontakti",doc:"Lapa nav atrasta — CATRIN"},
+        ru:{title:"Страница не найдена",text:"Возможно, ссылка устарела или адрес введён неверно. Вернитесь на главную страницу или откройте контакты.",home:"На главную",contact:"Контакты",doc:"Страница не найдена — CATRIN"},
+        en:{title:"Page not found",text:"The link may be outdated or the address may be incorrect. Return to the homepage or open the contact page.",home:"Homepage",contact:"Contact",doc:"Page not found — CATRIN"}
+      }[lang];
+      document.documentElement.lang=lang;
+      document.title=copy.doc;
+      document.getElementById("nf-title").textContent=copy.title;
+      document.getElementById("nf-text").textContent=copy.text;
+      document.getElementById("nf-home").textContent=copy.home;
+      document.getElementById("nf-contact").textContent=copy.contact;
+      if(lang!=="lv"){
+        document.getElementById("nf-home").href=`index.html?lang=${lang}`;
+        document.getElementById("nf-contact").href=`kontakti.html?lang=${lang}`;
+      }
+    })();
+  </script>
+</body>
+</html>
