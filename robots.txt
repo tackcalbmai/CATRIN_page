@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tackcalbmai.github.io/CATRIN_page/sitemap.xml
+Sitemap: https://catrin.lv/sitemap.xml

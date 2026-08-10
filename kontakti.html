@@ -7,21 +7,21 @@
   <meta name="description" content="Piesakiet kāzu kleitas pielaikošanu CATRIN salonā. Adrese: Krišjāņa Barona iela 40, Jelgava. Tālrunis un WhatsApp: +371 27 164 000.">
   <meta name="theme-color" content="#f5efe9">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://tackcalbmai.github.io/CATRIN_page/kontakti.html">
-  <link rel="alternate" hreflang="lv" href="https://tackcalbmai.github.io/CATRIN_page/kontakti.html">
-  <link rel="alternate" hreflang="ru" href="https://tackcalbmai.github.io/CATRIN_page/kontakti.html?lang=ru">
-  <link rel="alternate" hreflang="en" href="https://tackcalbmai.github.io/CATRIN_page/kontakti.html?lang=en">
-  <link rel="alternate" hreflang="x-default" href="https://tackcalbmai.github.io/CATRIN_page/kontakti.html">
+  <link rel="canonical" href="https://catrin.lv/kontakti.html">
+  <link rel="alternate" hreflang="lv" href="https://catrin.lv/kontakti.html">
+  <link rel="alternate" hreflang="ru" href="https://catrin.lv/kontakti.html?lang=ru">
+  <link rel="alternate" hreflang="en" href="https://catrin.lv/kontakti.html?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://catrin.lv/kontakti.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Pieraksts un kontakti — CATRIN">
   <meta property="og:description" content="Piesakiet pielaikošanu CATRIN kāzu modes salonā un izveidojiet maršrutu uz salonu.">
-  <meta property="og:url" content="https://tackcalbmai.github.io/CATRIN_page/kontakti.html">
-  <meta property="og:image" content="https://tackcalbmai.github.io/CATRIN_page/assets/dress-back.jpg">
+  <meta property="og:url" content="https://catrin.lv/kontakti.html">
+  <meta property="og:image" content="https://catrin.lv/assets/dress-back.jpg">
   <meta property="og:locale" content="lv_LV">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/logo-round.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/logo-round.png">
-  <link rel="stylesheet" href="styles.css?v=20260802-8">
+  <link rel="stylesheet" href="styles.css?v=20260810-2">
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-page="contact">
@@ -52,6 +52,7 @@
         <div class="contact-card contact-card-phone">
           <span data-t="phoneLabel">Tālrunis</span>
           <a class="contact-number" href="tel:+37127164000">+371&nbsp;27&nbsp;164&nbsp;000</a>
+          <a class="contact-email" href="mailto:catrin@catrin.lv">catrin@catrin.lv</a>
           <div class="contact-channels" role="group" aria-label="Saziņas kanāli" data-t-aria-label="contactChannelsAria">
             <a class="contact-channel" href="https://wa.me/37127164000" target="_blank" rel="noopener" aria-label="Rakstīt WhatsApp" data-t-aria-label="whatsappAria"><img src="assets/icon-whatsapp.svg" alt="" width="20" height="20"></a>
             <a class="contact-channel" href="https://www.facebook.com/catrinJelgava/" target="_blank" rel="noopener" aria-label="Atvērt CATRIN Facebook" data-t-aria-label="facebookAria"><img src="assets/icon-facebook.svg" alt="" width="20" height="20"></a>
@@ -78,10 +79,10 @@
       </div>
       <form class="booking-form reveal" data-booking-form>
         <label><span data-t="name">Vārds</span><input name="name" type="text" autocomplete="name" required></label>
-        <label><span data-t="phone">Tālrunis</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required></label>
+        <label><span data-t="phone">Tālrunis</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="32" pattern="[+0-9() .-]{7,32}" required></label>
         <label><span data-t="date">Vēlamais datums</span><input name="date" type="date"></label>
         <label><span data-t="interest">Kas Jūs interesē</span>
-          <select name="interest">
+          <select name="interest" required>
             <option value="fitting" data-t="optFitting">Kleitas pielaikošana</option>
             <option value="custom" data-t="optCustom">Individuāla šūšana</option>
             <option value="photo" data-t="optPhoto">Šūšana pēc fotogrāfijas</option>
@@ -95,7 +96,7 @@
           <input name="attachPhoto" type="checkbox">
           <span data-t="photoPlan"><strong>Pievienošu fotogrāfiju.</strong> To varēsiet izvēlēties WhatsApp sarakstē pēc ziņas atvēršanas.</span>
         </label>
-        <label class="consent full-field"><input type="checkbox" required><span data-t="consent">Piekrītu, ka norādītie dati tiek izmantoti, lai atbildētu uz manu pieteikumu.</span></label>
+        <label class="consent full-field"><input name="consent" type="checkbox" required><span data-t="consent">Piekrītu, ka norādītie dati tiek izmantoti, lai atbildētu uz manu pieteikumu.</span></label>
         <button class="button button-primary full-field" type="submit" data-t="continueWhatsapp">Turpināt WhatsApp</button>
         <p class="form-status full-field" data-form-status aria-live="polite"></p>
       </form>
@@ -131,6 +132,7 @@
     <div class="footer-legal"><span>© <span data-year></span> SIA CATRIN · Reģ. Nr. 43603051076</span><a href="privacy.html" data-local-link data-t="privacy">Privātuma politika</a></div>
   </footer>
   <nav class="mobile-actions" aria-label="Ātrās saziņas iespējas" data-t-aria-label="quickActionsAria"><a href="tel:+37127164000"><span data-t="call">Zvanīt</span></a><a href="https://wa.me/37127164000" target="_blank" rel="noopener"><img src="assets/icon-whatsapp.svg" alt="" width="17" height="17"><span>WhatsApp</span></a><a href="#pieraksts"><span data-t="bookShort">Pieteikties</span></a></nav>
-  <script src="script.js?v=20260802-8"></script>
+  <script src="i18n.js?v=20260810-1"></script>
+  <script src="app.js?v=20260810-2"></script>
 </body>
 </html>
