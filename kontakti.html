@@ -22,6 +22,46 @@
   <link rel="icon" href="assets/logo-round.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/logo-round.png">
   <link rel="stylesheet" href="styles.css?v=20260810-3">
+  <style>
+    .contact-brand-watermark {
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      right: clamp(2rem, 7vw, 8rem);
+      width: clamp(260px, 24vw, 420px);
+      height: auto;
+      transform: translateY(-43%);
+      opacity: .11;
+      pointer-events: none;
+      user-select: none;
+      filter: saturate(.86) contrast(.96);
+    }
+
+    .contact-hero-copy,
+    .contact-cards {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 900px) {
+      .contact-brand-watermark {
+        top: 42%;
+        right: -1rem;
+        width: min(38vw, 290px);
+        opacity: .09;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .contact-brand-watermark {
+        top: 29%;
+        right: -1.75rem;
+        width: min(58vw, 220px);
+        transform: translateY(-50%);
+        opacity: .075;
+      }
+    }
+  </style>
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-page="contact">
@@ -43,6 +83,7 @@
 
   <main id="content">
     <section class="contact-hero">
+      <img class="contact-brand-watermark" src="assets/logo-round.svg" alt="" aria-hidden="true" width="1672" height="1672" decoding="async">
       <div class="contact-hero-copy">
         <p class="eyebrow reveal" data-t="contactPageEyebrow">CATRIN · Jelgava</p>
         <h1 class="reveal" data-t="contactPageTitle">Pieraksts un kontakti</h1>
