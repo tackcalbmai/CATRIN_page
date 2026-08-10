@@ -27,6 +27,29 @@
     body[data-page="salon"] .salon-hero .page-hero-image img {
       object-position: center 47%;
     }
+
+    body[data-page="salon"] .salon-collage {
+      grid-template-rows: auto;
+    }
+
+    body[data-page="salon"] .salon-collage-main {
+      min-height: 620px;
+      grid-row: auto;
+    }
+
+    body[data-page="salon"] .salon-collage-note {
+      min-height: 620px;
+    }
+
+    @media (max-width: 900px) {
+      body[data-page="salon"] .salon-collage-main {
+        min-height: min(100vw, 760px);
+      }
+
+      body[data-page="salon"] .salon-collage-note {
+        min-height: 360px;
+      }
+    }
   </style>
   <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -91,7 +114,6 @@
         <h2 data-t="bringTitle">Ko varat paņemt līdzi</h2>
         <p data-t="bringText">Kleitu attēlus, līdzīga papēža apavus un plānoto apakšveļu. Ja to vēl nav, varat ierasties bez īpašas sagatavošanās.</p>
       </div>
-      <figure class="salon-collage-detail reveal"><img src="assets/dress-soft.jpg" alt="Kāzu kleitas korsetes detaļa" width="600" height="800" loading="lazy" decoding="async"></figure>
     </section>
 
     <dl class="salon-facts reveal">
