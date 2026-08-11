@@ -174,7 +174,7 @@ const localizePage = (source, file, language) => {
 
   if (language !== "lv") {
     html = html.replace(
-      /\b(href|src)=(['"])(assets\/|styles-core\.css|styles\.css|i18n\.js|app\.js|analytics\.js|site\.webmanifest)/g,
+      /\b(href|src)=(['"])(assets\/|styles-core\.css|styles\.css|i18n\.js|privacy-copy\.js|app\.js|analytics\.js|site\.webmanifest)/g,
       (_match, attribute, quote, target) => `${attribute}=${quote}../${target}`,
     );
   }

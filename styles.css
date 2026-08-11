@@ -955,27 +955,27 @@ html[lang="en"] .contact-card-hours::after {
   bottom: max(1.5rem, env(safe-area-inset-bottom));
   left: max(1.5rem, env(safe-area-inset-left));
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.64fr);
-  gap: clamp(1.75rem, 4vw, 3.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(260px, .52fr);
+  gap: clamp(1.5rem, 3.2vw, 2.75rem);
   align-items: center;
-  width: min(980px, calc(100vw - 3rem));
+  width: min(880px, calc(100vw - 3rem));
   max-height: calc(100svh - 3rem);
   margin-inline: auto;
-  padding: clamp(1.35rem, 2.4vw, 2rem);
+  padding: clamp(1.25rem, 2vw, 1.7rem);
   overflow-x: hidden;
   overflow-y: auto;
   transform: translate3d(0, 26px, 0) scale(.985);
   transform-origin: center bottom;
   visibility: hidden;
   opacity: 0;
-  border: 1px solid rgba(255,255,255,.72);
-  border-radius: 12px;
-  background: rgba(250,246,243,.86);
-  box-shadow: 0 28px 80px rgba(49,29,40,.16), 0 6px 20px rgba(49,29,40,.07);
+  border: 1px solid rgba(65,40,53,.13);
+  border-radius: 8px;
+  background: rgba(255,253,251,.96);
+  box-shadow: 0 20px 54px rgba(49,29,40,.12), 0 3px 10px rgba(49,29,40,.05);
   color: var(--ink);
-  filter: blur(2px);
-  backdrop-filter: blur(26px) saturate(1.08);
-  -webkit-backdrop-filter: blur(26px) saturate(1.08);
+  filter: blur(1px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   transition:
     opacity 360ms ease,
     transform 560ms var(--ease),
@@ -988,8 +988,7 @@ html[lang="en"] .contact-card-hours::after {
   z-index: -1;
   inset: 0;
   background:
-    radial-gradient(circle at 8% 0%, rgba(255,255,255,.95), transparent 42%),
-    linear-gradient(110deg, rgba(255,255,255,.22), transparent 58%);
+    linear-gradient(100deg, rgba(248,241,237,.64), rgba(255,255,255,0) 46%);
   content: "";
   pointer-events: none;
 }
@@ -998,13 +997,13 @@ html[lang="en"] .contact-card-hours::after {
   position: absolute;
   top: 0;
   left: clamp(1.35rem, 2.4vw, 2rem);
-  width: 58px;
-  height: 2px;
+  width: 44px;
+  height: 1px;
   transform: scaleX(0);
   transform-origin: left center;
-  background: var(--plum);
+  background: rgba(100,31,75,.42);
   content: "";
-  opacity: .82;
+  opacity: .7;
   transition: transform 700ms var(--ease) 120ms;
 }
 
@@ -1057,10 +1056,10 @@ html[lang="en"] .contact-card-hours::after {
 }
 
 .cookie-consent__copy h2 {
-  margin: .38rem 0 .42rem;
+  margin: .35rem 0 .35rem;
   color: var(--plum-dark);
   font-family: var(--serif);
-  font-size: clamp(1.35rem, 2vw, 1.72rem);
+  font-size: clamp(1.28rem, 2vw, 1.58rem);
   font-weight: 430;
   line-height: 1.16;
   letter-spacing: -.018em;
@@ -1070,29 +1069,29 @@ html[lang="en"] .contact-card-hours::after {
   max-width: 600px;
   margin: 0;
   color: var(--ink-soft);
-  font-size: .84rem;
-  line-height: 1.68;
+  font-size: .82rem;
+  line-height: 1.62;
 }
 
 .cookie-consent__actions {
   display: grid;
   min-width: 0;
-  gap: .72rem;
+  gap: .65rem;
 }
 
 .cookie-consent__choice {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .62rem;
+  gap: .5rem;
 }
 
 .cookie-consent__button {
-  min-height: 50px;
-  padding: .82rem .9rem;
-  border: 1px solid rgba(65,40,53,.22);
-  border-radius: 5px;
+  min-height: 48px;
+  padding: .78rem .9rem;
+  border: 1px solid rgba(65,40,53,.18);
+  border-radius: 6px;
   font: inherit;
-  font-size: .66rem;
+  font-size: .64rem;
   font-weight: 650;
   line-height: 1.2;
   letter-spacing: .105em;
@@ -1107,26 +1106,27 @@ html[lang="en"] .contact-card-hours::after {
 }
 
 .cookie-consent__button--accept {
-  border-color: transparent;
-  background: var(--plum-dark);
-  box-shadow: 0 10px 24px rgba(66,19,49,.13);
-  color: var(--white);
+  border-color: rgba(65,40,53,.20);
+  background: #e8ddd8;
+  box-shadow: 0 8px 22px rgba(55,35,45,.08);
+  color: var(--ink);
 }
 
 .cookie-consent__button--reject {
-  background: rgba(255,253,251,.48);
+  background: var(--white);
   color: var(--plum-dark);
 }
 
-.cookie-consent__button:hover { transform: translateY(-2px) scale(1.012); }
+.cookie-consent__button:hover { transform: translateY(-2px) scale(1.018); }
 .cookie-consent__button:active { transform: translateY(0) scale(.99); }
 .cookie-consent__button--accept:hover {
-  background: var(--plum);
-  box-shadow: 0 14px 30px rgba(66,19,49,.18);
+  border-color: rgba(65,40,53,.34);
+  background: #ded0ca;
+  box-shadow: 0 14px 30px rgba(55,35,45,.13);
 }
 .cookie-consent__button--reject:hover {
-  border-color: rgba(100,31,75,.4);
-  background: rgba(255,253,251,.88);
+  border-color: rgba(65,40,53,.3);
+  background: var(--paper-deep);
 }
 .cookie-consent__button:focus-visible,
 .cookie-consent__more:focus-visible,
@@ -1141,7 +1141,7 @@ html[lang="en"] .contact-card-hours::after {
   display: inline-flex;
   align-items: center;
   color: var(--ink-soft);
-  font-size: .68rem;
+  font-size: .65rem;
   letter-spacing: .035em;
   text-decoration-color: rgba(100,31,75,.28);
   text-underline-offset: 4px;
@@ -1160,7 +1160,7 @@ html[lang="en"] .contact-card-hours::after {
   color: inherit;
   font: inherit;
   text-decoration: underline;
-  text-decoration-color: rgba(100,31,75,.28);
+  text-decoration-color: rgba(100,31,75,.42);
   text-underline-offset: 3px;
   cursor: pointer;
 }
