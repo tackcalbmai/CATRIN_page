@@ -13,7 +13,7 @@
       policyExternalTitle: "Karte un ārējās saites",
       policyExternalText: "Kontaktu lapā pieejama karte, bet saites uz Google Maps, Waze, WhatsApp, Instagram un Facebook atveras attiecīgo pakalpojumu vidē. Uz tiem attiecas konkrētā pakalpojuma privātuma noteikumi.",
       policyCookiesTitle: "Sīkdatnes un vietnes statistika",
-      policyCookiesText: "Ar Jūsu piekrišanu izmantojam Google Analytics, lai apkopotā veidā saprastu vietnes apmeklējumu un pilnveidotu tās saturu. Tas nav nepieciešams, lai izmantotu vietni. Savu izvēli jebkurā laikā varat mainīt kājenē, izvēloties “Sīkdatņu iestatījumi”.",
+      policyCookiesText: "Ar Jūsu piekrišanu izmantojam apmeklējuma statistiku, lai apkopotā veidā saprastu vietnes izmantošanu un pilnveidotu tās saturu. Tā nav nepieciešama vietnes lietošanai. Savu izvēli jebkurā laikā varat mainīt sadaļā “Sīkdatņu iestatījumi”.",
       policyUpdated: "Atjaunots: 2026. gada 11. augustā.",
     },
     ru: {
@@ -26,7 +26,7 @@
       policyExternalTitle: "Карта и внешние ссылки",
       policyExternalText: "На странице контактов доступна карта, а ссылки на Google Maps, Waze, WhatsApp, Instagram и Facebook открываются в соответствующих сервисах. Для них действуют правила конфиденциальности конкретного сервиса.",
       policyCookiesTitle: "Cookie и статистика сайта",
-      policyCookiesText: "С Вашего согласия мы используем Google Analytics, чтобы в обобщённом виде понимать посещаемость сайта и улучшать его содержание. Это не требуется для использования сайта. Свой выбор можно изменить в любое время внизу страницы через «Настройки cookie».",
+      policyCookiesText: "С Вашего согласия мы используем статистику посещений, чтобы в обобщённом виде понимать использование сайта и улучшать его содержание. Это не требуется для использования сайта. Свой выбор можно изменить в любое время через «Настройки cookie».",
       policyUpdated: "Последнее обновление: 11 августа 2026 года.",
     },
     en: {
@@ -39,7 +39,7 @@
       policyExternalTitle: "Map and external links",
       policyExternalText: "The contact page offers a map, and links to Google Maps, Waze, WhatsApp, Instagram and Facebook open in the relevant service. Each service’s own privacy terms apply.",
       policyCookiesTitle: "Cookies and website statistics",
-      policyCookiesText: "With your consent, we use Google Analytics to understand website visits in aggregate and improve its content. It is not needed to use the website. You can change your choice at any time in the footer through “Cookie settings”.",
+      policyCookiesText: "With your consent, we use visit statistics to understand use of the website in aggregate and improve its content. It is not needed to use the website. You can change your choice at any time through “Cookie settings”.",
       policyUpdated: "Last updated: 11 August 2026.",
     },
   };

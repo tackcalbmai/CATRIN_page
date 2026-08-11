@@ -8,7 +8,7 @@
   const translations = {
     lv: {
       title: "Jūsu privātums",
-      text: "Ar Jūsu atļauju izmantojam apmeklējuma statistiku, lai pilnveidotu CATRIN vietni. Izvēli jebkurā laikā varat mainīt kājenē.",
+      text: "Ar Jūsu atļauju izmantojam apmeklējuma statistiku, lai pilnveidotu CATRIN vietni. Izvēli jebkurā laikā varat mainīt.",
       accept: "Pieņemt",
       reject: "Nē, paldies",
       more: "Privātuma politika",
@@ -17,7 +17,7 @@
     },
     ru: {
       title: "Ваша приватность",
-      text: "С Вашего разрешения мы используем статистику посещений, чтобы сделать сайт CATRIN удобнее. Выбор можно изменить в любое время внизу страницы.",
+      text: "С Вашего разрешения мы используем статистику посещений, чтобы сделать сайт CATRIN удобнее. Выбор можно изменить в любое время.",
       accept: "Принять",
       reject: "Нет, спасибо",
       more: "Политика конфиденциальности",
@@ -26,7 +26,7 @@
     },
     en: {
       title: "Your privacy",
-      text: "With your permission, we use visit statistics to make the CATRIN website better. You can change this choice at any time in the footer.",
+      text: "With your permission, we use visit statistics to make the CATRIN website better. You can change this choice at any time.",
       accept: "Accept",
       reject: "No, thank you",
       more: "Privacy policy",
