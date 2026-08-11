@@ -7,31 +7,31 @@
   const validChoices = new Set(["granted", "denied"]);
   const translations = {
     lv: {
-      title: "Sīkdatņu iestatījumi",
-      text: "Ar Jūsu piekrišanu izmantojam Google Analytics, lai saprastu, kā tiek lietota vietne, un to uzlabotu. Bez piekrišanas analītika netiek ielādēta.",
-      accept: "Piekrist analītikai",
-      reject: "Noraidīt",
-      more: "Vairāk informācijas",
-      settings: "Sīkdatņu iestatījumi",
-      region: "Analītikas sīkdatņu izvēle",
+      title: "Jūsu izvēle",
+      text: "Ar Jūsu atļauju apkoposim vietnes apmeklējuma datus, lai pilnveidotu CATRIN saturu un lietošanas pieredzi. Izvēli varat mainīt jebkurā laikā.",
+      accept: "Atļaut",
+      reject: "Turpināt bez",
+      more: "Par privātumu",
+      settings: "Privātuma izvēle",
+      region: "Privātuma izvēle",
     },
     ru: {
-      title: "Настройки файлов cookie",
-      text: "С Вашего согласия мы используем Google Analytics, чтобы понимать, как используется сайт, и улучшать его. Без согласия аналитика не загружается.",
-      accept: "Разрешить аналитику",
-      reject: "Отклонить",
-      more: "Подробнее",
-      settings: "Настройки cookie",
-      region: "Выбор аналитических файлов cookie",
+      title: "Ваш выбор",
+      text: "С Вашего разрешения мы будем собирать данные о посещении, чтобы улучшать содержание и удобство сайта CATRIN. Выбор можно изменить в любое время.",
+      accept: "Разрешить",
+      reject: "Продолжить без",
+      more: "О конфиденциальности",
+      settings: "Настройки приватности",
+      region: "Выбор настроек приватности",
     },
     en: {
-      title: "Cookie settings",
-      text: "With your consent, we use Google Analytics to understand how the website is used and improve it. Analytics does not load without your consent.",
-      accept: "Allow analytics",
-      reject: "Reject",
-      more: "More information",
-      settings: "Cookie settings",
-      region: "Analytics cookie choice",
+      title: "Your choice",
+      text: "With your permission, we’ll collect website visit data to refine CATRIN’s content and experience. You can change this choice at any time.",
+      accept: "Allow",
+      reject: "Continue without",
+      more: "About privacy",
+      settings: "Privacy choices",
+      region: "Privacy choices",
     },
   };
 
@@ -53,6 +53,8 @@
   let banner;
   let settingsButton;
   let lastFocusedElement;
+  let visibilityVersion = 0;
+  const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)");
 
   window[`ga-disable-${measurementId}`] = currentChoice !== "granted";
   if (currentChoice === "granted") enableAnalytics();
@@ -151,6 +153,7 @@
     banner.setAttribute("aria-labelledby", "cookie-consent-title");
     banner.innerHTML = `
       <div class="cookie-consent__copy">
+        <span class="cookie-consent__eyebrow" aria-hidden="true">CATRIN</span>
         <h2 id="cookie-consent-title"></h2>
         <p data-cookie-consent-text></p>
       </div>
@@ -194,16 +197,29 @@
   }
 
   function showBanner() {
+    visibilityVersion += 1;
     lastFocusedElement = document.activeElement;
     renderInterface();
     banner.hidden = false;
     document.body.classList.add("cookie-consent-open");
+    if (reducedMotion?.matches) {
+      banner.classList.add("is-visible");
+      return;
+    }
+    requestAnimationFrame(() => requestAnimationFrame(() => banner.classList.add("is-visible")));
   }
 
   function hideBanner() {
-    banner.hidden = true;
+    const version = ++visibilityVersion;
+    banner.classList.remove("is-visible");
     document.body.classList.remove("cookie-consent-open");
-    if (lastFocusedElement === settingsButton) settingsButton.focus();
+    const finish = () => {
+      if (version !== visibilityVersion) return;
+      banner.hidden = true;
+      if (lastFocusedElement === settingsButton) settingsButton.focus();
+    };
+    if (reducedMotion?.matches) finish();
+    else window.setTimeout(finish, 620);
   }
 
   function setChoice(choice) {

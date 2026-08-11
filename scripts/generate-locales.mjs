@@ -139,10 +139,10 @@ const ensureCommonHead = (html) => {
   if (!/<script\s+defer\s+src="(?:\.\.\/)?analytics\.js/i.test(html)) {
     html = html.replace(
       /<\/head>/i,
-      '  <script defer src="analytics.js?v=20260811-1"></script>\n</head>',
+      '  <script defer src="analytics.js?v=20260811-2"></script>\n</head>',
     );
   }
-  html = html.replaceAll("styles.css?v=20260811-1", "styles.css?v=20260811-2");
+  html = html.replaceAll("styles.css?v=20260811-1", "styles.css?v=20260811-3");
   return html;
 };
 
