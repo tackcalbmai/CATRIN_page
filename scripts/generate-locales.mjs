@@ -136,6 +136,13 @@ const ensureCommonHead = (html) => {
       '$1\n  <link rel="manifest" href="site.webmanifest">\n  <link rel="mask-icon" href="assets/logo-round.svg" color="#641f4b">',
     );
   }
+  if (!/<script\s+defer\s+src="(?:\.\.\/)?analytics\.js/i.test(html)) {
+    html = html.replace(
+      /<\/head>/i,
+      '  <script defer src="analytics.js?v=20260811-1"></script>\n</head>',
+    );
+  }
+  html = html.replaceAll("styles.css?v=20260811-1", "styles.css?v=20260811-2");
   return html;
 };
 
@@ -167,7 +174,7 @@ const localizePage = (source, file, language) => {
 
   if (language !== "lv") {
     html = html.replace(
-      /\b(href|src)=(['"])(assets\/|styles-core\.css|styles\.css|i18n\.js|app\.js|site\.webmanifest)/g,
+      /\b(href|src)=(['"])(assets\/|styles-core\.css|styles\.css|i18n\.js|app\.js|analytics\.js|site\.webmanifest)/g,
       (_match, attribute, quote, target) => `${attribute}=${quote}../${target}`,
     );
   }

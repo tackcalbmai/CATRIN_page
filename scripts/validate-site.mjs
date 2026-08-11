@@ -46,6 +46,8 @@ for (const file of htmlFiles) {
   if (!new RegExp(`<html\\s+lang="${language}"`).test(html)) errors.push(`${file}: incorrect document language`);
   if (!/<meta\s+name="viewport"/i.test(html)) errors.push(`${file}: missing viewport metadata`);
   if (!/<meta\s+name="referrer"\s+content="strict-origin-when-cross-origin"/i.test(html)) errors.push(`${file}: missing referrer policy`);
+  const analyticsReferences = (html.match(/<script\s+defer\s+src=["'][^"']*analytics\.js[^"']*["']/gi) || []).length;
+  if (analyticsReferences !== 1) errors.push(`${file}: expected one deferred analytics bootstrap, found ${analyticsReferences}`);
   if (h1Count !== 1) errors.push(`${file}: expected one h1, found ${h1Count}`);
   if (duplicateIds.length) errors.push(`${file}: duplicate ids: ${duplicateIds.join(", ")}`);
 
@@ -135,7 +137,7 @@ for (const file of htmlFiles) {
 
 const requiredFiles = [
   "CNAME", ".nojekyll", "robots.txt", "sitemap.xml", "site.webmanifest",
-  "styles-core.css", "styles.css", "app.js", "i18n.js",
+  "styles-core.css", "styles.css", "app.js", "i18n.js", "analytics.js",
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) errors.push(`missing required file ${file}`);
@@ -144,6 +146,12 @@ for (const file of requiredFiles) {
 if (fs.readFileSync(path.join(root, "CNAME"), "utf8").trim() !== "www.catrin.lv") errors.push("CNAME must use www.catrin.lv");
 if (!fs.readFileSync(path.join(root, "robots.txt"), "utf8").includes(`${siteUrl}/sitemap.xml`)) errors.push("robots.txt has the wrong sitemap host");
 if (fs.readFileSync(path.join(root, "styles.css"), "utf8").includes("@import")) errors.push("styles.css must not serially import another stylesheet");
+
+const analytics = fs.readFileSync(path.join(root, "analytics.js"), "utf8");
+if (!analytics.includes('const measurementId = "G-X1MCTDKV88"')) errors.push("analytics.js has the wrong GA4 measurement ID");
+if (!analytics.includes('analytics_storage: "denied"')) errors.push("analytics.js must deny analytics storage by default");
+if (!analytics.includes('analytics_storage: "granted"')) errors.push("analytics.js is missing the consent grant path");
+if (!analytics.includes("https://www.googletagmanager.com/gtag/js?id=")) errors.push("analytics.js is missing the Google tag loader");
 
 try {
   JSON.parse(fs.readFileSync(path.join(root, "site.webmanifest"), "utf8"));
