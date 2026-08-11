@@ -1,0 +1,24 @@
+{
+  "name": "CATRIN kāzu modes salons",
+  "short_name": "CATRIN",
+  "lang": "lv",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#f8f3ef",
+  "theme_color": "#641f4b",
+  "icons": [
+    {
+      "src": "/assets/logo-round.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/logo-round.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

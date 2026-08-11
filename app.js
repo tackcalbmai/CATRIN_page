@@ -74,27 +74,31 @@ for (const element of document.querySelectorAll("[data-t-title]")) {
   initialTitles[element.dataset.tTitle] = element.getAttribute("title") || "";
 }
 
-function storedLanguage() {
-  try { return localStorage.getItem("catrin-lang"); }
-  catch { return null; }
-}
-
-let language = new URLSearchParams(location.search).get("lang") || storedLanguage() || "lv";
-if (!["lv", "ru", "en"].includes(language)) language = "lv";
+const supportedLanguages = ["lv", "ru", "en"];
+const legacyLanguage = new URLSearchParams(location.search).get("lang");
+const routeLanguage = location.pathname.match(/\/(ru|en)(?:\/|$)/)?.[1] || "lv";
+let language = supportedLanguages.includes(legacyLanguage) ? legacyLanguage : routeLanguage;
 
 function valueFor(key) {
   return copy[language]?.[key] ?? initialText[key];
 }
 
-function updateLocalLinks() {
-  document.querySelectorAll("a[data-local-link]").forEach((link) => {
-    const raw = link.getAttribute("href");
-    if (!raw || raw.startsWith("#") || raw.startsWith("tel:") || raw.startsWith("mailto:")) return;
-    const url = new URL(raw, location.href);
-    if (language === "lv") url.searchParams.delete("lang");
-    else url.searchParams.set("lang", language);
-    link.href = url.href;
-  });
+function localizedPageUrl(nextLanguage) {
+  const alternate = document.querySelector(`link[rel="alternate"][hreflang="${nextLanguage}"]`);
+  if (!alternate) return null;
+  const declared = new URL(alternate.href, location.href);
+  const target = new URL(location.href);
+  target.pathname = declared.pathname;
+  target.search = declared.search;
+  return `${target.pathname}${target.search}${target.hash}`;
+}
+
+function navigateToLanguage(nextLanguage, replace = false) {
+  if (!supportedLanguages.includes(nextLanguage)) return;
+  const target = localizedPageUrl(nextLanguage);
+  if (!target) return;
+  if (replace) location.replace(target);
+  else location.assign(target);
 }
 
 function updateEditorialDetails() {
@@ -135,8 +139,8 @@ function updateMetadata() {
   if (ogLocale) ogLocale.content = language === "lv" ? "lv_LV" : language === "ru" ? "ru_RU" : "en_GB";
 }
 
-function translate(nextLanguage, updateAddress = true) {
-  language = ["lv", "ru", "en"].includes(nextLanguage) ? nextLanguage : "lv";
+function translate(nextLanguage) {
+  language = supportedLanguages.includes(nextLanguage) ? nextLanguage : "lv";
   document.documentElement.lang = language;
 
   document.querySelectorAll("[data-t]").forEach((element) => {
@@ -161,23 +165,12 @@ function translate(nextLanguage, updateAddress = true) {
 
   updateMetadata();
   updateEditorialDetails();
-  updateLocalLinks();
-
-  try { localStorage.setItem("catrin-lang", language); }
-  catch { /* Translation remains active without storage. */ }
-
-  if (updateAddress) {
-    const url = new URL(location.href);
-    if (language === "lv") url.searchParams.delete("lang");
-    else url.searchParams.set("lang", language);
-    history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
-  }
 
   document.dispatchEvent(new CustomEvent("catrin:languagechange"));
 }
 
 document.querySelectorAll("[data-lang]").forEach((button) => {
-  button.addEventListener("click", () => translate(button.dataset.lang));
+  button.addEventListener("click", () => navigateToLanguage(button.dataset.lang));
 });
 
 document.querySelector(`[data-page-link="${page}"]`)?.setAttribute("aria-current", "page");
@@ -233,7 +226,10 @@ document.addEventListener("keydown", (event) => {
 });
 window.addEventListener("resize", () => { if (window.innerWidth > 900) closeMenu(); }, { passive: true });
 
-translate(language, false);
+translate(language);
+if (supportedLanguages.includes(legacyLanguage) && legacyLanguage !== routeLanguage) {
+  navigateToLanguage(legacyLanguage, true);
+}
 
 const gallery = document.querySelector("[data-gallery]");
 if (gallery) {
@@ -658,18 +654,13 @@ body[data-page="salon"] .salon-collage-note:hover > img {
 
 /* catrin-launch.js */
 (() => {
-  const supportedLanguages = ["lv", "ru", "en"];
   const currentLanguage = () => supportedLanguages.includes(document.documentElement.lang)
     ? document.documentElement.lang
     : "lv";
 
   const languageUrl = (lang) => {
-    const declaredCanonical = document.querySelector('link[rel="canonical"]')?.getAttribute("href");
-    const url = new URL(declaredCanonical || location.href, location.href);
-    url.hash = "";
-    if (lang === "lv") url.searchParams.delete("lang");
-    else url.searchParams.set("lang", lang);
-    return url.href;
+    const alternate = document.querySelector(`link[rel="alternate"][hreflang="${lang}"]`);
+    return alternate?.href || document.querySelector('link[rel="canonical"]')?.href || location.href;
   };
 
   const syncLanguageSeo = () => {

@@ -18,11 +18,13 @@ The site uses a restrained text wordmark in the navigation and the supplied roun
 
 - `styles.css` and `styles-core.css` — the visual system and responsive layouts
 - `i18n.js` — final LV/RU/EN copy and localized metadata
+- `ru/` and `en/` — generated, indexable language pages with their own canonical URLs
 - `app.js` — navigation, translation, gallery, reviews, booking and mobile behavior
+- `scripts/generate-locales.mjs` — synchronizes the default copy, localized pages and sitemap
 - `scripts/validate-site.mjs` — dependency-free checks for page structure, local links, canonical URLs and deployment files
 
-Run `npm run check` before publishing.
+Run `npm run build` after copy or metadata changes, then run `npm run check` before publishing.
 
-Public URL: https://catrin.lv/
+Public URL: https://www.catrin.lv/
 
-Fallback GitHub Pages URL: https://tackcalbmai.github.io/CATRIN_page/
+The GitHub Pages fallback redirects to the public domain.

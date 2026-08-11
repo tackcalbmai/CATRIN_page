@@ -2,7 +2,8 @@
   "name": "catrin-page",
   "private": true,
   "scripts": {
+    "build": "node scripts/generate-locales.mjs",
     "dev": "node scripts/serve.mjs",
-    "check": "node --check app.js && node --check i18n.js && node scripts/validate-site.mjs"
+    "check": "node --check app.js && node --check i18n.js && node --check scripts/generate-locales.mjs && node scripts/generate-locales.mjs --check && node scripts/validate-site.mjs"
   }
 }

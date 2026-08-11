@@ -3,13 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Lapa nav atrasta — CATRIN</title>
   <meta name="description" content="Pieprasītā CATRIN vietnes lapa nav atrasta.">
   <meta name="robots" content="noindex,follow">
   <meta name="theme-color" content="#f5efe9">
   <link rel="icon" href="assets/logo-round.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/logo-round.png">
-  <link rel="stylesheet" href="styles.css?v=20260810-3">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="mask-icon" href="assets/logo-round.svg" color="#641f4b">
+  <link rel="stylesheet" href="styles-core.css?v=20260811-1">
+  <link rel="stylesheet" href="styles.css?v=20260811-1">
   <style>
     :root{--nf-paper:#f7f1ed;--nf-plum:#641f4b;--nf-ink:#2f2630;--nf-soft:#73656e}
     *{box-sizing:border-box}
@@ -37,7 +41,7 @@
 <body>
   <main class="not-found" id="content">
     <a class="not-found-homebrand" href="index.html" id="nf-brand">CATRIN</a>
-    <img class="not-found-mark" src="assets/logo-round.svg" alt="" aria-hidden="true">
+    <img class="not-found-mark" src="assets/logo-round.svg" alt="" aria-hidden="true" width="1672" height="1672">
     <div class="not-found-inner">
       <p class="not-found-kicker" id="nf-kicker">CATRIN · Kāzu modes salons Jelgavā</p>
       <p class="not-found-code" aria-hidden="true">404</p>
@@ -62,8 +66,7 @@
         en:{kicker:"CATRIN · Bridal fashion salon in Jelgava",title:"This page could not be found",text:"It looks like this address does not lead where expected. Return to the CATRIN homepage or contact the salon and we will help you find the right way.",home:"Back to homepage",contact:"Contact CATRIN",doc:"Page not found — CATRIN"}
       };
       const valid=(lang)=>["lv","ru","en"].includes(lang);
-      let lang=new URLSearchParams(location.search).get("lang");
-      if(!valid(lang)){try{lang=localStorage.getItem("catrin-lang")}catch{lang="lv"}}
+      let lang=location.pathname.match(/\/(ru|en)(?:\/|$)/)?.[1]||new URLSearchParams(location.search).get("lang");
       if(!valid(lang))lang="lv";
       const apply=(next)=>{
         lang=valid(next)?next:"lv";
@@ -75,12 +78,11 @@
         document.getElementById("nf-text").textContent=copy.text;
         document.getElementById("nf-home").textContent=copy.home;
         document.getElementById("nf-contact").textContent=copy.contact;
-        const suffix=lang==="lv"?"":`?lang=${lang}`;
-        document.getElementById("nf-home").href=`index.html${suffix}`;
-        document.getElementById("nf-brand").href=`index.html${suffix}`;
-        document.getElementById("nf-contact").href=`kontakti.html${suffix}`;
+        const prefix=lang==="lv"?"/":`/${lang}/`;
+        document.getElementById("nf-home").href=prefix;
+        document.getElementById("nf-brand").href=prefix;
+        document.getElementById("nf-contact").href=`${prefix}kontakti.html`;
         document.querySelectorAll("[data-lang]").forEach(button=>button.setAttribute("aria-pressed",String(button.dataset.lang===lang)));
-        try{localStorage.setItem("catrin-lang",lang)}catch{}
       };
       document.querySelectorAll("[data-lang]").forEach(button=>button.addEventListener("click",()=>apply(button.dataset.lang)));
       apply(lang);

@@ -1,5 +1,3 @@
-@import url("styles-core.css?v=20260802-9");
-
 /* Homepage hero crop adjustment: show more of the dresses on desktop. */
 @media (min-width: 621px) {
   .hero-images figure:nth-child(1) img {
