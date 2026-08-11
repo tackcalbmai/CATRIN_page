@@ -4,6 +4,7 @@ import vm from "node:vm";
 
 const root = process.cwd();
 const siteUrl = "https://www.catrin.lv";
+const socialImageUrl = `${siteUrl}/assets/catrin-social-preview.jpg`;
 const languages = ["lv", "ru", "en"];
 const errors = [];
 
@@ -57,12 +58,20 @@ for (const file of htmlFiles) {
     const expectedCanonical = expectedPageUrl(file);
     const canonical = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/i)?.[1];
     const ogUrl = html.match(/<meta\s+property="og:url"\s+content="([^"]+)"/i)?.[1];
+    const ogImage = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i)?.[1];
     if (canonical !== expectedCanonical) errors.push(`${file}: canonical is ${canonical || "missing"}, expected ${expectedCanonical}`);
     if (ogUrl !== expectedCanonical) errors.push(`${file}: Open Graph URL does not match canonical`);
+    if (ogImage !== socialImageUrl) errors.push(`${file}: Open Graph image is not the branded social preview`);
+    if (!new RegExp(`<meta\\s+property="og:image:secure_url"\\s+content="${socialImageUrl}"`, "i").test(html)) errors.push(`${file}: missing secure Open Graph image URL`);
+    if (!/<meta\s+property="og:image:type"\s+content="image\/jpeg"/i.test(html)) errors.push(`${file}: incorrect Open Graph image type`);
+    if (!/<meta\s+property="og:image:width"\s+content="1200"/i.test(html)) errors.push(`${file}: incorrect Open Graph image width`);
+    if (!/<meta\s+property="og:image:height"\s+content="630"/i.test(html)) errors.push(`${file}: incorrect Open Graph image height`);
     if (!/<meta\s+name="description"\s+content="[^"]+"/i.test(html)) errors.push(`${file}: missing meta description`);
     if (!/<meta\s+property="og:site_name"\s+content="CATRIN"/i.test(html)) errors.push(`${file}: missing Open Graph site name`);
     if (!/<meta\s+property="og:image:alt"\s+content="[^"]+"/i.test(html)) errors.push(`${file}: missing Open Graph image alt text`);
     if (!/<meta\s+name="twitter:card"\s+content="summary_large_image"/i.test(html)) errors.push(`${file}: missing Twitter card metadata`);
+    if (!new RegExp(`<meta\\s+name="twitter:image"\\s+content="${socialImageUrl}"`, "i").test(html)) errors.push(`${file}: missing Twitter image metadata`);
+    if (!/<meta\s+name="twitter:image:alt"\s+content="[^"]+"/i.test(html)) errors.push(`${file}: missing Twitter image alt text`);
 
     for (const alternateLanguage of [...languages, "x-default"]) {
       const targetLanguage = alternateLanguage === "x-default" ? "lv" : alternateLanguage;
@@ -138,6 +147,7 @@ for (const file of htmlFiles) {
 const requiredFiles = [
   "CNAME", ".nojekyll", "robots.txt", "sitemap.xml", "site.webmanifest",
   "styles-core.css", "styles.css", "app.js", "i18n.js", "analytics.js",
+  "assets/catrin-social-preview.jpg",
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) errors.push(`missing required file ${file}`);
@@ -146,6 +156,10 @@ for (const file of requiredFiles) {
 if (fs.readFileSync(path.join(root, "CNAME"), "utf8").trim() !== "www.catrin.lv") errors.push("CNAME must use www.catrin.lv");
 if (!fs.readFileSync(path.join(root, "robots.txt"), "utf8").includes(`${siteUrl}/sitemap.xml`)) errors.push("robots.txt has the wrong sitemap host");
 if (fs.readFileSync(path.join(root, "styles.css"), "utf8").includes("@import")) errors.push("styles.css must not serially import another stylesheet");
+if (fs.existsSync(path.join(root, "assets/catrin-social-preview.jpg"))
+  && fs.statSync(path.join(root, "assets/catrin-social-preview.jpg")).size > 5_000_000) {
+  errors.push("branded social preview exceeds 5 MB");
+}
 
 const analytics = fs.readFileSync(path.join(root, "analytics.js"), "utf8");
 if (!analytics.includes('const measurementId = "G-X1MCTDKV88"')) errors.push("analytics.js has the wrong GA4 measurement ID");

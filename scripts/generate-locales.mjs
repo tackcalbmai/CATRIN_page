@@ -5,6 +5,7 @@ import vm from "node:vm";
 const root = process.cwd();
 const checkOnly = process.argv.includes("--check");
 const siteUrl = "https://www.catrin.lv";
+const socialImageUrl = `${siteUrl}/assets/catrin-social-preview.jpg`;
 const languages = ["lv", "ru", "en"];
 const localeCodes = { lv: "lv_LV", ru: "ru_RU", en: "en_GB" };
 const pageFiles = [
@@ -108,7 +109,10 @@ const applyTranslations = (html, language) => {
 const ensureSocialMetadata = (html, language) => {
   html = html.replace(/\s*<meta\s+property="og:site_name"[^>]*>/gi, "");
   html = html.replace(/\s*<meta\s+property="og:locale:alternate"[^>]*>/gi, "");
-  html = html.replace(/\s*<meta\s+property="og:image:alt"[^>]*>/gi, "");
+  html = html.replace(
+    /\s*<meta\s+(?:property="og:image:(?:alt|secure_url|type|width|height)"|name="twitter:image(?::alt)?")[^>]*>/gi,
+    "",
+  );
 
   const alternates = languages
     .filter((candidate) => candidate !== language)
@@ -119,7 +123,16 @@ const ensureSocialMetadata = (html, language) => {
     alternates,
   ].filter(Boolean).join("\n");
   html = html.replace(/(<meta\s+property="og:locale"[^>]*>)/i, `$1\n${additions}`);
-  html = html.replace(/(<meta\s+property="og:image"[^>]*>)/i, `$1\n  <meta property="og:image:alt" content="${escapeAttribute(socialImageAlt[language])}">`);
+  const imageMetadata = [
+    `  <meta property="og:image:secure_url" content="${socialImageUrl}">`,
+    '  <meta property="og:image:type" content="image/jpeg">',
+    '  <meta property="og:image:width" content="1200">',
+    '  <meta property="og:image:height" content="630">',
+    `  <meta property="og:image:alt" content="${escapeAttribute(socialImageAlt[language])}">`,
+    `  <meta name="twitter:image" content="${socialImageUrl}">`,
+    `  <meta name="twitter:image:alt" content="${escapeAttribute(socialImageAlt[language])}">`,
+  ].join("\n");
+  html = html.replace(/(<meta\s+property="og:image"[^>]*>)/i, `$1\n${imageMetadata}`);
   return html;
 };
 
@@ -157,6 +170,7 @@ const localizePage = (source, file, language) => {
   html = replaceMetaContent(html, 'property="og:description"', description);
   html = replaceMetaContent(html, 'property="og:locale"', localeCodes[language]);
   html = replaceMetaContent(html, 'property="og:url"', pageUrl(file, language));
+  html = replaceMetaContent(html, 'property="og:image"', socialImageUrl);
   html = replaceLinkHref(html, 'rel="canonical"', pageUrl(file, language));
 
   for (const alternateLanguage of [...languages, "x-default"]) {
