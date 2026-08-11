@@ -235,12 +235,42 @@ const gallery = document.querySelector("[data-gallery]");
 if (gallery) {
   const slides = [...gallery.querySelectorAll(".hero-images figure")];
   const controls = [...gallery.querySelectorAll("[data-slide]")];
-  let currentSlide = 0;
+  const crossfadeDuration = 1500;
+  let currentSlide = -1;
   let galleryTimer = 0;
+  let slideCleanupTimer = 0;
+
+  slides.forEach((slide) => {
+    slide.classList.remove("is-active", "is-leaving", "reveal", "is-visible");
+    slide.style.removeProperty("transition-delay");
+  });
 
   const showSlide = (index) => {
-    currentSlide = (index + slides.length) % slides.length;
-    slides.forEach((slide, slideIndex) => slide.classList.toggle("is-active", slideIndex === currentSlide));
+    const nextSlide = (index + slides.length) % slides.length;
+    if (nextSlide === currentSlide) return;
+
+    const outgoingSlide = currentSlide >= 0 ? slides[currentSlide] : null;
+    window.clearTimeout(slideCleanupTimer);
+
+    slides.forEach((slide) => {
+      if (slide !== outgoingSlide) slide.classList.remove("is-leaving");
+    });
+
+    if (outgoingSlide) {
+      outgoingSlide.classList.remove("is-active");
+      outgoingSlide.classList.add("is-leaving");
+    }
+
+    currentSlide = nextSlide;
+    slides[currentSlide].classList.remove("is-leaving");
+    slides[currentSlide].classList.add("is-active");
+
+    if (outgoingSlide) {
+      slideCleanupTimer = window.setTimeout(() => {
+        outgoingSlide.classList.remove("is-leaving");
+      }, crossfadeDuration + 50);
+    }
+
     controls.forEach((control, controlIndex) => {
       const active = controlIndex === currentSlide;
       control.classList.toggle("is-active", active);
@@ -262,7 +292,14 @@ if (gallery) {
   gallery.addEventListener("focusin", stopGallery);
   gallery.addEventListener("focusout", startGallery);
   showSlide(0);
-  startGallery();
+  window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+    gallery.classList.add("is-ready");
+    startGallery();
+  }));
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopGallery();
+    else startGallery();
+  });
 }
 
 const reviewSpotlight = document.querySelector("[data-review-spotlight]");

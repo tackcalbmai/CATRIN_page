@@ -656,14 +656,26 @@ body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data
   z-index: 0;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 1.25s ease, visibility 1.25s step-end;
+  will-change: opacity;
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 1.5s;
 }
 
 .hero-images figure.is-active {
+  z-index: 2;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s;
+}
+
+.hero-images figure.is-leaving {
   z-index: 1;
   visibility: visible;
   opacity: 1;
-  transition: opacity 1.25s ease, visibility 0s;
+  transition: none;
+}
+
+.js .hero-stage:not(.is-ready) .hero-images figure.is-active {
+  opacity: 0;
 }
 
 .hero-images img {
@@ -684,8 +696,8 @@ body:is([data-page="home"], [data-page="dresses"], [data-page="services"], [data
   object-position: center 22%;
 }
 
-.hero-images figure.is-active img {
-  animation: catrin-hero-zoom 7s ease-out both;
+.hero-stage.is-ready .hero-images figure:is(.is-active, .is-leaving) img {
+  animation: catrin-hero-zoom 7.2s cubic-bezier(0.2, 0.55, 0.25, 1) both;
 }
 
 @keyframes catrin-hero-zoom {
