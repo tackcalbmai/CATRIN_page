@@ -292,10 +292,19 @@ if (gallery) {
   gallery.addEventListener("focusin", stopGallery);
   gallery.addEventListener("focusout", startGallery);
   showSlide(0);
-  window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+  const revealGallery = () => window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
     gallery.classList.add("is-ready");
     startGallery();
   }));
+  const firstSlideImage = slides[0]?.querySelector("img");
+  if (window.matchMedia("(max-width: 900px)").matches && firstSlideImage?.decode) {
+    Promise.race([
+      firstSlideImage.decode().catch(() => undefined),
+      new Promise((resolve) => window.setTimeout(resolve, 1200))
+    ]).then(revealGallery);
+  } else {
+    revealGallery();
+  }
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) stopGallery();
     else startGallery();
