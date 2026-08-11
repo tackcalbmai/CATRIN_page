@@ -23,6 +23,52 @@
   <link rel="apple-touch-icon" href="assets/logo-round.png">
   <link rel="preload" href="assets/kleitas-hero.jpg" as="image">
   <link rel="stylesheet" href="styles.css?v=20260810-3">
+  <style>
+    /* Keep the two new portrait lookbook photos fully readable instead of cropping them into landscape cards. */
+    body[data-page="dresses"] .lookbook-card:nth-child(2),
+    body[data-page="dresses"] .lookbook-card:nth-child(3) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ece4df;
+    }
+
+    body[data-page="dresses"] .lookbook-card:nth-child(2) img,
+    body[data-page="dresses"] .lookbook-card:nth-child(3) img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      padding: .4rem;
+      object-fit: contain;
+      object-position: center center;
+    }
+
+    body[data-page="dresses"] .lookbook-card:nth-child(2) figcaption,
+    body[data-page="dresses"] .lookbook-card:nth-child(3) figcaption {
+      z-index: 2;
+    }
+
+    @media (min-width: 901px) {
+      body[data-page="dresses"] .lookbook-grid {
+        grid-template-rows: 380px 380px;
+      }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      body[data-page="dresses"] .lookbook-card:nth-child(2):hover img,
+      body[data-page="dresses"] .lookbook-card:nth-child(3):hover img {
+        transform: scale(1.012);
+      }
+    }
+
+    @media (max-width: 620px) {
+      body[data-page="dresses"] .lookbook-card:nth-child(2) img,
+      body[data-page="dresses"] .lookbook-card:nth-child(3) img {
+        padding: .25rem;
+      }
+    }
+  </style>
   <script>document.documentElement.classList.add("js")</script>
 </head>
 <body data-page="dresses">
