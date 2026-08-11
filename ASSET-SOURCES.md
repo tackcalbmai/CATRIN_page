@@ -7,6 +7,6 @@ The dress photographs are CATRIN materials already publicly associated with the 
 
 Files are served locally to avoid third-party hotlinks. `logo-round.svg` is the transparent-background CATRIN logo supplied by the company and is used without redrawing, recolouring or cropping. The round PNG is used for Apple touch icon compatibility; the original SVG is used as the source mark in the branded social-sharing image.
 
-`catrin-social-preview.jpg` is a 1200 × 630 Open Graph composition made from the supplied `kleitas-hero.jpg` photograph and the supplied CATRIN mark. It is used consistently across every page and language so shared links remain recognisably CATRIN.
+`catrin-social-preview.jpg` is a 1200 × 630 Open Graph composition made from the original homepage photograph `01-home-hero-main.jpg` and the supplied CATRIN mark. The photograph is softly blurred and veiled with a light white overlay; the logo is centered, enlarged and set with a light transparent treatment. It is used consistently across every page and language so shared links remain recognisably CATRIN.
 
 Brand interface icons (`icon-google.svg`, `icon-facebook.svg`, `icon-instagram.svg`, `icon-whatsapp.svg`, `icon-google-maps.svg`, `icon-waze.svg`) use Simple Icons 16.27.1 paths under the CC0 1.0 license: https://simpleicons.org/
