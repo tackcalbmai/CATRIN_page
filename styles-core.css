@@ -221,7 +221,7 @@ h3 {
   transition: visibility 280ms step-end, opacity 280ms ease;
 }
 
-body.nav-open .page-veil {
+body.nav-open:has(.site-nav.is-open) .page-veil {
   visibility: visible;
   opacity: 1;
   transition: visibility 0s, opacity 280ms ease;
