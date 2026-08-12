@@ -195,6 +195,22 @@ function closeMenu(returnFocus = false) {
   if (returnFocus && wasOpen) menuButton.focus();
 }
 
+function syncMenuState() {
+  if (!menuButton || !navigation) return;
+  const open = menuButton.getAttribute("aria-expanded") === "true" && navigation.classList.contains("is-open");
+  document.body.classList.toggle("nav-open", open);
+  if (!open) {
+    menuButton.setAttribute("aria-expanded", "false");
+    navigation.classList.remove("is-open");
+  }
+}
+
+syncMenuState();
+window.addEventListener("pageshow", syncMenuState);
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) syncMenuState();
+});
+
 menuButton?.addEventListener("click", () => {
   const open = menuButton.getAttribute("aria-expanded") !== "true";
   if (!open) return closeMenu(true);
