@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.catrin.lv/sitemap.xml
-Host: www.catrin.lv
+Sitemap: https://catrin.lv/sitemap.xml

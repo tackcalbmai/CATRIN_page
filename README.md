@@ -25,6 +25,6 @@ The site uses a restrained text wordmark in the navigation and the supplied roun
 
 Run `npm run build` after copy or metadata changes, then run `npm run check` before publishing.
 
-Public URL: https://www.catrin.lv/
+Public URL: https://catrin.lv/
 
 The GitHub Pages fallback redirects to the public domain.

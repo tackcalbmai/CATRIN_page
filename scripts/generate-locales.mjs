@@ -4,7 +4,7 @@ import vm from "node:vm";
 
 const root = process.cwd();
 const checkOnly = process.argv.includes("--check");
-const siteUrl = "https://www.catrin.lv";
+const siteUrl = "https://catrin.lv";
 const socialImageUrl = `${siteUrl}/assets/catrin-social-preview.jpg`;
 const languages = ["lv", "ru", "en"];
 const localeCodes = { lv: "lv_LV", ru: "ru_RU", en: "en_GB" };
@@ -182,7 +182,7 @@ const localizePage = (source, file, language) => {
     );
   }
 
-  html = html.replaceAll("https://catrin.lv/", `${siteUrl}/`);
+  html = html.replaceAll("https://www.catrin.lv/", `${siteUrl}/`);
   html = ensureSocialMetadata(html, language);
   html = ensureCommonHead(html);
 

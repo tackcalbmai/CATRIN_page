@@ -3,7 +3,7 @@ import path from "node:path";
 import vm from "node:vm";
 
 const root = process.cwd();
-const siteUrl = "https://www.catrin.lv";
+const siteUrl = "https://catrin.lv";
 const socialImageUrl = `${siteUrl}/assets/catrin-social-preview.jpg`;
 const languages = ["lv", "ru", "en"];
 const errors = [];
@@ -134,13 +134,13 @@ for (const file of htmlFiles) {
   for (const match of html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)) {
     try {
       const structuredData = JSON.parse(match[1]);
-      if (JSON.stringify(structuredData).includes("https://catrin.lv/")) errors.push(`${file}: structured data uses the non-www host`);
+      if (JSON.stringify(structuredData).includes("https://www.catrin.lv/")) errors.push(`${file}: structured data uses the www host`);
     } catch (error) {
       errors.push(`${file}: invalid JSON-LD (${error.message})`);
     }
   }
 
-  if (html.includes("https://catrin.lv/")) errors.push(`${file}: non-www production URL remains`);
+  if (html.includes("https://www.catrin.lv/")) errors.push(`${file}: www production URL remains`);
   if (!/<link\s+rel="manifest"/i.test(html)) errors.push(`${file}: missing web manifest link`);
 }
 
@@ -153,7 +153,7 @@ for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) errors.push(`missing required file ${file}`);
 }
 
-if (fs.readFileSync(path.join(root, "CNAME"), "utf8").trim() !== "www.catrin.lv") errors.push("CNAME must use www.catrin.lv");
+if (fs.readFileSync(path.join(root, "CNAME"), "utf8").trim() !== "catrin.lv") errors.push("CNAME must use catrin.lv");
 if (!fs.readFileSync(path.join(root, "robots.txt"), "utf8").includes(`${siteUrl}/sitemap.xml`)) errors.push("robots.txt has the wrong sitemap host");
 if (fs.readFileSync(path.join(root, "styles.css"), "utf8").includes("@import")) errors.push("styles.css must not serially import another stylesheet");
 if (fs.existsSync(path.join(root, "assets/catrin-social-preview.jpg"))
@@ -178,7 +178,7 @@ for (const file of htmlFiles.filter((file) => file !== "404.html")) {
   const canonical = expectedPageUrl(file);
   if (!sitemap.includes(`<loc>${canonical}</loc>`)) errors.push(`sitemap.xml: missing ${canonical}`);
 }
-if (sitemap.includes("https://catrin.lv/")) errors.push("sitemap.xml: non-www host remains");
+if (sitemap.includes("https://www.catrin.lv/")) errors.push("sitemap.xml: www host remains");
 
 const legacyFiles = ["script.js", "catrin-runtime.js", "catrin-mobile.js", "catrin-launch.js", "catrin-metadata.js"];
 for (const file of legacyFiles) {
