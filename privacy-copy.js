@@ -13,7 +13,7 @@
       policyExternalTitle: "Karte un ārējās saites",
       policyExternalText: "Kontaktu lapā pieejama Google karte, bet saites uz Google Maps, Waze, WhatsApp, Instagram un Facebook atveras attiecīgo pakalpojumu vidē. Atverot iegulto karti vai ārēju pakalpojumu, attiecīgais pakalpojuma sniedzējs var saņemt tehnisku informāciju par Jūsu ierīci un savienojumu. Uz šiem pakalpojumiem attiecas to pašu privātuma noteikumi.",
       policyCookiesTitle: "Sīkdatnes, Google Analytics un reklāmas funkcijas",
-      policyCookiesText: "Google Analytics 4 (mērījuma ID G-X1MCTDKV88) un ar Google tagu saistītās analītikas un reklāmas funkcijas tiek aktivizētas tikai pēc tam, kad izvēlaties “Pieņemt”. Līdz tam analytics_storage, ad_storage, ad_user_data un ad_personalization statuss ir “denied”. Pēc piekrišanas šie signāli tiek iestatīti uz “granted”, tādēļ var darboties Google Analytics, Google signals, lietotāja sniegto datu apstrāde, uzlabota konversiju mērīšana un personalizētas reklāmas funkcijas. Ja izvēlaties “Nē, paldies”, Google Analytics tags netiek aktivizēts un šie piekrišanas signāli paliek noraidīti. Savu izvēli jebkurā laikā varat mainīt vietnes kājenē, izvēloties “Sīkdatņu iestatījumi”. CATRIN pašlaik neizmanto Google Analytics User-ID, jo vietnē nav lietotāju kontu vai autorizācijas sistēmas.",
+      policyCookiesText: "Google Analytics un ar to saistītās reklāmas funkcijas tiek aktivizētas tikai pēc Jūsu piekrišanas. Izvēloties “Pieņemt”, Jūs atļaujat izmantot šīs funkcijas saskaņā ar iepriekš aprakstītajiem nolūkiem. Izvēloties “Nē, paldies”, tās netiek aktivizētas. Savu izvēli jebkurā laikā varat mainīt vietnes kājenē, izvēloties “Sīkdatņu iestatījumi”.",
       policyUpdated: "Atjaunots: 2026. gada 19. augustā.",
     },
     ru: {
@@ -26,7 +26,7 @@
       policyExternalTitle: "Карта и внешние ссылки",
       policyExternalText: "На странице контактов доступна карта Google, а ссылки на Google Maps, Waze, WhatsApp, Instagram и Facebook открываются в соответствующих сервисах. При загрузке встроенной карты или переходе во внешний сервис его поставщик может получить технические сведения об устройстве и соединении. Для этих сервисов действуют их собственные правила конфиденциальности.",
       policyCookiesTitle: "Cookie, Google Analytics и рекламные функции",
-      policyCookiesText: "Google Analytics 4 (идентификатор G-X1MCTDKV88) и связанные с Google tag функции аналитики и рекламы активируются только после выбора «Принять». До этого статусы analytics_storage, ad_storage, ad_user_data и ad_personalization установлены как «denied». После согласия эти сигналы устанавливаются как «granted», поэтому могут работать Google Analytics, Google signals, обработка данных, предоставленных пользователями, улучшенное измерение конверсий и функции персонализированной рекламы. Если Вы выбираете «Нет, спасибо», тег Google Analytics не активируется, а сигналы согласия остаются отклонёнными. Свой выбор можно изменить в любое время через «Настройки cookie» в нижней части сайта. CATRIN в настоящее время не использует Google Analytics User-ID, поскольку на сайте нет пользовательских аккаунтов или системы авторизации.",
+      policyCookiesText: "Google Analytics и связанные с ним рекламные функции активируются только после Вашего согласия. Выбирая «Принять», Вы разрешаете использование этих функций для целей, описанных выше. Если Вы выбираете «Нет, спасибо», они не активируются. Свой выбор можно изменить в любое время через «Настройки cookie» в нижней части сайта.",
       policyUpdated: "Последнее обновление: 19 августа 2026 года.",
     },
     en: {
@@ -39,7 +39,7 @@
       policyExternalTitle: "Map and external links",
       policyExternalText: "The contact page includes a Google map, while links to Google Maps, Waze, WhatsApp, Instagram and Facebook open in the relevant external services. When an embedded map or external service is opened, that provider may receive technical information about your device and connection. Each service's own privacy terms apply.",
       policyCookiesTitle: "Cookies, Google Analytics and advertising features",
-      policyCookiesText: "Google Analytics 4 (measurement ID G-X1MCTDKV88) and Google-tag analytics and advertising features are activated only after you choose “Accept”. Until then, analytics_storage, ad_storage, ad_user_data and ad_personalization are set to “denied”. After consent, these signals are set to “granted”, allowing Google Analytics, Google signals, user-provided data processing, enhanced conversion measurement and personalised advertising features to operate. If you choose “No, thank you”, the Google Analytics tag is not activated and these consent signals remain denied. You can change your choice at any time through “Cookie settings” in the site footer. CATRIN does not currently use Google Analytics User-ID because the website has no user accounts or sign-in system.",
+      policyCookiesText: "Google Analytics and related advertising features are activated only after you give your consent. By choosing “Accept”, you allow these features to be used for the purposes described above. If you choose “No, thank you”, they are not activated. You can change your choice at any time through “Cookie settings” in the site footer.",
       policyUpdated: "Last updated: 19 August 2026.",
     },
   };
