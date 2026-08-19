@@ -4,6 +4,7 @@
 
   const measurementId = "G-X1MCTDKV88";
   const storageKey = "catrin_analytics_consent_v1";
+  const bookingOriginKey = "catrin_booking_origin_v1";
   const validChoices = new Set(["granted", "denied"]);
   const translations = {
     lv: {
@@ -118,6 +119,98 @@
   function currentLanguage() {
     const language = document.documentElement.lang?.toLowerCase().split("-")[0];
     return language in translations ? language : "lv";
+  }
+
+  function currentPage() {
+    return document.body?.dataset.page || "unknown";
+  }
+
+  function cleanEventParameters(parameters) {
+    return Object.fromEntries(Object.entries(parameters).filter(([, value]) => value !== undefined && value !== null && value !== ""));
+  }
+
+  function eventContext(parameters = {}) {
+    return cleanEventParameters({
+      site_page: currentPage(),
+      site_language: currentLanguage(),
+      ...parameters,
+    });
+  }
+
+  function trackEvent(eventName, parameters = {}) {
+    if (currentChoice !== "granted") return;
+    window.gtag("event", eventName, eventContext(parameters));
+  }
+
+  function ctaLocation(element) {
+    if (!(element instanceof Element)) return "unknown";
+    if (element.closest(".mobile-actions")) return "mobile_actions";
+    if (element.closest(".site-header")) return "header";
+    if (element.closest(".social-dock")) return "social_dock";
+    if (element.closest(".site-footer")) return "footer";
+    if (element.closest(".contact-channels")) return "contact_channels";
+    if (element.closest(".contact-routes")) return "contact_routes";
+    if (element.closest(".contact-card")) return "contact_card";
+    if (element.closest(".map-actions, .map-band")) return "map_band";
+    if (element.closest(".contact-ribbon")) return "contact_ribbon";
+    if (element.closest(".ledger-item")) return "service_card";
+    if (element.closest(".booking-section, [data-booking-form]")) return "booking_section";
+    if (element.closest(".hero-actions, .home-hero, .page-hero, [class*='-hero']")) return "hero";
+    if (element.closest("main")) return "content";
+    return "other";
+  }
+
+  function serviceFromElement(element) {
+    if (!(element instanceof Element)) return "";
+
+    const explicit = element.closest("[data-service]")?.dataset.service;
+    if (explicit) return explicit;
+
+    const item = element.closest(".ledger-item, article");
+    const keys = item ? [...item.querySelectorAll("[data-t]")].map((node) => node.dataset.t || "").join(" ").toLowerCase() : "";
+    if (/custom|individual/.test(keys)) return "custom";
+    if (/photo|image/.test(keys)) return "photo";
+    if (/alter|repair/.test(keys)) return "alter";
+    if (/clean/.test(keys)) return "clean";
+    if (/dress|accessor|fitting|book/.test(keys)) return "fitting";
+
+    if (currentPage() === "dresses") return "fitting";
+    return "";
+  }
+
+  function rememberBookingOrigin(ctaLocationValue, service) {
+    if (currentChoice !== "granted") return;
+    try {
+      window.sessionStorage.setItem(bookingOriginKey, JSON.stringify({
+        page: currentPage(),
+        cta_location: ctaLocationValue,
+        service: service || "",
+      }));
+    } catch {
+      // Attribution is optional and must never interfere with navigation.
+    }
+  }
+
+  function bookingOriginParameters() {
+    try {
+      const origin = JSON.parse(window.sessionStorage.getItem(bookingOriginKey) || "null");
+      if (!origin || typeof origin !== "object") return {};
+      return cleanEventParameters({
+        booking_origin_page: origin.page,
+        booking_origin_location: origin.cta_location,
+        booking_origin_service: origin.service,
+      });
+    } catch {
+      return {};
+    }
+  }
+
+  function clearBookingOrigin() {
+    try {
+      window.sessionStorage.removeItem(bookingOriginKey);
+    } catch {
+      // Storage availability must not affect the booking flow.
+    }
   }
 
   function privacyPath() {
@@ -277,12 +370,16 @@
       };
       window.setTimeout(finish, 450);
 
-      const eventParameters = {
+      const eventParameters = eventContext({
         method: "whatsapp",
+        cta_location: "booking_form",
+        service: String(data.get("interest") || "other"),
+        ...bookingOriginParameters(),
         event_callback: finish,
-      };
+      });
       if (Object.keys(userData).length) eventParameters.user_data = userData;
       window.gtag("event", "generate_lead", eventParameters);
+      clearBookingOrigin();
     });
   }
 
@@ -307,6 +404,76 @@
         if (submitButton) submitButton.disabled = false;
       }, 1200);
     }
+  }
+
+  function installInteractionTracking() {
+    const startedForms = new WeakSet();
+
+    document.addEventListener("click", (event) => {
+      const anchor = event.target instanceof Element ? event.target.closest("a[href]") : null;
+      if (!anchor) return;
+
+      const rawHref = anchor.getAttribute("href") || "";
+      const href = rawHref.trim();
+      const locationValue = ctaLocation(anchor);
+      const service = serviceFromElement(anchor);
+
+      if (href.startsWith("tel:")) {
+        trackEvent("phone_click", { cta_location: locationValue });
+        return;
+      }
+
+      let url;
+      try {
+        url = new URL(anchor.href, location.href);
+      } catch {
+        url = null;
+      }
+
+      const hostname = url?.hostname.replace(/^www\./, "").toLowerCase() || "";
+      if (hostname === "wa.me" || hostname === "api.whatsapp.com" || hostname.endsWith(".whatsapp.com")) {
+        trackEvent("whatsapp_click", { cta_location: locationValue, service });
+        return;
+      }
+
+      if (hostname === "waze.com" || hostname.endsWith(".waze.com")) {
+        trackEvent("directions_click", { cta_location: locationValue, map_provider: "waze" });
+        return;
+      }
+
+      if ((hostname === "google.com" || hostname.endsWith(".google.com")) && url?.pathname.includes("/maps")) {
+        trackEvent("directions_click", { cta_location: locationValue, map_provider: "google_maps" });
+        return;
+      }
+
+      if (hostname === "instagram.com" || hostname.endsWith(".instagram.com")) {
+        trackEvent("social_click", { cta_location: locationValue, social_network: "instagram" });
+        return;
+      }
+
+      if (hostname === "facebook.com" || hostname.endsWith(".facebook.com") || hostname === "fb.com" || hostname.endsWith(".fb.com")) {
+        trackEvent("social_click", { cta_location: locationValue, social_network: "facebook" });
+        return;
+      }
+
+      if (href.includes("#pieraksts")) {
+        rememberBookingOrigin(locationValue, service);
+        trackEvent("booking_click", { cta_location: locationValue, service });
+      }
+    }, true);
+
+    document.querySelectorAll("[data-booking-form]").forEach((form) => {
+      form.addEventListener("focusin", () => {
+        if (startedForms.has(form)) return;
+        startedForms.add(form);
+        const service = form.querySelector('select[name="interest"]')?.value || "";
+        trackEvent("form_start", {
+          cta_location: "booking_form",
+          service,
+          ...bookingOriginParameters(),
+        });
+      }, { once: false });
+    });
   }
 
   function createInterface() {
@@ -400,6 +567,7 @@
   const start = () => {
     createInterface();
     installBookingEmailField();
+    installInteractionTracking();
     document.addEventListener("catrin:languagechange", renderInterface);
     new MutationObserver(renderInterface).observe(document.documentElement, {
       attributes: true,
