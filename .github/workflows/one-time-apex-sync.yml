@@ -1,0 +1,93 @@
+name: One-time apex domain sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/one-time-apex-sync.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Synchronize production host to catrin.lv
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          root = Path('.')
+          text_suffixes = {'.html', '.xml', '.md', '.txt', '.mjs', '.js', '.webmanifest'}
+
+          for path in root.rglob('*'):
+              if not path.is_file() or '.git' in path.parts or '.github' in path.parts:
+                  continue
+              if path.suffix not in text_suffixes:
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              updated = text.replace('https://www.catrin.lv', 'https://catrin.lv')
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+
+          generator = Path('scripts/generate-locales.mjs')
+          text = generator.read_text(encoding='utf-8')
+          text = text.replace(
+              'html = html.replaceAll("https://catrin.lv/", `${siteUrl}/`);',
+              'html = html.replaceAll("https://www.catrin.lv/", `${siteUrl}/`);',
+          )
+          generator.write_text(text, encoding='utf-8')
+
+          validator = Path('scripts/validate-site.mjs')
+          text = validator.read_text(encoding='utf-8')
+          text = text.replace(
+              'if (JSON.stringify(structuredData).includes("https://catrin.lv/")) errors.push(`${file}: structured data uses the non-www host`);',
+              'if (JSON.stringify(structuredData).includes("https://www.catrin.lv/")) errors.push(`${file}: structured data uses the www host`);',
+          )
+          text = text.replace(
+              'if (html.includes("https://catrin.lv/")) errors.push(`${file}: non-www production URL remains`);',
+              'if (html.includes("https://www.catrin.lv/")) errors.push(`${file}: www production URL remains`);',
+          )
+          text = text.replace(
+              'if (fs.readFileSync(path.join(root, "CNAME"), "utf8").trim() !== "www.catrin.lv") errors.push("CNAME must use www.catrin.lv");',
+              'if (fs.readFileSync(path.join(root, "CNAME"), "utf8").trim() !== "catrin.lv") errors.push("CNAME must use catrin.lv");',
+          )
+          text = text.replace(
+              'if (sitemap.includes("https://catrin.lv/")) errors.push("sitemap.xml: non-www host remains");',
+              'if (sitemap.includes("https://www.catrin.lv/")) errors.push("sitemap.xml: www host remains");',
+          )
+          validator.write_text(text, encoding='utf-8')
+
+          Path('robots.txt').write_text(
+              'User-agent: *\nAllow: /\n\nSitemap: https://catrin.lv/sitemap.xml\n',
+              encoding='utf-8',
+          )
+          PY
+
+      - name: Regenerate localized pages and sitemap
+        run: node scripts/generate-locales.mjs
+
+      - name: Validate site
+        run: npm run check
+
+      - name: Commit synchronized SEO host
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Synchronize SEO canonical host to catrin.lv"
+          git push
