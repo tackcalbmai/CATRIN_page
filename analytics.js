@@ -467,7 +467,7 @@
         if (startedForms.has(form)) return;
         startedForms.add(form);
         const service = form.querySelector('select[name="interest"]')?.value || "";
-        trackEvent("form_start", {
+        trackEvent("booking_form_start", {
           cta_location: "booking_form",
           service,
           ...bookingOriginParameters(),
